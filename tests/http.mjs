@@ -1,0 +1,16 @@
+// Actual loopback HTTP build checks; this is not a browser/service-worker run.
+import {read,html,suite} from './harness.mjs';
+import {createHash} from 'node:crypto';
+const t=suite('Local /offline-url-inspector/ HTTP deployment','http-results.json'),{test,assert,equal}=t;
+const origin='http://127.0.0.1:8765',base=origin+'/offline-url-inspector/';
+const sha=s=>createHash('sha256').update(s).digest('hex');
+const manifest=JSON.parse(read('build-manifest.json'));
+await test('project directory and index serve exactly the complete hosted release',async()=>{for(const url of [base,new URL('index.html',base).href]){const response=await fetch(url);equal(response.status,200);assert(response.headers.get('Content-Type').startsWith('text/html'));equal(sha(await response.text()),manifest.hosted.sha256);}});
+await test('relative worker URL stays inside project and serves JavaScript',async()=>{const worker=new URL('./sw.js',base);equal(worker.pathname,'/offline-url-inspector/sw.js');const response=await fetch(worker);equal(response.status,200);assert(response.headers.get('Content-Type').startsWith('text/javascript'));equal(await response.text(),read('site/sw.js'));});
+await test('directory slash canonicalization is an application request only',async()=>{const response=await fetch(origin+'/offline-url-inspector',{redirect:'manual'});equal(response.status,301);equal(response.headers.get('Location'),'/offline-url-inspector/');});
+await test('root worker, sibling projects, and traversal are not deployment assets',async()=>{for(const path of ['/sw.js','/other-project/sw.js','/offline-url-inspector/../src/core.js','/offline-url-inspector/unknown'])equal((await fetch(origin+path)).status,404);});
+await test('standalone contains neither worker registration nor external resources',()=>{const source=html();assert(!source.includes('serviceWorker.register'));assert(!/\b(?:src|href|action)\s*=/i.test(source.slice(0,source.indexOf('<script type='))));assert(source.includes("worker-src 'none'"));assert(source.includes("connect-src 'none'"));});
+await test('both editions pin exact script and stylesheet hashes',()=>{for(const edition of ['standalone','hosted']){const source=html(edition);for(const [tag,directive]of [['script','script-src'],['style','style-src']]){const value=source.match(tag==='script'?/<script>([\s\S]*?)<\/script>/:/<style>([\s\S]*?)<\/style>/)[1];const digest=createHash('sha256').update(value).digest('base64');assert(source.includes(directive+" 'sha256-"+digest+"'"));}assert(!source.includes("'unsafe-inline'"));assert(!source.includes("'unsafe-eval'"));}});
+await test('deployment resources contain no user-specific paths or inspected test secrets',()=>{for(const source of [read('site/index.html'),read('site/sw.js')]){assert(!/\/Users\/|\/home\/|c024a3e5|61ea4a11|DO_NOT_PERSIST|VERY_SECRET|DO_NOT_CONTACT_TOKEN/.test(source));}});
+await test('normal application resources and inspected destinations remain separate',()=>{const worker=read('site/sw.js');equal((worker.match(/\bfetch\(/g)||[]).length,1);assert(worker.includes('fetch(INDEX_URL,'));assert(!/fetch\(event\.request|fetch\(url|cache\.put\(event\.request/.test(worker));assert(!read('src/ui.js').includes('fetch('));});
+t.finish({kind:'actual local HTTP server responses and static checks; not live GitHub Pages or Firefox verification',base});

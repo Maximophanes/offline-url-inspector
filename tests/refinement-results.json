@@ -1,0 +1,32 @@
+{
+  "suite": "V3.1 presentation, shortcuts, disclosures and accessibility structure",
+  "groups": {
+    "presentation and unchanged security findings": {
+      "executed": 156,
+      "passed": 156,
+      "failed": 0
+    },
+    "single global inspection shortcut and editing guards": {
+      "executed": 27,
+      "passed": 27,
+      "failed": 0
+    },
+    "native disclosures, edition wording and accessible structure": {
+      "executed": 16,
+      "passed": 16,
+      "failed": 0
+    }
+  },
+  "failures": [],
+  "assertions": {
+    "executed": 4093,
+    "passed": 4093,
+    "failed": 0
+  },
+  "total": {
+    "executed": 199,
+    "passed": 199,
+    "failed": 0
+  },
+  "kind": "simulated DOM and CSS/source checks; real browser screenshots and observations reported separately"
+}

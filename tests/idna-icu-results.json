@@ -1,0 +1,170 @@
+{
+  "suite": "independent ICU UTS 46 review",
+  "icuVersion": "78.3.0.0",
+  "options": 28,
+  "library": "/opt/homebrew/opt/icu4c/lib/libicuuc.78.dylib",
+  "findings": [
+    {
+      "line": 627,
+      "expected": "xn--jbf911clb.xn----p9j493ivi4l",
+      "actual": "xn--jbf911clb.xn----p9j493ivi4l",
+      "icuError": 0,
+      "idnaErrors": 0,
+      "passed": true
+    },
+    {
+      "line": 628,
+      "expected": "xn--jbf911clb.xn----p9j493ivi4l",
+      "actual": "xn--jbf911clb.xn----p9j493ivi4l",
+      "icuError": 0,
+      "idnaErrors": 0,
+      "passed": true
+    },
+    {
+      "line": 925,
+      "expected": "xn--de6h.xn--37e857h",
+      "actual": "xn--de6h.xn--37e857h",
+      "icuError": 0,
+      "idnaErrors": 0,
+      "passed": true
+    },
+    {
+      "line": 926,
+      "expected": "xn--de6h.xn--37e857h",
+      "actual": "xn--de6h.xn--37e857h",
+      "icuError": 0,
+      "idnaErrors": 0,
+      "passed": true
+    },
+    {
+      "line": 928,
+      "expected": "xn--de6h.xn--37e857h",
+      "actual": "xn--de6h.xn--37e857h",
+      "icuError": 0,
+      "idnaErrors": 0,
+      "passed": true
+    },
+    {
+      "line": 932,
+      "expected": "xn--de6h.xn--37e857h",
+      "actual": "xn--de6h.xn--37e857h",
+      "icuError": 0,
+      "idnaErrors": 0,
+      "passed": true
+    },
+    {
+      "line": 935,
+      "expected": "xn--de6h.xn--37e857h",
+      "actual": "xn--de6h.xn--37e857h",
+      "icuError": 0,
+      "idnaErrors": 0,
+      "passed": true
+    },
+    {
+      "line": 938,
+      "expected": "xn--de6h.xn--37e857h",
+      "actual": "xn--de6h.xn--37e857h",
+      "icuError": 0,
+      "idnaErrors": 0,
+      "passed": true
+    },
+    {
+      "line": 1314,
+      "expected": "xn--zca.xn--lgd921mvv0m",
+      "actual": "xn--zca.xn--lgd921mvv0m",
+      "icuError": 0,
+      "idnaErrors": 0,
+      "passed": true
+    },
+    {
+      "line": 1315,
+      "expected": "xn--zca.xn--lgd921mvv0m",
+      "actual": "xn--zca.xn--lgd921mvv0m",
+      "icuError": 0,
+      "idnaErrors": 0,
+      "passed": true
+    },
+    {
+      "line": 1317,
+      "expected": "ss.xn--lgd921mvv0m",
+      "actual": "ss.xn--lgd921mvv0m",
+      "icuError": 0,
+      "idnaErrors": 0,
+      "passed": true
+    },
+    {
+      "line": 1319,
+      "expected": "ss.xn--lgd921mvv0m",
+      "actual": "ss.xn--lgd921mvv0m",
+      "icuError": 0,
+      "idnaErrors": 0,
+      "passed": true
+    },
+    {
+      "line": 1322,
+      "expected": "ss.xn--lgd921mvv0m",
+      "actual": "ss.xn--lgd921mvv0m",
+      "icuError": 0,
+      "idnaErrors": 0,
+      "passed": true
+    },
+    {
+      "line": 1323,
+      "expected": "ss.xn--lgd921mvv0m",
+      "actual": "ss.xn--lgd921mvv0m",
+      "icuError": 0,
+      "idnaErrors": 0,
+      "passed": true
+    },
+    {
+      "line": 1327,
+      "expected": "ss.xn--lgd921mvv0m",
+      "actual": "ss.xn--lgd921mvv0m",
+      "icuError": 0,
+      "idnaErrors": 0,
+      "passed": true
+    },
+    {
+      "line": 1329,
+      "expected": "ss.xn--lgd921mvv0m",
+      "actual": "ss.xn--lgd921mvv0m",
+      "icuError": 0,
+      "idnaErrors": 0,
+      "passed": true
+    },
+    {
+      "line": 1994,
+      "expected": "xn--ilj2659d.xn--5-dug9054m",
+      "actual": "xn--ilj2659d.xn--5-dug9054m",
+      "icuError": 0,
+      "idnaErrors": 0,
+      "passed": true
+    },
+    {
+      "line": 1995,
+      "expected": "xn--ilj2659d.xn--5-dug9054m",
+      "actual": "xn--ilj2659d.xn--5-dug9054m",
+      "icuError": 0,
+      "idnaErrors": 0,
+      "passed": true
+    },
+    {
+      "line": 1999,
+      "expected": "xn--ilj2659d.xn--5-dug9054m",
+      "actual": "xn--ilj2659d.xn--5-dug9054m",
+      "icuError": 0,
+      "idnaErrors": 0,
+      "passed": true
+    }
+  ],
+  "total": {
+    "executed": 19,
+    "passed": 19,
+    "failed": 0
+  },
+  "assertions": {
+    "executed": 19,
+    "passed": 19,
+    "failed": 0
+  }
+}

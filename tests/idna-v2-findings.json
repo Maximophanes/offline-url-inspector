@@ -1,0 +1,125 @@
+{
+  "runtime": {
+    "deno": "2.9.7",
+    "v8": "15.0.245.2-rusty",
+    "typescript": "6.0.3"
+  },
+  "scope": "First 300 eligible nontransitional success vectors; separate interoperability diagnostic, not a UTS 46 conformance claim.",
+  "matched": 281,
+  "differences": [
+    {
+      "line": 627,
+      "source": "≠ᢙ≯.솣-ᡴႠ",
+      "expected": "xn--jbf911clb.xn----p9j493ivi4l",
+      "actual": "browser rejected"
+    },
+    {
+      "line": 628,
+      "source": "≠ᢙ≯.솣-ᡴႠ",
+      "expected": "xn--jbf911clb.xn----p9j493ivi4l",
+      "actual": "browser rejected"
+    },
+    {
+      "line": 925,
+      "source": "𞤥󠅮．ᡄႮ",
+      "expected": "xn--de6h.xn--37e857h",
+      "actual": "browser rejected"
+    },
+    {
+      "line": 926,
+      "source": "𞤥󠅮.ᡄႮ",
+      "expected": "xn--de6h.xn--37e857h",
+      "actual": "browser rejected"
+    },
+    {
+      "line": 928,
+      "source": "𞤃󠅮.ᡄႮ",
+      "expected": "xn--de6h.xn--37e857h",
+      "actual": "browser rejected"
+    },
+    {
+      "line": 932,
+      "source": "𞤃.ᡄႮ",
+      "expected": "xn--de6h.xn--37e857h",
+      "actual": "browser rejected"
+    },
+    {
+      "line": 935,
+      "source": "𞤃󠅮．ᡄႮ",
+      "expected": "xn--de6h.xn--37e857h",
+      "actual": "browser rejected"
+    },
+    {
+      "line": 938,
+      "source": "𞤥.ᡄႮ",
+      "expected": "xn--de6h.xn--37e857h",
+      "actual": "browser rejected"
+    },
+    {
+      "line": 1314,
+      "source": "ß｡𐋳Ⴌྸ",
+      "expected": "xn--zca.xn--lgd921mvv0m",
+      "actual": "browser rejected"
+    },
+    {
+      "line": 1315,
+      "source": "ß。𐋳Ⴌྸ",
+      "expected": "xn--zca.xn--lgd921mvv0m",
+      "actual": "browser rejected"
+    },
+    {
+      "line": 1317,
+      "source": "SS。𐋳Ⴌྸ",
+      "expected": "ss.xn--lgd921mvv0m",
+      "actual": "browser rejected"
+    },
+    {
+      "line": 1319,
+      "source": "Ss。𐋳Ⴌྸ",
+      "expected": "ss.xn--lgd921mvv0m",
+      "actual": "browser rejected"
+    },
+    {
+      "line": 1322,
+      "source": "SS.𐋳Ⴌྸ",
+      "expected": "ss.xn--lgd921mvv0m",
+      "actual": "browser rejected"
+    },
+    {
+      "line": 1323,
+      "source": "Ss.𐋳Ⴌྸ",
+      "expected": "ss.xn--lgd921mvv0m",
+      "actual": "browser rejected"
+    },
+    {
+      "line": 1327,
+      "source": "SS｡𐋳Ⴌྸ",
+      "expected": "ss.xn--lgd921mvv0m",
+      "actual": "browser rejected"
+    },
+    {
+      "line": 1329,
+      "source": "Ss｡𐋳Ⴌྸ",
+      "expected": "ss.xn--lgd921mvv0m",
+      "actual": "browser rejected"
+    },
+    {
+      "line": 1994,
+      "source": "Ⴚ𐋸󠄄。𝟝ퟶ်",
+      "expected": "xn--ilj2659d.xn--5-dug9054m",
+      "actual": "browser rejected"
+    },
+    {
+      "line": 1995,
+      "source": "Ⴚ𐋸󠄄。5ퟶ်",
+      "expected": "xn--ilj2659d.xn--5-dug9054m",
+      "actual": "browser rejected"
+    },
+    {
+      "line": 1999,
+      "source": "Ⴚ𐋸.5ퟶ်",
+      "expected": "xn--ilj2659d.xn--5-dug9054m",
+      "actual": "browser rejected"
+    }
+  ]
+}

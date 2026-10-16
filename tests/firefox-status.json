@@ -1,0 +1,43 @@
+{
+  "applicationVersion": "3.1.1",
+  "status": "not executed",
+  "reason": "Known agent-environment native startup failure before session/page load; no meaningful environmental change, so no repeated V3.1.1 startup attempts.",
+  "priorEnvironment": {
+    "firefox": "158.0",
+    "geckodriver": "0.37.1",
+    "macOS": "27.0.1",
+    "failure": "SIGABRT; _RegisterApplication / TransformProcessType"
+  },
+  "userReportedBaseline": {
+    "edition": "V2.1",
+    "representativeFirefoxCasesPassed": 6,
+    "manualOfflineCasePassed": 1,
+    "verifiesV3_1": false
+  },
+  "pending": [
+    "targeted Firefox 3.1.1 confirmation/radio/hover/status checks",
+    "standalone file-protocol policy and persistence",
+    "Firefox cache and update handling",
+    "screen-reader, zoom and reduced-motion checks",
+    "live GitHub Pages after explicit deployment approval"
+  ],
+  "otherBrowserEvidence": "Actual Codex in-app browser interactions, cached startup with the server stopped and failed update feedback; see browser-preview.json",
+  "actualV3_1_1FirefoxAssertions": 0,
+  "userReportedV3_1Baseline": {
+    "edition": "Version 3.1.0",
+    "source": "User-provided Version 3.1.1 request; reported manual Firefox on macOS",
+    "groupsPassed": [
+      "A Reference-domain creation",
+      "B Automatic reference-domain impersonation comparison",
+      "C Standalone reference persistence",
+      "D JSON backup and restoration",
+      "E Reference clearing and cancellation",
+      "F Keyboard shortcuts and examples",
+      "G Locally hosted startup",
+      "H Hosted reference persistence",
+      "I Offline operation after stopping local server"
+    ],
+    "verifiedByAgent": false,
+    "verifiesVersion3_1_1": false
+  }
+}

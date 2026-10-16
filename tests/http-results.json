@@ -1,0 +1,23 @@
+{
+  "suite": "Local /offline-url-inspector/ HTTP deployment",
+  "groups": {
+    "checks": {
+      "executed": 8,
+      "passed": 8,
+      "failed": 0
+    }
+  },
+  "failures": [],
+  "assertions": {
+    "executed": 34,
+    "passed": 34,
+    "failed": 0
+  },
+  "total": {
+    "executed": 8,
+    "passed": 8,
+    "failed": 0
+  },
+  "kind": "actual local HTTP server responses and static checks; not live GitHub Pages or Firefox verification",
+  "base": "http://127.0.0.1:8765/offline-url-inspector/"
+}

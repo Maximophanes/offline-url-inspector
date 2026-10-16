@@ -1,0 +1,67 @@
+{
+  "version": "18.0.0",
+  "retrieved": "2026-10-16",
+  "specification": "https://www.unicode.org/reports/tr39/tr39-34.html",
+  "files": [
+    {
+      "name": "DerivedBidiClass.txt",
+      "url": "https://www.unicode.org/Public/18.0.0/ucd/extracted/DerivedBidiClass.txt",
+      "sha256": "d9e23222522551348ea1ccfbb4f62efbf98982afb95840f8959c08ed992c5607"
+    },
+    {
+      "name": "DerivedCoreProperties.txt",
+      "url": "https://www.unicode.org/Public/18.0.0/ucd/DerivedCoreProperties.txt",
+      "sha256": "09c928886a178fcafd93c29e4bd59073a058e5a100b716d425cb563ab50f68c9"
+    },
+    {
+      "name": "IdnaMappingTable.txt",
+      "url": "https://www.unicode.org/Public/18.0.0/idna/IdnaMappingTable.txt",
+      "sha256": "a03b1eb38032268c696406a83f0972d6a815acd2c8d4151d42ec0fda70ffced1"
+    },
+    {
+      "name": "IdnaTestV2.txt",
+      "url": "https://www.unicode.org/Public/18.0.0/idna/IdnaTestV2.txt",
+      "sha256": "0236b75c5b20dfd857b3b5cf75509887959d6ab00d6c7bda9b7dc3df518c1fde"
+    },
+    {
+      "name": "LICENSE.txt",
+      "url": "https://www.unicode.org/license.txt",
+      "sha256": "e7a93b009565cfce55919a381437ac4db883e9da2126fa28b91d12732bc53d96"
+    },
+    {
+      "name": "NormalizationTest.txt",
+      "url": "https://www.unicode.org/Public/18.0.0/ucd/NormalizationTest.txt",
+      "sha256": "25a50d816764b04abfb4a646d3eb2b2a803284c3873d9a06757b94fe4513dde3"
+    },
+    {
+      "name": "PropertyValueAliases.txt",
+      "url": "https://www.unicode.org/Public/18.0.0/ucd/PropertyValueAliases.txt",
+      "sha256": "06c4c8eaf7b0bf34abe73b113da1215bd784ac254d4c223600b90267caa4bbbd"
+    },
+    {
+      "name": "ReadMe.txt",
+      "url": "https://www.unicode.org/Public/18.0.0/ucd/ReadMe.txt",
+      "sha256": "b0ea442f29dee90584aacd3665a6e1ce87ffc917a4d31f34e1916d2d6f7f9205"
+    },
+    {
+      "name": "ScriptExtensions.txt",
+      "url": "https://www.unicode.org/Public/18.0.0/ucd/ScriptExtensions.txt",
+      "sha256": "5c9d34a922f687726f2a8bcf57d49f905987e51f1b21b58c95a00fbe255cec23"
+    },
+    {
+      "name": "Scripts.txt",
+      "url": "https://www.unicode.org/Public/18.0.0/ucd/Scripts.txt",
+      "sha256": "0071fd81b6aeae25f6e8bce8efec3066a6476a91b49bdb2f52dc76e817862a6a"
+    },
+    {
+      "name": "UnicodeData.txt",
+      "url": "https://www.unicode.org/Public/18.0.0/ucd/UnicodeData.txt",
+      "sha256": "0736451de439ae7baf1425136617da495e09ee5afbe6e394374db7009ea08950"
+    },
+    {
+      "name": "confusables.txt",
+      "url": "https://www.unicode.org/Public/18.0.0/security/confusables.txt",
+      "sha256": "6ed3ee967c9dfdf6677d563c9985182fbc50a2efb7d6059cd57b2e2ce18f5b92"
+    }
+  ]
+}

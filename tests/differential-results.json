@@ -1,0 +1,21 @@
+{
+  "suite": "Approved V2.1 core and Unicode preservation",
+  "groups": {
+    "checks": {
+      "executed": 143,
+      "passed": 143,
+      "failed": 0
+    }
+  },
+  "failures": [],
+  "assertions": {
+    "executed": 148,
+    "passed": 148,
+    "failed": 0
+  },
+  "total": {
+    "executed": 143,
+    "passed": 143,
+    "failed": 0
+  }
+}

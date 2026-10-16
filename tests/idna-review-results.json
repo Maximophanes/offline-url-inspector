@@ -1,0 +1,501 @@
+{
+  "suite": "review of the 19 original IDNA discrepancies",
+  "runtime": {
+    "deno": "2.9.7",
+    "v8": "15.0.245.2-rusty",
+    "typescript": "6.0.3"
+  },
+  "icu": "78.3",
+  "groups": {
+    "isolated Georgian mapping and application handling": {
+      "executed": 57,
+      "passed": 57,
+      "failed": 0
+    },
+    "minimal discriminating probes": {
+      "executed": 7,
+      "passed": 7,
+      "failed": 0
+    }
+  },
+  "failures": [],
+  "findings": [
+    {
+      "line": 627,
+      "source": "≠ᢙ≯.솣-ᡴႠ",
+      "expected": "xn--jbf911clb.xn----p9j493ivi4l",
+      "georgianCapitals": [
+        {
+          "character": "Ⴀ",
+          "codePoint": "U+10A0",
+          "mapping": "ⴀ"
+        }
+      ],
+      "nativeOriginal": null,
+      "nativeWithOnlyGeorgianMapped": "xn--jbf911clb.xn----p9j493ivi4l",
+      "nodeDomainToASCII": "",
+      "application": {
+        "ok": false,
+        "ascii": null,
+        "messageCodes": [
+          "parse"
+        ]
+      },
+      "classification": "native runtime Georgian mapping discrepancy; no app parser rewrite"
+    },
+    {
+      "line": 628,
+      "source": "≠ᢙ≯.솣-ᡴႠ",
+      "expected": "xn--jbf911clb.xn----p9j493ivi4l",
+      "georgianCapitals": [
+        {
+          "character": "Ⴀ",
+          "codePoint": "U+10A0",
+          "mapping": "ⴀ"
+        }
+      ],
+      "nativeOriginal": null,
+      "nativeWithOnlyGeorgianMapped": "xn--jbf911clb.xn----p9j493ivi4l",
+      "nodeDomainToASCII": "",
+      "application": {
+        "ok": false,
+        "ascii": null,
+        "messageCodes": [
+          "parse"
+        ]
+      },
+      "classification": "native runtime Georgian mapping discrepancy; no app parser rewrite"
+    },
+    {
+      "line": 925,
+      "source": "𞤥󠅮．ᡄႮ",
+      "expected": "xn--de6h.xn--37e857h",
+      "georgianCapitals": [
+        {
+          "character": "Ⴎ",
+          "codePoint": "U+10AE",
+          "mapping": "ⴎ"
+        }
+      ],
+      "nativeOriginal": null,
+      "nativeWithOnlyGeorgianMapped": "xn--de6h.xn--37e857h",
+      "nodeDomainToASCII": "",
+      "application": {
+        "ok": false,
+        "ascii": null,
+        "messageCodes": [
+          "invisible",
+          "parse"
+        ]
+      },
+      "classification": "native runtime Georgian mapping discrepancy; no app parser rewrite"
+    },
+    {
+      "line": 926,
+      "source": "𞤥󠅮.ᡄႮ",
+      "expected": "xn--de6h.xn--37e857h",
+      "georgianCapitals": [
+        {
+          "character": "Ⴎ",
+          "codePoint": "U+10AE",
+          "mapping": "ⴎ"
+        }
+      ],
+      "nativeOriginal": null,
+      "nativeWithOnlyGeorgianMapped": "xn--de6h.xn--37e857h",
+      "nodeDomainToASCII": "",
+      "application": {
+        "ok": false,
+        "ascii": null,
+        "messageCodes": [
+          "invisible",
+          "parse"
+        ]
+      },
+      "classification": "native runtime Georgian mapping discrepancy; no app parser rewrite"
+    },
+    {
+      "line": 928,
+      "source": "𞤃󠅮.ᡄႮ",
+      "expected": "xn--de6h.xn--37e857h",
+      "georgianCapitals": [
+        {
+          "character": "Ⴎ",
+          "codePoint": "U+10AE",
+          "mapping": "ⴎ"
+        }
+      ],
+      "nativeOriginal": null,
+      "nativeWithOnlyGeorgianMapped": "xn--de6h.xn--37e857h",
+      "nodeDomainToASCII": "",
+      "application": {
+        "ok": false,
+        "ascii": null,
+        "messageCodes": [
+          "invisible",
+          "parse"
+        ]
+      },
+      "classification": "native runtime Georgian mapping discrepancy; no app parser rewrite"
+    },
+    {
+      "line": 932,
+      "source": "𞤃.ᡄႮ",
+      "expected": "xn--de6h.xn--37e857h",
+      "georgianCapitals": [
+        {
+          "character": "Ⴎ",
+          "codePoint": "U+10AE",
+          "mapping": "ⴎ"
+        }
+      ],
+      "nativeOriginal": null,
+      "nativeWithOnlyGeorgianMapped": "xn--de6h.xn--37e857h",
+      "nodeDomainToASCII": "",
+      "application": {
+        "ok": false,
+        "ascii": null,
+        "messageCodes": [
+          "parse"
+        ]
+      },
+      "classification": "native runtime Georgian mapping discrepancy; no app parser rewrite"
+    },
+    {
+      "line": 935,
+      "source": "𞤃󠅮．ᡄႮ",
+      "expected": "xn--de6h.xn--37e857h",
+      "georgianCapitals": [
+        {
+          "character": "Ⴎ",
+          "codePoint": "U+10AE",
+          "mapping": "ⴎ"
+        }
+      ],
+      "nativeOriginal": null,
+      "nativeWithOnlyGeorgianMapped": "xn--de6h.xn--37e857h",
+      "nodeDomainToASCII": "",
+      "application": {
+        "ok": false,
+        "ascii": null,
+        "messageCodes": [
+          "invisible",
+          "parse"
+        ]
+      },
+      "classification": "native runtime Georgian mapping discrepancy; no app parser rewrite"
+    },
+    {
+      "line": 938,
+      "source": "𞤥.ᡄႮ",
+      "expected": "xn--de6h.xn--37e857h",
+      "georgianCapitals": [
+        {
+          "character": "Ⴎ",
+          "codePoint": "U+10AE",
+          "mapping": "ⴎ"
+        }
+      ],
+      "nativeOriginal": null,
+      "nativeWithOnlyGeorgianMapped": "xn--de6h.xn--37e857h",
+      "nodeDomainToASCII": "",
+      "application": {
+        "ok": false,
+        "ascii": null,
+        "messageCodes": [
+          "parse"
+        ]
+      },
+      "classification": "native runtime Georgian mapping discrepancy; no app parser rewrite"
+    },
+    {
+      "line": 1314,
+      "source": "ß｡𐋳Ⴌྸ",
+      "expected": "xn--zca.xn--lgd921mvv0m",
+      "georgianCapitals": [
+        {
+          "character": "Ⴌ",
+          "codePoint": "U+10AC",
+          "mapping": "ⴌ"
+        }
+      ],
+      "nativeOriginal": null,
+      "nativeWithOnlyGeorgianMapped": "xn--zca.xn--lgd921mvv0m",
+      "nodeDomainToASCII": "",
+      "application": {
+        "ok": false,
+        "ascii": null,
+        "messageCodes": [
+          "parse"
+        ]
+      },
+      "classification": "native runtime Georgian mapping discrepancy; no app parser rewrite"
+    },
+    {
+      "line": 1315,
+      "source": "ß。𐋳Ⴌྸ",
+      "expected": "xn--zca.xn--lgd921mvv0m",
+      "georgianCapitals": [
+        {
+          "character": "Ⴌ",
+          "codePoint": "U+10AC",
+          "mapping": "ⴌ"
+        }
+      ],
+      "nativeOriginal": null,
+      "nativeWithOnlyGeorgianMapped": "xn--zca.xn--lgd921mvv0m",
+      "nodeDomainToASCII": "",
+      "application": {
+        "ok": false,
+        "ascii": null,
+        "messageCodes": [
+          "parse"
+        ]
+      },
+      "classification": "native runtime Georgian mapping discrepancy; no app parser rewrite"
+    },
+    {
+      "line": 1317,
+      "source": "SS。𐋳Ⴌྸ",
+      "expected": "ss.xn--lgd921mvv0m",
+      "georgianCapitals": [
+        {
+          "character": "Ⴌ",
+          "codePoint": "U+10AC",
+          "mapping": "ⴌ"
+        }
+      ],
+      "nativeOriginal": null,
+      "nativeWithOnlyGeorgianMapped": "ss.xn--lgd921mvv0m",
+      "nodeDomainToASCII": "",
+      "application": {
+        "ok": false,
+        "ascii": null,
+        "messageCodes": [
+          "parse"
+        ]
+      },
+      "classification": "native runtime Georgian mapping discrepancy; no app parser rewrite"
+    },
+    {
+      "line": 1319,
+      "source": "Ss。𐋳Ⴌྸ",
+      "expected": "ss.xn--lgd921mvv0m",
+      "georgianCapitals": [
+        {
+          "character": "Ⴌ",
+          "codePoint": "U+10AC",
+          "mapping": "ⴌ"
+        }
+      ],
+      "nativeOriginal": null,
+      "nativeWithOnlyGeorgianMapped": "ss.xn--lgd921mvv0m",
+      "nodeDomainToASCII": "",
+      "application": {
+        "ok": false,
+        "ascii": null,
+        "messageCodes": [
+          "parse"
+        ]
+      },
+      "classification": "native runtime Georgian mapping discrepancy; no app parser rewrite"
+    },
+    {
+      "line": 1322,
+      "source": "SS.𐋳Ⴌྸ",
+      "expected": "ss.xn--lgd921mvv0m",
+      "georgianCapitals": [
+        {
+          "character": "Ⴌ",
+          "codePoint": "U+10AC",
+          "mapping": "ⴌ"
+        }
+      ],
+      "nativeOriginal": null,
+      "nativeWithOnlyGeorgianMapped": "ss.xn--lgd921mvv0m",
+      "nodeDomainToASCII": "",
+      "application": {
+        "ok": false,
+        "ascii": null,
+        "messageCodes": [
+          "parse"
+        ]
+      },
+      "classification": "native runtime Georgian mapping discrepancy; no app parser rewrite"
+    },
+    {
+      "line": 1323,
+      "source": "Ss.𐋳Ⴌྸ",
+      "expected": "ss.xn--lgd921mvv0m",
+      "georgianCapitals": [
+        {
+          "character": "Ⴌ",
+          "codePoint": "U+10AC",
+          "mapping": "ⴌ"
+        }
+      ],
+      "nativeOriginal": null,
+      "nativeWithOnlyGeorgianMapped": "ss.xn--lgd921mvv0m",
+      "nodeDomainToASCII": "",
+      "application": {
+        "ok": false,
+        "ascii": null,
+        "messageCodes": [
+          "parse"
+        ]
+      },
+      "classification": "native runtime Georgian mapping discrepancy; no app parser rewrite"
+    },
+    {
+      "line": 1327,
+      "source": "SS｡𐋳Ⴌྸ",
+      "expected": "ss.xn--lgd921mvv0m",
+      "georgianCapitals": [
+        {
+          "character": "Ⴌ",
+          "codePoint": "U+10AC",
+          "mapping": "ⴌ"
+        }
+      ],
+      "nativeOriginal": null,
+      "nativeWithOnlyGeorgianMapped": "ss.xn--lgd921mvv0m",
+      "nodeDomainToASCII": "",
+      "application": {
+        "ok": false,
+        "ascii": null,
+        "messageCodes": [
+          "parse"
+        ]
+      },
+      "classification": "native runtime Georgian mapping discrepancy; no app parser rewrite"
+    },
+    {
+      "line": 1329,
+      "source": "Ss｡𐋳Ⴌྸ",
+      "expected": "ss.xn--lgd921mvv0m",
+      "georgianCapitals": [
+        {
+          "character": "Ⴌ",
+          "codePoint": "U+10AC",
+          "mapping": "ⴌ"
+        }
+      ],
+      "nativeOriginal": null,
+      "nativeWithOnlyGeorgianMapped": "ss.xn--lgd921mvv0m",
+      "nodeDomainToASCII": "",
+      "application": {
+        "ok": false,
+        "ascii": null,
+        "messageCodes": [
+          "parse"
+        ]
+      },
+      "classification": "native runtime Georgian mapping discrepancy; no app parser rewrite"
+    },
+    {
+      "line": 1994,
+      "source": "Ⴚ𐋸󠄄。𝟝ퟶ်",
+      "expected": "xn--ilj2659d.xn--5-dug9054m",
+      "georgianCapitals": [
+        {
+          "character": "Ⴚ",
+          "codePoint": "U+10BA",
+          "mapping": "ⴚ"
+        }
+      ],
+      "nativeOriginal": null,
+      "nativeWithOnlyGeorgianMapped": "xn--ilj2659d.xn--5-dug9054m",
+      "nodeDomainToASCII": "",
+      "application": {
+        "ok": false,
+        "ascii": null,
+        "messageCodes": [
+          "invisible",
+          "parse"
+        ]
+      },
+      "classification": "native runtime Georgian mapping discrepancy; no app parser rewrite"
+    },
+    {
+      "line": 1995,
+      "source": "Ⴚ𐋸󠄄。5ퟶ်",
+      "expected": "xn--ilj2659d.xn--5-dug9054m",
+      "georgianCapitals": [
+        {
+          "character": "Ⴚ",
+          "codePoint": "U+10BA",
+          "mapping": "ⴚ"
+        }
+      ],
+      "nativeOriginal": null,
+      "nativeWithOnlyGeorgianMapped": "xn--ilj2659d.xn--5-dug9054m",
+      "nodeDomainToASCII": "",
+      "application": {
+        "ok": false,
+        "ascii": null,
+        "messageCodes": [
+          "invisible",
+          "parse"
+        ]
+      },
+      "classification": "native runtime Georgian mapping discrepancy; no app parser rewrite"
+    },
+    {
+      "line": 1999,
+      "source": "Ⴚ𐋸.5ퟶ်",
+      "expected": "xn--ilj2659d.xn--5-dug9054m",
+      "georgianCapitals": [
+        {
+          "character": "Ⴚ",
+          "codePoint": "U+10BA",
+          "mapping": "ⴚ"
+        }
+      ],
+      "nativeOriginal": null,
+      "nativeWithOnlyGeorgianMapped": "xn--ilj2659d.xn--5-dug9054m",
+      "nodeDomainToASCII": "",
+      "application": {
+        "ok": false,
+        "ascii": null,
+        "messageCodes": [
+          "parse"
+        ]
+      },
+      "classification": "native runtime Georgian mapping discrepancy; no app parser rewrite"
+    },
+    {
+      "minimalCapital": "Ⴀ",
+      "mapped": "ⴀ",
+      "nativeCapital": null,
+      "nativeMapped": "xn--rkj.invalid"
+    },
+    {
+      "minimalCapital": "Ⴌ",
+      "mapped": "ⴌ",
+      "nativeCapital": null,
+      "nativeMapped": "xn--3kj.invalid"
+    },
+    {
+      "minimalCapital": "Ⴎ",
+      "mapped": "ⴎ",
+      "nativeCapital": null,
+      "nativeMapped": "xn--5kj.invalid"
+    },
+    {
+      "minimalCapital": "Ⴚ",
+      "mapped": "ⴚ",
+      "nativeCapital": null,
+      "nativeMapped": "xn--ilj.invalid"
+    }
+  ],
+  "assertions": {
+    "executed": 102,
+    "passed": 102,
+    "failed": 0
+  },
+  "total": {
+    "executed": 64,
+    "passed": 64,
+    "failed": 0
+  }
+}

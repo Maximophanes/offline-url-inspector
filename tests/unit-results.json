@@ -1,0 +1,66 @@
+{
+  "suite": "unit and official Unicode fixtures",
+  "runtime": {
+    "deno": "2.9.7",
+    "v8": "15.0.245.2-rusty",
+    "typescript": "6.0.3"
+  },
+  "groups": {
+    "application cases": {
+      "executed": 109,
+      "passed": 109,
+      "failed": 0
+    },
+    "Version 2.1 standalone and contextual ASCII ambiguity": {
+      "executed": 39,
+      "passed": 39,
+      "failed": 0
+    },
+    "authority attribution combinations": {
+      "executed": 600,
+      "passed": 600,
+      "failed": 0
+    },
+    "NFD official Unicode 18 conformance": {
+      "executed": 100855,
+      "passed": 100855,
+      "failed": 0
+    },
+    "official confusables prototype mapping": {
+      "executed": 6712,
+      "passed": 6712,
+      "failed": 0
+    },
+    "UTS 39 behavior and separation": {
+      "executed": 22,
+      "passed": 22,
+      "failed": 0
+    },
+    "independent Python RFC 3492 fixtures": {
+      "executed": 23,
+      "passed": 23,
+      "failed": 0
+    },
+    "official IDNA vectors: matching output or explicit browser rejection": {
+      "executed": 300,
+      "passed": 300,
+      "failed": 0
+    },
+    "offline packaging and CSP": {
+      "executed": 4,
+      "passed": 4,
+      "failed": 0
+    }
+  },
+  "failures": [],
+  "assertions": {
+    "executed": 112223,
+    "passed": 112223,
+    "failed": 0
+  },
+  "total": {
+    "executed": 108664,
+    "passed": 108664,
+    "failed": 0
+  }
+}

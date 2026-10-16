@@ -1,0 +1,39 @@
+{
+  "retrieved": "2026-10-16",
+  "purpose": "Development review only; runtime remains Unicode 18.0.0",
+  "sources": [
+    {
+      "version": "16.0.0",
+      "url": "https://www.unicode.org/Public/idna/16.0.0/IdnaMappingTable.txt",
+      "sha256": "6db2ef4ed35f3b3de74ebc2e00404a9607f76d499f576b8d4043cf14f1ed175c",
+      "rows": [
+        "10A0          ; mapped     ; 2D00          # 1.1  GEORGIAN CAPITAL LETTER AN",
+        "10AC          ; mapped     ; 2D0C          # 1.1  GEORGIAN CAPITAL LETTER NAR",
+        "10AE          ; mapped     ; 2D0E          # 1.1  GEORGIAN CAPITAL LETTER PAR",
+        "10BA          ; mapped     ; 2D1A          # 1.1  GEORGIAN CAPITAL LETTER CAN"
+      ]
+    },
+    {
+      "version": "17.0.0",
+      "url": "https://www.unicode.org/Public/17.0.0/idna/IdnaMappingTable.txt",
+      "sha256": "87f05505dc026fdb2bff16132bdc68a8014675836882a9a2b1844540ad3be382",
+      "rows": [
+        "10A0          ; mapped     ; 2D00          # 1.1  GEORGIAN CAPITAL LETTER AN",
+        "10AC          ; mapped     ; 2D0C          # 1.1  GEORGIAN CAPITAL LETTER NAR",
+        "10AE          ; mapped     ; 2D0E          # 1.1  GEORGIAN CAPITAL LETTER PAR",
+        "10BA          ; mapped     ; 2D1A          # 1.1  GEORGIAN CAPITAL LETTER CAN"
+      ]
+    },
+    {
+      "version": "18.0.0",
+      "url": "https://www.unicode.org/Public/18.0.0/idna/IdnaMappingTable.txt",
+      "sha256": "a03b1eb38032268c696406a83f0972d6a815acd2c8d4151d42ec0fda70ffced1",
+      "rows": [
+        "10A0          ; mapped     ; 2D00          # 1.1  GEORGIAN CAPITAL LETTER AN",
+        "10AC          ; mapped     ; 2D0C          # 1.1  GEORGIAN CAPITAL LETTER NAR",
+        "10AE          ; mapped     ; 2D0E          # 1.1  GEORGIAN CAPITAL LETTER PAR",
+        "10BA          ; mapped     ; 2D1A          # 1.1  GEORGIAN CAPITAL LETTER CAN"
+      ]
+    }
+  ]
+}

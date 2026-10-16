@@ -1,0 +1,22 @@
+{
+  "suite": "Hosted cache readiness, update feedback and reviewed reload simulation",
+  "groups": {
+    "checks": {
+      "executed": 27,
+      "passed": 27,
+      "failed": 0
+    }
+  },
+  "failures": [],
+  "assertions": {
+    "executed": 71,
+    "passed": 71,
+    "failed": 0
+  },
+  "total": {
+    "executed": 27,
+    "passed": 27,
+    "failed": 0
+  },
+  "kind": "simulated lifecycle/messages/update UI; not actual Firefox or disconnected-network testing"
+}

@@ -1,0 +1,6 @@
+{
+  "htmlSHA256": "6e9978f644eee9c67d55cd7599482efe3ab306f1772dc2117655b0132cd8cfcb",
+  "coreSHA256": "3ccb0ebc7d401ba6fff2f465df39338970acb27ea67abf4f8b690bffe206f729",
+  "unicodeDataSHA256": "806135e914efe7978ca23124b2ad4472b5643adbb766dc1ab799b3ca1c7a5dc1",
+  "source": "Approved V2.1, user reports six representative Firefox cases and one offline manual test passed; not independently re-performed here."
+}

@@ -1,0 +1,17 @@
+{
+  "standalone": {
+    "sha256": "d7e0d48228a9d9d34c7825f76910e170a0d3c54f5bc2c5c12f2ab43fec3b8ae9",
+    "bytes": 2254942,
+    "scriptHash": "0VaYj1TpYbIZOa/LAdpVvJoKyvdaHeZYbM9u+N5fMrg=",
+    "styleHash": "GEjY6DSCRQumI4CT2fTsWN9YMk2Fo/HhhrT10y4XqhI="
+  },
+  "hosted": {
+    "sha256": "a59ba3b4926bb7f090d32b6a19263ca352692076ffedda8754a20fef1366e8de",
+    "bytes": 2261716,
+    "scriptHash": "LYFKr5HTyG6shQ62/sVXybC98GW0vrKr49gbWyI2Oao=",
+    "styleHash": "GEjY6DSCRQumI4CT2fTsWN9YMk2Fo/HhhrT10y4XqhI="
+  },
+  "release": "3.1.1-a59ba3b4926bb7f0",
+  "unicodeVersion": "18.0.0",
+  "unicodeDataSHA256": "806135e914efe7978ca23124b2ad4472b5643adbb766dc1ab799b3ca1c7a5dc1"
+}

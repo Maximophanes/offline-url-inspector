@@ -1,0 +1,17 @@
+{
+  "edition": "Version 3.1.0",
+  "source": "User-provided Version 3.1.1 request; reported manual Firefox on macOS",
+  "groupsPassed": [
+    "A Reference-domain creation",
+    "B Automatic reference-domain impersonation comparison",
+    "C Standalone reference persistence",
+    "D JSON backup and restoration",
+    "E Reference clearing and cancellation",
+    "F Keyboard shortcuts and examples",
+    "G Locally hosted startup",
+    "H Hosted reference persistence",
+    "I Offline operation after stopping local server"
+  ],
+  "verifiedByAgent": false,
+  "verifiesVersion3_1_1": false
+}

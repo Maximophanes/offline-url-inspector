@@ -1,0 +1,247 @@
+{
+  "applicationVersion": "3.1.1",
+  "tests": {
+    "executed": 109454,
+    "passed": 109454,
+    "failed": 0
+  },
+  "assertions": {
+    "executed": 118210,
+    "passed": 118210,
+    "failed": 0
+  },
+  "commands": [
+    {
+      "command": "test:references",
+      "passed": true
+    },
+    {
+      "command": "test:dom",
+      "passed": true
+    },
+    {
+      "command": "test:refinement",
+      "passed": true
+    },
+    {
+      "command": "test:polish",
+      "passed": true
+    },
+    {
+      "command": "test:baseline-dom",
+      "passed": true
+    },
+    {
+      "command": "test:worker",
+      "passed": true
+    },
+    {
+      "command": "test:hosted",
+      "passed": true
+    },
+    {
+      "command": "test:differential",
+      "passed": true
+    },
+    {
+      "command": "test:idna",
+      "passed": true
+    },
+    {
+      "command": "test:http",
+      "passed": true
+    },
+    {
+      "command": "test:unicode",
+      "passed": true
+    },
+    {
+      "command": "independent ICU diagnostic",
+      "passed": true
+    }
+  ],
+  "suites": [
+    {
+      "report": "unit-results.json",
+      "suite": "unit and official Unicode fixtures",
+      "tests": {
+        "executed": 108664,
+        "passed": 108664,
+        "failed": 0
+      },
+      "assertions": {
+        "executed": 112223,
+        "passed": 112223,
+        "failed": 0
+      },
+      "status": "executed"
+    },
+    {
+      "report": "dom-results.json",
+      "suite": "isolated Happy DOM integration",
+      "tests": {
+        "executed": 157,
+        "passed": 157,
+        "failed": 0
+      },
+      "assertions": {
+        "executed": 1031,
+        "passed": 1031,
+        "failed": 0
+      },
+      "status": "executed"
+    },
+    {
+      "report": "references-results.json",
+      "suite": "Reference domains, storage, imports, prioritization",
+      "tests": {
+        "executed": 70,
+        "passed": 70,
+        "failed": 0
+      },
+      "assertions": {
+        "executed": 135,
+        "passed": 135,
+        "failed": 0
+      },
+      "status": "executed"
+    },
+    {
+      "report": "dom-v3-results.json",
+      "suite": "V3 information hierarchy and reference management DOM",
+      "tests": {
+        "executed": 33,
+        "passed": 33,
+        "failed": 0
+      },
+      "assertions": {
+        "executed": 112,
+        "passed": 112,
+        "failed": 0
+      },
+      "status": "executed"
+    },
+    {
+      "report": "refinement-results.json",
+      "suite": "V3.1 presentation, shortcuts, disclosures and accessibility structure",
+      "tests": {
+        "executed": 199,
+        "passed": 199,
+        "failed": 0
+      },
+      "assertions": {
+        "executed": 4093,
+        "passed": 4093,
+        "failed": 0
+      },
+      "status": "executed"
+    },
+    {
+      "report": "polish-results.json",
+      "suite": "V3.1.1 custom confirmations, storage wording, import choices and polish",
+      "tests": {
+        "executed": 45,
+        "passed": 45,
+        "failed": 0
+      },
+      "assertions": {
+        "executed": 158,
+        "passed": 158,
+        "failed": 0
+      },
+      "status": "executed"
+    },
+    {
+      "report": "service-worker-results.json",
+      "suite": "Service worker atomic lifecycle simulation",
+      "tests": {
+        "executed": 25,
+        "passed": 25,
+        "failed": 0
+      },
+      "assertions": {
+        "executed": 84,
+        "passed": 84,
+        "failed": 0
+      },
+      "status": "executed"
+    },
+    {
+      "report": "hosted-bootstrap-results.json",
+      "suite": "Hosted cache readiness, update feedback and reviewed reload simulation",
+      "tests": {
+        "executed": 27,
+        "passed": 27,
+        "failed": 0
+      },
+      "assertions": {
+        "executed": 71,
+        "passed": 71,
+        "failed": 0
+      },
+      "status": "executed"
+    },
+    {
+      "report": "differential-results.json",
+      "suite": "Approved V2.1 core and Unicode preservation",
+      "tests": {
+        "executed": 143,
+        "passed": 143,
+        "failed": 0
+      },
+      "assertions": {
+        "executed": 148,
+        "passed": 148,
+        "failed": 0
+      },
+      "status": "executed"
+    },
+    {
+      "report": "idna-review-results.json",
+      "suite": "review of the 19 original IDNA discrepancies",
+      "tests": {
+        "executed": 64,
+        "passed": 64,
+        "failed": 0
+      },
+      "assertions": {
+        "executed": 102,
+        "passed": 102,
+        "failed": 0
+      },
+      "status": "executed"
+    },
+    {
+      "report": "idna-icu-results.json",
+      "suite": "independent ICU UTS 46 review",
+      "tests": {
+        "executed": 19,
+        "passed": 19,
+        "failed": 0
+      },
+      "assertions": {
+        "executed": 19,
+        "passed": 19,
+        "failed": 0
+      },
+      "status": "executed"
+    },
+    {
+      "report": "http-results.json",
+      "suite": "Local /offline-url-inspector/ HTTP deployment",
+      "tests": {
+        "executed": 8,
+        "passed": 8,
+        "failed": 0
+      },
+      "assertions": {
+        "executed": 34,
+        "passed": 34,
+        "failed": 0
+      },
+      "status": "executed"
+    }
+  ],
+  "firefox": "Not run; unchanged agent-environment startup failure. User-reported V3.1.0 nine-group Firefox results are baseline evidence, not V3.1.1 verification.",
+  "scope": "Unit/official conformance, simulated DOM and worker lifecycle, actual loopback HTTP. Simulations are not actual Firefox/GitHub Pages deployment."
+}

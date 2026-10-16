@@ -1,0 +1,42 @@
+{
+  "suite": "V3.1.1 custom confirmations, storage wording, import choices and polish",
+  "groups": {
+    "storage feedback from actual store state": {
+      "executed": 6,
+      "passed": 6,
+      "failed": 0
+    },
+    "custom modal consent and focus safety": {
+      "executed": 10,
+      "passed": 10,
+      "failed": 0
+    },
+    "single-label hostname guidance without changing normalization": {
+      "executed": 8,
+      "passed": 8,
+      "failed": 0
+    },
+    "radio import choices, review, replacement, and portable backup": {
+      "executed": 11,
+      "passed": 11,
+      "failed": 0
+    },
+    "comparison explanations and preserved visual/security controls": {
+      "executed": 10,
+      "passed": 10,
+      "failed": 0
+    }
+  },
+  "failures": [],
+  "assertions": {
+    "executed": 158,
+    "passed": 158,
+    "failed": 0
+  },
+  "total": {
+    "executed": 45,
+    "passed": 45,
+    "failed": 0
+  },
+  "kind": "simulated DOM/modal and CSS/source checks; actual browser interactions documented separately"
+}

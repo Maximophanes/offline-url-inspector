@@ -1,0 +1,122 @@
+{
+  "applicationVersion": "3.1.1",
+  "date": "2026-10-16",
+  "browser": "Codex in-app browser; not Firefox",
+  "origin": "http://127.0.0.1:8767/offline-url-inspector/",
+  "hostedHTMLSHA256": "a59ba3b4926bb7f090d32b6a19263ca352692076ffedda8754a20fef1366e8de",
+  "kind": "Observed interactive browser checks; not included in automated suite totals",
+  "observations": {
+    "desktop": {
+      "width": 1100,
+      "height": 1000,
+      "pageScrollWidth": 1100,
+      "headerBoundary": "no header-sized rectangular edge observed"
+    },
+    "narrow": {
+      "width": 390,
+      "height": 844,
+      "pageScrollWidth": 390,
+      "modalWidth": 354,
+      "modalWithinViewport": true
+    },
+    "primaryButton": {
+      "repeatedEntryExitClickCycles": 3,
+      "stableRect": true,
+      "coherentGradients": true,
+      "transforms": "none",
+      "samples": [
+        {
+          "gradient": "linear-gradient(rgb(99, 64, 127), rgb(81, 50, 109))",
+          "height": 44,
+          "hover": false,
+          "phase": "outside",
+          "transform": "none",
+          "width": 190.5234375,
+          "x": 80,
+          "y": 563.984375
+        },
+        {
+          "gradient": "linear-gradient(rgb(112, 73, 141), rgb(96, 61, 124))",
+          "height": 44,
+          "hover": true,
+          "phase": "inside",
+          "transform": "none",
+          "width": 190.5234375,
+          "x": 80,
+          "y": 563.984375
+        },
+        {
+          "gradient": "linear-gradient(rgb(99, 64, 127), rgb(81, 50, 109))",
+          "height": 44,
+          "hover": false,
+          "phase": "outside",
+          "transform": "none",
+          "width": 190.5234375,
+          "x": 80,
+          "y": 563.984375
+        },
+        {
+          "gradient": "linear-gradient(rgb(112, 73, 141), rgb(96, 61, 124))",
+          "height": 44,
+          "hover": true,
+          "phase": "inside",
+          "transform": "none",
+          "width": 190.5234375,
+          "x": 80,
+          "y": 563.984375
+        },
+        {
+          "gradient": "linear-gradient(rgb(99, 64, 127), rgb(81, 50, 109))",
+          "height": 44,
+          "hover": false,
+          "phase": "outside",
+          "transform": "none",
+          "width": 190.5234375,
+          "x": 80,
+          "y": 563.984375
+        },
+        {
+          "gradient": "linear-gradient(rgb(112, 73, 141), rgb(96, 61, 124))",
+          "height": 44,
+          "hover": true,
+          "phase": "inside",
+          "transform": "none",
+          "width": 190.5234375,
+          "x": 80,
+          "y": 563.984375
+        }
+      ]
+    },
+    "singleLabel": "Cancel defaults to Edit Hostname; Escape preserved input and returned focus; Add Anyway saved intranet unchanged; compact entry label displayed",
+    "dialogFocus": "Shift-Tab wraps Cancel to Proceed; Tab wraps Proceed to Cancel; background has inert attribute and is excluded from the modal accessibility tree",
+    "clear": "Escape left the reference list intact; explicit Clear References cleared the synthetic list; focus returned to Clear all",
+    "import": "native file picker selected a synthetic schema-1 JSON backup; native radio Left/Right changed Merge/Replace and preview; single labels were described in one batch; replacement Cancel preserved list; explicit Replace applied counts and restored focus to Import Backup",
+    "updates": "waiting update shown; custom reload Cancel retained current input/import; explicit Apply and Reload activated local matching release and preserved saved references; successful check reported up to date",
+    "serverStopped": "preview server was stopped; cached reload still initialized and retained one saved reference; inspection worked; failed update check did not claim up to date",
+    "serverStoppedState": {
+      "checkResult": "Unable to check for updates. Your current page and saved references were kept.",
+      "primary": "Potential hostname impersonation",
+      "referenceCount": "1 saved",
+      "status": "Offline ready"
+    },
+    "consoleWarningsOrErrorsObserved": [],
+    "screenshots": [
+      "preview/desktop.jpg",
+      "preview/import-mobile.jpg",
+      "preview/mobile.jpg",
+      "preview/offline-recovery.jpg",
+      "preview/replace-mobile.jpg",
+      "preview/single-label-desktop.jpg",
+      "preview/single-label-mobile.jpg"
+    ]
+  },
+  "limits": [
+    "not Firefox",
+    "not standalone file-protocol validation",
+    "server-unavailable cache test is not an internet-disconnected or private-mode test",
+    "hover samples do not provide frame-by-frame video verification",
+    "real interrupted downloads, screen reader, OS reduced motion and 200% zoom not exercised",
+    "no GitHub Pages publication"
+  ],
+  "data": "Synthetic demonstration data only; no user clipboard or real private reference backup."
+}

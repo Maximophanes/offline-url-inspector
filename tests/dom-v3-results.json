@@ -1,0 +1,28 @@
+{
+  "suite": "V3 information hierarchy and reference management DOM",
+  "groups": {
+    "primary result and preserved technical evidence": {
+      "executed": 11,
+      "passed": 11,
+      "failed": 0
+    },
+    "reference controls and explicit import review": {
+      "executed": 22,
+      "passed": 22,
+      "failed": 0
+    }
+  },
+  "failures": [],
+  "assertions": {
+    "executed": 112,
+    "passed": 112,
+    "failed": 0
+  },
+  "total": {
+    "executed": 33,
+    "passed": 33,
+    "failed": 0
+  },
+  "networkAttempts": [],
+  "kind": "simulated DOM; no actual Firefox or pixel/layout measurement"
+}

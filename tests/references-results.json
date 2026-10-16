@@ -1,0 +1,36 @@
+{
+  "suite": "Reference domains, storage, imports, prioritization",
+  "groups": {
+    "normalization and reference lifecycle": {
+      "executed": 20,
+      "passed": 20,
+      "failed": 0
+    },
+    "persistence, stable schema, data-loss protection": {
+      "executed": 12,
+      "passed": 12,
+      "failed": 0
+    },
+    "portable export and reviewed import": {
+      "executed": 18,
+      "passed": 18,
+      "failed": 0
+    },
+    "reference boundaries, prioritization, and preserved findings": {
+      "executed": 20,
+      "passed": 20,
+      "failed": 0
+    }
+  },
+  "failures": [],
+  "assertions": {
+    "executed": 135,
+    "passed": 135,
+    "failed": 0
+  },
+  "total": {
+    "executed": 70,
+    "passed": 70,
+    "failed": 0
+  }
+}

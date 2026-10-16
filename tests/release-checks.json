@@ -1,0 +1,84 @@
+{
+  "applicationVersion": "3.1.1",
+  "date": "2026-10-16",
+  "status": "pass",
+  "approvedV3_1Preserved": {
+    "filesChecked": 90,
+    "archiveFilesChecked": 2,
+    "inventoryUnchanged": true,
+    "allHashesUnchanged": true
+  },
+  "trackerReferences": [
+    {
+      "reference": 1,
+      "sha256": "22aee1a6bcb15fc8b85b0d029d25c1093d2760b77159b077fdc19a66d1ac906d",
+      "unchanged": true
+    },
+    {
+      "reference": 2,
+      "sha256": "5a905b8edff3231ba8a0394b3aa87967c42d1a8cd5a683e8a8a2559e7d9ba80c",
+      "unchanged": true
+    }
+  ],
+  "frozenV3_1FunctionalFiles": {
+    "src/core.js": true,
+    "src/references.js": true,
+    "src/sw.js": true,
+    "data/unicode-data.json": true
+  },
+  "approvedTitle": {
+    "allTitleRulesIdentical": true,
+    "titleRulesCompared": 3,
+    "completeKeyframesIdentical": true
+  },
+  "referenceStorage": {
+    "key": "offline-url-inspector:reference-domains",
+    "schemaVersion": 1,
+    "compatibleWithV3_1": true,
+    "newSchemaOrKey": false
+  },
+  "serviceWorker": {
+    "scope": "/offline-url-inspector/",
+    "sourceByteIdentical": true,
+    "onlyFetch": "fixed INDEX_URL",
+    "integrity": "final worker and HTTP suites passed",
+    "controllerChange": "presentation/status/custom consent only; fixed registration and messages preserved"
+  },
+  "deterministicBuild": {
+    "passed": true,
+    "sha256": {
+      "standalone/Offline_URL_Inspector.html": "d7e0d48228a9d9d34c7825f76910e170a0d3c54f5bc2c5c12f2ab43fec3b8ae9",
+      "site/index.html": "a59ba3b4926bb7f090d32b6a19263ca352692076ffedda8754a20fef1366e8de",
+      "site/sw.js": "07c8408b025d4012a94f836936ce8f4ff653f415d095162189ab3a484be60a1a",
+      "site/.nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "build-manifest.json": "7f29a9c8f3299ff78a193d1bb92e3203ceb2657dc40691b7f48d6c87afbb2b9f"
+    }
+  },
+  "sourceScan": {
+    "unsafeSharedSinks": [],
+    "deploymentPrivateMarkers": [],
+    "nativeApplicationConfirmations": false
+  },
+  "documentationLinks": {
+    "passed": true
+  },
+  "finalSuite": {
+    "tests": {
+      "executed": 109454,
+      "passed": 109454,
+      "failed": 0
+    },
+    "assertions": {
+      "executed": 118210,
+      "passed": 118210,
+      "failed": 0
+    }
+  },
+  "actualBrowser": "Codex in-app interactions/cached server-unavailable startup; see browser-preview.json",
+  "actualFirefox3_1_1": "not executed; see focused checklist",
+  "userReportedBaseline": "nine V3.1.0 Firefox groups passed; not V3.1.1 verification",
+  "published": false,
+  "requiredFilesPresent": true,
+  "temporaryFiles": [],
+  "failures": []
+}

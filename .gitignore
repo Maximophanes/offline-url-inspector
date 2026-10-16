@@ -1,0 +1,23 @@
+# macOS metadata
+.DS_Store
+._*
+.AppleDouble
+__MACOSX/
+
+# Python temporary files
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Dependencies and temporary logs
+node_modules/
+*.log
+
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# Editor metadata
+.idea/

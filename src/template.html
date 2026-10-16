@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="@@CSP@@">
+<title>URL Inspector · Version 3.1.1</title>
+<style>@@CSS@@</style>
+</head><body><main class="wrap">
+<header class="masthead">
+<div class="eyebrow">Local URL Inspection</div>
+<h1>URL Inspector</h1>
+<p class="lead">Examine a URL’s hostname, identify deceptive characters, and inspect its structure without visiting the destination.</p>
+</header>
+<section class="card inspect-card" aria-label="Inspect a URL">
+<label class="label" for="link">URL to inspect</label>
+<p class="field-help" id="linkHelp">Paste a copied link from a browser, email, message, or other source.</p>
+<textarea id="link" aria-describedby="linkHelp" spellcheck="false" autocapitalize="off" autocomplete="off" placeholder="https://example.com/path"></textarea>
+<div class="field"><label class="label" for="expected">Expected hostname <span class="optional">(optional)</span></label><p class="field-help" id="expectedHelp">Overrides automatic comparisons against saved reference domains.</p><input id="expected" aria-describedby="expectedHelp" spellcheck="false" autocomplete="off" autocapitalize="off" placeholder="amazon.com"></div>
+<div class="line actions"><button id="inspect" type="button">Inspect without opening</button><button class="ghost" id="demoUnicode" type="button">Unicode lookalike</button><button class="ghost" id="demoAscii" type="button">ASCII lookalike</button></div>
+<div class="interaction-meta"><span id="shortcutHint" class="shortcut">⌘ + Return to inspect</span><span id="offlineStatus" class="edition-status" role="status">@@EDITION_STATUS@@</span></div>
+<div id="updatePanel" class="update-panel hidden"><div class="line cache-actions"><button id="checkCache" class="ghost small" type="button">Check for Updates</button><button id="applyUpdate" class="ghost small hidden" type="button">Apply update and reload</button></div><p id="updateStatus" class="small update-feedback" role="status" aria-live="polite"></p></div>
+<details id="offlineHelp" class="disclosure status-help hidden"><summary>Offline access details</summary><div class="panel-body small" id="offlineDetail"></div></details>
+</section>
+<details class="card disclosure major" id="referencePanel"><summary><span>Reference Domains</span><span class="count" id="referenceCount">0 saved</span></summary>
+<div class="panel-body">
+<p class="small">Save familiar hostnames to compare against suspicious URLs. Reference domains are comparison targets, not guarantees of website safety.</p>
+<p id="storageStatus" class="small" role="status"></p><details class="disclosure reference-help"><summary>Storage &amp; hostname help</summary><div class="panel-body small"><p id="storageDetail"></p><p>Single-label hostnames can identify internal services and receive exact matches only. They are different from complete public hostnames. IP addresses and IPv6 literals also receive exact comparisons only. Inspected hostnames are never added automatically.</p></div></details>
+<label class="label" for="referenceInput" id="referenceLabel">Add a reference hostname</label>
+<div class="line"><input id="referenceInput" class="grow" maxlength="2048" spellcheck="false" autocomplete="off" autocapitalize="off" placeholder="example.com"><button id="saveReference" type="button">Add</button><button id="cancelEdit" type="button" class="ghost hidden">Cancel edit</button></div>
+<div id="referenceError" class="small warn" role="status"></div>
+<ul id="referenceList" class="reference-list"></ul>
+<div class="line"><button id="exportReferences" class="ghost" type="button">Export Backup</button><button id="importReferences" class="ghost" type="button">Import Backup</button><button id="clearReferences" class="ghost caution" type="button">Clear all…</button></div>
+<input id="importFile" type="file" accept="application/json,.json" class="hidden" aria-label="Import reference-domain backup">
+<section id="importReview" class="import-review hidden" aria-label="Review reference import">
+<h2>Review Import</h2><fieldset id="importMode" class="import-options"><legend>How to apply this backup</legend>
+<label class="import-choice"><input id="importMerge" name="referenceImportMode" type="radio" value="merge" checked><span><strong>Merge with Existing References</strong><small>Keep saved references and add new entries.</small></span></label>
+<label class="import-choice replacement"><input id="importReplace" name="referenceImportMode" type="radio" value="replace"><span><strong>Replace All References</strong><small>Remove existing references and use the imported list.</small></span></label>
+</fieldset><p id="importSingleLabels" class="small hidden"></p>
+<p id="importSummary" class="small"></p><div id="importChanges" class="mono small"></div>
+<div class="line"><button id="applyImport" type="button">Apply reviewed import</button><button id="cancelImport" class="ghost" type="button">Cancel</button></div>
+</section></div></details>
+<section class="card results-card hidden" id="results" aria-live="polite" aria-label="Inspection results">
+<div id="primary" class="primary"><div class="eyebrow">Primary finding</div><h2 id="primaryTitle"></h2><p id="primaryDetail"></p></div>
+<div class="hostname-grid">
+<div><div class="label">Actual hostname · ASCII / Punycode</div><div id="ascii" class="host"></div></div>
+<div><div class="label">Readable hostname</div><div class="host" id="coloredHost"></div></div>
+</div>
+<div class="comparison-rows">
+<div class="row"><div class="key">Readable Unicode</div><div id="unicode" class="value mono"></div></div>
+<div class="row"><div class="key">Expected hostname</div><div id="compare" class="value mono"></div></div>
+<div class="row"><div class="key">Comparison result</div><div id="comparisonResult" class="value"></div></div>
+<div class="row"><div class="key">Reference comparison</div><div id="referenceComparison" class="value"></div></div>
+</div>
+<ul id="relevantSubstitutions" class="relevant"></ul><ul id="supporting" class="supporting"></ul>
+<div id="neutralSlot" class="small"></div>
+<details id="advanced" class="disclosure technical major"><summary><span>Technical Details</span><span class="summary-aside">Evidence &amp; diagnostics</span></summary><div class="panel-body">
+<details class="disclosure category" id="originalDetails"><summary>Input &amp; Normalization</summary><div class="category-body">
+<div class="row"><div class="key">Original hostname</div><div class="value mono" id="original"></div></div>
+<div class="row"><div class="key">Percent-decoded input</div><div id="decodedOriginal" class="value mono"></div></div>
+<div class="row"><div class="key">Normalized ASCII</div><div id="normalized" class="value mono"></div></div>
+<div class="row"><div class="key">Original submitted text</div><div id="raw" class="value mono"></div></div>
+<p class="small">Control and invisible characters are shown explicitly. Candidate-only attribution and processing limits are retained in the diagnostic log.</p>
+</div></details>
+<details class="disclosure category" id="characterDetails"><summary>Character Details</summary><div class="category-body">
+<div id="originalCharacterGroup"><div class="label" id="originalCharacterLabel">Hostname character evidence</div><div id="originalChars" class="character-list"></div></div>
+<div id="readableCharacterGroup"><div class="label readable-label">Additional readable characters</div><div id="chars" class="character-list"></div></div>
+<details id="asciiDetails" class="disclosure observation"><summary id="asciiSummary">ASCII lookalike observations</summary><div id="asciiObservations" class="category-body small"></div></details>
+</div></details>
+<details class="disclosure category" id="componentsDetails"><summary>URL Components</summary><div class="category-body">
+<div class="row"><div class="key">Writing systems</div><div id="scripts" class="value"></div></div>
+<div class="row"><div class="key">Scheme</div><div id="scheme" class="value mono"></div></div>
+<div class="row"><div class="key">Port</div><div id="port" class="value mono"></div></div>
+<div class="row"><div class="key">Path</div><div id="path" class="value mono"></div></div>
+<div class="row"><div class="key">Query parameters</div><div id="query" class="value mono"></div></div>
+<div class="row"><div class="key">Fragment</div><div id="fragment" class="value mono"></div></div>
+</div></details>
+<details class="disclosure category" id="referencesDetails"><summary>Reference Comparisons</summary><div id="referenceCandidates" class="category-body small"></div></details>
+<details class="disclosure category" id="diagnosticDetails"><summary>Full Diagnostic Log</summary><div class="category-body"><p class="small">Supporting records from the analysis. Related observations may describe the same issue.</p><div id="messages" class="diagnostic-list"></div></div></details>
+</div></details></section>
+<details class="disclosure supporting-panel" id="understanding"><summary>Understanding Your Results</summary><div class="panel-body">
+<p>The inspector examines a URL’s hostname, characters, and structure without visiting the destination. It can identify misleading spellings, suspicious URL syntax, and differences from expected or reference hostnames.</p>
+<p>A matching hostname does not guarantee a safe website. The inspector cannot verify ownership, reputation, compromise, page content, or redirects. Reference domains are comparison targets, not verified trustworthy websites.</p>
+<p class="small">Internationalized names can be legitimate. Unicode confusable mappings and font-dependent ASCII shapes do not establish malicious intent. A subdomain relationship is structural; no registrable-domain or public-suffix ownership inference is made. Full right-to-left visual comparison is unavailable. Browser-dependent IDNA processing can differ. This is not comprehensive phishing detection.</p>
+</div></details>
+<footer>
+<div class="footer-meta"><span>Version @@VERSION@@ · Unicode 18.0.0</span><span>@@EDITION_FOOTER@@</span></div>
+<details class="disclosure legal" id="privacyDetails"><summary>Privacy &amp; Storage</summary><div class="panel-body">
+<p>Inspection runs locally. The application does not intentionally persist inspected URLs, expected-host text, credentials, or tokens. It never visits submitted destinations or reads the clipboard automatically.</p>
+<p>Only your Reference Domains list is saved in browser storage. Browser cleanup, private sessions, or storage restrictions can remove or prevent it. Exported JSON backups are the portable recovery mechanism.</p><p>@@EDITION_PRIVACY@@</p>
+</div></details>
+<details class="disclosure legal" id="unicodeDetails"><summary>Unicode Data &amp; Licenses</summary><div class="panel-body"><p>Unicode security data 18.0.0 · © 1991–2026 Unicode, Inc. · Unicode License V3.</p><p class="small">Preserved from Version 3.0.0 and the approved Version 2.1 dataset. UTS #39 revision 34 LTR fast path. Version-pinned sources under https://www.unicode.org/Public/18.0.0/ include security/confusables.txt, Unicode Character Database names/scripts/normalization/bidi properties, and idna/IdnaMappingTable.txt. Exact source URLs and checksums are embedded with the data. Confusable skeletons are internal comparison keys, never destination URLs.</p><pre id="license" class="license"></pre></div></details>
+</footer>
+</main>
+<dialog id="confirmDialog" class="confirm-dialog" aria-labelledby="confirmTitle" aria-describedby="confirmMessage">
+<div class="confirm-body"><div class="eyebrow">URL Inspector</div><h2 id="confirmTitle">Confirm action</h2><p id="confirmMessage"></p></div>
+<div class="confirm-actions"><button id="confirmCancel" type="button" class="ghost" autofocus>Cancel</button><button id="confirmProceed" type="button">Continue</button></div>
+</dialog>
+<script type="application/json" id="unicode-data">@@DATA@@</script><script>@@JS@@</script></body></html>
