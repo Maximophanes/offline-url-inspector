@@ -1,5 +1,7 @@
 # Version 3.1.2
 
+Focused Technical Details follow-up: balanced character-count spacing; removed redundant raw comparison disclosure while retaining internal metadata and contextual methods/warnings; conditional Hostname extraction details for uncertain/failed attribution. All 139 original inspection/reference-comparison results remain identical. Only targeted tests were rerun. See [review](TECHNICAL_DETAILS_REVIEW.md).
+
 Focused Reference Domains follow-up: cohesive approved introduction/status group, compact verified-save text, removed redundant technical storage disclosure, accurate empty/overlength entry and import feedback, zero-height empty feedback, and technical errors shown only for additional context. Storage/validation engines and version remain unchanged. See [review](REFERENCE_DOMAINS_REVIEW.md); only targeted regressions were rerun.
 
 Final focused refinements from the committed development checkpoint: inline main hostname labels, one collapsed Raw Diagnostic Records section, stable Grid-based update controls, left-aligned semantic update feedback, and full-width semantic offline paragraphs. All 139 original inspection results and records remain identical. Desktop/tablet/mobile screenshots were rendered and inspected; CSS 200% magnification supplements the still-pending native zoom check. See [focused review](FINAL_INTERFACE_REVIEW.md).

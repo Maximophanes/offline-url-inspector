@@ -5,7 +5,7 @@
   "scope": "All runtime-copy source files, HTML attributes, CSS generated content and build substitutions. Candidates include non-copy tokens; the family matrix records editorial decisions.",
   "sources": {
     "src/template.html": {
-      "sha256": "600eae3d7efcfa3c600d2313ab604d2f703d3fa6f1a2c45d443e47cf828668d9",
+      "sha256": "e43681c78fd5f06f1a7f3d215c6764fe3e06d5f4e8249efb2c6d1410ae4e6979",
       "items": [
         {
           "line": 6,
@@ -375,7 +375,7 @@
         {
           "line": 73,
           "kind": "markup text",
-          "text": "Original hostname evidence"
+          "text": "Hostname extraction details"
         },
         {
           "line": 75,
@@ -2590,7 +2590,7 @@
       ]
     },
     "src/ui.js": {
-      "sha256": "6d1af9cba5ebb31e3b69884b113009e2a110078e93763ba527c58cdff1138781",
+      "sha256": "b29dd19dee6faaa196b30adb9df57d510d00a17c7858f6c367e3945892c4a3e3",
       "items": [
         {
           "line": 1,
@@ -2758,94 +2758,69 @@
           "text": "dialog-fallback"
         },
         {
-          "line": 48,
+          "line": 49,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "\\\\u"
         },
         {
-          "line": 48,
+          "line": 49,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "0"
         },
         {
-          "line": 50,
+          "line": 51,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "div"
         },
         {
-          "line": 50,
+          "line": 51,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "key"
         },
         {
-          "line": 50,
+          "line": 51,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": " "
         },
         {
-          "line": 50,
+          "line": 51,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "span"
         },
         {
-          "line": 50,
+          "line": 51,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "("
         },
         {
-          "line": 50,
+          "line": 51,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": ")"
         },
         {
-          "line": 50,
+          "line": 51,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "label-detail"
         },
         {
-          "line": 52,
+          "line": 53,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "information"
         },
         {
-          "line": 52,
+          "line": 53,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "reference"
         },
         {
-          "line": 53,
+          "line": 54,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "backup"
         },
         {
-          "line": 53,
+          "line": 54,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "backupStatus"
-        },
-        {
-          "line": 53,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "referenceError"
-        },
-        {
-          "line": 53,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "backupErrorDetails"
-        },
-        {
-          "line": 53,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "referenceErrorDetails"
-        },
-        {
-          "line": 53,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "backupErrorRaw"
-        },
-        {
-          "line": 53,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "referenceErrorRaw"
         },
         {
           "line": 54,
@@ -2855,17 +2830,7 @@
         {
           "line": 54,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "backupStatus"
-        },
-        {
-          "line": 54,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "referenceErrorRaw"
-        },
-        {
-          "line": 54,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "backupErrorRaw"
+          "text": "backupErrorDetails"
         },
         {
           "line": 54,
@@ -2875,562 +2840,542 @@
         {
           "line": 54,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "backupErrorDetails"
+          "text": "backupErrorRaw"
         },
         {
           "line": 54,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "referenceErrorRaw"
+        },
+        {
+          "line": 55,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "referenceError"
+        },
+        {
+          "line": 55,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "backupStatus"
+        },
+        {
+          "line": 55,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "referenceErrorRaw"
+        },
+        {
+          "line": 55,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "backupErrorRaw"
+        },
+        {
+          "line": 55,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "referenceErrorDetails"
+        },
+        {
+          "line": 55,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "backupErrorDetails"
+        },
+        {
+          "line": 55,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "hidden"
         },
         {
-          "line": 56,
+          "line": 57,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "Success"
         },
         {
-          "line": 56,
+          "line": 57,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "Information"
         },
         {
-          "line": 56,
+          "line": 57,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "Caution"
         },
         {
-          "line": 56,
+          "line": 57,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "Error"
         },
         {
-          "line": 56,
+          "line": 57,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": ": "
         },
         {
-          "line": 57,
+          "line": 58,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "hidden"
         },
         {
-          "line": 57,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "error"
-        },
-        {
           "line": 58,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "error"
         },
         {
-          "line": 58,
+          "line": 59,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "error"
+        },
+        {
+          "line": 59,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "referenceInput"
         },
         {
-          "line": 58,
+          "line": 59,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "aria-invalid"
         },
         {
-          "line": 58,
+          "line": 59,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "true"
         },
         {
-          "line": 58,
+          "line": 59,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "referenceInput"
         },
         {
-          "line": 58,
+          "line": 59,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "aria-invalid"
         },
         {
-          "line": 60,
+          "line": 61,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "hostname"
         },
         {
-          "line": 60,
+          "line": 61,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "import"
         },
         {
-          "line": 60,
+          "line": 61,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "backup"
         },
         {
-          "line": 60,
+          "line": 61,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "reference"
         },
         {
-          "line": 60,
+          "line": 61,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "import"
         },
         {
-          "line": 60,
+          "line": 61,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "referenceInput"
         },
         {
-          "line": 60,
+          "line": 61,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "error"
         },
         {
-          "line": 61,
+          "line": 62,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "reference"
         },
         {
-          "line": 61,
+          "line": 62,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "browser"
         },
         {
-          "line": 61,
+          "line": 62,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": " This change is only in this tab; export a backup before closing."
         },
         {
-          "line": 61,
+          "line": 62,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "browser"
         },
         {
-          "line": 61,
+          "line": 62,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "success"
         },
         {
-          "line": 61,
+          "line": 62,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "caution"
         },
         {
-          "line": 62,
+          "line": 63,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "hidden"
         },
         {
-          "line": 62,
+          "line": 63,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "aria-invalid"
         },
         {
-          "line": 62,
+          "line": 63,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "true"
         },
         {
-          "line": 62,
+          "line": 63,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "aria-invalid"
         },
         {
-          "line": 65,
+          "line": 66,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "section"
         },
         {
-          "line": 65,
+          "line": 66,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "ascii-group"
         },
         {
-          "line": 66,
+          "line": 67,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "div"
         },
         {
-          "line": 66,
+          "line": 67,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "row"
         },
         {
-          "line": 66,
+          "line": 67,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "div"
         },
         {
-          "line": 66,
+          "line": 67,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "value mono"
         },
         {
-          "line": 67,
+          "line": 68,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "Potential resemblance"
         },
         {
-          "line": 67,
+          "line": 68,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": " / "
         },
         {
-          "line": 67,
+          "line": 68,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "Observed"
         },
         {
-          "line": 67,
+          "line": 68,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "“"
         },
         {
-          "line": 67,
+          "line": 68,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "”"
         },
         {
-          "line": 67,
+          "line": 68,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": ", "
         },
         {
-          "line": 68,
+          "line": 69,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "p"
         },
         {
-          "line": 68,
+          "line": 69,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "occurrence"
         },
         {
-          "line": 68,
+          "line": 69,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": " identified."
         },
         {
-          "line": 68,
+          "line": 69,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "small occurrence-count"
         },
         {
-          "line": 70,
+          "line": 71,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "ul"
         },
         {
-          "line": 70,
+          "line": 71,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "diagnostic-occurrences mono"
         },
         {
-          "line": 70,
+          "line": 71,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "p"
         },
         {
-          "line": 70,
+          "line": 71,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "small occurrence-progress"
         },
         {
-          "line": 70,
+          "line": 71,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "button"
         },
         {
-          "line": 70,
+          "line": 71,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "ghost small"
         },
         {
-          "line": 70,
+          "line": 71,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "button"
         },
         {
-          "line": 72,
+          "line": 73,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "li"
         },
         {
-          "line": 72,
+          "line": 73,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "original decoded hostname"
         },
         {
-          "line": 72,
+          "line": 73,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "Decoded hostname"
         },
         {
-          "line": 72,
+          "line": 73,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "readable normalized hostname"
         },
         {
-          "line": 72,
+          "line": 73,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "Readable hostname"
         },
         {
-          "line": 72,
+          "line": 73,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": " · Label "
         },
         {
-          "line": 72,
+          "line": 73,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": ", character "
         },
         {
-          "line": 72,
+          "line": 73,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": " · “"
         },
         {
-          "line": 72,
+          "line": 73,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "”"
         },
         {
-          "line": 73,
+          "line": 74,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "Showing "
         },
         {
-          "line": 73,
+          "line": 74,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": " of "
         },
         {
-          "line": 73,
+          "line": 74,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": " locations."
         },
         {
-          "line": 74,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "hidden"
-        },
-        {
-          "line": 74,
+          "line": 75,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "hidden"
         },
         {
           "line": 75,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "hidden"
+        },
+        {
+          "line": 76,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "Show next "
         },
         {
-          "line": 75,
+          "line": 76,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "location"
         },
         {
-          "line": 75,
+          "line": 76,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "aria-label"
         },
         {
-          "line": 75,
+          "line": 76,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": " for "
         },
         {
-          "line": 75,
+          "line": 76,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": " / "
         },
         {
-          "line": 78,
+          "line": 79,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "click"
         },
         {
-          "line": 78,
+          "line": 79,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "div"
         },
         {
-          "line": 78,
+          "line": 79,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "Locations"
         },
         {
-          "line": 78,
+          "line": 79,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "key"
         },
         {
-          "line": 84,
+          "line": 85,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "details"
         },
         {
-          "line": 84,
+          "line": 85,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "diagnostic"
         },
         {
-          "line": 84,
+          "line": 85,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "info"
         },
         {
-          "line": 84,
+          "line": 85,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": " small"
         },
         {
-          "line": 85,
+          "line": 86,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "summary"
         },
         {
-          "line": 85,
+          "line": 86,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "span"
         },
         {
-          "line": 85,
+          "line": 86,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "diagnostic-title"
         },
         {
-          "line": 85,
+          "line": 86,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "span"
         },
         {
-          "line": 85,
+          "line": 86,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "diagnostic-severity"
         },
         {
-          "line": 86,
+          "line": 87,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "p"
-        },
-        {
-          "line": 86,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "diagnostic-explanation small"
         },
         {
           "line": 87,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "ascii-ambiguity"
+          "text": "diagnostic-explanation small"
         },
         {
           "line": 88,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "ascii-ambiguity"
+        },
+        {
+          "line": 89,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "details"
         },
         {
-          "line": 88,
+          "line": 89,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "disclosure observation diagnostic-evidence"
         },
         {
-          "line": 88,
+          "line": 89,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "summary"
         },
         {
-          "line": 88,
+          "line": 89,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "All ASCII Observations"
         },
         {
-          "line": 88,
+          "line": 89,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "div"
         },
         {
-          "line": 88,
+          "line": 89,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "category-body"
         },
         {
-          "line": 90,
+          "line": 91,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "messages"
         },
         {
-          "line": 91,
+          "line": 92,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "article"
         },
         {
-          "line": 91,
+          "line": 92,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "raw-diagnostic-record"
         },
         {
-          "line": 92,
+          "line": 93,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "h3"
         },
         {
-          "line": 92,
+          "line": 93,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "Record "
-        },
-        {
-          "line": 92,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "rawRecords"
-        },
-        {
-          "line": 92,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": " · "
-        },
-        {
-          "line": 92,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "raw-record-title"
-        },
-        {
-          "line": 92,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "p"
-        },
-        {
-          "line": 92,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "diagnostic-text small mono"
-        },
-        {
-          "line": 92,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "p"
-        },
-        {
-          "line": 92,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Category: "
-        },
-        {
-          "line": 92,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": " · Severity: "
-        },
-        {
-          "line": 92,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": " · Original level: "
-        },
-        {
-          "line": 92,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": " · Code: "
-        },
-        {
-          "line": 92,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "diagnostic-kind"
         },
         {
           "line": 93,
@@ -3438,3037 +3383,3152 @@
           "text": "rawRecords"
         },
         {
-          "line": 95,
+          "line": 93,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": " · "
+        },
+        {
+          "line": 93,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "raw-record-title"
+        },
+        {
+          "line": 93,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "p"
+        },
+        {
+          "line": 93,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "diagnostic-text small mono"
+        },
+        {
+          "line": 93,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "p"
+        },
+        {
+          "line": 93,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Category: "
+        },
+        {
+          "line": 93,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": " · Severity: "
+        },
+        {
+          "line": 93,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": " · Original level: "
+        },
+        {
+          "line": 93,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": " · Code: "
+        },
+        {
+          "line": 93,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "diagnostic-kind"
+        },
+        {
+          "line": 94,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "rawRecords"
+        },
+        {
+          "line": 96,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "span"
         },
         {
-          "line": 95,
+          "line": 96,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "badchar"
         },
         {
-          "line": 95,
+          "line": 96,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "caution"
         },
         {
-          "line": 95,
+          "line": 96,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "information"
         },
         {
-          "line": 95,
+          "line": 96,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": " · "
         },
         {
-          "line": 98,
+          "line": 99,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "div"
         },
         {
-          "line": 98,
+          "line": 99,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "No internationalized or hidden characters were identified in the original hostname."
         },
         {
-          "line": 98,
+          "line": 99,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "The readable hostname uses only ASCII characters."
         },
         {
-          "line": 98,
+          "line": 99,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "small"
         },
         {
-          "line": 99,
+          "line": 100,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "div"
         },
         {
-          "line": 99,
+          "line": 100,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "small"
+          "text": "small character-count"
         },
         {
-          "line": 99,
+          "line": 100,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "button"
         },
         {
-          "line": 99,
+          "line": 100,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "Show next 50 characters"
         },
         {
-          "line": 99,
+          "line": 100,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "ghost small"
         },
         {
-          "line": 99,
+          "line": 100,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "button"
         },
         {
-          "line": 100,
+          "line": 101,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": " — "
         },
         {
-          "line": 100,
+          "line": 101,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": " · "
         },
         {
-          "line": 100,
+          "line": 101,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "\\n"
         },
         {
-          "line": 103,
+          "line": 104,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "details"
         },
         {
-          "line": 103,
+          "line": 104,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "character"
         },
         {
-          "line": 103,
+          "line": 104,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "caution"
         },
         {
-          "line": 103,
+          "line": 104,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "information"
         },
         {
-          "line": 104,
+          "line": 105,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "summary"
         },
         {
-          "line": 104,
+          "line": 105,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "span"
         },
         {
-          "line": 104,
+          "line": 105,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": " · "
         },
         {
-          "line": 104,
+          "line": 105,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "record-heading"
         },
         {
-          "line": 104,
+          "line": 105,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "span"
         },
         {
-          "line": 104,
+          "line": 105,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "Character evidence"
         },
         {
-          "line": 104,
+          "line": 105,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "evidence-source"
         },
         {
-          "line": 104,
+          "line": 105,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "span"
         },
         {
-          "line": 104,
+          "line": 105,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "glyph mono"
         },
         {
-          "line": 105,
+          "line": 106,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "div"
         },
         {
-          "line": 105,
+          "line": 106,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "row"
         },
         {
-          "line": 105,
+          "line": 106,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "div"
         },
         {
-          "line": 105,
+          "line": 106,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "value mono"
         },
         {
-          "line": 106,
+          "line": 107,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "Observed"
         },
         {
-          "line": 106,
+          "line": 107,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "Code point"
         },
         {
-          "line": 106,
+          "line": 107,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "Official name"
         },
         {
-          "line": 106,
+          "line": 107,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "Writing system"
         },
         {
-          "line": 106,
+          "line": 107,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "Normalization"
         },
         {
-          "line": 107,
+          "line": 108,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "mapped"
         },
         {
-          "line": 107,
+          "line": 108,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "Mapped representation"
         },
         {
-          "line": 107,
+          "line": 108,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "Removed; no replacement character."
         },
         {
-          "line": 108,
+          "line": 109,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "ignored"
         },
         {
-          "line": 108,
+          "line": 109,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "Mapped representation"
         },
         {
-          "line": 108,
+          "line": 109,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "Removed; no replacement character."
         },
         {
-          "line": 109,
+          "line": 110,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "Readable representation"
         },
         {
-          "line": 109,
+          "line": 110,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "Same character as observed."
         },
         {
-          "line": 110,
+          "line": 111,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "Readable hostname"
         },
         {
-          "line": 110,
+          "line": 111,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "Unicode"
         },
         {
-          "line": 111,
+          "line": 112,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "Visually resembles"
         },
         {
-          "line": 112,
+          "line": 113,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "details"
         },
         {
-          "line": 112,
+          "line": 113,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "disclosure observation character-mapping"
         },
         {
-          "line": 112,
+          "line": 113,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "summary"
         },
         {
-          "line": 112,
+          "line": 113,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "Unicode comparison data"
         },
         {
-          "line": 113,
+          "line": 114,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "div"
         },
         {
-          "line": 113,
+          "line": 114,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "category-body small"
         },
         {
-          "line": 113,
+          "line": 114,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "div"
         },
         {
-          "line": 113,
+          "line": 114,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "UTS #39 Mapping"
         },
         {
-          "line": 113,
+          "line": 114,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "key"
         },
         {
-          "line": 114,
+          "line": 115,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "p"
         },
         {
-          "line": 114,
+          "line": 115,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "No UTS #39 mapping is listed for this character."
         },
         {
-          "line": 116,
+          "line": 117,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "p"
         },
         {
-          "line": 116,
+          "line": 117,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": " ("
         },
         {
-          "line": 116,
+          "line": 117,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": ") → "
         },
         {
-          "line": 116,
+          "line": 117,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": " ("
         },
         {
-          "line": 116,
+          "line": 117,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": ")"
         },
         {
-          "line": 116,
+          "line": 117,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": " "
         },
         {
-          "line": 116,
+          "line": 117,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "mono mapping-value"
         },
         {
-          "line": 117,
+          "line": 118,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "p"
         },
         {
-          "line": 117,
+          "line": 118,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "This mapping is used to compare visual similarities. It does not establish that characters occupy corresponding positions in two hostnames."
         },
         {
-          "line": 118,
+          "line": 119,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "details"
         },
         {
-          "line": 118,
+          "line": 119,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "disclosure observation"
         },
         {
-          "line": 118,
+          "line": 119,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "summary"
         },
         {
-          "line": 118,
+          "line": 119,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "Mapped character names"
         },
         {
-          "line": 118,
+          "line": 119,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "p"
         },
         {
-          "line": 118,
+          "line": 119,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "category-body mono small"
         },
         {
-          "line": 122,
+          "line": 123,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "details"
         },
         {
-          "line": 122,
+          "line": 123,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "disclosure observation"
         },
         {
-          "line": 122,
+          "line": 123,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "summary"
         },
         {
-          "line": 122,
+          "line": 123,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "Related comparison characters"
         },
         {
-          "line": 122,
+          "line": 123,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "p"
         },
         {
-          "line": 122,
+          "line": 123,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "\\n"
         },
         {
-          "line": 122,
+          "line": 123,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "category-body mono small"
         },
         {
-          "line": 122,
+          "line": 123,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "p"
         },
         {
-          "line": 122,
+          "line": 123,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "These characters share comparison data. Their positions have not been matched."
         },
         {
-          "line": 122,
+          "line": 123,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "category-body small"
         },
         {
-          "line": 123,
+          "line": 124,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "p"
         },
         {
-          "line": 123,
+          "line": 124,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "No individual character match was established. Whole-hostname resemblance is a separate comparison."
         },
         {
-          "line": 125,
+          "line": 126,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "details"
         },
         {
-          "line": 125,
+          "line": 126,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "disclosure observation raw-character"
         },
         {
-          "line": 125,
+          "line": 126,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "summary"
         },
         {
-          "line": 125,
+          "line": 126,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "Raw character data"
         },
         {
-          "line": 127,
+          "line": 128,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "pre"
         },
         {
-          "line": 127,
+          "line": 128,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "category-body mono small"
         },
         {
-          "line": 128,
+          "line": 129,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "Actual Hostname"
         },
         {
-          "line": 128,
+          "line": 129,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "ASCII / Punycode"
         },
         {
-          "line": 131,
+          "line": 132,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "Unicode character"
         },
         {
-          "line": 131,
+          "line": 132,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "character"
         },
         {
-          "line": 131,
+          "line": 132,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": " identified."
         },
         {
-          "line": 131,
+          "line": 132,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": " Showing "
         },
         {
-          "line": 131,
+          "line": 132,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": " of "
         },
         {
-          "line": 131,
+          "line": 132,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "."
         },
         {
-          "line": 131,
+          "line": 132,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "hidden"
         },
         {
-          "line": 133,
+          "line": 134,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "click"
         },
         {
-          "line": 136,
+          "line": 137,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "No saved reference domains were used for this inspection."
         },
         {
-          "line": 138,
+          "line": 139,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "exact"
         },
         {
-          "line": 138,
+          "line": 139,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "Matches"
         },
         {
-          "line": 138,
+          "line": 139,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "subdomains"
         },
         {
-          "line": 138,
+          "line": 139,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "Subdomain of"
         },
         {
-          "line": 138,
+          "line": 139,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "embedded"
         },
         {
-          "line": 138,
+          "line": 139,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "Contains the name"
         },
         {
-          "line": 138,
+          "line": 139,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "visual"
         },
         {
-          "line": 138,
+          "line": 139,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "May look like"
         },
         {
-          "line": 138,
+          "line": 139,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "spelling"
         },
         {
-          "line": 138,
+          "line": 139,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "Similar spelling to"
         },
         {
-          "line": 138,
+          "line": 139,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": ", "
         },
         {
-          "line": 138,
+          "line": 139,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": " "
         },
         {
-          "line": 138,
+          "line": 139,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "embedded"
         },
         {
-          "line": 138,
+          "line": 139,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": " inside a different hostname"
         },
         {
-          "line": 138,
+          "line": 139,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "; "
         },
         {
-          "line": 138,
+          "line": 139,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "more match"
         },
         {
-          "line": 138,
+          "line": 139,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "more matches"
         },
         {
-          "line": 138,
+          "line": 139,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": " in Technical Details"
         },
         {
-          "line": 138,
+          "line": 139,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "."
-        },
-        {
-          "line": 139,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": " "
-        },
-        {
-          "line": 139,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": " Some visual comparisons are unavailable."
         },
         {
           "line": 140,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "No exact reference match was found. Some visual comparisons are unavailable."
+          "text": " "
+        },
+        {
+          "line": 140,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": " Some visual comparisons are unavailable."
         },
         {
           "line": 141,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "No exact reference match was found. Some visual comparisons are unavailable."
+        },
+        {
+          "line": 142,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "The saved reference did not produce a supported match."
         },
         {
-          "line": 141,
+          "line": 142,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "None of the "
         },
         {
-          "line": 141,
+          "line": 142,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": " saved references produced a supported match."
         },
         {
-          "line": 144,
+          "line": 145,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "div"
         },
         {
-          "line": 144,
+          "line": 145,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "comparison-evidence"
         },
         {
-          "line": 144,
+          "line": 145,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "div"
         },
         {
-          "line": 144,
+          "line": 145,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "row"
         },
         {
-          "line": 144,
+          "line": 145,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "div"
         },
         {
-          "line": 144,
+          "line": 145,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "Compared with"
         },
         {
-          "line": 144,
+          "line": 145,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "value mono"
         },
         {
-          "line": 144,
+          "line": 145,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "value"
         },
         {
-          "line": 145,
+          "line": 146,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "Comparison source"
         },
         {
-          "line": 145,
+          "line": 146,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "Compared with"
         },
         {
-          "line": 145,
+          "line": 146,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "Result"
         },
         {
-          "line": 147,
+          "line": 148,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "Relevant substitution"
         },
         {
-          "line": 147,
+          "line": 148,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "“"
         },
         {
-          "line": 147,
+          "line": 148,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "” may resemble “"
         },
         {
-          "line": 147,
+          "line": 148,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "” in some fonts."
         },
         {
-          "line": 150,
+          "line": 151,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "Relevant character"
         },
         {
-          "line": 150,
+          "line": 151,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": " "
         },
         {
-          "line": 150,
+          "line": 151,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": " ("
         },
         {
-          "line": 150,
+          "line": 151,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": ") resembles "
         },
         {
-          "line": 150,
+          "line": 151,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": " "
         },
         {
-          "line": 150,
+          "line": 151,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": " ("
         },
         {
-          "line": 150,
+          "line": 151,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": ")."
         },
         {
-          "line": 152,
+          "line": 153,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "details"
         },
         {
-          "line": 152,
+          "line": 153,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "disclosure observation"
         },
         {
-          "line": 152,
+          "line": 153,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "summary"
         },
         {
-          "line": 152,
+          "line": 153,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "p"
         },
         {
-          "line": 152,
+          "line": 153,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "category-body small"
         },
         {
-          "line": 153,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "details"
-        },
-        {
-          "line": 153,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "disclosure observation"
-        },
-        {
-          "line": 153,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "summary"
-        },
-        {
-          "line": 153,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Technical comparison data"
-        },
-        {
-          "line": 153,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "p"
-        },
-        {
-          "line": 153,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Method: "
-        },
-        {
-          "line": 153,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "hostname identity / spelling"
-        },
-        {
-          "line": 153,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "\\nLabel classifications: "
-        },
-        {
-          "line": 153,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": ", "
-        },
-        {
-          "line": 153,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "\\nEdit distance: "
-        },
-        {
-          "line": 153,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "\\nVisual comparison: "
-        },
-        {
-          "line": 153,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "unavailable"
-        },
-        {
-          "line": 153,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "not performed (exact hostname match)"
-        },
-        {
-          "line": 153,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "supported resemblance"
-        },
-        {
-          "line": 153,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "no supported visual resemblance"
-        },
-        {
-          "line": 153,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "unavailable"
-        },
-        {
-          "line": 153,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "category-body mono small"
-        },
-        {
-          "line": 155,
+          "line": 157,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "referenceCandidates"
         },
         {
-          "line": 158,
+          "line": 161,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "results"
+          "text": "attributionEvidence"
         },
         {
-          "line": 158,
+          "line": 161,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "attributionEvidence"
+        },
+        {
+          "line": 161,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "hidden"
         },
         {
-          "line": 158,
+          "line": 161,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "messages"
+          "text": "attributionNotice"
         },
         {
-          "line": 158,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "rawRecords"
-        },
-        {
-          "line": 158,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "coloredHost"
-        },
-        {
-          "line": 158,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "chars"
-        },
-        {
-          "line": 158,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "originalChars"
-        },
-        {
-          "line": 158,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "supporting"
-        },
-        {
-          "line": 158,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "relevantSubstitutions"
-        },
-        {
-          "line": 158,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "referenceCandidates"
-        },
-        {
-          "line": 158,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "asciiObservations"
-        },
-        {
-          "line": 159,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "ascii"
-        },
-        {
-          "line": 159,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "unicode"
-        },
-        {
-          "line": 159,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "original"
-        },
-        {
-          "line": 159,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "decodedOriginal"
-        },
-        {
-          "line": 159,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "normalized"
-        },
-        {
-          "line": 159,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "scripts"
-        },
-        {
-          "line": 159,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "scheme"
-        },
-        {
-          "line": 159,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "port"
-        },
-        {
-          "line": 159,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "path"
-        },
-        {
-          "line": 159,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "query"
-        },
-        {
-          "line": 159,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "fragment"
-        },
-        {
-          "line": 159,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "compare"
-        },
-        {
-          "line": 159,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "comparisonResult"
-        },
-        {
-          "line": 159,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "referenceComparison"
-        },
-        {
-          "line": 159,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "—"
-        },
-        {
-          "line": 160,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "compare"
-        },
-        {
-          "line": 160,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "value mono"
-        },
-        {
-          "line": 160,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "comparisonResult"
-        },
-        {
-          "line": 160,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "value"
-        },
-        {
-          "line": 162,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "inspectionError"
-        },
-        {
-          "line": 162,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "link"
-        },
-        {
-          "line": 162,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "expectedError"
-        },
-        {
-          "line": 162,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "expected"
-        },
-        {
-          "line": 163,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "primary"
-        },
-        {
-          "line": 163,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "primaryTitle"
-        },
-        {
-          "line": 163,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "primaryDetail"
-        },
-        {
-          "line": 164,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "raw"
-        },
-        {
-          "line": 164,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "\\n[Display shortened. The full original URL remains in the input field.]"
-        },
-        {
-          "line": 165,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "attributionRaw"
-        },
-        {
-          "line": 165,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "No original hostname was identified."
-        },
-        {
-          "line": 166,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "rawDiagnostics"
-        },
-        {
-          "line": 166,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "rawDiagnostics"
-        },
-        {
-          "line": 166,
+          "line": 161,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "hidden"
+        },
+        {
+          "line": 162,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "attributionNotice"
+        },
+        {
+          "line": 162,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "The hostname shown above is unverified. It could not be reliably established from the original URL."
+        },
+        {
+          "line": 162,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "The original hostname could not be established reliably. Check the original URL and parsed hostname values, if available."
+        },
+        {
+          "line": 164,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "No unambiguous HTTP(S) authority prefix."
+        },
+        {
+          "line": 164,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "A clear HTTP or HTTPS address prefix could not be identified."
+        },
+        {
+          "line": 165,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Extra authority slashes or backslashes prevent reliable original-host attribution."
+        },
+        {
+          "line": 165,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Extra slashes or backslashes make the start of the hostname ambiguous."
+        },
+        {
+          "line": 166,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Malformed bracketed IPv6 authority."
+        },
+        {
+          "line": 166,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "The bracketed IP address or the text following it is incomplete or malformed."
+        },
+        {
+          "line": 167,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Unbalanced hostname brackets."
+        },
+        {
+          "line": 167,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "The hostname brackets do not form a matching pair."
         },
         {
           "line": 168,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "visual"
+          "text": "Unbracketed IPv6 or multiple port delimiters."
+        },
+        {
+          "line": 168,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "The hostname contains ambiguous colons. An IPv6 address must use brackets."
         },
         {
           "line": 169,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "original"
+          "text": "Invalid explicit port syntax."
         },
         {
           "line": 169,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "original"
+          "text": "The port after the hostname is not written as a valid number."
         },
         {
-          "line": 169,
+          "line": 170,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "The original hostname could not be identified with certainty. See the technical evidence."
+          "text": "Source offsets could not be reconstructed."
         },
         {
-          "line": 169,
+          "line": 170,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "decodedOriginal"
-        },
-        {
-          "line": 169,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Could not be decoded"
-        },
-        {
-          "line": 169,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": " (unverified)"
+          "text": "The hostname could not be traced reliably to its position in the original URL."
         },
         {
           "line": 171,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "originalChars"
+          "text": "Malformed percent encoding in candidate hostname."
+        },
+        {
+          "line": 171,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "The possible hostname contains incomplete or invalid percent encoding."
         },
         {
           "line": 172,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "originalCharacterGroup"
+          "text": "Candidate hostname only: browser rejected the URL; destination and normalization are unverified."
         },
         {
           "line": 172,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "hidden"
+          "text": "Your browser rejected this URL. The possible hostname and its normalization have not been verified."
         },
         {
           "line": 173,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "readableCharacterGroup"
+          "text": "Extracted hostname did not agree with the browser parser."
         },
         {
           "line": 173,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "hidden"
-        },
-        {
-          "line": 174,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "asciiDetails"
-        },
-        {
-          "line": 174,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "neutralSlot"
+          "text": "The extracted hostname did not match the hostname read by your browser."
         },
         {
           "line": 175,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "asciiSummary"
+          "text": "attributionReason"
         },
         {
           "line": 175,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "ASCII lookalike observations"
+          "text": "Inspection failed before hostname extraction could be verified. Check the input and try again."
+        },
+        {
+          "line": 175,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "No reliable hostname extraction record was produced."
         },
         {
           "line": 176,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "asciiDetails"
-        },
-        {
-          "line": 176,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "hidden"
-        },
-        {
-          "line": 177,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "ascii"
-        },
-        {
-          "line": 177,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "normalized"
-        },
-        {
-          "line": 177,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "unicode"
-        },
-        {
-          "line": 177,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "coloredHost"
-        },
-        {
-          "line": 177,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "chars"
-        },
-        {
-          "line": 178,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "scripts"
-        },
-        {
-          "line": 178,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": ", "
-        },
-        {
-          "line": 178,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Shared characters; no specific writing system"
-        },
-        {
-          "line": 179,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "coloredHost"
-        },
-        {
-          "line": 179,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "The encoded hostname could not be validated. Use the ASCII form above."
-        },
-        {
-          "line": 179,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "unicode"
-        },
-        {
-          "line": 179,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Unavailable: encoded hostname validation failed."
-        },
-        {
-          "line": 179,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "scripts"
-        },
-        {
-          "line": 179,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Unavailable"
-        },
-        {
-          "line": 179,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "chars"
-        },
-        {
-          "line": 180,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "scheme"
-        },
-        {
-          "line": 180,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": " (HTTPS assumed; no scheme was entered)"
-        },
-        {
-          "line": 180,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "port"
-        },
-        {
-          "line": 180,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Default (input "
-        },
-        {
-          "line": 180,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "; omitted by the browser)"
-        },
-        {
-          "line": 180,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Default (not specified)"
-        },
-        {
-          "line": 180,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "path"
-        },
-        {
-          "line": 180,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "/"
-        },
-        {
-          "line": 180,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "query"
-        },
-        {
-          "line": 180,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "None"
-        },
-        {
-          "line": 180,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "fragment"
-        },
-        {
-          "line": 180,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "None"
-        },
-        {
-          "line": 181,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "compare"
-        },
-        {
-          "line": 181,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Could not be checked"
-        },
-        {
-          "line": 181,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "comparisonResult"
-        },
-        {
-          "line": 181,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Correct the expected hostname above to compare it."
-        },
-        {
-          "line": 181,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "comparisonResult"
-        },
-        {
-          "line": 181,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "value warn"
-        },
-        {
-          "line": 182,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "compare"
-        },
-        {
-          "line": 182,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "comparisonResult"
-        },
-        {
-          "line": 182,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Exact hostname match"
-        },
-        {
-          "line": 182,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Exact hostname mismatch"
-        },
-        {
-          "line": 182,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": " · Potential visual impersonation"
-        },
-        {
-          "line": 182,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "spelling"
-        },
-        {
-          "line": 182,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": " · Ordinary spelling similarity"
-        },
-        {
-          "line": 182,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": " · Visual comparison unavailable"
-        },
-        {
-          "line": 182,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "comparisonResult"
-        },
-        {
-          "line": 182,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "value "
-        },
-        {
-          "line": 182,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "good"
-        },
-        {
-          "line": 182,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "bad"
-        },
-        {
-          "line": 183,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "compare"
-        },
-        {
-          "line": 183,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Not provided"
-        },
-        {
-          "line": 183,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "comparisonResult"
-        },
-        {
-          "line": 183,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Saved reference comparison shown below"
-        },
-        {
-          "line": 183,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "No expected hostname entered"
-        },
-        {
-          "line": 185,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "referenceComparison"
-        },
-        {
-          "line": 185,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "saved reference"
-        },
-        {
-          "line": 185,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": " checked separately. Your expected hostname takes priority."
-        },
-        {
-          "line": 185,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "No saved reference domains were used for this inspection."
-        },
-        {
-          "line": 186,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "visual"
-        },
-        {
-          "line": 186,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "relevantSubstitutions"
-        },
-        {
-          "line": 186,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "li"
-        },
-        {
-          "line": 186,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "“"
-        },
-        {
-          "line": 186,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "” may resemble “"
-        },
-        {
-          "line": 186,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "” in some fonts."
-        },
-        {
-          "line": 187,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "supporting"
-        },
-        {
-          "line": 187,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "li"
-        },
-        {
-          "line": 188,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "subdomain"
-        },
-        {
-          "line": 188,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "subdomains"
-        },
-        {
-          "line": 188,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "deceptive-subdomain"
-        },
-        {
-          "line": 188,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "embedded"
-        },
-        {
-          "line": 188,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Your expected hostname (manual; primary)"
-        },
-        {
-          "line": 188,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "referenceCandidates"
-        },
-        {
-          "line": 188,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "p"
-        },
-        {
-          "line": 188,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "No manual comparison: the expected hostname could not be checked."
-        },
-        {
-          "line": 189,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "exact"
-        },
-        {
-          "line": 189,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "subdomains"
-        },
-        {
-          "line": 189,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "embedded"
-        },
-        {
-          "line": 189,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "visual"
-        },
-        {
-          "line": 189,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "spelling"
-        },
-        {
-          "line": 189,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Saved reference domain"
-        },
-        {
-          "line": 189,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": " (secondary)"
-        },
-        {
-          "line": 190,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "referenceCandidates"
-        },
-        {
-          "line": 190,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "p"
-        },
-        {
-          "line": 190,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "No exact saved hostname match was found."
-        },
-        {
-          "line": 190,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "No saved reference domains were used for this inspection."
-        },
-        {
-          "line": 191,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "referenceCandidates"
-        },
-        {
-          "line": 191,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "p"
-        },
-        {
-          "line": 191,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "comparison-unavailable small warn"
-        },
-        {
-          "line": 192,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "asciiDetails"
-        },
-        {
-          "line": 192,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "hidden"
-        },
-        {
-          "line": 193,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "asciiObservations"
-        },
-        {
-          "line": 193,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "p"
-        },
-        {
-          "line": 193,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "“"
-        },
-        {
-          "line": 193,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "” may resemble “"
-        },
-        {
-          "line": 193,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "” in some fonts."
-        },
-        {
-          "line": 194,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "asciiObservations"
-        },
-        {
-          "line": 194,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "p"
-        },
-        {
-          "line": 194,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "asciiObservations"
-        },
-        {
-          "line": 195,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "asciiObservations"
-        },
-        {
-          "line": 195,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "p"
-        },
-        {
-          "line": 195,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "All observations and their locations are retained in the Full Diagnostic Log."
-        },
-        {
-          "line": 195,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "small"
-        },
-        {
-          "line": 198,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "expected"
-        },
-        {
-          "line": 199,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "link"
-        },
-        {
-          "line": 200,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "rawDiagnostics"
-        },
-        {
-          "line": 200,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "rawDiagnostics"
-        },
-        {
-          "line": 200,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "hidden"
-        },
-        {
-          "line": 200,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "results"
-        },
-        {
-          "line": 200,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "hidden"
-        },
-        {
-          "line": 200,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "messages"
-        },
-        {
-          "line": 200,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "rawRecords"
-        },
-        {
-          "line": 200,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "coloredHost"
-        },
-        {
-          "line": 200,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "chars"
-        },
-        {
-          "line": 200,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "originalChars"
-        },
-        {
-          "line": 200,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "supporting"
-        },
-        {
-          "line": 200,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "relevantSubstitutions"
-        },
-        {
-          "line": 200,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "referenceCandidates"
-        },
-        {
-          "line": 200,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "asciiObservations"
-        },
-        {
-          "line": 200,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "ascii"
-        },
-        {
-          "line": 200,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "unicode"
-        },
-        {
-          "line": 200,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "original"
-        },
-        {
-          "line": 200,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "decodedOriginal"
-        },
-        {
-          "line": 200,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "normalized"
-        },
-        {
-          "line": 200,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "scripts"
-        },
-        {
-          "line": 200,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "scheme"
-        },
-        {
-          "line": 200,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "port"
-        },
-        {
-          "line": 200,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "path"
-        },
-        {
-          "line": 200,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "query"
-        },
-        {
-          "line": 200,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "fragment"
-        },
-        {
-          "line": 200,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "compare"
-        },
-        {
-          "line": 200,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "comparisonResult"
-        },
-        {
-          "line": 200,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "referenceComparison"
-        },
-        {
-          "line": 200,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "—"
-        },
-        {
-          "line": 200,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "raw"
-        },
-        {
-          "line": 200,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "link"
-        },
-        {
-          "line": 200,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "link"
-        },
-        {
-          "line": 200,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "\\n[Display shortened. The full original URL remains in the input field.]"
-        },
-        {
-          "line": 200,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "attributionRaw"
         },
         {
-          "line": 200,
+          "line": 176,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Original hostname evidence is unavailable because inspection failed."
+          "text": "No hostname extraction object was produced."
         },
         {
-          "line": 200,
+          "line": 179,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "asciiDetails"
+          "text": "results"
         },
         {
-          "line": 200,
+          "line": 179,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "hidden"
         },
         {
-          "line": 200,
+          "line": 179,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "primaryTitle"
+          "text": "messages"
         },
         {
-          "line": 200,
+          "line": 179,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Inspection could not be completed"
+          "text": "rawRecords"
         },
         {
-          "line": 200,
+          "line": 179,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "primaryDetail"
+          "text": "coloredHost"
         },
         {
-          "line": 200,
+          "line": 179,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "No result is available. Check the input and try again."
+          "text": "chars"
         },
         {
-          "line": 200,
+          "line": 179,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "originalChars"
+        },
+        {
+          "line": 179,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "supporting"
+        },
+        {
+          "line": 179,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "relevantSubstitutions"
+        },
+        {
+          "line": 179,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "referenceCandidates"
+        },
+        {
+          "line": 179,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "asciiObservations"
+        },
+        {
+          "line": 180,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "ascii"
+        },
+        {
+          "line": 180,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "unicode"
+        },
+        {
+          "line": 180,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "original"
+        },
+        {
+          "line": 180,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "decodedOriginal"
+        },
+        {
+          "line": 180,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "normalized"
+        },
+        {
+          "line": 180,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "scripts"
+        },
+        {
+          "line": 180,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "scheme"
+        },
+        {
+          "line": 180,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "port"
+        },
+        {
+          "line": 180,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "path"
+        },
+        {
+          "line": 180,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "query"
+        },
+        {
+          "line": 180,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "fragment"
+        },
+        {
+          "line": 180,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "compare"
+        },
+        {
+          "line": 180,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "comparisonResult"
+        },
+        {
+          "line": 180,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "referenceComparison"
+        },
+        {
+          "line": 180,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "—"
+        },
+        {
+          "line": 181,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "compare"
+        },
+        {
+          "line": 181,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "value mono"
+        },
+        {
+          "line": 181,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "comparisonResult"
+        },
+        {
+          "line": 181,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "value"
+        },
+        {
+          "line": 183,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "inspectionError"
         },
         {
-          "line": 200,
+          "line": 183,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "link"
         },
         {
-          "line": 200,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Inspection could not be completed. Your original text is still in the input field."
-        },
-        {
-          "line": 200,
+          "line": 183,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "expectedError"
         },
         {
-          "line": 200,
+          "line": 183,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "expected"
         },
         {
-          "line": 200,
+          "line": 184,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "primary"
         },
         {
-          "line": 200,
+          "line": 184,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "error"
+          "text": "primaryTitle"
         },
         {
-          "line": 202,
+          "line": 184,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "importReview"
+          "text": "primaryDetail"
         },
         {
-          "line": 202,
+          "line": 185,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "hidden"
+          "text": "raw"
         },
         {
-          "line": 202,
+          "line": 185,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "importFile"
+          "text": "\\n[Display shortened. The full original URL remains in the input field.]"
         },
         {
-          "line": 204,
+          "line": 187,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "referenceCount"
+          "text": "rawDiagnostics"
         },
         {
-          "line": 204,
+          "line": 187,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "browser"
+          "text": "rawDiagnostics"
         },
         {
-          "line": 204,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": " saved"
-        },
-        {
-          "line": 204,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": " in this tab"
-        },
-        {
-          "line": 204,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "browser"
-        },
-        {
-          "line": 204,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "storageStatus"
-        },
-        {
-          "line": 204,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "protectedStorageHelp"
-        },
-        {
-          "line": 204,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Export Backup saves the list shown in this tab, not the different saved copy. Review that copy before choosing Replace or Clear."
-        },
-        {
-          "line": 204,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Export Backup saves only the readable list shown here. It cannot preserve unreadable saved data. If you need that data, copy the original storage record in browser developer tools before choosing Replace or Clear."
-        },
-        {
-          "line": 204,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "protectedStorageHelp"
-        },
-        {
-          "line": 204,
+          "line": 187,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "hidden"
         },
         {
-          "line": 204,
+          "line": 189,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "storageStatus"
+          "text": "visual"
         },
         {
-          "line": 204,
+          "line": 190,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "browser"
+          "text": "original"
         },
         {
-          "line": 204,
+          "line": 190,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Reference schema migrated"
+          "text": "original"
         },
         {
-          "line": 204,
+          "line": 190,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "success"
+          "text": "The original hostname could not be identified with certainty. See the technical evidence."
         },
         {
-          "line": 204,
+          "line": 190,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "information"
+          "text": "decodedOriginal"
         },
         {
-          "line": 204,
+          "line": 190,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "error"
+          "text": "Could not be decoded"
         },
         {
-          "line": 204,
+          "line": 190,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "caution"
+          "text": " (unverified)"
         },
         {
-          "line": 204,
+          "line": 192,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "storageStatus"
+          "text": "originalChars"
         },
         {
-          "line": 204,
+          "line": 193,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "browser"
+          "text": "originalCharacterGroup"
         },
         {
-          "line": 204,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "small"
-        },
-        {
-          "line": 204,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "small warn"
-        },
-        {
-          "line": 204,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "referenceList"
-        },
-        {
-          "line": 205,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "li"
-        },
-        {
-          "line": 205,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "div"
-        },
-        {
-          "line": 205,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "ref-name"
-        },
-        {
-          "line": 205,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "span"
-        },
-        {
-          "line": 205,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "mono"
-        },
-        {
-          "line": 205,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "span"
-        },
-        {
-          "line": 205,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "mono small"
-        },
-        {
-          "line": 205,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "span"
-        },
-        {
-          "line": 205,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Single-label hostname · Exact matches only"
-        },
-        {
-          "line": 205,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "IP address · Exact matches only"
-        },
-        {
-          "line": 205,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "small"
-        },
-        {
-          "line": 206,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "button"
-        },
-        {
-          "line": 206,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Edit"
-        },
-        {
-          "line": 206,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "ghost"
-        },
-        {
-          "line": 206,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "button"
-        },
-        {
-          "line": 206,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Remove"
-        },
-        {
-          "line": 206,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "ghost"
-        },
-        {
-          "line": 206,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "button"
-        },
-        {
-          "line": 206,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "aria-label"
-        },
-        {
-          "line": 206,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Edit reference "
-        },
-        {
-          "line": 206,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "aria-label"
-        },
-        {
-          "line": 206,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Remove reference "
-        },
-        {
-          "line": 207,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "click"
-        },
-        {
-          "line": 207,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "referenceInput"
-        },
-        {
-          "line": 207,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "referenceLabel"
-        },
-        {
-          "line": 207,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Edit reference hostname"
-        },
-        {
-          "line": 207,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "saveReference"
-        },
-        {
-          "line": 207,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Save edit"
-        },
-        {
-          "line": 207,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "cancelEdit"
-        },
-        {
-          "line": 207,
+          "line": 193,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "hidden"
         },
         {
-          "line": 207,
+          "line": 194,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "referenceInput"
+          "text": "readableCharacterGroup"
         },
         {
-          "line": 208,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "click"
-        },
-        {
-          "line": 208,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Reference removed."
-        },
-        {
-          "line": 208,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "referenceList"
-        },
-        {
-          "line": 210,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "referenceList"
-        },
-        {
-          "line": 210,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "li"
-        },
-        {
-          "line": 210,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "No reference domains saved yet."
-        },
-        {
-          "line": 210,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "small"
-        },
-        {
-          "line": 213,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "referenceInput"
-        },
-        {
-          "line": 213,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "referenceLabel"
-        },
-        {
-          "line": 213,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Add a reference hostname"
-        },
-        {
-          "line": 213,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "saveReference"
-        },
-        {
-          "line": 213,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Add"
-        },
-        {
-          "line": 213,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "cancelEdit"
-        },
-        {
-          "line": 213,
+          "line": 194,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "hidden"
         },
         {
-          "line": 214,
+          "line": 195,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "."
+          "text": "asciiDetails"
         },
         {
-          "line": 214,
+          "line": 195,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "["
+          "text": "neutralSlot"
         },
         {
-          "line": 218,
+          "line": 196,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "referenceInput"
+          "text": "asciiSummary"
         },
         {
-          "line": 219,
+          "line": 196,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "That normalized hostname is already in Reference Domains."
+          "text": "ASCII lookalike observations"
         },
         {
-          "line": 220,
+          "line": 197,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "The reference list is limited to "
+          "text": "asciiDetails"
         },
         {
-          "line": 220,
+          "line": 197,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": " entries."
+          "text": "hidden"
         },
         {
-          "line": 221,
+          "line": 198,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Is This Hostname Complete?"
+          "text": "ascii"
         },
         {
-          "line": 221,
+          "line": 198,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "You entered “"
+          "text": "normalized"
         },
         {
-          "line": 221,
+          "line": 198,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "”, which has no domain suffix.\\n\\nIf you intended a public website, enter its complete hostname. Single-label names are also valid on some private networks, but they can only be matched exactly."
+          "text": "unicode"
         },
         {
-          "line": 221,
+          "line": 198,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Edit Hostname"
+          "text": "coloredHost"
         },
         {
-          "line": 221,
+          "line": 198,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Save as Entered"
+          "text": "chars"
         },
         {
-          "line": 221,
+          "line": 199,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Add as Entered"
+          "text": "scripts"
         },
         {
-          "line": 221,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "referenceInput"
-        },
-        {
-          "line": 223,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Reference updated."
-        },
-        {
-          "line": 223,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Reference added."
-        },
-        {
-          "line": 224,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "hostname"
-        },
-        {
-          "line": 226,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "importReplace"
-        },
-        {
-          "line": 226,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "replace"
-        },
-        {
-          "line": 226,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "merge"
-        },
-        {
-          "line": 229,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "importPreviewTitle"
-        },
-        {
-          "line": 229,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "importSummary"
-        },
-        {
-          "line": 229,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "importSummary"
-        },
-        {
-          "line": 229,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "p"
-        },
-        {
-          "line": 229,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "importSummary"
-        },
-        {
-          "line": 229,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "p"
-        },
-        {
-          "line": 229,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "small"
-        },
-        {
-          "line": 230,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "importChanges"
-        },
-        {
-          "line": 230,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "To add"
-        },
-        {
-          "line": 230,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "To remove"
-        },
-        {
-          "line": 230,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "References after import"
-        },
-        {
-          "line": 230,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "div"
-        },
-        {
-          "line": 230,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "import-change-group"
-        },
-        {
-          "line": 230,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "h3"
-        },
-        {
-          "line": 230,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "div"
-        },
-        {
-          "line": 230,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "\\n"
-        },
-        {
-          "line": 230,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "None"
-        },
-        {
-          "line": 230,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "mono"
-        },
-        {
-          "line": 230,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "importChanges"
-        },
-        {
-          "line": 231,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "importSingleLabels"
-        },
-        {
-          "line": 231,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "single-label hostname"
-        },
-        {
-          "line": 231,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": " in this preview: "
-        },
-        {
-          "line": 231,
+          "line": 199,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": ", "
         },
         {
-          "line": 231,
+          "line": 199,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": ". "
+          "text": "Shared characters; no specific writing system"
         },
         {
-          "line": 231,
+          "line": 200,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "This name may identify a private-network service and can only be matched exactly."
+          "text": "coloredHost"
         },
         {
-          "line": 231,
+          "line": 200,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "These names may identify private-network services and can only be matched exactly."
+          "text": "The encoded hostname could not be validated. Use the ASCII form above."
         },
         {
-          "line": 231,
+          "line": 200,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "importSingleLabels"
+          "text": "unicode"
         },
         {
-          "line": 231,
+          "line": 200,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Unavailable: encoded hostname validation failed."
+        },
+        {
+          "line": 200,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "scripts"
+        },
+        {
+          "line": 200,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Unavailable"
+        },
+        {
+          "line": 200,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "chars"
+        },
+        {
+          "line": 201,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "scheme"
+        },
+        {
+          "line": 201,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": " (HTTPS assumed; no scheme was entered)"
+        },
+        {
+          "line": 201,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "port"
+        },
+        {
+          "line": 201,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Default (input "
+        },
+        {
+          "line": 201,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "; omitted by the browser)"
+        },
+        {
+          "line": 201,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Default (not specified)"
+        },
+        {
+          "line": 201,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "path"
+        },
+        {
+          "line": 201,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "/"
+        },
+        {
+          "line": 201,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "query"
+        },
+        {
+          "line": 201,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "None"
+        },
+        {
+          "line": 201,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "fragment"
+        },
+        {
+          "line": 201,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "None"
+        },
+        {
+          "line": 202,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "compare"
+        },
+        {
+          "line": 202,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Could not be checked"
+        },
+        {
+          "line": 202,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "comparisonResult"
+        },
+        {
+          "line": 202,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Correct the expected hostname above to compare it."
+        },
+        {
+          "line": 202,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "comparisonResult"
+        },
+        {
+          "line": 202,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "value warn"
+        },
+        {
+          "line": 203,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "compare"
+        },
+        {
+          "line": 203,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "comparisonResult"
+        },
+        {
+          "line": 203,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Exact hostname match"
+        },
+        {
+          "line": 203,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Exact hostname mismatch"
+        },
+        {
+          "line": 203,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": " · Potential visual impersonation"
+        },
+        {
+          "line": 203,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "spelling"
+        },
+        {
+          "line": 203,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": " · Ordinary spelling similarity"
+        },
+        {
+          "line": 203,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": " · Visual comparison unavailable"
+        },
+        {
+          "line": 203,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "comparisonResult"
+        },
+        {
+          "line": 203,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "value "
+        },
+        {
+          "line": 203,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "good"
+        },
+        {
+          "line": 203,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "bad"
+        },
+        {
+          "line": 204,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "compare"
+        },
+        {
+          "line": 204,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Not provided"
+        },
+        {
+          "line": 204,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "comparisonResult"
+        },
+        {
+          "line": 204,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Saved reference comparison shown below"
+        },
+        {
+          "line": 204,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "No expected hostname entered"
+        },
+        {
+          "line": 206,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "referenceComparison"
+        },
+        {
+          "line": 206,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "saved reference"
+        },
+        {
+          "line": 206,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": " checked separately. Your expected hostname takes priority."
+        },
+        {
+          "line": 206,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "No saved reference domains were used for this inspection."
+        },
+        {
+          "line": 207,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "visual"
+        },
+        {
+          "line": 207,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "relevantSubstitutions"
+        },
+        {
+          "line": 207,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "li"
+        },
+        {
+          "line": 207,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "“"
+        },
+        {
+          "line": 207,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "” may resemble “"
+        },
+        {
+          "line": 207,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "” in some fonts."
+        },
+        {
+          "line": 208,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "supporting"
+        },
+        {
+          "line": 208,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "li"
+        },
+        {
+          "line": 209,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "subdomain"
+        },
+        {
+          "line": 209,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "subdomains"
+        },
+        {
+          "line": 209,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "deceptive-subdomain"
+        },
+        {
+          "line": 209,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "embedded"
+        },
+        {
+          "line": 209,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Your expected hostname (manual; primary)"
+        },
+        {
+          "line": 209,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "referenceCandidates"
+        },
+        {
+          "line": 209,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "p"
+        },
+        {
+          "line": 209,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "No manual comparison: the expected hostname could not be checked."
+        },
+        {
+          "line": 210,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "exact"
+        },
+        {
+          "line": 210,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "subdomains"
+        },
+        {
+          "line": 210,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "embedded"
+        },
+        {
+          "line": 210,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "visual"
+        },
+        {
+          "line": 210,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "spelling"
+        },
+        {
+          "line": 210,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Saved reference domain"
+        },
+        {
+          "line": 210,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": " (secondary)"
+        },
+        {
+          "line": 211,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "referenceCandidates"
+        },
+        {
+          "line": 211,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "p"
+        },
+        {
+          "line": 211,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "No exact saved hostname match was found."
+        },
+        {
+          "line": 211,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "No saved reference domains were used for this inspection."
+        },
+        {
+          "line": 212,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "referenceCandidates"
+        },
+        {
+          "line": 212,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "p"
+        },
+        {
+          "line": 212,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "comparison-unavailable small warn"
+        },
+        {
+          "line": 213,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "asciiDetails"
+        },
+        {
+          "line": 213,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "hidden"
         },
         {
-          "line": 232,
+          "line": 214,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "asciiObservations"
+        },
+        {
+          "line": 214,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "p"
+        },
+        {
+          "line": 214,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "“"
+        },
+        {
+          "line": 214,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "” may resemble “"
+        },
+        {
+          "line": 214,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "” in some fonts."
+        },
+        {
+          "line": 215,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "asciiObservations"
+        },
+        {
+          "line": 215,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "p"
+        },
+        {
+          "line": 215,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "asciiObservations"
+        },
+        {
+          "line": 216,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "asciiObservations"
+        },
+        {
+          "line": 216,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "p"
+        },
+        {
+          "line": 216,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "All observations and their locations are retained in the Full Diagnostic Log."
+        },
+        {
+          "line": 216,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "small"
+        },
+        {
+          "line": 219,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "expected"
+        },
+        {
+          "line": 220,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "link"
+        },
+        {
+          "line": 221,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "rawDiagnostics"
+        },
+        {
+          "line": 221,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "rawDiagnostics"
+        },
+        {
+          "line": 221,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "hidden"
+        },
+        {
+          "line": 221,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "results"
+        },
+        {
+          "line": 221,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "hidden"
+        },
+        {
+          "line": 221,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "messages"
+        },
+        {
+          "line": 221,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "rawRecords"
+        },
+        {
+          "line": 221,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "coloredHost"
+        },
+        {
+          "line": 221,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "chars"
+        },
+        {
+          "line": 221,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "originalChars"
+        },
+        {
+          "line": 221,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "supporting"
+        },
+        {
+          "line": 221,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "relevantSubstitutions"
+        },
+        {
+          "line": 221,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "referenceCandidates"
+        },
+        {
+          "line": 221,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "asciiObservations"
+        },
+        {
+          "line": 221,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "ascii"
+        },
+        {
+          "line": 221,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "unicode"
+        },
+        {
+          "line": 221,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "original"
+        },
+        {
+          "line": 221,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "decodedOriginal"
+        },
+        {
+          "line": 221,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "normalized"
+        },
+        {
+          "line": 221,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "scripts"
+        },
+        {
+          "line": 221,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "scheme"
+        },
+        {
+          "line": 221,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "port"
+        },
+        {
+          "line": 221,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "path"
+        },
+        {
+          "line": 221,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "query"
+        },
+        {
+          "line": 221,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "fragment"
+        },
+        {
+          "line": 221,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "compare"
+        },
+        {
+          "line": 221,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "comparisonResult"
+        },
+        {
+          "line": 221,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "referenceComparison"
+        },
+        {
+          "line": 221,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "—"
+        },
+        {
+          "line": 221,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "raw"
+        },
+        {
+          "line": 221,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "link"
+        },
+        {
+          "line": 221,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "link"
+        },
+        {
+          "line": 221,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "\\n[Display shortened. The full original URL remains in the input field.]"
+        },
+        {
+          "line": 221,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "asciiDetails"
+        },
+        {
+          "line": 221,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "hidden"
+        },
+        {
+          "line": 221,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "primaryTitle"
+        },
+        {
+          "line": 221,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Inspection could not be completed"
+        },
+        {
+          "line": 221,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "primaryDetail"
+        },
+        {
+          "line": 221,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "No result is available. Check the input and try again."
+        },
+        {
+          "line": 221,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "inspectionError"
+        },
+        {
+          "line": 221,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "link"
+        },
+        {
+          "line": 221,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Inspection could not be completed. Your original text is still in the input field."
+        },
+        {
+          "line": 221,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "expectedError"
+        },
+        {
+          "line": 221,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "expected"
+        },
+        {
+          "line": 221,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "primary"
+        },
+        {
+          "line": 221,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "error"
+        },
+        {
+          "line": 223,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "importReview"
         },
         {
-          "line": 232,
+          "line": 223,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "hidden"
         },
         {
-          "line": 233,
+          "line": 223,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "importReview"
+          "text": "importFile"
         },
         {
-          "line": 233,
+          "line": 225,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "referenceCount"
+        },
+        {
+          "line": 225,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "browser"
+        },
+        {
+          "line": 225,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": " saved"
+        },
+        {
+          "line": 225,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": " in this tab"
+        },
+        {
+          "line": 225,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "browser"
+        },
+        {
+          "line": 225,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "storageStatus"
+        },
+        {
+          "line": 225,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "protectedStorageHelp"
+        },
+        {
+          "line": 225,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Export Backup saves the list shown in this tab, not the different saved copy. Review that copy before choosing Replace or Clear."
+        },
+        {
+          "line": 225,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Export Backup saves only the readable list shown here. It cannot preserve unreadable saved data. If you need that data, copy the original storage record in browser developer tools before choosing Replace or Clear."
+        },
+        {
+          "line": 225,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "protectedStorageHelp"
+        },
+        {
+          "line": 225,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "hidden"
         },
         {
-          "line": 233,
+          "line": 225,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "import"
+          "text": "storageStatus"
         },
         {
-          "line": 234,
+          "line": 225,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "importMerge"
+          "text": "browser"
         },
         {
-          "line": 234,
+          "line": 225,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "importReplace"
+          "text": "Reference schema migrated"
         },
         {
-          "line": 235,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "saveReference"
-        },
-        {
-          "line": 235,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "click"
-        },
-        {
-          "line": 235,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "referenceInput"
-        },
-        {
-          "line": 235,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "keydown"
-        },
-        {
-          "line": 235,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Enter"
-        },
-        {
-          "line": 235,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "cancelEdit"
-        },
-        {
-          "line": 235,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "click"
-        },
-        {
-          "line": 236,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "clearReferences"
-        },
-        {
-          "line": 236,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "click"
-        },
-        {
-          "line": 238,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Clear Reference Domains?"
-        },
-        {
-          "line": 238,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "This will clear your current reference list and, if storage is available, the saved list. You can restore references from an exported backup."
-        },
-        {
-          "line": 238,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "\\n\\nSaved data needs review. Export Backup keeps only the list shown here, not an unreadable or different saved copy. Preserve that copy separately before clearing it."
-        },
-        {
-          "line": 238,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Clear References"
-        },
-        {
-          "line": 239,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Reference list cleared."
-        },
-        {
-          "line": 239,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "backup"
-        },
-        {
-          "line": 240,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "hostname"
-        },
-        {
-          "line": 240,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "backup"
-        },
-        {
-          "line": 242,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "exportReferences"
-        },
-        {
-          "line": 242,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "click"
-        },
-        {
-          "line": 242,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "application/json"
-        },
-        {
-          "line": 242,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "a"
-        },
-        {
-          "line": 242,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "offline-url-inspector-references.json"
-        },
-        {
-          "line": 242,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Backup download prepared. Check your downloads to keep the file."
-        },
-        {
-          "line": 242,
+          "line": 225,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "success"
         },
         {
-          "line": 242,
+          "line": 225,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "backup"
+          "text": "information"
         },
         {
-          "line": 242,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "The backup download couldn't be created. Try exporting again before closing this tab."
-        },
-        {
-          "line": 242,
+          "line": 225,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "error"
         },
         {
-          "line": 242,
+          "line": 225,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "backup"
+          "text": "caution"
         },
         {
-          "line": 243,
+          "line": 225,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "importReferences"
+          "text": "storageStatus"
         },
         {
-          "line": 243,
+          "line": 225,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "browser"
+        },
+        {
+          "line": 225,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "small"
+        },
+        {
+          "line": 225,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "small warn"
+        },
+        {
+          "line": 225,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "referenceList"
+        },
+        {
+          "line": 226,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "li"
+        },
+        {
+          "line": 226,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "div"
+        },
+        {
+          "line": 226,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "ref-name"
+        },
+        {
+          "line": 226,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "span"
+        },
+        {
+          "line": 226,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "mono"
+        },
+        {
+          "line": 226,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "span"
+        },
+        {
+          "line": 226,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "mono small"
+        },
+        {
+          "line": 226,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "span"
+        },
+        {
+          "line": 226,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Single-label hostname · Exact matches only"
+        },
+        {
+          "line": 226,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "IP address · Exact matches only"
+        },
+        {
+          "line": 226,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "small"
+        },
+        {
+          "line": 227,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "button"
+        },
+        {
+          "line": 227,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Edit"
+        },
+        {
+          "line": 227,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "ghost"
+        },
+        {
+          "line": 227,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "button"
+        },
+        {
+          "line": 227,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Remove"
+        },
+        {
+          "line": 227,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "ghost"
+        },
+        {
+          "line": 227,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "button"
+        },
+        {
+          "line": 227,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "aria-label"
+        },
+        {
+          "line": 227,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Edit reference "
+        },
+        {
+          "line": 227,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "aria-label"
+        },
+        {
+          "line": 227,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Remove reference "
+        },
+        {
+          "line": 228,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "click"
         },
         {
-          "line": 243,
+          "line": 228,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "importFile"
+          "text": "referenceInput"
         },
         {
-          "line": 243,
+          "line": 228,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "importFile"
+          "text": "referenceLabel"
         },
         {
-          "line": 243,
+          "line": 228,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "change"
+          "text": "Edit reference hostname"
         },
         {
-          "line": 243,
+          "line": 228,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "importFile"
+          "text": "saveReference"
         },
         {
-          "line": 243,
+          "line": 228,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "This backup is too large. The maximum size is 128 KiB."
+          "text": "Save edit"
         },
         {
-          "line": 243,
+          "line": 228,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "error"
+          "text": "cancelEdit"
         },
         {
-          "line": 243,
+          "line": 228,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "backup"
+          "text": "hidden"
         },
         {
-          "line": 243,
+          "line": 228,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "This file couldn't be read. Choose the backup again; no import changes have been applied."
+          "text": "referenceInput"
         },
         {
-          "line": 243,
+          "line": 229,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "error"
+          "text": "click"
         },
         {
-          "line": 243,
+          "line": 229,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "backup"
+          "text": "Reference removed."
+        },
+        {
+          "line": 229,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "referenceList"
+        },
+        {
+          "line": 231,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "referenceList"
+        },
+        {
+          "line": 231,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "li"
+        },
+        {
+          "line": 231,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "No reference domains saved yet."
+        },
+        {
+          "line": 231,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "small"
+        },
+        {
+          "line": 234,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "referenceInput"
+        },
+        {
+          "line": 234,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "referenceLabel"
+        },
+        {
+          "line": 234,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Add a reference hostname"
+        },
+        {
+          "line": 234,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "saveReference"
+        },
+        {
+          "line": 234,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Add"
+        },
+        {
+          "line": 234,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "cancelEdit"
+        },
+        {
+          "line": 234,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "hidden"
+        },
+        {
+          "line": 235,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "."
+        },
+        {
+          "line": 235,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "["
+        },
+        {
+          "line": 239,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "referenceInput"
+        },
+        {
+          "line": 240,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "That normalized hostname is already in Reference Domains."
+        },
+        {
+          "line": 241,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "The reference list is limited to "
+        },
+        {
+          "line": 241,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": " entries."
+        },
+        {
+          "line": 242,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Is This Hostname Complete?"
+        },
+        {
+          "line": 242,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "You entered “"
+        },
+        {
+          "line": 242,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "”, which has no domain suffix.\\n\\nIf you intended a public website, enter its complete hostname. Single-label names are also valid on some private networks, but they can only be matched exactly."
+        },
+        {
+          "line": 242,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Edit Hostname"
+        },
+        {
+          "line": 242,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Save as Entered"
+        },
+        {
+          "line": 242,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Add as Entered"
+        },
+        {
+          "line": 242,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "referenceInput"
         },
         {
           "line": 244,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "importMerge"
+          "text": "Reference updated."
         },
         {
           "line": 244,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "change"
+          "text": "Reference added."
         },
         {
-          "line": 244,
+          "line": 245,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "hostname"
+        },
+        {
+          "line": 247,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "importReplace"
         },
         {
-          "line": 244,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "change"
-        },
-        {
-          "line": 244,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "cancelImport"
-        },
-        {
-          "line": 244,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "click"
-        },
-        {
-          "line": 244,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "importReferences"
-        },
-        {
-          "line": 245,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "applyImport"
-        },
-        {
-          "line": 245,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "click"
-        },
-        {
-          "line": 246,
+          "line": 247,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "replace"
         },
         {
-          "line": 248,
+          "line": 247,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Replace Reference Domains?"
-        },
-        {
-          "line": 248,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Replace your current list with the reviewed backup?\\nCurrent list: "
-        },
-        {
-          "line": 248,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "reference"
-        },
-        {
-          "line": 248,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "\\nAfter import: "
-        },
-        {
-          "line": 248,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "reference"
-        },
-        {
-          "line": 248,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "\\n\\n"
-        },
-        {
-          "line": 248,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "existing reference"
-        },
-        {
-          "line": 248,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": " will be removed."
-        },
-        {
-          "line": 248,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "No existing references will be removed."
-        },
-        {
-          "line": 248,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": " Keep an exported backup if you may need the old list."
-        },
-        {
-          "line": 248,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "\\n\\nSaved data needs review. Export Backup keeps only the list shown here, not an unreadable or different saved copy. Preserve that copy separately before replacing it."
-        },
-        {
-          "line": 248,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Replace References"
-        },
-        {
-          "line": 249,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "importReferences"
-        },
-        {
-          "line": 249,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Backup applied."
-        },
-        {
-          "line": 249,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "backup"
+          "text": "merge"
         },
         {
           "line": 250,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "import"
+          "text": "importPreviewTitle"
+        },
+        {
+          "line": 250,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "importSummary"
+        },
+        {
+          "line": 250,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "importSummary"
+        },
+        {
+          "line": 250,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "p"
+        },
+        {
+          "line": 250,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "importSummary"
+        },
+        {
+          "line": 250,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "p"
+        },
+        {
+          "line": 250,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "small"
+        },
+        {
+          "line": 251,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "importChanges"
+        },
+        {
+          "line": 251,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "To add"
+        },
+        {
+          "line": 251,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "To remove"
+        },
+        {
+          "line": 251,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "References after import"
+        },
+        {
+          "line": 251,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "div"
+        },
+        {
+          "line": 251,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "import-change-group"
+        },
+        {
+          "line": 251,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "h3"
+        },
+        {
+          "line": 251,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "div"
+        },
+        {
+          "line": 251,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "\\n"
+        },
+        {
+          "line": 251,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "None"
+        },
+        {
+          "line": 251,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "mono"
+        },
+        {
+          "line": 251,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "importChanges"
         },
         {
           "line": 252,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "inspect"
+          "text": "importSingleLabels"
         },
         {
           "line": 252,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "click"
+          "text": "single-label hostname"
+        },
+        {
+          "line": 252,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": " in this preview: "
+        },
+        {
+          "line": 252,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": ", "
+        },
+        {
+          "line": 252,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": ". "
+        },
+        {
+          "line": 252,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "This name may identify a private-network service and can only be matched exactly."
+        },
+        {
+          "line": 252,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "These names may identify private-network services and can only be matched exactly."
+        },
+        {
+          "line": 252,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "importSingleLabels"
+        },
+        {
+          "line": 252,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "hidden"
+        },
+        {
+          "line": 253,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "importReview"
+        },
+        {
+          "line": 253,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "hidden"
         },
         {
           "line": 254,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "keydown"
+          "text": "importReview"
+        },
+        {
+          "line": 254,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "hidden"
+        },
+        {
+          "line": 254,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "import"
         },
         {
           "line": 255,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "importMerge"
+        },
+        {
+          "line": 255,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "importReplace"
+        },
+        {
+          "line": 256,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "saveReference"
+        },
+        {
+          "line": 256,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "click"
+        },
+        {
+          "line": 256,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "referenceInput"
+        },
+        {
+          "line": 256,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "keydown"
+        },
+        {
+          "line": 256,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "Enter"
         },
         {
           "line": 256,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "importReview"
+          "text": "cancelEdit"
         },
         {
           "line": 256,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "hidden"
+          "text": "click"
         },
         {
-          "line": 256,
+          "line": 257,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "dialog[open], [role=\"dialog\"][aria-modal=\"true\"]"
+          "text": "clearReferences"
         },
         {
-          "line": 258,
+          "line": 257,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "#referencePanel"
-        },
-        {
-          "line": 258,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "[contenteditable]:not([contenteditable=\"false\"])"
+          "text": "click"
         },
         {
           "line": 259,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "input,textarea,select,button,a,summary"
+          "text": "Clear Reference Domains?"
+        },
+        {
+          "line": 259,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "This will clear your current reference list and, if storage is available, the saved list. You can restore references from an exported backup."
+        },
+        {
+          "line": 259,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "\\n\\nSaved data needs review. Export Backup keeps only the list shown here, not an unreadable or different saved copy. Preserve that copy separately before clearing it."
+        },
+        {
+          "line": 259,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Clear References"
         },
         {
           "line": 260,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "link"
+          "text": "Reference list cleared."
         },
         {
           "line": 260,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "expected"
+          "text": "backup"
         },
         {
-          "line": 260,
+          "line": 261,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "hostname"
+        },
+        {
+          "line": 261,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "backup"
+        },
+        {
+          "line": 263,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "exportReferences"
+        },
+        {
+          "line": 263,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "click"
+        },
+        {
+          "line": 263,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "application/json"
+        },
+        {
+          "line": 263,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "a"
+        },
+        {
+          "line": 263,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "offline-url-inspector-references.json"
+        },
+        {
+          "line": 263,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Backup download prepared. Check your downloads to keep the file."
+        },
+        {
+          "line": 263,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "success"
+        },
+        {
+          "line": 263,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "backup"
+        },
+        {
+          "line": 263,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "The backup download couldn't be created. Try exporting again before closing this tab."
+        },
+        {
+          "line": 263,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "error"
+        },
+        {
+          "line": 263,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "backup"
+        },
+        {
+          "line": 264,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "importReferences"
+        },
+        {
+          "line": 264,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "click"
+        },
+        {
+          "line": 264,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "importFile"
+        },
+        {
+          "line": 264,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "importFile"
+        },
+        {
+          "line": 264,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "change"
+        },
+        {
+          "line": 264,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "importFile"
+        },
+        {
+          "line": 264,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "This backup is too large. The maximum size is 128 KiB."
+        },
+        {
+          "line": 264,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "error"
+        },
+        {
+          "line": 264,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "backup"
+        },
+        {
+          "line": 264,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "This file couldn't be read. Choose the backup again; no import changes have been applied."
+        },
+        {
+          "line": 264,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "error"
+        },
+        {
+          "line": 264,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "backup"
+        },
+        {
+          "line": 265,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "importMerge"
+        },
+        {
+          "line": 265,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "change"
+        },
+        {
+          "line": 265,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "importReplace"
+        },
+        {
+          "line": 265,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "change"
+        },
+        {
+          "line": 265,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "cancelImport"
+        },
+        {
+          "line": 265,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "click"
+        },
+        {
+          "line": 265,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "importReferences"
+        },
+        {
+          "line": 266,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "applyImport"
+        },
+        {
+          "line": 266,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "click"
+        },
+        {
+          "line": 267,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "replace"
+        },
+        {
+          "line": 269,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Replace Reference Domains?"
+        },
+        {
+          "line": 269,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Replace your current list with the reviewed backup?\\nCurrent list: "
+        },
+        {
+          "line": 269,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "reference"
+        },
+        {
+          "line": 269,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "\\nAfter import: "
+        },
+        {
+          "line": 269,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "reference"
+        },
+        {
+          "line": 269,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "\\n\\n"
+        },
+        {
+          "line": 269,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "existing reference"
+        },
+        {
+          "line": 269,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": " will be removed."
+        },
+        {
+          "line": 269,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "No existing references will be removed."
+        },
+        {
+          "line": 269,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": " Keep an exported backup if you may need the old list."
+        },
+        {
+          "line": 269,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "\\n\\nSaved data needs review. Export Backup keeps only the list shown here, not an unreadable or different saved copy. Preserve that copy separately before replacing it."
+        },
+        {
+          "line": 269,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Replace References"
+        },
+        {
+          "line": 270,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "importReferences"
+        },
+        {
+          "line": 270,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Backup applied."
+        },
+        {
+          "line": 270,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "backup"
+        },
+        {
+          "line": 271,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "import"
+        },
+        {
+          "line": 273,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "inspect"
         },
         {
-          "line": 264,
+          "line": 273,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "click"
+        },
+        {
+          "line": 275,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "keydown"
+        },
+        {
+          "line": 276,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Enter"
+        },
+        {
+          "line": 277,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "importReview"
+        },
+        {
+          "line": 277,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "hidden"
+        },
+        {
+          "line": 277,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "dialog[open], [role=\"dialog\"][aria-modal=\"true\"]"
+        },
+        {
+          "line": 279,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "#referencePanel"
+        },
+        {
+          "line": 279,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "[contenteditable]:not([contenteditable=\"false\"])"
+        },
+        {
+          "line": 280,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "input,textarea,select,button,a,summary"
+        },
+        {
+          "line": 281,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "link"
+        },
+        {
+          "line": 281,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "expected"
+        },
+        {
+          "line": 281,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "inspect"
+        },
+        {
+          "line": 285,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "shortcutHint"
         },
         {
-          "line": 264,
+          "line": 285,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "⌘ + Return to inspect"
         },
         {
-          "line": 264,
+          "line": 285,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "Ctrl + Enter to inspect"
         },
         {
-          "line": 264,
+          "line": 285,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "⌘ + Return / Ctrl + Enter to inspect"
         },
         {
-          "line": 265,
+          "line": 286,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "demoUnicode"
         },
         {
-          "line": 265,
+          "line": 286,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "click"
         },
         {
-          "line": 265,
+          "line": 286,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "link"
         },
         {
-          "line": 265,
+          "line": 286,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "https://аmazon.com/account"
         },
         {
-          "line": 265,
+          "line": 286,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "expected"
         },
         {
-          "line": 265,
+          "line": 286,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "amazon.com"
         },
         {
-          "line": 265,
+          "line": 286,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "demoAscii"
         },
         {
-          "line": 265,
+          "line": 286,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "click"
         },
         {
-          "line": 265,
+          "line": 286,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "link"
         },
         {
-          "line": 265,
+          "line": 286,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "https://arnazon.com/orders/123"
         },
         {
-          "line": 265,
+          "line": 286,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "expected"
         },
         {
-          "line": 265,
+          "line": 286,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "amazon.com"
         },
         {
-          "line": 266,
+          "line": 287,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "license"
         }
@@ -10170,7 +10230,7 @@
       ]
     },
     "src/v3.css": {
-      "sha256": "e6af28e2a8e3d29d5159a78c99a783796a17e444492f58ffa1d5995996637e4b",
+      "sha256": "4bc573391a16ebeb870e600b7bbe807b325d0119841616f78b4edbcac54aafad",
       "items": [
         {
           "line": 4,

@@ -1,0 +1,546 @@
+{
+  "applicationVersion": "3.1.2",
+  "date": "2026-10-16",
+  "checkpoint": "87122d79cbf1703d94cd550dbe6be1488896ce47",
+  "environment": "Actual rendered Codex in-app browser; matched hosted build on loopback port 8791; 1100x1000 and 390x844",
+  "review": "Every listed screenshot was visually inspected by the agent",
+  "checks": [
+    {
+      "name": "desktop-one-character",
+      "screenshot": "preview/v3.1.2-technical-desktop-one-character.jpg",
+      "measurements": {
+        "comparisonTitles": [
+          "Unicode visual comparison"
+        ],
+        "count": "1 Unicode character identified.",
+        "countToCard": 12,
+        "extractionDetailsVisible": false,
+        "extractionNotice": "",
+        "focus": "",
+        "labelToCount": 12,
+        "technicalComparisonData": false,
+        "viewport": 1100,
+        "width": 1100
+      },
+      "passed": true
+    },
+    {
+      "name": "desktop-unicode-evidence",
+      "screenshot": "preview/v3.1.2-technical-desktop-unicode-evidence.jpg",
+      "measurements": {
+        "comparisonTitles": [
+          "Unicode visual comparison"
+        ],
+        "count": "1 Unicode character identified.",
+        "countToCard": 12,
+        "extractionDetailsVisible": false,
+        "extractionNotice": "",
+        "focus": "",
+        "labelToCount": 12,
+        "technicalComparisonData": false,
+        "viewport": 1100,
+        "width": 1100
+      },
+      "passed": true
+    },
+    {
+      "name": "desktop-unicode-comparison",
+      "screenshot": "preview/v3.1.2-technical-desktop-unicode-comparison.jpg",
+      "measurements": {
+        "comparisonTitles": [
+          "Unicode visual comparison"
+        ],
+        "count": "1 Unicode character identified.",
+        "countToCard": 12,
+        "extractionDetailsVisible": false,
+        "extractionNotice": "",
+        "focus": "",
+        "labelToCount": 12,
+        "technicalComparisonData": false,
+        "viewport": 1100,
+        "width": 1100
+      },
+      "passed": true
+    },
+    {
+      "name": "desktop-multiple-characters",
+      "screenshot": "preview/v3.1.2-technical-desktop-multiple-characters.jpg",
+      "measurements": {
+        "comparisonTitles": [
+          "Unicode visual comparison"
+        ],
+        "count": "2 Unicode characters identified.",
+        "countToCard": 12,
+        "extractionDetailsVisible": false,
+        "extractionNotice": "",
+        "focus": "",
+        "labelToCount": 12,
+        "technicalComparisonData": false,
+        "viewport": 1100,
+        "width": 1100
+      },
+      "passed": true
+    },
+    {
+      "name": "desktop-pagination-first",
+      "screenshot": "preview/v3.1.2-technical-desktop-pagination-first.jpg",
+      "measurements": {
+        "comparisonTitles": [],
+        "count": "120 Unicode characters identified. Showing 50 of 120.",
+        "countToCard": 12,
+        "extractionDetailsVisible": false,
+        "extractionNotice": "",
+        "focus": "",
+        "labelToCount": 12,
+        "technicalComparisonData": false,
+        "viewport": 1100,
+        "width": 1100
+      },
+      "passed": true
+    },
+    {
+      "name": "desktop-pagination-complete",
+      "screenshot": "preview/v3.1.2-technical-desktop-pagination-complete.jpg",
+      "measurements": {
+        "comparisonTitles": [],
+        "count": "120 Unicode characters identified.",
+        "countToCard": 12,
+        "extractionDetailsVisible": false,
+        "extractionNotice": "",
+        "focus": "",
+        "labelToCount": 12,
+        "technicalComparisonData": false,
+        "viewport": 1100,
+        "width": 1100
+      },
+      "passed": true
+    },
+    {
+      "name": "desktop-ascii-comparison",
+      "screenshot": "preview/v3.1.2-technical-desktop-ascii-comparison.jpg",
+      "measurements": {
+        "comparisonTitles": [
+          "ASCII visual comparison"
+        ],
+        "countToCard": null,
+        "extractionDetailsVisible": false,
+        "extractionNotice": "",
+        "focus": "",
+        "labelToCount": null,
+        "technicalComparisonData": false,
+        "viewport": 1100,
+        "width": 1100
+      },
+      "passed": true
+    },
+    {
+      "name": "desktop-spelling-comparison",
+      "screenshot": "preview/v3.1.2-technical-desktop-spelling-comparison.jpg",
+      "measurements": {
+        "comparisonTitles": [
+          "Spelling comparison"
+        ],
+        "countToCard": null,
+        "extractionDetailsVisible": false,
+        "extractionNotice": "",
+        "focus": "",
+        "labelToCount": null,
+        "technicalComparisonData": false,
+        "viewport": 1100,
+        "width": 1100
+      },
+      "passed": true
+    },
+    {
+      "name": "desktop-exact-comparison",
+      "screenshot": "preview/v3.1.2-technical-desktop-exact-comparison.jpg",
+      "measurements": {
+        "comparisonTitles": [
+          "Hostname identity comparison"
+        ],
+        "countToCard": null,
+        "extractionDetailsVisible": false,
+        "extractionNotice": "",
+        "focus": "",
+        "labelToCount": null,
+        "technicalComparisonData": false,
+        "viewport": 1100,
+        "width": 1100
+      },
+      "passed": true
+    },
+    {
+      "name": "desktop-unavailable-comparison",
+      "screenshot": "preview/v3.1.2-technical-desktop-unavailable-comparison.jpg",
+      "measurements": {
+        "comparisonTitles": [
+          "Visual comparison unavailable"
+        ],
+        "count": "4 Unicode characters identified.",
+        "countToCard": 12,
+        "extractionDetailsVisible": false,
+        "extractionNotice": "",
+        "focus": "",
+        "labelToCount": 12,
+        "technicalComparisonData": false,
+        "viewport": 1100,
+        "width": 1100
+      },
+      "passed": true
+    },
+    {
+      "name": "desktop-reliable-extraction",
+      "screenshot": "preview/v3.1.2-technical-desktop-reliable-extraction.jpg",
+      "measurements": {
+        "comparisonTitles": [],
+        "countToCard": null,
+        "extractionDetailsVisible": false,
+        "extractionNotice": "",
+        "focus": "",
+        "labelToCount": null,
+        "technicalComparisonData": false,
+        "viewport": 1100,
+        "width": 1100
+      },
+      "passed": true
+    },
+    {
+      "name": "desktop-uncertain-extraction",
+      "screenshot": "preview/v3.1.2-technical-desktop-uncertain-extraction.jpg",
+      "measurements": {
+        "comparisonTitles": [],
+        "countToCard": null,
+        "extractionDetailsVisible": true,
+        "extractionNotice": "The original hostname could not be established reliably. Check the original URL and parsed hostname values, if available.",
+        "focus": "",
+        "labelToCount": null,
+        "technicalComparisonData": false,
+        "viewport": 1100,
+        "width": 1100
+      },
+      "passed": true
+    },
+    {
+      "name": "desktop-malformed-percent",
+      "screenshot": "preview/v3.1.2-technical-desktop-malformed-percent.jpg",
+      "measurements": {
+        "comparisonTitles": [],
+        "countToCard": null,
+        "extractionDetailsVisible": true,
+        "extractionNotice": "The hostname shown above is unverified. It could not be reliably established from the original URL.",
+        "focus": "",
+        "labelToCount": null,
+        "technicalComparisonData": false,
+        "viewport": 1100,
+        "width": 1100
+      },
+      "passed": true
+    },
+    {
+      "name": "desktop-failed-brackets",
+      "screenshot": "preview/v3.1.2-technical-desktop-failed-brackets.jpg",
+      "measurements": {
+        "comparisonTitles": [],
+        "countToCard": null,
+        "extractionDetailsVisible": true,
+        "extractionNotice": "The original hostname could not be established reliably. Check the original URL and parsed hostname values, if available.",
+        "focus": "",
+        "labelToCount": null,
+        "technicalComparisonData": false,
+        "viewport": 1100,
+        "width": 1100
+      },
+      "passed": true
+    },
+    {
+      "name": "desktop-unverified-candidate",
+      "screenshot": "preview/v3.1.2-technical-desktop-unverified-candidate.jpg",
+      "measurements": {
+        "comparisonTitles": [],
+        "count": "1 Unicode character identified.",
+        "countToCard": 12,
+        "extractionDetailsVisible": true,
+        "extractionNotice": "The hostname shown above is unverified. It could not be reliably established from the original URL.",
+        "focus": "",
+        "labelToCount": 12,
+        "technicalComparisonData": false,
+        "viewport": 1100,
+        "width": 1100
+      },
+      "passed": true
+    },
+    {
+      "name": "mobile-one-character",
+      "screenshot": "preview/v3.1.2-technical-mobile-one-character.jpg",
+      "measurements": {
+        "comparisonTitles": [
+          "Unicode visual comparison"
+        ],
+        "count": "1 Unicode character identified.",
+        "countToCard": 12,
+        "extractionDetailsVisible": false,
+        "extractionNotice": "",
+        "focus": "",
+        "labelToCount": 12,
+        "technicalComparisonData": false,
+        "viewport": 390,
+        "width": 390
+      },
+      "passed": true
+    },
+    {
+      "name": "mobile-multiple-characters",
+      "screenshot": "preview/v3.1.2-technical-mobile-multiple-characters.jpg",
+      "measurements": {
+        "comparisonTitles": [
+          "Unicode visual comparison"
+        ],
+        "count": "2 Unicode characters identified.",
+        "countToCard": 12,
+        "extractionDetailsVisible": false,
+        "extractionNotice": "",
+        "focus": "",
+        "labelToCount": 12,
+        "technicalComparisonData": false,
+        "viewport": 390,
+        "width": 390
+      },
+      "passed": true
+    },
+    {
+      "name": "mobile-pagination",
+      "screenshot": "preview/v3.1.2-technical-mobile-pagination.jpg",
+      "measurements": {
+        "comparisonTitles": [],
+        "count": "120 Unicode characters identified. Showing 50 of 120.",
+        "countToCard": 12,
+        "extractionDetailsVisible": false,
+        "extractionNotice": "",
+        "focus": "",
+        "labelToCount": 12,
+        "technicalComparisonData": false,
+        "viewport": 390,
+        "width": 390
+      },
+      "passed": true
+    },
+    {
+      "name": "mobile-pagination-complete",
+      "screenshot": "preview/v3.1.2-technical-mobile-pagination-complete.jpg",
+      "measurements": {
+        "comparisonTitles": [],
+        "count": "120 Unicode characters identified.",
+        "countToCard": 12,
+        "extractionDetailsVisible": false,
+        "extractionNotice": "",
+        "focus": "",
+        "labelToCount": 12,
+        "technicalComparisonData": false,
+        "viewport": 390,
+        "width": 390
+      },
+      "passed": true
+    },
+    {
+      "name": "mobile-unicode-comparison",
+      "screenshot": "preview/v3.1.2-technical-mobile-unicode-comparison.jpg",
+      "measurements": {
+        "comparisonTitles": [
+          "Unicode visual comparison"
+        ],
+        "count": "1 Unicode character identified.",
+        "countToCard": 12,
+        "extractionDetailsVisible": false,
+        "extractionNotice": "",
+        "focus": "",
+        "labelToCount": 12,
+        "technicalComparisonData": false,
+        "viewport": 390,
+        "width": 390
+      },
+      "passed": true
+    },
+    {
+      "name": "mobile-ascii-comparison",
+      "screenshot": "preview/v3.1.2-technical-mobile-ascii-comparison.jpg",
+      "measurements": {
+        "comparisonTitles": [
+          "ASCII visual comparison"
+        ],
+        "countToCard": null,
+        "extractionDetailsVisible": false,
+        "extractionNotice": "",
+        "focus": "",
+        "labelToCount": null,
+        "technicalComparisonData": false,
+        "viewport": 390,
+        "width": 390
+      },
+      "passed": true
+    },
+    {
+      "name": "mobile-spelling-comparison",
+      "screenshot": "preview/v3.1.2-technical-mobile-spelling-comparison.jpg",
+      "measurements": {
+        "comparisonTitles": [
+          "Spelling comparison"
+        ],
+        "countToCard": null,
+        "extractionDetailsVisible": false,
+        "extractionNotice": "",
+        "focus": "",
+        "labelToCount": null,
+        "technicalComparisonData": false,
+        "viewport": 390,
+        "width": 390
+      },
+      "passed": true
+    },
+    {
+      "name": "mobile-exact-comparison",
+      "screenshot": "preview/v3.1.2-technical-mobile-exact-comparison.jpg",
+      "measurements": {
+        "comparisonTitles": [
+          "Hostname identity comparison"
+        ],
+        "countToCard": null,
+        "extractionDetailsVisible": false,
+        "extractionNotice": "",
+        "focus": "",
+        "labelToCount": null,
+        "technicalComparisonData": false,
+        "viewport": 390,
+        "width": 390
+      },
+      "passed": true
+    },
+    {
+      "name": "mobile-unavailable-comparison",
+      "screenshot": "preview/v3.1.2-technical-mobile-unavailable-comparison.jpg",
+      "measurements": {
+        "comparisonTitles": [
+          "Visual comparison unavailable"
+        ],
+        "count": "4 Unicode characters identified.",
+        "countToCard": 12,
+        "extractionDetailsVisible": false,
+        "extractionNotice": "",
+        "focus": "",
+        "labelToCount": 12,
+        "technicalComparisonData": false,
+        "viewport": 390,
+        "width": 390
+      },
+      "passed": true
+    },
+    {
+      "name": "mobile-reliable-extraction",
+      "screenshot": "preview/v3.1.2-technical-mobile-reliable-extraction.jpg",
+      "measurements": {
+        "comparisonTitles": [],
+        "countToCard": null,
+        "extractionDetailsVisible": false,
+        "extractionNotice": "",
+        "focus": "",
+        "labelToCount": null,
+        "technicalComparisonData": false,
+        "viewport": 390,
+        "width": 390
+      },
+      "passed": true
+    },
+    {
+      "name": "mobile-uncertain-extraction",
+      "screenshot": "preview/v3.1.2-technical-mobile-uncertain-extraction.jpg",
+      "measurements": {
+        "comparisonTitles": [],
+        "countToCard": null,
+        "extractionDetailsVisible": true,
+        "extractionNotice": "The original hostname could not be established reliably. Check the original URL and parsed hostname values, if available.",
+        "focus": "",
+        "labelToCount": null,
+        "technicalComparisonData": false,
+        "viewport": 390,
+        "width": 390
+      },
+      "passed": true
+    },
+    {
+      "name": "mobile-malformed-percent",
+      "screenshot": "preview/v3.1.2-technical-mobile-malformed-percent.jpg",
+      "measurements": {
+        "comparisonTitles": [],
+        "countToCard": null,
+        "extractionDetailsVisible": true,
+        "extractionNotice": "The hostname shown above is unverified. It could not be reliably established from the original URL.",
+        "focus": "",
+        "labelToCount": null,
+        "technicalComparisonData": false,
+        "viewport": 390,
+        "width": 390
+      },
+      "passed": true
+    },
+    {
+      "name": "mobile-unverified-candidate",
+      "screenshot": "preview/v3.1.2-technical-mobile-unverified-candidate.jpg",
+      "measurements": {
+        "comparisonTitles": [],
+        "count": "1 Unicode character identified.",
+        "countToCard": 12,
+        "extractionDetailsVisible": true,
+        "extractionNotice": "The hostname shown above is unverified. It could not be reliably established from the original URL.",
+        "focus": "",
+        "labelToCount": 12,
+        "technicalComparisonData": false,
+        "viewport": 390,
+        "width": 390
+      },
+      "passed": true
+    }
+  ],
+  "screenshots": [
+    "preview/v3.1.2-technical-desktop-ascii-comparison.jpg",
+    "preview/v3.1.2-technical-desktop-exact-comparison.jpg",
+    "preview/v3.1.2-technical-desktop-failed-brackets.jpg",
+    "preview/v3.1.2-technical-desktop-malformed-percent.jpg",
+    "preview/v3.1.2-technical-desktop-multiple-characters.jpg",
+    "preview/v3.1.2-technical-desktop-one-character.jpg",
+    "preview/v3.1.2-technical-desktop-pagination-complete.jpg",
+    "preview/v3.1.2-technical-desktop-pagination-first.jpg",
+    "preview/v3.1.2-technical-desktop-reliable-extraction.jpg",
+    "preview/v3.1.2-technical-desktop-spelling-comparison.jpg",
+    "preview/v3.1.2-technical-desktop-unavailable-comparison.jpg",
+    "preview/v3.1.2-technical-desktop-uncertain-extraction.jpg",
+    "preview/v3.1.2-technical-desktop-unicode-comparison.jpg",
+    "preview/v3.1.2-technical-desktop-unicode-evidence.jpg",
+    "preview/v3.1.2-technical-desktop-unverified-candidate.jpg",
+    "preview/v3.1.2-technical-mobile-ascii-comparison.jpg",
+    "preview/v3.1.2-technical-mobile-exact-comparison.jpg",
+    "preview/v3.1.2-technical-mobile-malformed-percent.jpg",
+    "preview/v3.1.2-technical-mobile-multiple-characters.jpg",
+    "preview/v3.1.2-technical-mobile-one-character.jpg",
+    "preview/v3.1.2-technical-mobile-pagination-complete.jpg",
+    "preview/v3.1.2-technical-mobile-pagination.jpg",
+    "preview/v3.1.2-technical-mobile-reliable-extraction.jpg",
+    "preview/v3.1.2-technical-mobile-spelling-comparison.jpg",
+    "preview/v3.1.2-technical-mobile-unavailable-comparison.jpg",
+    "preview/v3.1.2-technical-mobile-uncertain-extraction.jpg",
+    "preview/v3.1.2-technical-mobile-unicode-comparison.jpg",
+    "preview/v3.1.2-technical-mobile-unverified-candidate.jpg"
+  ],
+  "spacing": "All measured label-to-count and count-to-first-card gaps were 12px, including multiline mobile pagination counts",
+  "keyboard": [
+    "Native disclosure summaries opened/closed with Enter and visible focus rings",
+    "Pagination advanced through all 120 character records on desktop and mobile; completion focused the first newly added character",
+    "Conditional extraction disclosure reset on new inspection"
+  ],
+  "inputs": "Built-in synthetic lookalikes, example.com, web.com, synthetic .invalid hostnames, valid/invalid percent encoding, malformed brackets, extra slashes and rejected numeric port. Oversized synthetic character fixture retains existing hostname-validation warnings.",
+  "storage": "Only synthetic example.invalid was added for a saved-reference unavailable-warning check; the reference list was cleared afterward",
+  "simulations": "No browser-rendered state fixtures were needed. Unexpected renderer-failure coverage is simulated only in DOM tests.",
+  "limitations": [
+    "In-app browser verification; native Firefox and screen readers not tested in this focused pass",
+    "Standalone source/DOM/CSP/build consistency verified separately; no fresh native file:// policy review",
+    "No claim of complete frame-timing, native zoom or OS accessibility coverage"
+  ]
+}

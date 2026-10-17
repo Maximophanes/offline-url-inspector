@@ -43,6 +43,7 @@ const Confirmation=(()=>{
 })();
 const confirmAction=options=>Confirmation.request(options);
 const referenceStore=ReferenceDomains.create({storage:()=>window.localStorage,protocol:location.protocol});
+const comparisonRecords=new WeakMap();
 let lastResult=null,lastManual='',editingReference=null,importText='',importPlan=null,referenceActionBusy=false,storageSavingFailed=false;
 function element(tag,text,className=''){const e=document.createElement(tag);e.textContent=text;if(className)e.className=className;return e;}
 const rawText=value=>JSON.stringify(value,null,2).replace(/[\u007f-\uffff]/g,ch=>'\\u'+ch.charCodeAt(0).toString(16).padStart(4,'0'));
@@ -96,7 +97,7 @@ function highlighted(target,text,relevantCharacter=null){clear(target);for(const
 function characterChips(target,characters,original,result,comparisonTarget){
  clear(target);
  if(!characters.length){target.appendChild(element('div',original?'No internationalized or hidden characters were identified in the original hostname.':'The readable hostname uses only ASCII characters.','small'));return;}
- const progress=element('div','','small'),more=element('button','Show next 50 characters','ghost small');more.type='button';target.append(progress,more);let position=0;
+ const progress=element('div','','small character-count'),more=element('button','Show next 50 characters','ghost small');more.type='button';target.append(progress,more);let position=0;
  const difference=Presentation.unicodeDifference(result,comparisonTarget),describe=value=>[...value].map(ch=>{const i=Inspector.info(ch);return Inspector.visible(ch)+' — '+i.code+' · '+i.name;}).join('\n');
  function nextPage(){const end=Math.min(position+50,characters.length);let firstNewSummary=null;
   for(const c of characters.slice(position,end)){
@@ -150,9 +151,29 @@ function comparisonEvidence(result,source,hostname,kind,comparison){
   if(difference)row('Relevant character',difference.actual.script+' '+Inspector.visible(difference.actual.ch)+' ('+difference.actual.code+') resembles '+difference.expected.script+' '+Inspector.visible(difference.expected.ch)+' ('+difference.expected.code+').');
  }
  if(comparison){const method=Presentation.comparisonMethod(comparison),advanced=element('details','','disclosure observation');advanced.append(element('summary',method.title),element('p',method.text,'category-body small'));
-  const raw=element('details','','disclosure observation');raw.append(element('summary','Technical comparison data'),element('p','Method: '+(comparison.mechanism||'hostname identity / spelling')+(comparison.types?.length?'\nLabel classifications: '+comparison.types.join(', '):'')+(comparison.distance!==undefined?'\nEdit distance: '+comparison.distance:'')+'\nVisual comparison: '+(comparison.unavailable?'unavailable':comparison.exact?'not performed (exact hostname match)':comparison.visual===true?'supported resemblance':comparison.visual===false?'no supported visual resemblance':'unavailable'),'category-body mono small'));advanced.appendChild(raw);record.appendChild(advanced);
+  record.appendChild(advanced);
  }
+ comparisonRecords.set(record,{source,hostname,kind,comparison});
  $('referenceCandidates').appendChild(record);
+}
+function extractionEvidence(original,failed=false){
+ const reliable=original?.reliable===true;
+ $('attributionEvidence').open=false;$('attributionEvidence').classList.toggle('hidden',reliable);$('attributionNotice').classList.toggle('hidden',reliable);
+ set('attributionNotice',reliable?'':original?.original!==undefined?'The hostname shown above is unverified. It could not be reliably established from the original URL.':'The original hostname could not be established reliably. Check the original URL and parsed hostname values, if available.');
+ const reasons={
+  'No unambiguous HTTP(S) authority prefix.':'A clear HTTP or HTTPS address prefix could not be identified.',
+  'Extra authority slashes or backslashes prevent reliable original-host attribution.':'Extra slashes or backslashes make the start of the hostname ambiguous.',
+  'Malformed bracketed IPv6 authority.':'The bracketed IP address or the text following it is incomplete or malformed.',
+  'Unbalanced hostname brackets.':'The hostname brackets do not form a matching pair.',
+  'Unbracketed IPv6 or multiple port delimiters.':'The hostname contains ambiguous colons. An IPv6 address must use brackets.',
+  'Invalid explicit port syntax.':'The port after the hostname is not written as a valid number.',
+  'Source offsets could not be reconstructed.':'The hostname could not be traced reliably to its position in the original URL.',
+  'Malformed percent encoding in candidate hostname.':'The possible hostname contains incomplete or invalid percent encoding.',
+  'Candidate hostname only: browser rejected the URL; destination and normalization are unverified.':'Your browser rejected this URL. The possible hostname and its normalization have not been verified.',
+  'Extracted hostname did not agree with the browser parser.':'The extracted hostname did not match the hostname read by your browser.'
+ };
+ set('attributionReason',reliable?'':failed?'Inspection failed before hostname extraction could be verified. Check the input and try again.':reasons[original?.reason]||'No reliable hostname extraction record was produced.');
+ set('attributionRaw',reliable?'':original?rawText(original):'No hostname extraction object was produced.');
 }
 function render(r){
   $('results').classList.remove('hidden');for(const id of ['messages','rawRecords','coloredHost','chars','originalChars','supporting','relevantSubstitutions','referenceCandidates','asciiObservations'])clear($(id));
@@ -162,7 +183,7 @@ function render(r){
   fieldError('inspectionError','link',r.ok?'':Presentation.inputFailure(r).detail);fieldError('expectedError','expected',r.expectedError?Presentation.validation(r.expectedError):'');
   $('primary').dataset.kind=summary.kind;set('primaryTitle',summary.title);set('primaryDetail',Presentation.explain(r,summary));
   set('raw',Inspector.visible(r.raw.slice(0,Inspector.MAX_INPUT))+(r.raw.length>Inspector.MAX_INPUT?'\n[Display shortened. The full original URL remains in the input field.]':''));
-  set('attributionRaw',r.original?rawText(r.original):'No original hostname was identified.');
+  extractionEvidence(r.original);
   $('rawDiagnostics').open=false;$('rawDiagnostics').classList.toggle('hidden',!r.messages.length);for(const m of r.messages)note(m,r);
   let target=null;try{if(summary.target)target=Inspector.expectedHost(summary.target);}catch{}
   const difference=summary.kind==='visual'?Presentation.unicodeDifference(r,target):null;
@@ -197,7 +218,7 @@ function render(r){
 function analyze(){
   lastManual=$('expected').value;
   try{lastResult=Inspector.inspect($('link').value,lastManual);render(lastResult);}
-  catch{lastResult=null;$('rawDiagnostics').open=false;$('rawDiagnostics').classList.add('hidden');$('results').classList.remove('hidden');for(const id of ['messages','rawRecords','coloredHost','chars','originalChars','supporting','relevantSubstitutions','referenceCandidates','asciiObservations'])clear($(id));for(const id of ['ascii','unicode','original','decodedOriginal','normalized','scripts','scheme','port','path','query','fragment','compare','comparisonResult','referenceComparison'])set(id,'—');set('raw',Inspector.visible($('link').value.slice(0,Inspector.MAX_INPUT))+($('link').value.length>Inspector.MAX_INPUT?'\n[Display shortened. The full original URL remains in the input field.]':''));set('attributionRaw','Original hostname evidence is unavailable because inspection failed.');$('asciiDetails').classList.add('hidden');set('primaryTitle','Inspection could not be completed');set('primaryDetail','No result is available. Check the input and try again.');fieldError('inspectionError','link','Inspection could not be completed. Your original text is still in the input field.');fieldError('expectedError','expected','');$('primary').dataset.kind='error';}
+  catch{lastResult=null;$('rawDiagnostics').open=false;$('rawDiagnostics').classList.add('hidden');$('results').classList.remove('hidden');for(const id of ['messages','rawRecords','coloredHost','chars','originalChars','supporting','relevantSubstitutions','referenceCandidates','asciiObservations'])clear($(id));for(const id of ['ascii','unicode','original','decodedOriginal','normalized','scripts','scheme','port','path','query','fragment','compare','comparisonResult','referenceComparison'])set(id,'—');set('raw',Inspector.visible($('link').value.slice(0,Inspector.MAX_INPUT))+($('link').value.length>Inspector.MAX_INPUT?'\n[Display shortened. The full original URL remains in the input field.]':''));extractionEvidence(null,true);$('asciiDetails').classList.add('hidden');set('primaryTitle','Inspection could not be completed');set('primaryDetail','No result is available. Check the input and try again.');fieldError('inspectionError','link','Inspection could not be completed. Your original text is still in the input field.');fieldError('expectedError','expected','');$('primary').dataset.kind='error';}
 }
 function cancelImport(){importPlan=null;importText='';referenceStore.cancelImport();$('importReview').classList.add('hidden');$('importFile').value='';}
 function refreshReferences(){

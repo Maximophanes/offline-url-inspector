@@ -1,0 +1,21 @@
+{
+  "suite": "V3.1.2 focused Technical Details presentation",
+  "groups": {
+    "checks": {
+      "executed": 14,
+      "passed": 14,
+      "failed": 0
+    }
+  },
+  "failures": [],
+  "assertions": {
+    "executed": 179,
+    "passed": 179,
+    "failed": 0
+  },
+  "total": {
+    "executed": 14,
+    "passed": 14,
+    "failed": 0
+  }
+}

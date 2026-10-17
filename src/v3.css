@@ -39,3 +39,6 @@
 
 /* Focused Reference Domains hierarchy; messages grow in normal flow. */
 .reference-intro{margin:0 0 12px}.reference-description{font-size:14px;line-height:1.75;margin:0 0 9px;color:var(--ink)}#storageStatus{display:flex;align-items:baseline;gap:8px;margin:0;color:var(--muted);line-height:1.7;overflow-wrap:anywhere}#storageStatus::before{content:"";width:6px;height:6px;flex:0 0 6px;border-radius:50%;background:var(--accent)}#storageStatus[data-tone="success"]::before{background:var(--green)}#storageStatus[data-tone="caution"]::before{background:var(--orange)}#storageStatus[data-tone="error"]::before{background:var(--red)}#referencePanel .reference-help{margin:0 0 14px}#referencePanel .reference-help .panel-body{max-width:none}#referencePanel .reference-help p{line-height:1.75}#referenceErrorDetails,#backupErrorDetails{margin-top:8px}#referenceErrorDetails .category-body,#backupErrorDetails .category-body{white-space:pre-wrap;overflow-wrap:anywhere}
+
+/* Balance character-count spacing without changing unrelated paragraphs. */
+#characterDetails .character-count{margin:5px 0}#attributionNotice{margin:12px 0 0;line-height:1.7}#attributionEvidence pre{white-space:pre-wrap;overflow-wrap:anywhere;margin:10px 0 0;font-size:11px;line-height:1.7}#attributionReason{margin:8px 0 0;line-height:1.7}

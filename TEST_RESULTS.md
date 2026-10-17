@@ -1,6 +1,13 @@
 # Version 3.1.2 test results
 
-## Current focused Reference Domains follow-up
+## Current focused Technical Details follow-up
+
+From committed checkpoint `87122d79cbf1703d94cd550dbe6be1488896ce47`, **718 targeted checks / 16,600 assertions passed, zero failures**. The new suite contributes 14 checks / 179 assertions. Current aggregate: `tests/technical-targeted-results.json`. The full Unicode conformance suite was **not rerun**; engine/data sources and earlier conformance/full-suite reports are unchanged.
+
+All 139 baseline inspection objects and saved-reference comparison results match their pre-edit hash. Original diagnostics/order, extraction objects, comparison metadata, contextual methods and unavailable warnings are preserved. The agent visually inspected 28 actual hosted in-app screenshots at desktop/mobile sizes; count gaps measured 12 px on each side, including pagination. See [Technical Details review](TECHNICAL_DETAILS_REVIEW.md) and `tests/technical-browser-preview.json`. Native Firefox and screen readers were not tested in this pass.
+
+
+## Previous Reference Domains checkpoint
 
 From committed checkpoint `9b017bd6a145fe664e26cf421f24db134c3fa24e`, **704 focused/regression/HTTP checks and 16,421 assertions passed, zero failures**. The new reference-interface suite contributes 19 checks / 124 assertions. Current results: `tests/reference-targeted-results.json`. The complete Unicode conformance suite was **not** rerun. Source pins preserve the validation/store engine, core, worker, data and all 139 original analysis results; presentation changes are limited to the reference validation/storage copy blocks and details helper.
 

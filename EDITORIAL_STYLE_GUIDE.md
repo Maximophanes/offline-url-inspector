@@ -50,6 +50,8 @@ Preserve diagnostic code, level, category, trigger, order, comparison classifica
 
 Use a concise title and the actual severity in each collapsed log entry. An expanded entry gives a short plain-language explanation. Put original prose, codes and processing details in one collapsed Raw Diagnostic Records section at the bottom of the log. Keep useful structured evidence with its finding. Do not turn the log into a second primary findings panel.
 
+Keep comparison-method explanations contextual, retain original comparison metadata internally, and avoid redundant generic raw-comparison panels. Show extraction JSON only when attribution is uncertain or fails, with an ordinary-language limitation and reason. Keep comparison and extraction objects out of Raw Diagnostic Records.
+
 Preserve multi-character mappings. Present UTS #39 mapping sequences once, using actual glyphs/code points; names and raw records can sit deeper. A character's IDNA rule need not describe the normalization of an entire sequence. Mark unverified outcomes rather than asserting preservation. Keep official Unicode names verbatim.
 
 ASCII observations use separate groups: potential resemblance, observed tokens, recorded source/positions and count. Count original/decoded and readable locations according to the existing evidence, with each source labeled. Page long location lists; show progress only while truncated. Do not add “2 of 2 shown” beneath a complete two-location list. State font dependence once per section, not once per group. Relevant substitutions belong in the primary comparison; unrelated observations remain advanced.
