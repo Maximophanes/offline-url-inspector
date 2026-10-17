@@ -1,5 +1,28 @@
 # Version 3.1.2 focused Technical Details review
 
+## Current approved obsolete-code cleanup
+
+Continued from the existing uncommitted Phase 1 work on `dev/v3.1.2` (HEAD `769c6437`). Removed the empty `relevantSubstitutions` / `neutralSlot` placeholders and their dead rendering/clearing operations, exclusive `.relevant` / unused `.gap` styles, the removed nested comparison-observation selector, proven overridden update-control properties, ineffective mobile diagnostic grid placement and the superseded three-column diagnostic declaration. Removed only the unused confirmation `isOpen` accessor and Python `base64` import. The visible mobile diagnostic indentation remains 17 px; the necessary higher-specificity cache-actions override remains.
+
+The full established regression suite ran **once after stabilization: 109,636 checks / 129,347 assertions passed, zero failures**. It includes official Unicode conformance, independent ICU, differential analysis, DOM, storage/imports, worker recovery, hosted startup/update states and actual loopback HTTP/CSP checks. Focused checks passed during development; four separate temporary-root runner tests verify not-requested, successful, unavailable-driver-endpoint and failed-assertion reporting without running Firefox or the conformance suite. `tests/summary-results.json` is the fresh full-run record; previous historical reports remain distinguished from current execution.
+
+Complete inspection, reference-comparison and original diagnostic hashes match the existing 139-fixture baselines. Both editions rebuild deterministically with exact CSP hashes. Historical base-CSS pins are restored through an explicit, narrow test-only normalization of the approved dead-rule deletions; no baseline hash was repinned. Analysis, presentation classifications, reference storage/API/legacy handling, hosted controller, worker source, Unicode data, title animation and editorial guide remain unchanged. `Presentation.storageStatus` keeps its `edition` parameter.
+
+Sixteen current before/after screenshots were inspected at 1100×1000 and 390×844. Desktop/mobile waiting and failed-update geometry, feedback text/typography and diagnostic metadata geometry match exactly. Character/mapping evidence, ASCII reference explanations and focus styling remain readable; Escape cancels the update confirmation and restores focus without losing the input/result. Exact hosted and standalone editions rendered successfully; standalone was served over loopback HTTP. Update-state fixtures simulate worker outcomes explicitly. Native Firefox, screen readers, native zoom and native file:// policy remain unverified. See `tests/technical-browser-preview.json` → `approvedObsoleteCleanup`.
+
+Firefox runner output now distinguishes opt-in not requested from requested success or failed/unavailable execution. The current full run records **Not requested; driver availability was not checked**. Historical Firefox observations were not rewritten as fresh tests.
+
+## Subsequent Phase 1 — raw-character cleanup
+
+From checkpoint `769c6437`, removed only the Raw character data renderer in `src/ui.js` and its exclusive `.raw-character pre` rule in `src/v3.css`. The surrounding Unicode comparison data, mapped names, related characters and every structured evidence row remain. Complete character objects stay in the existing in-memory inspection result. Shared JSON formatting remains for uncertain hostname extraction. No character JSON was moved to Raw Diagnostic Records.
+
+**720 targeted checks / 16,717 assertions passed**, including 16 Technical Details checks / 282 assertions. No full Unicode rerun. The current desktop [mapped-character view](preview/v3.1.2-character-cleanup-desktop-mapped.jpg) and mobile [multi-character mapping](preview/v3.1.2-character-cleanup-mobile-sequence.jpg) / [related comparison evidence](preview/v3.1.2-character-cleanup-mobile-related.jpg) were rendered and inspected. Keyboard disclosures and wrapping worked; native Firefox and screen readers were not tested. Current measurements are appended under `rawCharacterCleanup` in `tests/technical-browser-preview.json`.
+
+The review below describes the preceding committed Technical Details checkpoint. Phase 2 obsolete-code findings are delivered in the conversation only; no audit report file is created.
+
+## Previous committed Technical Details review
+
+
 Started from clean committed checkpoint `87122d79cbf1703d94cd550dbe6be1488896ce47` on `dev/v3.1.2`. Version remains 3.1.2. Changes are uncommitted; HEAD, main and staging remain unchanged. No push, merge or publication occurred.
 
 ## Three presentation corrections

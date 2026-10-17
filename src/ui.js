@@ -39,7 +39,7 @@ const Confirmation=(()=>{
    cancel.focus({preventScroll:true});
   });
  }
- return Object.freeze({request,isOpen:()=>!!pending});
+ return Object.freeze({request});
 })();
 const confirmAction=options=>Confirmation.request(options);
 const referenceStore=ReferenceDomains.create({storage:()=>window.localStorage,protocol:location.protocol});
@@ -123,9 +123,7 @@ function characterChips(target,characters,original,result,comparisonTarget){
     if(matches.length&&difference?.actual.ch!==c.ch){const candidates=element('details','','disclosure observation');candidates.append(element('summary','Related comparison characters'),element('p',matches.map(ch=>describe(ch)).join('\n'),'category-body mono small'),element('p','These characters share comparison data. Their positions have not been matched.','category-body small'));body.appendChild(candidates);}
     else if(!matches.length)body.appendChild(element('p','No individual character match was established. Whole-hostname resemblance is a separate comparison.'));
    }
-   const raw=element('details','','disclosure observation raw-character');raw.appendChild(element('summary','Raw character data'));
-   const rawData=rawText({character:c.ch,codePoint:c.code,name:c.name,writingSystem:c.script,idnaStatus:c.idnaStatus,idnaMapping:c.idnaMapping,confusableMapping:c.confusable});
-   raw.appendChild(element('pre',rawData,'category-body mono small'));body.appendChild(raw);advanced.appendChild(body);record.appendChild(advanced);
+   advanced.appendChild(body);record.appendChild(advanced);
    if(result.ok)row('Actual Hostname',result.ascii,'ASCII / Punycode');
    target.insertBefore(record,more);
   }
@@ -176,7 +174,7 @@ function extractionEvidence(original,failed=false){
  set('attributionRaw',reliable?'':original?rawText(original):'No hostname extraction object was produced.');
 }
 function render(r){
-  $('results').classList.remove('hidden');for(const id of ['messages','rawRecords','coloredHost','chars','originalChars','supporting','relevantSubstitutions','referenceCandidates','asciiObservations'])clear($(id));
+  $('results').classList.remove('hidden');for(const id of ['messages','rawRecords','coloredHost','chars','originalChars','supporting','referenceCandidates','asciiObservations'])clear($(id));
   for(const id of ['ascii','unicode','original','decodedOriginal','normalized','scripts','scheme','port','path','query','fragment','compare','comparisonResult','referenceComparison'])set(id,'—');
   $('compare').className='value mono';$('comparisonResult').className='value';
   const refs=ReferenceDomains.compare(r,referenceStore.snapshot().references),summary=Presentation.summarize(r,refs,!!lastManual.trim());
@@ -192,7 +190,7 @@ function render(r){
   characterChips($('originalChars'),evidence.original,true,r,target);
   $('originalCharacterGroup').classList.toggle('hidden',!evidence.original.length&&!!evidence.readable.length);
   $('readableCharacterGroup').classList.toggle('hidden',!evidence.readable.length);
-  $('asciiDetails').open=false;set('neutralSlot','');
+  $('asciiDetails').open=false;
   set('asciiSummary','ASCII lookalike observations');
   if(!r.ok){$('asciiDetails').classList.add('hidden');return;}
   set('ascii',r.ascii);set('normalized',r.ascii);set('unicode',Inspector.visible(r.unicode));highlighted($('coloredHost'),r.unicode,difference?.actual.ch);characterChips($('chars'),evidence.readable,false,r,target);
@@ -204,7 +202,6 @@ function render(r){
   else{set('compare','Not provided');set('comparisonResult',summary.target?'Saved reference comparison shown below':'No expected hostname entered');}
   // Keep the main reference row brief when a manual target is already authoritative.
   set('referenceComparison',summary.manual?(refs.checked?Presentation.count(refs.checked,'saved reference')+' checked separately. Your expected hostname takes priority.':'No saved reference domains were used for this inspection.'):referenceSummary(refs));
-  for(const p of (summary.kind==='visual'&&summary.relevant.length?[]:summary.relevant))$('relevantSubstitutions').appendChild(element('li','“'+p.actual+'” may resemble “'+p.expected+'” in some fonts.'));
   for(const text of Presentation.supporting(r,summary,refs))$('supporting').appendChild(element('li',text));
   if(summary.manual){if(r.comparison){const kind=r.messages.some(m=>m.code==='subdomain')?'subdomains':r.messages.some(m=>m.code==='deceptive-subdomain')?'embedded':r.comparison.kind;comparisonEvidence(r,'Your expected hostname (manual; primary)',r.expected.ascii,kind,r.comparison);}else $('referenceCandidates').appendChild(element('p','No manual comparison: the expected hostname could not be checked.'));}
   if(refs.totalMatches){for(const key of ['exact','subdomains','embedded','visual','spelling'])for(const item of refs[key])comparisonEvidence(r,'Saved reference domain'+(summary.manual?' (secondary)':''),item.hostname,key,item.comparison);}
@@ -218,7 +215,7 @@ function render(r){
 function analyze(){
   lastManual=$('expected').value;
   try{lastResult=Inspector.inspect($('link').value,lastManual);render(lastResult);}
-  catch{lastResult=null;$('rawDiagnostics').open=false;$('rawDiagnostics').classList.add('hidden');$('results').classList.remove('hidden');for(const id of ['messages','rawRecords','coloredHost','chars','originalChars','supporting','relevantSubstitutions','referenceCandidates','asciiObservations'])clear($(id));for(const id of ['ascii','unicode','original','decodedOriginal','normalized','scripts','scheme','port','path','query','fragment','compare','comparisonResult','referenceComparison'])set(id,'—');set('raw',Inspector.visible($('link').value.slice(0,Inspector.MAX_INPUT))+($('link').value.length>Inspector.MAX_INPUT?'\n[Display shortened. The full original URL remains in the input field.]':''));extractionEvidence(null,true);$('asciiDetails').classList.add('hidden');set('primaryTitle','Inspection could not be completed');set('primaryDetail','No result is available. Check the input and try again.');fieldError('inspectionError','link','Inspection could not be completed. Your original text is still in the input field.');fieldError('expectedError','expected','');$('primary').dataset.kind='error';}
+  catch{lastResult=null;$('rawDiagnostics').open=false;$('rawDiagnostics').classList.add('hidden');$('results').classList.remove('hidden');for(const id of ['messages','rawRecords','coloredHost','chars','originalChars','supporting','referenceCandidates','asciiObservations'])clear($(id));for(const id of ['ascii','unicode','original','decodedOriginal','normalized','scripts','scheme','port','path','query','fragment','compare','comparisonResult','referenceComparison'])set(id,'—');set('raw',Inspector.visible($('link').value.slice(0,Inspector.MAX_INPUT))+($('link').value.length>Inspector.MAX_INPUT?'\n[Display shortened. The full original URL remains in the input field.]':''));extractionEvidence(null,true);$('asciiDetails').classList.add('hidden');set('primaryTitle','Inspection could not be completed');set('primaryDetail','No result is available. Check the input and try again.');fieldError('inspectionError','link','Inspection could not be completed. Your original text is still in the input field.');fieldError('expectedError','expected','');$('primary').dataset.kind='error';}
 }
 function cancelImport(){importPlan=null;importText='';referenceStore.cancelImport();$('importReview').classList.add('hidden');$('importFile').value='';}
 function refreshReferences(){

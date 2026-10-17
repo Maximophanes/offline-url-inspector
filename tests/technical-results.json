@@ -2,20 +2,20 @@
   "suite": "V3.1.2 focused Technical Details presentation",
   "groups": {
     "checks": {
-      "executed": 14,
-      "passed": 14,
+      "executed": 17,
+      "passed": 17,
       "failed": 0
     }
   },
   "failures": [],
   "assertions": {
-    "executed": 179,
-    "passed": 179,
+    "executed": 336,
+    "passed": 336,
     "failed": 0
   },
   "total": {
-    "executed": 14,
-    "passed": 14,
+    "executed": 17,
+    "passed": 17,
     "failed": 0
   }
 }

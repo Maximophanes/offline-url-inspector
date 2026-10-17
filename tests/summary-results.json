@@ -1,13 +1,13 @@
 {
   "applicationVersion": "3.1.2",
   "tests": {
-    "executed": 109600,
-    "passed": 109600,
+    "executed": 109636,
+    "passed": 109636,
     "failed": 0
   },
   "assertions": {
-    "executed": 128867,
-    "passed": 128867,
+    "executed": 129347,
+    "passed": 129347,
     "failed": 0
   },
   "commands": [
@@ -37,6 +37,14 @@
     },
     {
       "command": "test:interface",
+      "passed": true
+    },
+    {
+      "command": "test:reference-interface",
+      "passed": true
+    },
+    {
+      "command": "test:technical",
       "passed": true
     },
     {
@@ -157,8 +165,8 @@
         "failed": 0
       },
       "assertions": {
-        "executed": 160,
-        "passed": 160,
+        "executed": 161,
+        "passed": 161,
         "failed": 0
       },
       "status": "executed"
@@ -172,8 +180,8 @@
         "failed": 0
       },
       "assertions": {
-        "executed": 355,
-        "passed": 355,
+        "executed": 357,
+        "passed": 357,
         "failed": 0
       },
       "status": "executed"
@@ -187,8 +195,8 @@
         "failed": 0
       },
       "assertions": {
-        "executed": 5799,
-        "passed": 5799,
+        "executed": 5816,
+        "passed": 5816,
         "failed": 0
       },
       "status": "executed"
@@ -204,6 +212,36 @@
       "assertions": {
         "executed": 4354,
         "passed": 4354,
+        "failed": 0
+      },
+      "status": "executed"
+    },
+    {
+      "report": "reference-interface-results.json",
+      "suite": "V3.1.2 focused Reference Domains presentation",
+      "tests": {
+        "executed": 19,
+        "passed": 19,
+        "failed": 0
+      },
+      "assertions": {
+        "executed": 124,
+        "passed": 124,
+        "failed": 0
+      },
+      "status": "executed"
+    },
+    {
+      "report": "technical-results.json",
+      "suite": "V3.1.2 focused Technical Details presentation",
+      "tests": {
+        "executed": 17,
+        "passed": 17,
+        "failed": 0
+      },
+      "assertions": {
+        "executed": 336,
+        "passed": 336,
         "failed": 0
       },
       "status": "executed"
@@ -299,6 +337,6 @@
       "status": "executed"
     }
   ],
-  "firefox": "Not run: geckodriver is not on PATH in the reviewed environment. Historical native startup failure is not a current test. User reports the earlier V3.1.2 persistent offline-startup issue fixed; final editorial Firefox verification remains pending.",
+  "firefox": "Not requested: use --with-firefox with a running local WebDriver endpoint. Driver availability was not checked.",
   "scope": "Unit/official conformance, simulated DOM and worker lifecycle, actual loopback HTTP. Simulations are not actual Firefox/GitHub Pages deployment."
 }

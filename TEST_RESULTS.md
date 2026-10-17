@@ -1,6 +1,25 @@
 # Version 3.1.2 test results
 
-## Current focused Technical Details follow-up
+## Current approved obsolete-code cleanup
+
+Continued from the existing uncommitted Phase 1 work on `dev/v3.1.2` (HEAD `769c6437`). Removed the empty `relevantSubstitutions` / `neutralSlot` placeholders and their dead rendering/clearing operations, exclusive `.relevant` / unused `.gap` styles, the removed nested comparison-observation selector, proven overridden update-control properties, ineffective mobile diagnostic grid placement and the superseded three-column diagnostic declaration. Removed only the unused confirmation `isOpen` accessor and Python `base64` import. The visible mobile diagnostic indentation remains 17 px; the necessary higher-specificity cache-actions override remains.
+
+The full established regression suite ran **once after stabilization: 109,636 checks / 129,347 assertions passed, zero failures**. It includes official Unicode conformance, independent ICU, differential analysis, DOM, storage/imports, worker recovery, hosted startup/update states and actual loopback HTTP/CSP checks. Focused checks passed during development; four separate temporary-root runner tests verify not-requested, successful, unavailable-driver-endpoint and failed-assertion reporting without running Firefox or the conformance suite. `tests/summary-results.json` is the fresh full-run record; previous historical reports remain distinguished from current execution.
+
+Complete inspection, reference-comparison and original diagnostic hashes match the existing 139-fixture baselines. Both editions rebuild deterministically with exact CSP hashes. Historical base-CSS pins are restored through an explicit, narrow test-only normalization of the approved dead-rule deletions; no baseline hash was repinned. Analysis, presentation classifications, reference storage/API/legacy handling, hosted controller, worker source, Unicode data, title animation and editorial guide remain unchanged. `Presentation.storageStatus` keeps its `edition` parameter.
+
+Sixteen current before/after screenshots were inspected at 1100×1000 and 390×844. Desktop/mobile waiting and failed-update geometry, feedback text/typography and diagnostic metadata geometry match exactly. Character/mapping evidence, ASCII reference explanations and focus styling remain readable; Escape cancels the update confirmation and restores focus without losing the input/result. Exact hosted and standalone editions rendered successfully; standalone was served over loopback HTTP. Update-state fixtures simulate worker outcomes explicitly. Native Firefox, screen readers, native zoom and native file:// policy remain unverified. See `tests/technical-browser-preview.json` → `approvedObsoleteCleanup`.
+
+Firefox runner output now distinguishes opt-in not requested from requested success or failed/unavailable execution. The current full run records **Not requested; driver availability was not checked**. Historical Firefox observations were not rewritten as fresh tests.
+
+## Previous Phase 1 — raw-character disclosure removal
+
+From clean checkpoint `769c6437cd6b360d8b920bfb440879de016a802c`, **720 targeted checks / 16,717 assertions passed, zero failures**. The Technical Details suite now has 16 checks / 282 assertions, including complete internal character data, structured rows, IDNA/normalization outcomes, confusable sequences, mapped names and related comparison characters. Existing original-result/source pins and diagnostic ordering checks pass. The full Unicode suite was not rerun.
+
+The raw-character renderer and its exclusive CSS rule were removed. Shared `rawText` remains for uncertain extraction evidence. The agent inspected three current desktop/mobile screenshots; see `rawCharacterCleanup` in `tests/technical-browser-preview.json`. No page overflow was observed. This is in-app browser verification; native Firefox and screen readers were not tested in this pass. Both editions were rebuilt and integrity metadata refreshed before the strictly read-only Phase 2 audit. Current focused aggregate: `tests/technical-targeted-results.json`.
+
+
+## Previous focused Technical Details checkpoint
 
 From committed checkpoint `87122d79cbf1703d94cd550dbe6be1488896ce47`, **718 targeted checks / 16,600 assertions passed, zero failures**. The new suite contributes 14 checks / 179 assertions. Current aggregate: `tests/technical-targeted-results.json`. The full Unicode conformance suite was **not rerun**; engine/data sources and earlier conformance/full-suite reports are unchanged.
 

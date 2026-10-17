@@ -1,11 +1,11 @@
 {
   "applicationVersion": "3.1.2",
   "date": "2026-10-16",
-  "status": "pass within focused automated and rendered in-app scope",
+  "status": "pass: approved obsolete-code cleanup, one full regression run and in-app rendered review",
   "repository": "Maximophanes/offline-url-inspector",
   "origin": "https://github.com/Maximophanes/offline-url-inspector.git",
   "branch": "dev/v3.1.2",
-  "headUnchanged": "87122d79cbf1703d94cd550dbe6be1488896ce47",
+  "headUnchanged": "769c6437cd6b360d8b920bfb440879de016a802c",
   "mainUnchanged": "7909623ba5d2a33a51aaafa0bb72ca576959c546",
   "uncommitted": true,
   "stagedFiles": [],
@@ -15,10 +15,10 @@
     "src/presentation.js": "a89771ae8dbc7b5815e54a5ff092f9a325590584ec40f031b91d9d673c7ad4fa",
     "src/sw.js": "fb139641d523d4761b555825bd1365d53f553ee0c8fb2f6583c854fcc3f75034",
     "src/hosted.js": "1fa488dea88060d8b6f404133c7a85458996d8761d036c7b3d3346bfc5449673",
-    "src/base.css": "4b05accd9c83c870f9e4ef74741161784f0eb45387fe0b505466167df288a3f9",
     "tools/build.py": "cdd516213021cbdcafbc776a7ca335531b3b35944dc6d98f3cb913d0e952c033",
     "deno.lock": "826bb68fd80f677b365a1fc1d488696b9225319d6f56a8f9ca86e2d152c17d29",
     ".github/workflows/deploy-pages.yml": "e99e0ac790b286e5a77d38eb11ebbb64afb492217cde8334153b9a4221b9e1a7",
+    "EDITORIAL_STYLE_GUIDE.md": "c56011426839d0095cf1bf82924243773ab19795f5f326772f45a3b6268cbe20",
     "data/DerivedBidiClass.txt": "d9e23222522551348ea1ccfbb4f62efbf98982afb95840f8959c08ed992c5607",
     "data/DerivedCoreProperties.txt": "09c928886a178fcafd93c29e4bd59073a058e5a100b716d425cb563ab50f68c9",
     "data/IdnaMappingTable.txt": "a03b1eb38032268c696406a83f0972d6a815acd2c8d4151d42ec0fda70ffced1",
@@ -72,11 +72,11 @@
   "deterministicBuild": {
     "passed": true,
     "sha256": {
-      "standalone/Offline_URL_Inspector.html": "5d0f65a826399f1031314098ff4e7ba3105d20a468ba35bdd138eedbc991acc7",
-      "site/index.html": "4b72ce539ec67eed3d7366ce8bdb36edb1c064e5760a97e706073921e3f5d3b6",
-      "site/sw.js": "fa3541c761ab13ac233ab7741d480731c4a7137bf12867259170d3fc3cf93352",
-      "site/.nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "build-manifest.json": "9cf4325634f0311ccb31827f086db45f025e00ba91cac257204f1da2847d1ffc"
+      "site/index.html": "4b60415e57b7876af7243ad81c0354775a23007ba106bfd76d2333edd0283cbc",
+      "site/sw.js": "a39636bd54b5677fae9462f2ff0aa9a2baaa164fb2c9386379bea62efce4ae78",
+      "standalone/Offline_URL_Inspector.html": "6291d65163efa0c68a7872f73e04451e45e72ef17e0839fbe48dd4ca1d6bea03",
+      "build-manifest.json": "5ae57fef65ce98e2a3a702b69c122ff647ab7248e967b76dfe753e3786bdc97a",
+      "site/.nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     }
   },
   "csp": {
@@ -84,10 +84,10 @@
     "policyRelaxed": false,
     "runtimeExternalDependenciesAdded": false
   },
-  "release": "3.1.2-4b72ce539ec67eed",
+  "release": "3.1.2-4b60415e57b7876a",
   "documentationLinks": {
     "allExist": true,
-    "checked": 129
+    "checked": 132
   },
   "copyInventory": "tests/copy-inventory.json",
   "editorialAudit": "COPY_AUDIT.md",
@@ -101,15 +101,15 @@
   "pullRequestCreated": false,
   "repositorySettingsChanged": false,
   "knownLimits": [
-    "Current rendered verification used the in-app browser; native Firefox/screen readers, native file:// policies, OS accessibility/native zoom and frame timing were not tested in this focused pass.",
-    "Historical application ordering defect reproduced; no fresh Firefox-internal trace captured",
-    "No frame-by-frame Firefox repaint/flicker elimination claim",
-    "19 native Deno IDNA discrepancies unchanged; independent ICU diagnostic matches official outputs"
+    "Rendered review used the in-app browser; no current native Firefox, screen-reader, native zoom or file:// storage-policy verification.",
+    "Update waiting/failure screenshots used explicitly controlled worker fixtures.",
+    "Current Firefox full-suite harness was not requested; driver availability was not checked.",
+    "19 native Deno IDNA discrepancies unchanged; independent ICU diagnostic matches official outputs."
   ],
   "failures": [],
   "distributionChecksums": {
     "path": "SHA256SUMS",
-    "fileCount": 222,
+    "fileCount": 242,
     "exclusions": [
       "SHA256SUMS itself",
       "Git metadata",
@@ -117,7 +117,7 @@
     ],
     "verified": true
   },
-  "startingCommittedCheckpoint": "87122d79cbf1703d94cd550dbe6be1488896ce47",
+  "startingCommittedCheckpoint": "769c6437cd6b360d8b920bfb440879de016a802c",
   "focusedInterfacePreservation": {
     "fixtures": 139,
     "completeResultsAndRecordsSHA256": "fba9fc3018576c81655312c2151698da934b2dd3dbdee33ed48cce9ca482c314",
@@ -131,60 +131,59 @@
   "privacy": {
     "privateAbsoluteHomeOrRepositoryPathInPendingFiles": false,
     "workingDirectoryFieldAbsent": true,
-    "screenshots": "28 inspected screenshots; only synthetic input and built-in lookalikes; synthetic saved reference cleared afterward"
+    "screenshots": "16 current before/after screenshots, synthetic/demo inputs only; no reference storage changes"
   },
   "pendingFiles": [
-    "CHANGELOG.md",
     "COPY_AUDIT.md",
-    "EDITORIAL_STYLE_GUIDE.md",
-    "README.md",
+    "DESIGN_NOTES.md",
+    "SECURITY_REVIEW.md",
     "SHA256SUMS",
     "TECHNICAL_DETAILS_REVIEW.md",
     "TEST_RESULTS.md",
     "build-manifest.json",
-    "deno.json",
-    "preview/v3.1.2-technical-desktop-ascii-comparison.jpg",
-    "preview/v3.1.2-technical-desktop-exact-comparison.jpg",
-    "preview/v3.1.2-technical-desktop-failed-brackets.jpg",
-    "preview/v3.1.2-technical-desktop-malformed-percent.jpg",
-    "preview/v3.1.2-technical-desktop-multiple-characters.jpg",
-    "preview/v3.1.2-technical-desktop-one-character.jpg",
-    "preview/v3.1.2-technical-desktop-pagination-complete.jpg",
-    "preview/v3.1.2-technical-desktop-pagination-first.jpg",
-    "preview/v3.1.2-technical-desktop-reliable-extraction.jpg",
-    "preview/v3.1.2-technical-desktop-spelling-comparison.jpg",
-    "preview/v3.1.2-technical-desktop-unavailable-comparison.jpg",
-    "preview/v3.1.2-technical-desktop-uncertain-extraction.jpg",
-    "preview/v3.1.2-technical-desktop-unicode-comparison.jpg",
-    "preview/v3.1.2-technical-desktop-unicode-evidence.jpg",
-    "preview/v3.1.2-technical-desktop-unverified-candidate.jpg",
-    "preview/v3.1.2-technical-mobile-ascii-comparison.jpg",
-    "preview/v3.1.2-technical-mobile-exact-comparison.jpg",
-    "preview/v3.1.2-technical-mobile-malformed-percent.jpg",
-    "preview/v3.1.2-technical-mobile-multiple-characters.jpg",
-    "preview/v3.1.2-technical-mobile-one-character.jpg",
-    "preview/v3.1.2-technical-mobile-pagination-complete.jpg",
-    "preview/v3.1.2-technical-mobile-pagination.jpg",
-    "preview/v3.1.2-technical-mobile-reliable-extraction.jpg",
-    "preview/v3.1.2-technical-mobile-spelling-comparison.jpg",
-    "preview/v3.1.2-technical-mobile-unavailable-comparison.jpg",
-    "preview/v3.1.2-technical-mobile-uncertain-extraction.jpg",
-    "preview/v3.1.2-technical-mobile-unicode-comparison.jpg",
-    "preview/v3.1.2-technical-mobile-unverified-candidate.jpg",
+    "preview/v3.1.2-character-cleanup-desktop-mapped.jpg",
+    "preview/v3.1.2-character-cleanup-mobile-related.jpg",
+    "preview/v3.1.2-character-cleanup-mobile-sequence.jpg",
+    "preview/v3.1.2-obsolete-after-desktop-failed.jpg",
+    "preview/v3.1.2-obsolete-after-desktop-reference.jpg",
+    "preview/v3.1.2-obsolete-after-desktop-waiting.jpg",
+    "preview/v3.1.2-obsolete-after-hosted-mobile.jpg",
+    "preview/v3.1.2-obsolete-after-mobile-character.jpg",
+    "preview/v3.1.2-obsolete-after-mobile-confirmation.jpg",
+    "preview/v3.1.2-obsolete-after-mobile-diagnostics.jpg",
+    "preview/v3.1.2-obsolete-after-mobile-failed.jpg",
+    "preview/v3.1.2-obsolete-after-mobile-waiting.jpg",
+    "preview/v3.1.2-obsolete-after-standalone-desktop.jpg",
+    "preview/v3.1.2-obsolete-after-standalone-mobile.jpg",
+    "preview/v3.1.2-obsolete-before-desktop-failed.jpg",
+    "preview/v3.1.2-obsolete-before-desktop-waiting.jpg",
+    "preview/v3.1.2-obsolete-before-mobile-diagnostics.jpg",
+    "preview/v3.1.2-obsolete-before-mobile-failed.jpg",
+    "preview/v3.1.2-obsolete-before-mobile-waiting.jpg",
     "site/index.html",
     "site/sw.js",
+    "src/base.css",
     "src/template.html",
     "src/ui.js",
     "src/v3.css",
     "standalone/Offline_URL_Inspector.html",
+    "tests/clarity-results.json",
+    "tests/clarity.mjs",
     "tests/copy-inventory.json",
-    "tests/dom-support.mjs",
+    "tests/dom-v3.mjs",
+    "tests/editorial-results.json",
+    "tests/editorial.mjs",
+    "tests/harness.mjs",
+    "tests/interface.mjs",
+    "tests/polish.mjs",
     "tests/release-checks.json",
-    "tests/technical-baseline.json",
+    "tests/summary-results.json",
     "tests/technical-browser-preview.json",
     "tests/technical-results.json",
     "tests/technical-targeted-results.json",
     "tests/technical.mjs",
+    "tests/test_runner.py",
+    "tools/generate_unicode_data.py",
     "tools/test_all.py"
   ],
   "historicalFullSuite": {
@@ -203,27 +202,8 @@
     ],
     "scope": "Previous committed interface checkpoint; not rerun for this reference-only follow-up"
   },
-  "currentTargetedVerification": {
-    "report": "tests/technical-targeted-results.json",
-    "tests": {
-      "executed": 718,
-      "passed": 718,
-      "failed": 0
-    },
-    "assertions": {
-      "executed": 16600,
-      "passed": 16600,
-      "failed": 0
-    },
-    "unicodeConformanceSuiteRerun": false,
-    "allFinalCommandsPassed": true,
-    "notes": [
-      "All final targeted commands passed. The HTTP checks were rerun with local-network permission after sandbox fetch failures.",
-      "The full Unicode conformance suite was not rerun; engine/data sources and prior conformance reports remain unchanged."
-    ]
-  },
   "historicalInterfaceBrowser": "tests/interface-browser-preview.json",
-  "copyInventoryCandidateCount": 2043,
+  "copyInventoryCandidateCount": 2028,
   "referenceInterface": {
     "approvedIntroduction": true,
     "emptyFeedbackZeroHeightAndMargin": true,
@@ -284,5 +264,152 @@
     "reliableExtractionJSONHidden": true,
     "uncertainExtractionLimitationAndCompleteEvidence": true,
     "screenshotsInspected": 28
-  }
+  },
+  "historicalTechnicalVerification": {
+    "report": "tests/technical-targeted-results.json",
+    "tests": {
+      "executed": 718,
+      "passed": 718,
+      "failed": 0
+    },
+    "assertions": {
+      "executed": 16600,
+      "passed": 16600,
+      "failed": 0
+    },
+    "unicodeConformanceSuiteRerun": false,
+    "allFinalCommandsPassed": true,
+    "notes": [
+      "All final targeted commands passed. The HTTP checks were rerun with local-network permission after sandbox fetch failures.",
+      "The full Unicode conformance suite was not rerun; engine/data sources and prior conformance reports remain unchanged."
+    ]
+  },
+  "characterCleanup": {
+    "rawCharacterJSONRemovedFromBothEditions": true,
+    "exclusiveCSSRemoved": true,
+    "underlyingCharacterObjectsRetainedInInspectionResult": true,
+    "mappedNamesAndRelatedComparisonEvidencePreserved": true,
+    "noJSONMovedToRawDiagnosticRecords": true,
+    "sharedRawTextKeptForExtraction": true,
+    "screenshotsInspected": 3,
+    "browserReport": "tests/technical-browser-preview.json: rawCharacterCleanup",
+    "phase2": "Prior audit was read-only. Only subsequently approved findings have now been implemented."
+  },
+  "historicalCharacterCleanupVerification": {
+    "phase": "Phase 1 raw-character disclosure cleanup",
+    "report": "tests/technical-targeted-results.json",
+    "tests": {
+      "executed": 720,
+      "passed": 720,
+      "failed": 0
+    },
+    "assertions": {
+      "executed": 16717,
+      "passed": 16717,
+      "failed": 0
+    },
+    "unicodeConformanceSuiteRerun": false,
+    "allFinalCommandsPassed": true
+  },
+  "currentTargetedVerification": {
+    "phase": "approved obsolete-code cleanup",
+    "report": "tests/technical-targeted-results.json",
+    "tests": {
+      "executed": 287,
+      "passed": 287,
+      "failed": 0
+    },
+    "assertions": {
+      "executed": 11454,
+      "passed": 11454,
+      "failed": 0
+    },
+    "runnerReportingChecks": 4,
+    "allFinalCommandsPassed": true
+  },
+  "currentFullRegression": {
+    "report": "tests/summary-results.json",
+    "runsAfterStabilization": 1,
+    "tests": {
+      "executed": 109636,
+      "passed": 109636,
+      "failed": 0
+    },
+    "assertions": {
+      "executed": 129347,
+      "passed": 129347,
+      "failed": 0
+    },
+    "unicodeConformanceSuiteRerun": true,
+    "firefox": "Not requested: use --with-firefox with a running local WebDriver endpoint. Driver availability was not checked."
+  },
+  "approvedSourceExceptions": {
+    "src/base.css": "Only unused relevant/gap rules removed; historical complete hash restored by reviewed test normalization.",
+    "src/template.html": "Only two empty placeholders removed.",
+    "src/ui.js": "Prior raw-character cleanup preserved; only dead placeholder operations and unused isOpen accessor removed.",
+    "src/v3.css": "Only approved dead/overridden declarations removed; mobile metadata padding preserved.",
+    "tools/generate_unicode_data.py": "Only unused base64 import removed; dataset not regenerated.",
+    "tools/test_all.py": "Only opt-in Firefox documentation/reporting corrected."
+  },
+  "obsoleteCleanup": {
+    "screenshotsInspected": 16,
+    "browserReport": "tests/technical-browser-preview.json: approvedObsoleteCleanup",
+    "mobileIndentationRetained": true,
+    "summaryRelevantPreserved": true,
+    "storageStatusEditionParameterPreserved": true,
+    "legacyStorageWorkerRecoveryAccessibilityPreserved": true,
+    "runnerReportingChecks": 4,
+    "recommendationsOutsideApprovedScopeImplemented": false,
+    "filesChangedFromStartingUncommittedState": [
+      "COPY_AUDIT.md",
+      "DESIGN_NOTES.md",
+      "SECURITY_REVIEW.md",
+      "SHA256SUMS",
+      "TECHNICAL_DETAILS_REVIEW.md",
+      "TEST_RESULTS.md",
+      "build-manifest.json",
+      "preview/v3.1.2-obsolete-after-desktop-failed.jpg",
+      "preview/v3.1.2-obsolete-after-desktop-reference.jpg",
+      "preview/v3.1.2-obsolete-after-desktop-waiting.jpg",
+      "preview/v3.1.2-obsolete-after-hosted-mobile.jpg",
+      "preview/v3.1.2-obsolete-after-mobile-character.jpg",
+      "preview/v3.1.2-obsolete-after-mobile-confirmation.jpg",
+      "preview/v3.1.2-obsolete-after-mobile-diagnostics.jpg",
+      "preview/v3.1.2-obsolete-after-mobile-failed.jpg",
+      "preview/v3.1.2-obsolete-after-mobile-waiting.jpg",
+      "preview/v3.1.2-obsolete-after-standalone-desktop.jpg",
+      "preview/v3.1.2-obsolete-after-standalone-mobile.jpg",
+      "preview/v3.1.2-obsolete-before-desktop-failed.jpg",
+      "preview/v3.1.2-obsolete-before-desktop-waiting.jpg",
+      "preview/v3.1.2-obsolete-before-mobile-diagnostics.jpg",
+      "preview/v3.1.2-obsolete-before-mobile-failed.jpg",
+      "preview/v3.1.2-obsolete-before-mobile-waiting.jpg",
+      "site/index.html",
+      "site/sw.js",
+      "src/base.css",
+      "src/template.html",
+      "src/ui.js",
+      "src/v3.css",
+      "standalone/Offline_URL_Inspector.html",
+      "tests/clarity.mjs",
+      "tests/copy-inventory.json",
+      "tests/dom-v3.mjs",
+      "tests/editorial.mjs",
+      "tests/harness.mjs",
+      "tests/interface.mjs",
+      "tests/polish.mjs",
+      "tests/release-checks.json",
+      "tests/summary-results.json",
+      "tests/technical-browser-preview.json",
+      "tests/technical-results.json",
+      "tests/technical-targeted-results.json",
+      "tests/technical.mjs",
+      "tests/test_runner.py",
+      "tools/generate_unicode_data.py",
+      "tools/test_all.py"
+    ],
+    "startingFileCount": 226,
+    "preservedInitialFiles": true
+  },
+  "frozenBoundaryFilesVerified": 24
 }

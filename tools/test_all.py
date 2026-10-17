@@ -2,7 +2,7 @@
 """Final available-suite runner; starts only a loopback development server.
 
 Default: full Unicode/regression, simulated DOM/worker, HTTP, and optional ICU.
-Firefox is opt-in because this agent environment has a known startup failure.
+Firefox is opt-in and requires an already running local WebDriver endpoint.
 """
 import argparse
 import json
@@ -57,7 +57,7 @@ for filename in files:
     r=json.loads(p.read_text());reports.append({'report':filename,'suite':r['suite'],'tests':r['total'],'assertions':r['assertions'],'status':r.get('status','executed')})
 total={k:sum(r['tests'][k] for r in reports) for k in ['executed','passed','failed']}
 assertions={k:sum(r['assertions'][k] for r in reports) for k in ['executed','passed','failed']}
-summary={'applicationVersion':'3.1.2','tests':total,'assertions':assertions,'commands':commands,'suites':reports,'firefox':'See real-browser reports' if args.with_firefox else 'Not run: geckodriver is not on PATH in the reviewed environment. Historical native startup failure is not a current test. User reports the earlier V3.1.2 persistent offline-startup issue fixed; final editorial Firefox verification remains pending.','scope':'Unit/official conformance, simulated DOM and worker lifecycle, actual loopback HTTP. Simulations are not actual Firefox/GitHub Pages deployment.'}
+summary={'applicationVersion':'3.1.2','tests':total,'assertions':assertions,'commands':commands,'suites':reports,'firefox':('Requested: both Firefox harnesses passed; see current real-browser reports.' if all(c['passed'] for c in commands if c['command'].startswith('test:firefox-')) else 'Requested: Firefox execution failed or could not start; see current real-browser reports and command errors.') if args.with_firefox else 'Not requested: use --with-firefox with a running local WebDriver endpoint. Driver availability was not checked.','scope':'Unit/official conformance, simulated DOM and worker lifecycle, actual loopback HTTP. Simulations are not actual Firefox/GitHub Pages deployment.'}
 (ROOT/'tests/summary-results.json').write_text(json.dumps(summary,indent=2)+'\n')
 print(json.dumps({'tests':total,'assertions':assertions,'firefox':summary['firefox']},indent=2))
 if total['failed'] or assertions['failed'] or any(not c['passed'] for c in commands): raise SystemExit(1)

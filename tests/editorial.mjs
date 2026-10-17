@@ -73,10 +73,11 @@ await test('ordinary Unicode is neutral while a supported lookalike is emphasize
  inspect('https://аmazon.com','amazon.com');equal($('originalChars').querySelector('.character').dataset.tone,'caution');equal($('coloredHost').querySelector('.badchar').dataset.tone,'caution');
  inspect('https://ama\u200bzon.invalid');equal($('originalChars').querySelector('.character').dataset.tone,'caution');assert($('original').textContent.includes('⟦U+200B⟧'));
 });
-for(const [url,target]of [['https://аmazon.com','amazon.com'],['https://æ.invalid','ae.invalid'],['https://ａmazon.com','amazon.com'],['https://faß.invalid',''],['https://cafe\u0301.invalid',''],['https://漢.invalid','']])await test('raw character mappings and code points remain reversible: '+url,()=>{
+for(const [url,target]of [['https://аmazon.com','amazon.com'],['https://æ.invalid','ae.invalid'],['https://ａmazon.com','amazon.com'],['https://faß.invalid',''],['https://cafe\u0301.invalid',''],['https://漢.invalid','']])await test('structured character evidence and complete internal data remain intact: '+url,()=>{
  const r=inspect(url,target),expected=P.characterEvidence(r),records=[...$('characterDetails').querySelectorAll('.character')],characters=[...expected.original,...expected.readable];
  equal(records.length,characters.length);
- records.forEach((e,i)=>{const c=characters[i],raw=JSON.parse(e.querySelector('.raw-character pre').textContent);equal(raw.character,c.ch);equal(raw.codePoint,c.code);equal(raw.name,c.name);equal(raw.idnaMapping,c.idnaMapping);equal(raw.confusableMapping,c.confusable);
+ const retained=P.characterEvidence(w.testLastResult()),complete=[...retained.original,...retained.readable];equal(complete,characters);
+ records.forEach((e,i)=>{const c=characters[i];assert(!e.querySelector('.raw-character'));assert(e.querySelector('.glyph').textContent.includes(I.visible(c.ch)));for(const text of [c.code,c.name,c.script,P.characterNormalization(c,i<expected.original.length,r)])assert(e.textContent.includes(text),text);
  const mapping=e.querySelector('.mapping-value');if(c.confusable===null){assert(!mapping);assert(e.textContent.includes('No UTS #39 mapping is listed'));}else{assert(mapping.textContent.startsWith(I.visible(c.ch)+' ('+c.code+') → '));for(const ch of c.confusable)assert(mapping.textContent.includes(I.cp(ch)));}
  });
  if(url.includes('æ')){equal(P.unicodeDifference(r,I.expectedHost(target)),null);assert(!$('originalChars').textContent.includes('Visually resembles'));}
@@ -97,7 +98,7 @@ await test('ASCII groups retain actual alternatives and positions with natural c
  assert(!$('asciiObservations').textContent.includes('of 1'));assert(!$('primaryDetail').textContent.includes('amazon'));
 });
 await test('relevant ASCII substitution appears once prominently and raw evidence survives',()=>{
- inspect('https://arnazon.com','amazon.com');equal(($('primaryDetail').textContent.match(/“rn” may resemble “m”/g)||[]).length,1);equal($('relevantSubstitutions').children.length,0);
+ inspect('https://arnazon.com','amazon.com');equal(($('primaryDetail').textContent.match(/“rn” may resemble “m”/g)||[]).length,1);equal($('relevantSubstitutions'),null);
  assert($('rawRecords').querySelector('[data-code="ascii-ambiguity"] .diagnostic-text').textContent.includes('“rn”'));assert($('asciiDetails').parentElement.closest('#characterDetails'));
 });
 await test('comparison method headings reflect the actual algorithm',()=>{

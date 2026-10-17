@@ -8,7 +8,7 @@ const fixtures=[...JSON.parse(read('tests/cases.json')),...JSON.parse(read('test
 await test('every complete inspection and original record matches the committed checkpoint',()=>{
  const rows=fixtures.map(c=>{const r=I.inspect(c.url,c.expected||'');return {name:c.name,result:r,records:r.messages.map(m=>({...m,category:P.diagnostic(m).category,severity:P.diagnostic(m).severity}))};});
  equal(rows.length,baseline.fixtures);equal(hash(JSON.stringify(rows)),baseline.completeResultsAndRecordsSHA256);
- for(const [file,expected]of Object.entries(baseline.sourceFiles))equal(hash(file==='src/presentation.js'?functionalSource(file):read(file)),expected);
+ for(const [file,expected]of Object.entries(baseline.sourceFiles))equal(hash(['src/presentation.js','src/base.css'].includes(file)?functionalSource(file):read(file)),expected);
 });
 await test('consolidated records preserve every original message, code, category, severity and order',()=>{
  for(const c of fixtures){const r=inspect(c.url,c.expected||''),ordinary=[...$('messages').children],raw=[...$('rawRecords').children];

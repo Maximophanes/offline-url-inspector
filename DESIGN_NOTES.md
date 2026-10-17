@@ -1,10 +1,10 @@
 # Version 3.1.2 complete editorial and interface refinement
 
-The existing Blackberry & Amethyst design, base CSS, Georgia title, full ten-second animation, gradients and reduced-motion rules remain byte-identical. No new title/page/pill animation was introduced.
+The Blackberry & Amethyst appearance is preserved. The Georgia title, full ten-second animation, gradients and reduced-motion rules remain byte-identical; approved obsolete-code cleanup removes only unused base-CSS rules. No new title/page/pill animation was introduced.
 
 The permanent [editorial guide](EDITORIAL_STYLE_GUIDE.md) and [copy audit](COPY_AUDIT.md) cover ordinary and conditional strings. Main findings explain observations before methods. Main hostname descriptors stay inline at desktop widths; narrow technical rows use smaller muted second lines. One bottom Raw Diagnostic Records disclosure preserves the original ordered records. Original text, official names, code points, mapping sequences and diagnostic levels/codes/order remain; raw technical prose moves deeper.
 
-Ordinary Unicode has neutral lilac emphasis. A directly supported comparison character or invisible control keeps contextual caution. Character resemblance is combined in one row; UTS #39 mappings display actual sequences once, with names/raw fields subordinate. ASCII observations use separated bordered groups and paged locations; completed small lists do not get redundant progress.
+Ordinary Unicode has neutral lilac emphasis. A directly supported comparison character or invisible control keeps contextual caution. Character resemblance is combined in one row; UTS #39 mappings display actual sequences once, with mapped names expandable and complete character objects retained internally. ASCII observations use separated bordered groups and paged locations; completed small lists do not get redundant progress.
 
 Reference errors sit near their field; backup/import/clear feedback sits by those controls. Visible Success/Information/Caution/Error labels avoid color-only meaning. Structured import previews show complete additions/removals/final lists. Protected-storage help distinguishes the current readable list from unreadable/different saved bytes.
 

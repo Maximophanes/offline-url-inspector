@@ -20,10 +20,21 @@ export class MemoryStorage {
  setItem(k,v){if(this.failWrite)throw Error('Quota exceeded');this.values.set(k,String(v));this.writes.push([k,String(v)]);}
  removeItem(k){this.values.delete(k);}
 }
-// Restore only the navigation-recovery prose when checking published worker pins.
-// Matching the old full-file hash then proves every other worker byte is unchanged.
+// Restore explicitly reviewed presentation deletions/prose for historical source pins.
+// Matching the old full-file hash proves all other source bytes remain unchanged.
 export function functionalSource(path){
  let source=read(path);
+ if(path==='src/base.css'){
+  const reviewed=[
+   ['.supporting{padding-left:21px;margin:12px 0 0}', '.supporting,.relevant{padding-left:21px;margin:12px 0 0}'],
+   ['.supporting:empty{display:none}', '.relevant{color:var(--orange);font-family:var(--mono);font-size:13px}li{margin:5px 0}.relevant:empty,.supporting:empty{display:none}'],
+   ['.readable-label{margin-top:17px}', '.readable-label{margin-top:17px}.gap{height:12px}']
+  ];
+  // li remains live; restore it only once alongside the reviewed deleted rule.
+  source=source.replace('li{margin:5px 0}.supporting:empty{display:none}', '.supporting:empty{display:none}');
+  for(const [current,original]of reviewed){if(source.split(current).length!==2)throw Error('Reviewed base-CSS cleanup boundary changed');source=source.replace(current,original);}
+  return source;
+ }
  if(path==='src/presentation.js'){
   const baseline=JSON.parse(read('tests/reference-interface-baseline.json'));
   for(const [start,end,key]of [['  function validation(','  function inputFailure(','validationBlock'],['  function storageStatus(','  function importSummary(','storageStatusBlock']]){
