@@ -1,0 +1,2007 @@
+{
+  "applicationVersion": "3.1.2",
+  "date": "2026-10-16",
+  "checkpoint": "87122d79cbf1703d94cd550dbe6be1488896ce47",
+  "environment": "Actual rendered Codex in-app browser; matched hosted build on loopback port 8791; 1100x1000 and 390x844",
+  "review": "Every listed screenshot was visually inspected by the agent",
+  "checks": [
+    {
+      "name": "desktop-one-character",
+      "screenshot": "preview/v3.1.2-technical-desktop-one-character.jpg",
+      "measurements": {
+        "comparisonTitles": [
+          "Unicode visual comparison"
+        ],
+        "count": "1 Unicode character identified.",
+        "countToCard": 12,
+        "extractionDetailsVisible": false,
+        "extractionNotice": "",
+        "focus": "",
+        "labelToCount": 12,
+        "technicalComparisonData": false,
+        "viewport": 1100,
+        "width": 1100
+      },
+      "passed": true
+    },
+    {
+      "name": "desktop-unicode-evidence",
+      "screenshot": "preview/v3.1.2-technical-desktop-unicode-evidence.jpg",
+      "measurements": {
+        "comparisonTitles": [
+          "Unicode visual comparison"
+        ],
+        "count": "1 Unicode character identified.",
+        "countToCard": 12,
+        "extractionDetailsVisible": false,
+        "extractionNotice": "",
+        "focus": "",
+        "labelToCount": 12,
+        "technicalComparisonData": false,
+        "viewport": 1100,
+        "width": 1100
+      },
+      "passed": true
+    },
+    {
+      "name": "desktop-unicode-comparison",
+      "screenshot": "preview/v3.1.2-technical-desktop-unicode-comparison.jpg",
+      "measurements": {
+        "comparisonTitles": [
+          "Unicode visual comparison"
+        ],
+        "count": "1 Unicode character identified.",
+        "countToCard": 12,
+        "extractionDetailsVisible": false,
+        "extractionNotice": "",
+        "focus": "",
+        "labelToCount": 12,
+        "technicalComparisonData": false,
+        "viewport": 1100,
+        "width": 1100
+      },
+      "passed": true
+    },
+    {
+      "name": "desktop-multiple-characters",
+      "screenshot": "preview/v3.1.2-technical-desktop-multiple-characters.jpg",
+      "measurements": {
+        "comparisonTitles": [
+          "Unicode visual comparison"
+        ],
+        "count": "2 Unicode characters identified.",
+        "countToCard": 12,
+        "extractionDetailsVisible": false,
+        "extractionNotice": "",
+        "focus": "",
+        "labelToCount": 12,
+        "technicalComparisonData": false,
+        "viewport": 1100,
+        "width": 1100
+      },
+      "passed": true
+    },
+    {
+      "name": "desktop-pagination-first",
+      "screenshot": "preview/v3.1.2-technical-desktop-pagination-first.jpg",
+      "measurements": {
+        "comparisonTitles": [],
+        "count": "120 Unicode characters identified. Showing 50 of 120.",
+        "countToCard": 12,
+        "extractionDetailsVisible": false,
+        "extractionNotice": "",
+        "focus": "",
+        "labelToCount": 12,
+        "technicalComparisonData": false,
+        "viewport": 1100,
+        "width": 1100
+      },
+      "passed": true
+    },
+    {
+      "name": "desktop-pagination-complete",
+      "screenshot": "preview/v3.1.2-technical-desktop-pagination-complete.jpg",
+      "measurements": {
+        "comparisonTitles": [],
+        "count": "120 Unicode characters identified.",
+        "countToCard": 12,
+        "extractionDetailsVisible": false,
+        "extractionNotice": "",
+        "focus": "",
+        "labelToCount": 12,
+        "technicalComparisonData": false,
+        "viewport": 1100,
+        "width": 1100
+      },
+      "passed": true
+    },
+    {
+      "name": "desktop-ascii-comparison",
+      "screenshot": "preview/v3.1.2-technical-desktop-ascii-comparison.jpg",
+      "measurements": {
+        "comparisonTitles": [
+          "ASCII visual comparison"
+        ],
+        "countToCard": null,
+        "extractionDetailsVisible": false,
+        "extractionNotice": "",
+        "focus": "",
+        "labelToCount": null,
+        "technicalComparisonData": false,
+        "viewport": 1100,
+        "width": 1100
+      },
+      "passed": true
+    },
+    {
+      "name": "desktop-spelling-comparison",
+      "screenshot": "preview/v3.1.2-technical-desktop-spelling-comparison.jpg",
+      "measurements": {
+        "comparisonTitles": [
+          "Spelling comparison"
+        ],
+        "countToCard": null,
+        "extractionDetailsVisible": false,
+        "extractionNotice": "",
+        "focus": "",
+        "labelToCount": null,
+        "technicalComparisonData": false,
+        "viewport": 1100,
+        "width": 1100
+      },
+      "passed": true
+    },
+    {
+      "name": "desktop-exact-comparison",
+      "screenshot": "preview/v3.1.2-technical-desktop-exact-comparison.jpg",
+      "measurements": {
+        "comparisonTitles": [
+          "Hostname identity comparison"
+        ],
+        "countToCard": null,
+        "extractionDetailsVisible": false,
+        "extractionNotice": "",
+        "focus": "",
+        "labelToCount": null,
+        "technicalComparisonData": false,
+        "viewport": 1100,
+        "width": 1100
+      },
+      "passed": true
+    },
+    {
+      "name": "desktop-unavailable-comparison",
+      "screenshot": "preview/v3.1.2-technical-desktop-unavailable-comparison.jpg",
+      "measurements": {
+        "comparisonTitles": [
+          "Visual comparison unavailable"
+        ],
+        "count": "4 Unicode characters identified.",
+        "countToCard": 12,
+        "extractionDetailsVisible": false,
+        "extractionNotice": "",
+        "focus": "",
+        "labelToCount": 12,
+        "technicalComparisonData": false,
+        "viewport": 1100,
+        "width": 1100
+      },
+      "passed": true
+    },
+    {
+      "name": "desktop-reliable-extraction",
+      "screenshot": "preview/v3.1.2-technical-desktop-reliable-extraction.jpg",
+      "measurements": {
+        "comparisonTitles": [],
+        "countToCard": null,
+        "extractionDetailsVisible": false,
+        "extractionNotice": "",
+        "focus": "",
+        "labelToCount": null,
+        "technicalComparisonData": false,
+        "viewport": 1100,
+        "width": 1100
+      },
+      "passed": true
+    },
+    {
+      "name": "desktop-uncertain-extraction",
+      "screenshot": "preview/v3.1.2-technical-desktop-uncertain-extraction.jpg",
+      "measurements": {
+        "comparisonTitles": [],
+        "countToCard": null,
+        "extractionDetailsVisible": true,
+        "extractionNotice": "The original hostname could not be established reliably. Check the original URL and parsed hostname values, if available.",
+        "focus": "",
+        "labelToCount": null,
+        "technicalComparisonData": false,
+        "viewport": 1100,
+        "width": 1100
+      },
+      "passed": true
+    },
+    {
+      "name": "desktop-malformed-percent",
+      "screenshot": "preview/v3.1.2-technical-desktop-malformed-percent.jpg",
+      "measurements": {
+        "comparisonTitles": [],
+        "countToCard": null,
+        "extractionDetailsVisible": true,
+        "extractionNotice": "The hostname shown above is unverified. It could not be reliably established from the original URL.",
+        "focus": "",
+        "labelToCount": null,
+        "technicalComparisonData": false,
+        "viewport": 1100,
+        "width": 1100
+      },
+      "passed": true
+    },
+    {
+      "name": "desktop-failed-brackets",
+      "screenshot": "preview/v3.1.2-technical-desktop-failed-brackets.jpg",
+      "measurements": {
+        "comparisonTitles": [],
+        "countToCard": null,
+        "extractionDetailsVisible": true,
+        "extractionNotice": "The original hostname could not be established reliably. Check the original URL and parsed hostname values, if available.",
+        "focus": "",
+        "labelToCount": null,
+        "technicalComparisonData": false,
+        "viewport": 1100,
+        "width": 1100
+      },
+      "passed": true
+    },
+    {
+      "name": "desktop-unverified-candidate",
+      "screenshot": "preview/v3.1.2-technical-desktop-unverified-candidate.jpg",
+      "measurements": {
+        "comparisonTitles": [],
+        "count": "1 Unicode character identified.",
+        "countToCard": 12,
+        "extractionDetailsVisible": true,
+        "extractionNotice": "The hostname shown above is unverified. It could not be reliably established from the original URL.",
+        "focus": "",
+        "labelToCount": 12,
+        "technicalComparisonData": false,
+        "viewport": 1100,
+        "width": 1100
+      },
+      "passed": true
+    },
+    {
+      "name": "mobile-one-character",
+      "screenshot": "preview/v3.1.2-technical-mobile-one-character.jpg",
+      "measurements": {
+        "comparisonTitles": [
+          "Unicode visual comparison"
+        ],
+        "count": "1 Unicode character identified.",
+        "countToCard": 12,
+        "extractionDetailsVisible": false,
+        "extractionNotice": "",
+        "focus": "",
+        "labelToCount": 12,
+        "technicalComparisonData": false,
+        "viewport": 390,
+        "width": 390
+      },
+      "passed": true
+    },
+    {
+      "name": "mobile-multiple-characters",
+      "screenshot": "preview/v3.1.2-technical-mobile-multiple-characters.jpg",
+      "measurements": {
+        "comparisonTitles": [
+          "Unicode visual comparison"
+        ],
+        "count": "2 Unicode characters identified.",
+        "countToCard": 12,
+        "extractionDetailsVisible": false,
+        "extractionNotice": "",
+        "focus": "",
+        "labelToCount": 12,
+        "technicalComparisonData": false,
+        "viewport": 390,
+        "width": 390
+      },
+      "passed": true
+    },
+    {
+      "name": "mobile-pagination",
+      "screenshot": "preview/v3.1.2-technical-mobile-pagination.jpg",
+      "measurements": {
+        "comparisonTitles": [],
+        "count": "120 Unicode characters identified. Showing 50 of 120.",
+        "countToCard": 12,
+        "extractionDetailsVisible": false,
+        "extractionNotice": "",
+        "focus": "",
+        "labelToCount": 12,
+        "technicalComparisonData": false,
+        "viewport": 390,
+        "width": 390
+      },
+      "passed": true
+    },
+    {
+      "name": "mobile-pagination-complete",
+      "screenshot": "preview/v3.1.2-technical-mobile-pagination-complete.jpg",
+      "measurements": {
+        "comparisonTitles": [],
+        "count": "120 Unicode characters identified.",
+        "countToCard": 12,
+        "extractionDetailsVisible": false,
+        "extractionNotice": "",
+        "focus": "",
+        "labelToCount": 12,
+        "technicalComparisonData": false,
+        "viewport": 390,
+        "width": 390
+      },
+      "passed": true
+    },
+    {
+      "name": "mobile-unicode-comparison",
+      "screenshot": "preview/v3.1.2-technical-mobile-unicode-comparison.jpg",
+      "measurements": {
+        "comparisonTitles": [
+          "Unicode visual comparison"
+        ],
+        "count": "1 Unicode character identified.",
+        "countToCard": 12,
+        "extractionDetailsVisible": false,
+        "extractionNotice": "",
+        "focus": "",
+        "labelToCount": 12,
+        "technicalComparisonData": false,
+        "viewport": 390,
+        "width": 390
+      },
+      "passed": true
+    },
+    {
+      "name": "mobile-ascii-comparison",
+      "screenshot": "preview/v3.1.2-technical-mobile-ascii-comparison.jpg",
+      "measurements": {
+        "comparisonTitles": [
+          "ASCII visual comparison"
+        ],
+        "countToCard": null,
+        "extractionDetailsVisible": false,
+        "extractionNotice": "",
+        "focus": "",
+        "labelToCount": null,
+        "technicalComparisonData": false,
+        "viewport": 390,
+        "width": 390
+      },
+      "passed": true
+    },
+    {
+      "name": "mobile-spelling-comparison",
+      "screenshot": "preview/v3.1.2-technical-mobile-spelling-comparison.jpg",
+      "measurements": {
+        "comparisonTitles": [
+          "Spelling comparison"
+        ],
+        "countToCard": null,
+        "extractionDetailsVisible": false,
+        "extractionNotice": "",
+        "focus": "",
+        "labelToCount": null,
+        "technicalComparisonData": false,
+        "viewport": 390,
+        "width": 390
+      },
+      "passed": true
+    },
+    {
+      "name": "mobile-exact-comparison",
+      "screenshot": "preview/v3.1.2-technical-mobile-exact-comparison.jpg",
+      "measurements": {
+        "comparisonTitles": [
+          "Hostname identity comparison"
+        ],
+        "countToCard": null,
+        "extractionDetailsVisible": false,
+        "extractionNotice": "",
+        "focus": "",
+        "labelToCount": null,
+        "technicalComparisonData": false,
+        "viewport": 390,
+        "width": 390
+      },
+      "passed": true
+    },
+    {
+      "name": "mobile-unavailable-comparison",
+      "screenshot": "preview/v3.1.2-technical-mobile-unavailable-comparison.jpg",
+      "measurements": {
+        "comparisonTitles": [
+          "Visual comparison unavailable"
+        ],
+        "count": "4 Unicode characters identified.",
+        "countToCard": 12,
+        "extractionDetailsVisible": false,
+        "extractionNotice": "",
+        "focus": "",
+        "labelToCount": 12,
+        "technicalComparisonData": false,
+        "viewport": 390,
+        "width": 390
+      },
+      "passed": true
+    },
+    {
+      "name": "mobile-reliable-extraction",
+      "screenshot": "preview/v3.1.2-technical-mobile-reliable-extraction.jpg",
+      "measurements": {
+        "comparisonTitles": [],
+        "countToCard": null,
+        "extractionDetailsVisible": false,
+        "extractionNotice": "",
+        "focus": "",
+        "labelToCount": null,
+        "technicalComparisonData": false,
+        "viewport": 390,
+        "width": 390
+      },
+      "passed": true
+    },
+    {
+      "name": "mobile-uncertain-extraction",
+      "screenshot": "preview/v3.1.2-technical-mobile-uncertain-extraction.jpg",
+      "measurements": {
+        "comparisonTitles": [],
+        "countToCard": null,
+        "extractionDetailsVisible": true,
+        "extractionNotice": "The original hostname could not be established reliably. Check the original URL and parsed hostname values, if available.",
+        "focus": "",
+        "labelToCount": null,
+        "technicalComparisonData": false,
+        "viewport": 390,
+        "width": 390
+      },
+      "passed": true
+    },
+    {
+      "name": "mobile-malformed-percent",
+      "screenshot": "preview/v3.1.2-technical-mobile-malformed-percent.jpg",
+      "measurements": {
+        "comparisonTitles": [],
+        "countToCard": null,
+        "extractionDetailsVisible": true,
+        "extractionNotice": "The hostname shown above is unverified. It could not be reliably established from the original URL.",
+        "focus": "",
+        "labelToCount": null,
+        "technicalComparisonData": false,
+        "viewport": 390,
+        "width": 390
+      },
+      "passed": true
+    },
+    {
+      "name": "mobile-unverified-candidate",
+      "screenshot": "preview/v3.1.2-technical-mobile-unverified-candidate.jpg",
+      "measurements": {
+        "comparisonTitles": [],
+        "count": "1 Unicode character identified.",
+        "countToCard": 12,
+        "extractionDetailsVisible": true,
+        "extractionNotice": "The hostname shown above is unverified. It could not be reliably established from the original URL.",
+        "focus": "",
+        "labelToCount": 12,
+        "technicalComparisonData": false,
+        "viewport": 390,
+        "width": 390
+      },
+      "passed": true
+    }
+  ],
+  "screenshots": [
+    "preview/v3.1.2-technical-desktop-ascii-comparison.jpg",
+    "preview/v3.1.2-technical-desktop-exact-comparison.jpg",
+    "preview/v3.1.2-technical-desktop-failed-brackets.jpg",
+    "preview/v3.1.2-technical-desktop-malformed-percent.jpg",
+    "preview/v3.1.2-technical-desktop-multiple-characters.jpg",
+    "preview/v3.1.2-technical-desktop-one-character.jpg",
+    "preview/v3.1.2-technical-desktop-pagination-complete.jpg",
+    "preview/v3.1.2-technical-desktop-pagination-first.jpg",
+    "preview/v3.1.2-technical-desktop-reliable-extraction.jpg",
+    "preview/v3.1.2-technical-desktop-spelling-comparison.jpg",
+    "preview/v3.1.2-technical-desktop-unavailable-comparison.jpg",
+    "preview/v3.1.2-technical-desktop-uncertain-extraction.jpg",
+    "preview/v3.1.2-technical-desktop-unicode-comparison.jpg",
+    "preview/v3.1.2-technical-desktop-unicode-evidence.jpg",
+    "preview/v3.1.2-technical-desktop-unverified-candidate.jpg",
+    "preview/v3.1.2-technical-mobile-ascii-comparison.jpg",
+    "preview/v3.1.2-technical-mobile-exact-comparison.jpg",
+    "preview/v3.1.2-technical-mobile-malformed-percent.jpg",
+    "preview/v3.1.2-technical-mobile-multiple-characters.jpg",
+    "preview/v3.1.2-technical-mobile-one-character.jpg",
+    "preview/v3.1.2-technical-mobile-pagination-complete.jpg",
+    "preview/v3.1.2-technical-mobile-pagination.jpg",
+    "preview/v3.1.2-technical-mobile-reliable-extraction.jpg",
+    "preview/v3.1.2-technical-mobile-spelling-comparison.jpg",
+    "preview/v3.1.2-technical-mobile-unavailable-comparison.jpg",
+    "preview/v3.1.2-technical-mobile-uncertain-extraction.jpg",
+    "preview/v3.1.2-technical-mobile-unicode-comparison.jpg",
+    "preview/v3.1.2-technical-mobile-unverified-candidate.jpg"
+  ],
+  "spacing": "All measured label-to-count and count-to-first-card gaps were 12px, including multiline mobile pagination counts",
+  "keyboard": [
+    "Native disclosure summaries opened/closed with Enter and visible focus rings",
+    "Pagination advanced through all 120 character records on desktop and mobile; completion focused the first newly added character",
+    "Conditional extraction disclosure reset on new inspection"
+  ],
+  "inputs": "Built-in synthetic lookalikes, example.com, web.com, synthetic .invalid hostnames, valid/invalid percent encoding, malformed brackets, extra slashes and rejected numeric port. Oversized synthetic character fixture retains existing hostname-validation warnings.",
+  "storage": "Only synthetic example.invalid was added for a saved-reference unavailable-warning check; the reference list was cleared afterward",
+  "simulations": "No browser-rendered state fixtures were needed. Unexpected renderer-failure coverage is simulated only in DOM tests.",
+  "limitations": [
+    "In-app browser verification; native Firefox and screen readers not tested in this focused pass",
+    "Standalone source/DOM/CSP/build consistency verified separately; no fresh native file:// policy review",
+    "No claim of complete frame-timing, native zoom or OS accessibility coverage"
+  ],
+  "rawCharacterCleanup": {
+    "checkpoint": "769c6437cd6b360d8b920bfb440879de016a802c",
+    "environment": "Actual matched hosted build in Codex in-app browser, 1100x1000 and 390x844",
+    "screenshotsVisuallyInspected": true,
+    "checks": [
+      {
+        "name": "desktop-mapped",
+        "screenshot": "preview/v3.1.2-character-cleanup-desktop-mapped.jpg",
+        "measurements": {
+          "mappedNames": 1,
+          "mappingCount": 1,
+          "rawDisclosureCount": 0,
+          "rawPreCount": 0,
+          "related": 1,
+          "viewport": 1100,
+          "width": 1100
+        },
+        "passed": true
+      },
+      {
+        "name": "mobile-sequence",
+        "screenshot": "preview/v3.1.2-character-cleanup-mobile-sequence.jpg",
+        "measurements": {
+          "mappedNames": 1,
+          "mappingCount": 1,
+          "rawDisclosureCount": 0,
+          "rawPreCount": 0,
+          "related": 0,
+          "viewport": 390,
+          "width": 390
+        },
+        "passed": true
+      },
+      {
+        "name": "mobile-related",
+        "screenshot": "preview/v3.1.2-character-cleanup-mobile-related.jpg",
+        "measurements": {
+          "mappedNames": 2,
+          "mappingCount": 2,
+          "rawDisclosureCount": 0,
+          "rawPreCount": 0,
+          "related": 2,
+          "viewport": 390,
+          "width": 390
+        },
+        "passed": true
+      }
+    ],
+    "keyboard": "Unicode comparison data, mapped names and related comparison disclosures opened with Enter and visible focus rings",
+    "storage": "No reference changes or inspected input persistence",
+    "limitations": "Native Firefox and screen readers not tested in this focused pass"
+  },
+  "approvedObsoleteCleanup": {
+    "edition": "3.1.2",
+    "scope": "In-app rendered desktop/mobile review; exact generated editions plus explicitly simulated update-controller states",
+    "screenshotsInspected": [
+      "preview/v3.1.2-obsolete-after-desktop-failed.jpg",
+      "preview/v3.1.2-obsolete-after-desktop-reference.jpg",
+      "preview/v3.1.2-obsolete-after-desktop-waiting.jpg",
+      "preview/v3.1.2-obsolete-after-hosted-mobile.jpg",
+      "preview/v3.1.2-obsolete-after-mobile-character.jpg",
+      "preview/v3.1.2-obsolete-after-mobile-confirmation.jpg",
+      "preview/v3.1.2-obsolete-after-mobile-diagnostics.jpg",
+      "preview/v3.1.2-obsolete-after-mobile-failed.jpg",
+      "preview/v3.1.2-obsolete-after-mobile-waiting.jpg",
+      "preview/v3.1.2-obsolete-after-standalone-desktop.jpg",
+      "preview/v3.1.2-obsolete-after-standalone-mobile.jpg",
+      "preview/v3.1.2-obsolete-before-desktop-failed.jpg",
+      "preview/v3.1.2-obsolete-before-desktop-waiting.jpg",
+      "preview/v3.1.2-obsolete-before-mobile-diagnostics.jpg",
+      "preview/v3.1.2-obsolete-before-mobile-failed.jpg",
+      "preview/v3.1.2-obsolete-before-mobile-waiting.jpg"
+    ],
+    "viewports": [
+      [
+        1100,
+        1000
+      ],
+      [
+        390,
+        844
+      ]
+    ],
+    "beforeAfterMeasurements": {
+      "beforeDesktopWaiting": {
+        "nodes": [
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "block",
+            "font": "15px / 24px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 36,
+            "id": "updatePanel",
+            "margin": "0px",
+            "padding": "0px",
+            "text": "Check for UpdatesApply Update",
+            "w": 818.3046875,
+            "x": 80,
+            "y": 867.0703125
+          },
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "block",
+            "font": "700 12px / 15.6px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 36,
+            "id": "checkCache",
+            "margin": "0px",
+            "padding": "8px 11px",
+            "text": "Check for Updates",
+            "w": 142,
+            "x": 80,
+            "y": 867.0703125
+          },
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "block",
+            "font": "700 12px / 15.6px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 36,
+            "id": "applyUpdate",
+            "margin": "0px",
+            "padding": "8px 11px",
+            "text": "Apply Update",
+            "w": 106.0234375,
+            "x": 231,
+            "y": 867.0703125
+          },
+          {
+            "color": "rgb(182, 169, 197)",
+            "display": "flex",
+            "font": "11px / 18px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 36,
+            "id": "offlineStatus",
+            "margin": "0px",
+            "padding": "8px 11px",
+            "text": "Offline ready",
+            "w": 105.6953125,
+            "x": 914.3046875,
+            "y": 867.0703125
+          },
+          {
+            "color": "rgb(182, 169, 197)",
+            "display": "grid",
+            "font": "12px / 18px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "6px 926px",
+            "h": 38,
+            "id": "updateStatus",
+            "margin": "0px",
+            "padding": "0px",
+            "text": "Update ready.Choose Apply Update when you are ready to reload.",
+            "w": 940,
+            "x": 80,
+            "y": 916.0703125
+          },
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "inline",
+            "font": "12px / 18px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 14,
+            "id": "updateSummary",
+            "margin": "0px",
+            "padding": "0px",
+            "text": "Update ready.",
+            "w": 79.109375,
+            "x": 94,
+            "y": 918.0703125
+          },
+          {
+            "absent": true,
+            "id": "updateDetail"
+          },
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "inline-block",
+            "font": "",
+            "grid": "none",
+            "h": 105,
+            "id": "link",
+            "margin": "0px",
+            "padding": "12px 14px",
+            "text": "",
+            "w": 940,
+            "x": 80,
+            "y": 510.53125
+          },
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "block",
+            "font": "15px / 24px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 0,
+            "id": "primary",
+            "margin": "0px 0px 23px",
+            "padding": "0px 0px 0px 16px",
+            "text": "Primary finding",
+            "w": 0,
+            "x": 0,
+            "y": 385
+          },
+          {
+            "absent": true,
+            "id": "technicalDetails"
+          },
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "block",
+            "font": "15px / 24px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 0,
+            "id": "messages",
+            "margin": "0px",
+            "padding": "0px",
+            "text": "",
+            "w": 0,
+            "x": 0,
+            "y": 385
+          },
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "block",
+            "font": "15px / 24px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 0,
+            "id": "rawRecords",
+            "margin": "0px",
+            "padding": "0px 14px 14px",
+            "text": "",
+            "w": 0,
+            "x": 0,
+            "y": 385
+          }
+        ],
+        "overflow": false,
+        "width": 1100
+      },
+      "beforeMobileWaiting": {
+        "nodes": [
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "block",
+            "font": "15px / 24px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 36,
+            "id": "updatePanel",
+            "margin": "0px",
+            "padding": "0px",
+            "text": "Check for UpdatesApply Update",
+            "w": 328,
+            "x": 31,
+            "y": 974.40625
+          },
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "block",
+            "font": "700 12px / 15.6px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 36,
+            "id": "checkCache",
+            "margin": "0px",
+            "padding": "8px 11px",
+            "text": "Check for Updates",
+            "w": 142,
+            "x": 31,
+            "y": 974.40625
+          },
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "block",
+            "font": "700 12px / 15.6px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 36,
+            "id": "applyUpdate",
+            "margin": "0px",
+            "padding": "8px 11px",
+            "text": "Apply Update",
+            "w": 106.0234375,
+            "x": 182,
+            "y": 974.40625
+          },
+          {
+            "color": "rgb(182, 169, 197)",
+            "display": "flex",
+            "font": "11px / 18px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 36,
+            "id": "offlineStatus",
+            "margin": "0px",
+            "padding": "8px 11px",
+            "text": "Offline ready",
+            "w": 105.6953125,
+            "x": 253.3046875,
+            "y": 1023.40625
+          },
+          {
+            "color": "rgb(182, 169, 197)",
+            "display": "grid",
+            "font": "12px / 18px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "6px 314px",
+            "h": 38,
+            "id": "updateStatus",
+            "margin": "0px",
+            "padding": "0px",
+            "text": "Update ready.Choose Apply Update when you are ready to reload.",
+            "w": 328,
+            "x": 31,
+            "y": 1072.40625
+          },
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "inline",
+            "font": "12px / 18px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 14,
+            "id": "updateSummary",
+            "margin": "0px",
+            "padding": "0px",
+            "text": "Update ready.",
+            "w": 79.109375,
+            "x": 45,
+            "y": 1074.40625
+          },
+          {
+            "absent": true,
+            "id": "updateDetail"
+          },
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "inline-block",
+            "font": "",
+            "grid": "none",
+            "h": 105,
+            "id": "link",
+            "margin": "0px",
+            "padding": "12px 14px",
+            "text": "",
+            "w": 328,
+            "x": 31,
+            "y": 525.8671875
+          },
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "block",
+            "font": "15px / 24px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 0,
+            "id": "primary",
+            "margin": "0px 0px 23px",
+            "padding": "0px 0px 0px 13px",
+            "text": "Primary finding",
+            "w": 0,
+            "x": 0,
+            "y": 570.5
+          },
+          {
+            "absent": true,
+            "id": "technicalDetails"
+          },
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "block",
+            "font": "15px / 24px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 0,
+            "id": "messages",
+            "margin": "0px",
+            "padding": "0px",
+            "text": "",
+            "w": 0,
+            "x": 0,
+            "y": 570.5
+          },
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "block",
+            "font": "15px / 24px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 0,
+            "id": "rawRecords",
+            "margin": "0px",
+            "padding": "0px 10px 10px",
+            "text": "",
+            "w": 0,
+            "x": 0,
+            "y": 570.5
+          }
+        ],
+        "overflow": false,
+        "width": 390
+      },
+      "beforeMobileFailed": {
+        "nodes": [
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "block",
+            "font": "15px / 24px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 36,
+            "id": "updatePanel",
+            "margin": "0px",
+            "padding": "0px",
+            "text": "Check for UpdatesApply Update",
+            "w": 328,
+            "x": 31,
+            "y": 974.40625
+          },
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "block",
+            "font": "700 12px / 15.6px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 36,
+            "id": "checkCache",
+            "margin": "0px",
+            "padding": "8px 11px",
+            "text": "Check for Updates",
+            "w": 142,
+            "x": 31,
+            "y": 974.40625
+          },
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "none",
+            "font": "700 12px / 15.6px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 0,
+            "id": "applyUpdate",
+            "margin": "0px",
+            "padding": "8px 11px",
+            "text": "Apply Update",
+            "w": 0,
+            "x": 0,
+            "y": 570.5
+          },
+          {
+            "color": "rgb(182, 169, 197)",
+            "display": "flex",
+            "font": "11px / 18px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 36,
+            "id": "offlineStatus",
+            "margin": "0px",
+            "padding": "8px 11px",
+            "text": "Offline ready",
+            "w": 105.6953125,
+            "x": 253.3046875,
+            "y": 1023.40625
+          },
+          {
+            "color": "rgb(182, 169, 197)",
+            "display": "grid",
+            "font": "12px / 18px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "6px 314px",
+            "h": 56,
+            "id": "updateStatus",
+            "margin": "0px",
+            "padding": "0px",
+            "text": "Update check failed.Your current page remains available; try again when online.",
+            "w": 328,
+            "x": 31,
+            "y": 1072.40625
+          },
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "inline",
+            "font": "12px / 18px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 14,
+            "id": "updateSummary",
+            "margin": "0px",
+            "padding": "0px",
+            "text": "Update check failed.",
+            "w": 116.484375,
+            "x": 45,
+            "y": 1074.40625
+          },
+          {
+            "absent": true,
+            "id": "updateDetail"
+          },
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "inline-block",
+            "font": "",
+            "grid": "none",
+            "h": 105,
+            "id": "link",
+            "margin": "0px",
+            "padding": "12px 14px",
+            "text": "",
+            "w": 328,
+            "x": 31,
+            "y": 525.8671875
+          },
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "block",
+            "font": "15px / 24px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 0,
+            "id": "primary",
+            "margin": "0px 0px 23px",
+            "padding": "0px 0px 0px 13px",
+            "text": "Primary finding",
+            "w": 0,
+            "x": 0,
+            "y": 570.5
+          },
+          {
+            "absent": true,
+            "id": "technicalDetails"
+          },
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "block",
+            "font": "15px / 24px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 0,
+            "id": "messages",
+            "margin": "0px",
+            "padding": "0px",
+            "text": "",
+            "w": 0,
+            "x": 0,
+            "y": 570.5
+          },
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "block",
+            "font": "15px / 24px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 0,
+            "id": "rawRecords",
+            "margin": "0px",
+            "padding": "0px 10px 10px",
+            "text": "",
+            "w": 0,
+            "x": 0,
+            "y": 570.5
+          }
+        ],
+        "overflow": false,
+        "width": 390
+      },
+      "beforeDesktopFailed": {
+        "nodes": [
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "block",
+            "font": "15px / 24px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 36,
+            "id": "updatePanel",
+            "margin": "0px",
+            "padding": "0px",
+            "text": "Check for UpdatesApply Update",
+            "w": 818.3046875,
+            "x": 80,
+            "y": 867.0703125
+          },
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "block",
+            "font": "700 12px / 15.6px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 36,
+            "id": "checkCache",
+            "margin": "0px",
+            "padding": "8px 11px",
+            "text": "Check for Updates",
+            "w": 142,
+            "x": 80,
+            "y": 867.0703125
+          },
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "none",
+            "font": "700 12px / 15.6px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 0,
+            "id": "applyUpdate",
+            "margin": "0px",
+            "padding": "8px 11px",
+            "text": "Apply Update",
+            "w": 0,
+            "x": 0,
+            "y": 385
+          },
+          {
+            "color": "rgb(182, 169, 197)",
+            "display": "flex",
+            "font": "11px / 18px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 36,
+            "id": "offlineStatus",
+            "margin": "0px",
+            "padding": "8px 11px",
+            "text": "Offline ready",
+            "w": 105.6953125,
+            "x": 914.3046875,
+            "y": 867.0703125
+          },
+          {
+            "color": "rgb(182, 169, 197)",
+            "display": "grid",
+            "font": "12px / 18px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "6px 926px",
+            "h": 38,
+            "id": "updateStatus",
+            "margin": "0px",
+            "padding": "0px",
+            "text": "Update check failed.Your current page remains available; try again when online.",
+            "w": 940,
+            "x": 80,
+            "y": 916.0703125
+          },
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "inline",
+            "font": "12px / 18px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 14,
+            "id": "updateSummary",
+            "margin": "0px",
+            "padding": "0px",
+            "text": "Update check failed.",
+            "w": 116.484375,
+            "x": 94,
+            "y": 918.0703125
+          },
+          {
+            "absent": true,
+            "id": "updateDetail"
+          },
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "inline-block",
+            "font": "",
+            "grid": "none",
+            "h": 105,
+            "id": "link",
+            "margin": "0px",
+            "padding": "12px 14px",
+            "text": "",
+            "w": 940,
+            "x": 80,
+            "y": 510.53125
+          },
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "block",
+            "font": "15px / 24px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 0,
+            "id": "primary",
+            "margin": "0px 0px 23px",
+            "padding": "0px 0px 0px 16px",
+            "text": "Primary finding",
+            "w": 0,
+            "x": 0,
+            "y": 385
+          },
+          {
+            "absent": true,
+            "id": "technicalDetails"
+          },
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "block",
+            "font": "15px / 24px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 0,
+            "id": "messages",
+            "margin": "0px",
+            "padding": "0px",
+            "text": "",
+            "w": 0,
+            "x": 0,
+            "y": 385
+          },
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "block",
+            "font": "15px / 24px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 0,
+            "id": "rawRecords",
+            "margin": "0px",
+            "padding": "0px 14px 14px",
+            "text": "",
+            "w": 0,
+            "x": 0,
+            "y": 385
+          }
+        ],
+        "overflow": false,
+        "width": 1100
+      },
+      "beforeMobileDiagnostics": [
+        {
+          "display": "block",
+          "height": 32,
+          "padding": "0px 0px 0px 17px",
+          "text": "Category: Observation · Severity: Information · Original level: note · Code: non-ascii",
+          "width": 262,
+          "x": 64,
+          "y": 3045.2734375
+        },
+        {
+          "display": "block",
+          "height": 32,
+          "padding": "0px 0px 0px 17px",
+          "text": "Category: Observation · Severity: Information · Original level: note · Code: mixed",
+          "width": 262,
+          "x": 64,
+          "y": 3205.6640625
+        },
+        {
+          "display": "block",
+          "height": 32,
+          "padding": "0px 0px 0px 17px",
+          "text": "Category: Observation · Severity: Information · Original level: note · Code: character-confusables",
+          "width": 262,
+          "x": 64,
+          "y": 3427.25
+        },
+        {
+          "display": "block",
+          "height": 32,
+          "padding": "0px 0px 0px 17px",
+          "text": "Category: Observation · Severity: Information · Original level: info · Code: ascii-ambiguity",
+          "width": 262,
+          "x": 64,
+          "y": 3669.234375
+        },
+        {
+          "display": "block",
+          "height": 32,
+          "padding": "0px 0px 0px 17px",
+          "text": "Category: Comparison · Severity: Warning · Original level: alert · Code: mismatch",
+          "width": 262,
+          "x": 64,
+          "y": 3829.625
+        },
+        {
+          "display": "block",
+          "height": 32,
+          "padding": "0px 0px 0px 17px",
+          "text": "Category: Comparison · Severity: Warning · Original level: alert · Code: impersonation",
+          "width": 262,
+          "x": 64,
+          "y": 4030.8125
+        },
+        {
+          "display": "block",
+          "height": 32,
+          "padding": "0px 0px 0px 17px",
+          "text": "Category: Verification limit · Severity: Information · Original level: note · Code: unverified",
+          "width": 262,
+          "x": 64,
+          "y": 4232
+        }
+      ],
+      "afterMobileDiagnostics": [
+        {
+          "display": "block",
+          "height": 32,
+          "padding": "0px 0px 0px 17px",
+          "text": "Category: Observation · Severity: Information · Original level: note · Code: non-ascii",
+          "width": 262,
+          "x": 64,
+          "y": 3045.2734375
+        },
+        {
+          "display": "block",
+          "height": 32,
+          "padding": "0px 0px 0px 17px",
+          "text": "Category: Observation · Severity: Information · Original level: note · Code: mixed",
+          "width": 262,
+          "x": 64,
+          "y": 3205.6640625
+        },
+        {
+          "display": "block",
+          "height": 32,
+          "padding": "0px 0px 0px 17px",
+          "text": "Category: Observation · Severity: Information · Original level: note · Code: character-confusables",
+          "width": 262,
+          "x": 64,
+          "y": 3427.25
+        },
+        {
+          "display": "block",
+          "height": 32,
+          "padding": "0px 0px 0px 17px",
+          "text": "Category: Observation · Severity: Information · Original level: info · Code: ascii-ambiguity",
+          "width": 262,
+          "x": 64,
+          "y": 3669.234375
+        },
+        {
+          "display": "block",
+          "height": 32,
+          "padding": "0px 0px 0px 17px",
+          "text": "Category: Comparison · Severity: Warning · Original level: alert · Code: mismatch",
+          "width": 262,
+          "x": 64,
+          "y": 3829.625
+        },
+        {
+          "display": "block",
+          "height": 32,
+          "padding": "0px 0px 0px 17px",
+          "text": "Category: Comparison · Severity: Warning · Original level: alert · Code: impersonation",
+          "width": 262,
+          "x": 64,
+          "y": 4030.8125
+        },
+        {
+          "display": "block",
+          "height": 32,
+          "padding": "0px 0px 0px 17px",
+          "text": "Category: Verification limit · Severity: Information · Original level: note · Code: unverified",
+          "width": 262,
+          "x": 64,
+          "y": 4232
+        }
+      ],
+      "afterMobileFailed": {
+        "nodes": [
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "block",
+            "font": "15px / 24px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 36,
+            "id": "updatePanel",
+            "margin": "0px",
+            "padding": "0px",
+            "text": "Check for UpdatesApply Update",
+            "w": 328,
+            "x": 31,
+            "y": 974.40625
+          },
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "block",
+            "font": "700 12px / 15.6px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 36,
+            "id": "checkCache",
+            "margin": "0px",
+            "padding": "8px 11px",
+            "text": "Check for Updates",
+            "w": 142,
+            "x": 31,
+            "y": 974.40625
+          },
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "none",
+            "font": "700 12px / 15.6px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 0,
+            "id": "applyUpdate",
+            "margin": "0px",
+            "padding": "8px 11px",
+            "text": "Apply Update",
+            "w": 0,
+            "x": 0,
+            "y": 570.5
+          },
+          {
+            "color": "rgb(182, 169, 197)",
+            "display": "flex",
+            "font": "11px / 18px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 36,
+            "id": "offlineStatus",
+            "margin": "0px",
+            "padding": "8px 11px",
+            "text": "Offline ready",
+            "w": 105.6953125,
+            "x": 253.3046875,
+            "y": 1023.40625
+          },
+          {
+            "color": "rgb(182, 169, 197)",
+            "display": "grid",
+            "font": "12px / 18px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "6px 314px",
+            "h": 56,
+            "id": "updateStatus",
+            "margin": "0px",
+            "padding": "0px",
+            "text": "Update check failed.Your current page remains available; try again when online.",
+            "w": 328,
+            "x": 31,
+            "y": 1072.40625
+          },
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "inline",
+            "font": "12px / 18px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 14,
+            "id": "updateSummary",
+            "margin": "0px",
+            "padding": "0px",
+            "text": "Update check failed.",
+            "w": 116.484375,
+            "x": 45,
+            "y": 1074.40625
+          },
+          {
+            "absent": true,
+            "id": "updateDetail"
+          },
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "inline-block",
+            "font": "",
+            "grid": "none",
+            "h": 105,
+            "id": "link",
+            "margin": "0px",
+            "padding": "12px 14px",
+            "text": "",
+            "w": 328,
+            "x": 31,
+            "y": 525.8671875
+          },
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "block",
+            "font": "15px / 24px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 0,
+            "id": "primary",
+            "margin": "0px 0px 23px",
+            "padding": "0px 0px 0px 13px",
+            "text": "Primary finding",
+            "w": 0,
+            "x": 0,
+            "y": 570.5
+          },
+          {
+            "absent": true,
+            "id": "technicalDetails"
+          },
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "block",
+            "font": "15px / 24px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 0,
+            "id": "messages",
+            "margin": "0px",
+            "padding": "0px",
+            "text": "",
+            "w": 0,
+            "x": 0,
+            "y": 570.5
+          },
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "block",
+            "font": "15px / 24px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 0,
+            "id": "rawRecords",
+            "margin": "0px",
+            "padding": "0px 10px 10px",
+            "text": "",
+            "w": 0,
+            "x": 0,
+            "y": 570.5
+          }
+        ],
+        "overflow": false,
+        "width": 390
+      },
+      "afterDesktopFailed": {
+        "nodes": [
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "block",
+            "font": "15px / 24px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 36,
+            "id": "updatePanel",
+            "margin": "0px",
+            "padding": "0px",
+            "text": "Check for UpdatesApply Update",
+            "w": 818.3046875,
+            "x": 80,
+            "y": 867.0703125
+          },
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "block",
+            "font": "700 12px / 15.6px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 36,
+            "id": "checkCache",
+            "margin": "0px",
+            "padding": "8px 11px",
+            "text": "Check for Updates",
+            "w": 142,
+            "x": 80,
+            "y": 867.0703125
+          },
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "none",
+            "font": "700 12px / 15.6px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 0,
+            "id": "applyUpdate",
+            "margin": "0px",
+            "padding": "8px 11px",
+            "text": "Apply Update",
+            "w": 0,
+            "x": 0,
+            "y": 385
+          },
+          {
+            "color": "rgb(182, 169, 197)",
+            "display": "flex",
+            "font": "11px / 18px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 36,
+            "id": "offlineStatus",
+            "margin": "0px",
+            "padding": "8px 11px",
+            "text": "Offline ready",
+            "w": 105.6953125,
+            "x": 914.3046875,
+            "y": 867.0703125
+          },
+          {
+            "color": "rgb(182, 169, 197)",
+            "display": "grid",
+            "font": "12px / 18px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "6px 926px",
+            "h": 38,
+            "id": "updateStatus",
+            "margin": "0px",
+            "padding": "0px",
+            "text": "Update check failed.Your current page remains available; try again when online.",
+            "w": 940,
+            "x": 80,
+            "y": 916.0703125
+          },
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "inline",
+            "font": "12px / 18px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 14,
+            "id": "updateSummary",
+            "margin": "0px",
+            "padding": "0px",
+            "text": "Update check failed.",
+            "w": 116.484375,
+            "x": 94,
+            "y": 918.0703125
+          },
+          {
+            "absent": true,
+            "id": "updateDetail"
+          },
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "inline-block",
+            "font": "",
+            "grid": "none",
+            "h": 105,
+            "id": "link",
+            "margin": "0px",
+            "padding": "12px 14px",
+            "text": "",
+            "w": 940,
+            "x": 80,
+            "y": 510.53125
+          },
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "block",
+            "font": "15px / 24px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 0,
+            "id": "primary",
+            "margin": "0px 0px 23px",
+            "padding": "0px 0px 0px 16px",
+            "text": "Primary finding",
+            "w": 0,
+            "x": 0,
+            "y": 385
+          },
+          {
+            "absent": true,
+            "id": "technicalDetails"
+          },
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "block",
+            "font": "15px / 24px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 0,
+            "id": "messages",
+            "margin": "0px",
+            "padding": "0px",
+            "text": "",
+            "w": 0,
+            "x": 0,
+            "y": 385
+          },
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "block",
+            "font": "15px / 24px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 0,
+            "id": "rawRecords",
+            "margin": "0px",
+            "padding": "0px 14px 14px",
+            "text": "",
+            "w": 0,
+            "x": 0,
+            "y": 385
+          }
+        ],
+        "overflow": false,
+        "width": 1100
+      },
+      "afterDesktopWaiting": {
+        "nodes": [
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "block",
+            "font": "15px / 24px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 36,
+            "id": "updatePanel",
+            "margin": "0px",
+            "padding": "0px",
+            "text": "Check for UpdatesApply Update",
+            "w": 818.3046875,
+            "x": 80,
+            "y": 867.0703125
+          },
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "block",
+            "font": "700 12px / 15.6px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 36,
+            "id": "checkCache",
+            "margin": "0px",
+            "padding": "8px 11px",
+            "text": "Check for Updates",
+            "w": 142,
+            "x": 80,
+            "y": 867.0703125
+          },
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "block",
+            "font": "700 12px / 15.6px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 36,
+            "id": "applyUpdate",
+            "margin": "0px",
+            "padding": "8px 11px",
+            "text": "Apply Update",
+            "w": 106.0234375,
+            "x": 231,
+            "y": 867.0703125
+          },
+          {
+            "color": "rgb(182, 169, 197)",
+            "display": "flex",
+            "font": "11px / 18px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 36,
+            "id": "offlineStatus",
+            "margin": "0px",
+            "padding": "8px 11px",
+            "text": "Offline ready",
+            "w": 105.6953125,
+            "x": 914.3046875,
+            "y": 867.0703125
+          },
+          {
+            "color": "rgb(182, 169, 197)",
+            "display": "grid",
+            "font": "12px / 18px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "6px 926px",
+            "h": 38,
+            "id": "updateStatus",
+            "margin": "0px",
+            "padding": "0px",
+            "text": "Update ready.Choose Apply Update when you are ready to reload.",
+            "w": 940,
+            "x": 80,
+            "y": 916.0703125
+          },
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "inline",
+            "font": "12px / 18px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 14,
+            "id": "updateSummary",
+            "margin": "0px",
+            "padding": "0px",
+            "text": "Update ready.",
+            "w": 79.109375,
+            "x": 94,
+            "y": 918.0703125
+          },
+          {
+            "absent": true,
+            "id": "updateDetail"
+          },
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "inline-block",
+            "font": "",
+            "grid": "none",
+            "h": 105,
+            "id": "link",
+            "margin": "0px",
+            "padding": "12px 14px",
+            "text": "",
+            "w": 940,
+            "x": 80,
+            "y": 510.53125
+          },
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "block",
+            "font": "15px / 24px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 0,
+            "id": "primary",
+            "margin": "0px 0px 23px",
+            "padding": "0px 0px 0px 16px",
+            "text": "Primary finding",
+            "w": 0,
+            "x": 0,
+            "y": 385
+          },
+          {
+            "absent": true,
+            "id": "technicalDetails"
+          },
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "block",
+            "font": "15px / 24px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 0,
+            "id": "messages",
+            "margin": "0px",
+            "padding": "0px",
+            "text": "",
+            "w": 0,
+            "x": 0,
+            "y": 385
+          },
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "block",
+            "font": "15px / 24px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 0,
+            "id": "rawRecords",
+            "margin": "0px",
+            "padding": "0px 14px 14px",
+            "text": "",
+            "w": 0,
+            "x": 0,
+            "y": 385
+          }
+        ],
+        "overflow": false,
+        "width": 1100
+      },
+      "afterMobileWaiting": {
+        "nodes": [
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "block",
+            "font": "15px / 24px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 36,
+            "id": "updatePanel",
+            "margin": "0px",
+            "padding": "0px",
+            "text": "Check for UpdatesApply Update",
+            "w": 328,
+            "x": 31,
+            "y": 974.40625
+          },
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "block",
+            "font": "700 12px / 15.6px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 36,
+            "id": "checkCache",
+            "margin": "0px",
+            "padding": "8px 11px",
+            "text": "Check for Updates",
+            "w": 142,
+            "x": 31,
+            "y": 974.40625
+          },
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "block",
+            "font": "700 12px / 15.6px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 36,
+            "id": "applyUpdate",
+            "margin": "0px",
+            "padding": "8px 11px",
+            "text": "Apply Update",
+            "w": 106.0234375,
+            "x": 182,
+            "y": 974.40625
+          },
+          {
+            "color": "rgb(182, 169, 197)",
+            "display": "flex",
+            "font": "11px / 18px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 36,
+            "id": "offlineStatus",
+            "margin": "0px",
+            "padding": "8px 11px",
+            "text": "Offline ready",
+            "w": 105.6953125,
+            "x": 253.3046875,
+            "y": 1023.40625
+          },
+          {
+            "color": "rgb(182, 169, 197)",
+            "display": "grid",
+            "font": "12px / 18px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "6px 314px",
+            "h": 38,
+            "id": "updateStatus",
+            "margin": "0px",
+            "padding": "0px",
+            "text": "Update ready.Choose Apply Update when you are ready to reload.",
+            "w": 328,
+            "x": 31,
+            "y": 1072.40625
+          },
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "inline",
+            "font": "12px / 18px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 14,
+            "id": "updateSummary",
+            "margin": "0px",
+            "padding": "0px",
+            "text": "Update ready.",
+            "w": 79.109375,
+            "x": 45,
+            "y": 1074.40625
+          },
+          {
+            "absent": true,
+            "id": "updateDetail"
+          },
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "inline-block",
+            "font": "",
+            "grid": "none",
+            "h": 105,
+            "id": "link",
+            "margin": "0px",
+            "padding": "12px 14px",
+            "text": "",
+            "w": 328,
+            "x": 31,
+            "y": 525.8671875
+          },
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "block",
+            "font": "15px / 24px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 0,
+            "id": "primary",
+            "margin": "0px 0px 23px",
+            "padding": "0px 0px 0px 13px",
+            "text": "Primary finding",
+            "w": 0,
+            "x": 0,
+            "y": 570.5
+          },
+          {
+            "absent": true,
+            "id": "technicalDetails"
+          },
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "block",
+            "font": "15px / 24px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 0,
+            "id": "messages",
+            "margin": "0px",
+            "padding": "0px",
+            "text": "",
+            "w": 0,
+            "x": 0,
+            "y": 570.5
+          },
+          {
+            "color": "rgb(241, 236, 246)",
+            "display": "block",
+            "font": "15px / 24px -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+            "grid": "none",
+            "h": 0,
+            "id": "rawRecords",
+            "margin": "0px",
+            "padding": "0px 10px 10px",
+            "text": "",
+            "w": 0,
+            "x": 0,
+            "y": 570.5
+          }
+        ],
+        "overflow": false,
+        "width": 390
+      }
+    },
+    "updateLayoutsAndFeedbackIdentical": true,
+    "mobileDiagnosticLayoutIdentical": true,
+    "mobileDiagnosticPaddingRetained": "17px",
+    "keyboard": "Native disclosures operated with Enter; focus rings visible. Update confirmation initially focused Cancel; Escape closed it, restored Apply Update focus and retained URL/result.",
+    "characterEvidence": "Glyph, code point, official name, writing system, normalization, mapping sequences, mapped names and contextual character match retained. No raw-character disclosure.",
+    "referenceEvidence": "Manual ASCII rn/m explanation and contextual reference comparison retained.",
+    "actualGeneratedHosted": "Verified Offline ready on dedicated loopback origin; ASCII inspection worked.",
+    "actualGeneratedStandalone": "Exact standalone bytes rendered over loopback HTTP; desktop/mobile Unicode evidence inspected. This does not verify native file:// storage policies.",
+    "limits": [
+      "Native Firefox, screen readers and native zoom were not tested.",
+      "Update waiting/failure states used existing controlled in-memory worker fixture; not actual Firefox update outcomes."
+    ],
+    "privacy": "Only synthetic/demo inputs; no saved references changed."
+  }
+}

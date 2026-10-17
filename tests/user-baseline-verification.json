@@ -13,5 +13,33 @@
     "I Offline operation after stopping local server"
   ],
   "verifiedByAgent": false,
-  "verifiesVersion3_1_1": false
+  "verifiesVersion3_1_1": false,
+  "version3_1_1": {
+    "edition": "Version 3.1.1",
+    "source": "User-provided Version 3.1.2 request; reported Firefox on macOS",
+    "verifiedByAgent": false,
+    "groupsReportedPassed": [
+      "Standalone inspection",
+      "Unicode and ASCII lookalikes",
+      "Reference Domains",
+      "Reference persistence",
+      "Backup/Restore",
+      "Custom confirmations",
+      "Keyboard shortcuts",
+      "GitHub-hosted startup",
+      "Offline loading in an already-cached Firefox Container",
+      "Offline suspicious-URL analysis",
+      "Failed update-check handling without a server"
+    ],
+    "reportedIssue": "New offline tab in the same cached Firefox Container loads the app but remains Preparing offline access",
+    "expectedIsolation": "Different previously uncached Container fails to connect while offline",
+    "verifiesVersion3_1_2": false
+  },
+  "version3_1_2": {
+    "source": "User complete editorial audit section 16, 2026-10-16",
+    "reportedPersistentOfflineStartupFixed": true,
+    "remainingReportedObservation": "Brief Preparing offline access flash during repeated normal reloads",
+    "verifiedByAgentInFirefox": false,
+    "verifiesFinalEditorialBuild": false
+  }
 }

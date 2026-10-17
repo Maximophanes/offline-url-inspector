@@ -1,0 +1,358 @@
+{
+  "scope": "Approved obsolete-code cleanup; focused checks followed by one stabilized full regression run",
+  "checkpoint": "769c6437cd6b360d8b920bfb440879de016a802c",
+  "suites": [
+    {
+      "task": "test:dom",
+      "report": "tests/dom-v3-results.json",
+      "tests": {
+        "executed": 33,
+        "passed": 33,
+        "failed": 0
+      },
+      "assertions": {
+        "executed": 114,
+        "passed": 114,
+        "failed": 0
+      },
+      "commandPassed": true
+    },
+    {
+      "task": "test:polish",
+      "report": "tests/polish-results.json",
+      "tests": {
+        "executed": 45,
+        "passed": 45,
+        "failed": 0
+      },
+      "assertions": {
+        "executed": 161,
+        "passed": 161,
+        "failed": 0
+      },
+      "commandPassed": true
+    },
+    {
+      "task": "test:clarity",
+      "report": "tests/clarity-results.json",
+      "tests": {
+        "executed": 45,
+        "passed": 45,
+        "failed": 0
+      },
+      "assertions": {
+        "executed": 357,
+        "passed": 357,
+        "failed": 0
+      },
+      "commandPassed": true
+    },
+    {
+      "task": "test:editorial",
+      "report": "tests/editorial-results.json",
+      "tests": {
+        "executed": 52,
+        "passed": 52,
+        "failed": 0
+      },
+      "assertions": {
+        "executed": 5816,
+        "passed": 5816,
+        "failed": 0
+      },
+      "commandPassed": true
+    },
+    {
+      "task": "test:interface",
+      "report": "tests/interface-results.json",
+      "tests": {
+        "executed": 12,
+        "passed": 12,
+        "failed": 0
+      },
+      "assertions": {
+        "executed": 4354,
+        "passed": 4354,
+        "failed": 0
+      },
+      "commandPassed": true
+    },
+    {
+      "task": "test:technical",
+      "report": "tests/technical-results.json",
+      "tests": {
+        "executed": 17,
+        "passed": 17,
+        "failed": 0
+      },
+      "assertions": {
+        "executed": 336,
+        "passed": 336,
+        "failed": 0
+      },
+      "commandPassed": true
+    },
+    {
+      "task": "test:hosted",
+      "report": "tests/hosted-bootstrap-results.json",
+      "tests": {
+        "executed": 64,
+        "passed": 64,
+        "failed": 0
+      },
+      "assertions": {
+        "executed": 192,
+        "passed": 192,
+        "failed": 0
+      },
+      "commandPassed": true
+    },
+    {
+      "task": "test:reference-interface",
+      "report": "tests/reference-interface-results.json",
+      "tests": {
+        "executed": 19,
+        "passed": 19,
+        "failed": 0
+      },
+      "assertions": {
+        "executed": 124,
+        "passed": 124,
+        "failed": 0
+      },
+      "commandPassed": true
+    }
+  ],
+  "tests": {
+    "executed": 287,
+    "passed": 287,
+    "failed": 0
+  },
+  "assertions": {
+    "executed": 11454,
+    "passed": 11454,
+    "failed": 0
+  },
+  "runnerReporting": {
+    "command": "python3 tests/test_runner.py",
+    "checks": 4,
+    "passed": 4,
+    "failed": 0,
+    "scope": "Mocked temporary-root reporting branches only; no real Firefox or conformance execution"
+  },
+  "fullRegression": {
+    "report": "tests/summary-results.json",
+    "runs": 1,
+    "tests": {
+      "executed": 109636,
+      "passed": 109636,
+      "failed": 0
+    },
+    "assertions": {
+      "executed": 129347,
+      "passed": 129347,
+      "failed": 0
+    },
+    "firefox": "Not requested: use --with-firefox with a running local WebDriver endpoint. Driver availability was not checked."
+  },
+  "historicalCharacterCleanup": {
+    "scope": "Phase 1 raw-character disclosure removal: focused presentation/regression/HTTP checks; no full Unicode conformance rerun",
+    "checkpoint": "769c6437cd6b360d8b920bfb440879de016a802c",
+    "suites": [
+      {
+        "task": "test:references",
+        "report": "tests/references-results.json",
+        "tests": {
+          "executed": 70,
+          "passed": 70,
+          "failed": 0
+        },
+        "assertions": {
+          "executed": 135,
+          "passed": 135,
+          "failed": 0
+        },
+        "commandPassed": true
+      },
+      {
+        "task": "test:dom",
+        "report": "tests/dom-v3-results.json",
+        "tests": {
+          "executed": 33,
+          "passed": 33,
+          "failed": 0
+        },
+        "assertions": {
+          "executed": 114,
+          "passed": 114,
+          "failed": 0
+        },
+        "commandPassed": true
+      },
+      {
+        "task": "test:refinement",
+        "report": "tests/refinement-results.json",
+        "tests": {
+          "executed": 199,
+          "passed": 199,
+          "failed": 0
+        },
+        "assertions": {
+          "executed": 4103,
+          "passed": 4103,
+          "failed": 0
+        },
+        "commandPassed": true
+      },
+      {
+        "task": "test:polish",
+        "report": "tests/polish-results.json",
+        "tests": {
+          "executed": 45,
+          "passed": 45,
+          "failed": 0
+        },
+        "assertions": {
+          "executed": 161,
+          "passed": 161,
+          "failed": 0
+        },
+        "commandPassed": true
+      },
+      {
+        "task": "test:clarity",
+        "report": "tests/clarity-results.json",
+        "tests": {
+          "executed": 45,
+          "passed": 45,
+          "failed": 0
+        },
+        "assertions": {
+          "executed": 357,
+          "passed": 357,
+          "failed": 0
+        },
+        "commandPassed": true
+      },
+      {
+        "task": "test:editorial",
+        "report": "tests/editorial-results.json",
+        "tests": {
+          "executed": 52,
+          "passed": 52,
+          "failed": 0
+        },
+        "assertions": {
+          "executed": 5816,
+          "passed": 5816,
+          "failed": 0
+        },
+        "commandPassed": true
+      },
+      {
+        "task": "test:interface",
+        "report": "tests/interface-results.json",
+        "tests": {
+          "executed": 12,
+          "passed": 12,
+          "failed": 0
+        },
+        "assertions": {
+          "executed": 4354,
+          "passed": 4354,
+          "failed": 0
+        },
+        "commandPassed": true
+      },
+      {
+        "task": "test:reference-interface",
+        "report": "tests/reference-interface-results.json",
+        "tests": {
+          "executed": 19,
+          "passed": 19,
+          "failed": 0
+        },
+        "assertions": {
+          "executed": 124,
+          "passed": 124,
+          "failed": 0
+        },
+        "commandPassed": true
+      },
+      {
+        "task": "test:technical",
+        "report": "tests/technical-results.json",
+        "tests": {
+          "executed": 16,
+          "passed": 16,
+          "failed": 0
+        },
+        "assertions": {
+          "executed": 282,
+          "passed": 282,
+          "failed": 0
+        },
+        "commandPassed": true
+      },
+      {
+        "task": "test:baseline-dom",
+        "report": "tests/dom-results.json",
+        "tests": {
+          "executed": 157,
+          "passed": 157,
+          "failed": 0
+        },
+        "assertions": {
+          "executed": 1045,
+          "passed": 1045,
+          "failed": 0
+        },
+        "commandPassed": true
+      },
+      {
+        "task": "test:hosted",
+        "report": "tests/hosted-bootstrap-results.json",
+        "tests": {
+          "executed": 64,
+          "passed": 64,
+          "failed": 0
+        },
+        "assertions": {
+          "executed": 192,
+          "passed": 192,
+          "failed": 0
+        },
+        "commandPassed": true
+      },
+      {
+        "task": "test:http",
+        "report": "tests/http-results.json",
+        "tests": {
+          "executed": 8,
+          "passed": 8,
+          "failed": 0
+        },
+        "assertions": {
+          "executed": 34,
+          "passed": 34,
+          "failed": 0
+        },
+        "commandPassed": true
+      }
+    ],
+    "tests": {
+      "executed": 720,
+      "passed": 720,
+      "failed": 0
+    },
+    "assertions": {
+      "executed": 16717,
+      "passed": 16717,
+      "failed": 0
+    },
+    "notes": [
+      "All targeted commands passed; the HTTP checks used loopback-network permission.",
+      "No engine/data changes or full Unicode conformance run. Phase 2 begins only after Phase 1 integrity metadata is finalized."
+    ]
+  }
+}

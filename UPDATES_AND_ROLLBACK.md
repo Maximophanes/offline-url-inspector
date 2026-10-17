@@ -1,22 +1,20 @@
-> V3.1.1 retains V3.1.0's storage key/schema, reference algorithms and service-worker source. The hosted controller now presents compact cache readiness, explicit update-check results and custom reload confirmation. Deploy the newly generated matched HTML/worker pair together; no storage migration is needed.
-
-> Version 3.1 retains the V3 storage key/schema and worker source. Its generated HTML/worker pair has a new release hash. Existing V3 reference exports/records remain compatible; rollback to V3.0.0 does not require a schema downgrade.
+> Version 3.1.2 retains Version 3.1.1's storage key, schema 1 and reference engine. Worker logic is unchanged; only plaintext 503 recovery prose differs. No migration is needed. Startup now checks existing cache state first and uses bounded lifecycle/status waits; see OFFLINE_STARTUP_REVIEW.md. Work remains uncommitted on dev/v3.1.2, with no deployment performed.
 
 # Updates, storage compatibility, and rollback
 
 ## Build a future release
 
-1. Keep the prior complete source ZIP and deployed `site/` set. Export references from the browser before changing storage formats or troubleshooting site data.
-2. Work in a separate copy of the source project. Preserve the fixed application ID, project path, and stable reference-storage key. Change `VERSION` in `tools/build.py` for the new app release; audit any worker/cache/schema changes.
+1. Keep the approved prior Git revision and matching deployed `site/` set. Export references from the browser before changing storage formats or troubleshooting site data.
+2. Work on the development branch in the existing source repository; keep published main unchanged until explicit approval. Preserve the fixed application ID, project path, and stable reference-storage key. Change `VERSION` in `tools/build.py` for the new app release; audit any worker/cache/schema changes.
 3. Edit `src/`, then run `python3 tools/verify_data.py` and `python3 tools/build.py`. Ordinary builds preserve the pinned Unicode JSON. Do not regenerate unchanged tables or edit generated CSP hashes. A Unicode update needs the additional review in [UNICODE_DATA.md](UNICODE_DATA.md).
 4. Run targeted checks while developing and `python3 tools/test_all.py` before delivery. Run the manual Firefox checklist for both editions, especially offline/updates. Keep actual browser evidence separate from simulations. Update release documentation/reports/checksums.
-5. After approval, deploy the complete generated `site/index.html`, `site/sw.js`, and `.nojekyll` together in the separate repository. Preserve previous releases outside the deployed root for rollback.
+5. After user review and approval, use the existing repository and Pages workflow to deploy the complete generated `site/index.html`, `site/sw.js`, and `.nojekyll` together. Preserve previous releases outside the deployed root for rollback.
 
 The worker embeds the complete HTML SHA-256 and a release cache ID of `version-<HTML hash prefix>`. Editing either generated asset independently breaks that pairing. A transient mismatch during deployment causes installation to fail rather than accepting a mixed release. The previously active worker/cache remains available; retry after the complete deployment reaches the origin.
 
 ## What users see during an update
 
-The browser checks the fixed worker at startup; the app also offers **Check for Updates** and checks after coming online. There is no recurring background polling timer. The new worker first fetches and verifies the one complete HTML asset. It does not call `skipWaiting` during installation.
+The app first discovers and verifies existing exact-scope registration/cache state, without awaiting a fresh registration. New uncached online contexts register the fixed worker; the app also offers **Check for Updates** and checks after coming online. There is no recurring background polling timer. The new worker first fetches and verifies the one complete HTML asset. It does not call `skipWaiting` during installation.
 
 A waiting release displays **Apply update and reload**. Inspection continues in the current complete document. Choosing Apply requests activation; if the page contains URL text, results-related input, a reference edit, or an import preview, it asks for confirmation that current text and unapplied changes will be cleared. Saved references remain. The app never serializes sensitive current work to make a reload convenient.
 
@@ -70,8 +68,8 @@ Do not clear all `USERNAME.github.io` site data/caches to repair this one projec
 
 ## Controlled rollback
 
-Restore the previous **matched** `index.html` and `sw.js` together from the archived release in the separate repository. Do not combine an older HTML with a newer worker or rely on changing only a display version. The old generated worker contains its old expected HTML hash. After the reverted deployment is complete, check updates and choose the reviewed reload. Its valid existing cache may be reused; otherwise it must be downloaded and verified.
+Restore the previous **matched** `index.html` and `sw.js` together from the approved prior Git revision or archived release in this repository. Do not combine an older HTML with a newer worker or rely on changing only a display version. The old generated worker contains its old expected HTML hash. After the reverted deployment is complete, check updates and choose the reviewed reload. Its valid existing cache may be reused; otherwise it must be downloaded and verified.
 
-If a stuck registration cannot recover, unregister only the project worker as above, then load the restored app online. Do not clear reference storage. If the newer release introduced a schema the older version cannot read, export a compatible backup **before** downgrading, or keep the newer standalone edition to recover it. V3 protects unsupported stored schemas instead of erasing them. Full source archives, rather than the single retained previous cache, are the reliable rollback material.
+If a stuck registration cannot recover, unregister only the project worker as above, then load the restored app online. Do not clear reference storage. If the newer release introduced a schema the older version cannot read, export a compatible backup **before** downgrading, or keep the newer standalone edition to recover it. V3 protects unsupported stored schemas instead of erasing them. Version-controlled matched source/build revisions, rather than the single retained previous cache, are the reliable rollback material.
 
 Worker update/install/waiting semantics follow the [Service Worker lifecycle](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers). This package's failure behavior was simulated; confirm it in Firefox before relying on a hosted release.

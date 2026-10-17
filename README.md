@@ -1,66 +1,55 @@
-# Offline URL Inspector · Version 3.1.1
+# Offline URL Inspector · Version 3.1.2
 
-**Blackberry & Amethyst:** focused final polish on the user-verified Version 3.1.0 baseline. URL/Unicode/ASCII analysis, reference algorithms and storage schema, service-worker source/scope, and atomic cache architecture are unchanged. Hosted status/check feedback and custom consent controls were refined. Previous releases and both Silent Hill tracker references remain unchanged. Nothing has been published.
+A complete editorial and interface refinement of the existing 3.1.2 development work, built on the user-verified 3.1.1 baseline. Findings explain the observation before the implementation. Ordinary Unicode stays neutral, genuine warnings retain their severity, and complete original evidence remains available. Blackberry & Amethyst, the Georgia title and its approved animation are preserved.
 
-## Open the standalone edition
+Development remains on `dev/v3.1.2` in `Maximophanes/offline-url-inspector`. Changes are uncommitted for GitHub Desktop review. No commit, push, merge, pull request, release, publication, settings change or change to `main` was made.
 
-Extract the ZIP and open **`standalone/Offline_URL_Inspector.html` in Firefox**. This complete HTML file needs no installation, server, service worker, package dependencies, or network connection for analysis.
+## Use either edition
 
-1. Copy the actual link destination from any browser, email, message, or other source.
-2. Paste it into **URL to inspect**. Optionally enter an **Expected hostname**; it takes priority over saved references.
-3. Click **Inspect without opening**, press **⌘ Return/Enter** on macOS, or **Ctrl Enter** on Windows/Linux. The shortcut works in either inspection field or ordinary page areas, with guards for unrelated editing, references, import review, and dialogs.
-4. Read the primary finding, actual ASCII/Punycode hostname, readable hostname, and separate comparison result. Expand **Technical Details** for all evidence.
-
-The approved theme uses a Georgia title with the trackers’ 10-second flicker timing, lilac/violet light, plum panels, clear button feedback, and native disclosures. Reduced motion makes the title static and disables transitions. URL and character text stays monospaced with ligatures disabled. The example buttons retain their original sample URLs.
-
-## Results and references
-
-**Technical Details** groups Input & Normalization, Character Details, URL Components, Reference Comparisons, and the Full Diagnostic Log. ASCII observations stay within Character Details. Identical original/readable character evidence is combined with both sources labeled; mapped or normalized differences remain visible. Every original diagnostic explanation and analysis level remains available in a compact expandable record.
-
-Reference Domains are comparison targets you add manually, not a trust database. Add/edit/remove, confirmed clear, and reviewed Merge/Replace import retain their storage semantics. **Export Backup** and **Import Backup** use the same portable schema-1 JSON and filename. Merge is the default native radio choice; Replace and Clear use custom modal confirmations with safe cancellation and focus handling. Exact matches, subdomains, embedded text, visual similarities, and spelling similarities remain distinct. No inspected domain is added automatically.
-
-**Storage remains compatible with V3.0.0 / V3.1.0:** stable key `offline-url-inspector:reference-domains`, internal `schemaVersion: 1`, and the same portable JSON backup. Existing V3 records load without rewriting entries. Use Export for backups; browser cleanup/private sessions can remove data, and `file://` persistence is not standardized. Storage messages distinguish readable storage, verified writes, unavailable storage and saving failures. New or edited single-label hostnames receive contextual confirmation, remain supported exactly as entered, and are not assigned a guessed suffix. Imported single labels are described in the review as a batch. See [UPDATES_AND_ROLLBACK.md](UPDATES_AND_ROLLBACK.md).
-
-## Hosted edition
-
-`site/` contains only `index.html`, `sw.js`, and `.nojekyll` for the future separate repository **offline-url-inspector**, at `/offline-url-inspector/`. The complete application remains a single inline HTML asset. Its matching worker verifies the new release hash, uses only the project scope, waits for a reviewed reload, and preserves reference storage. It caches only the application asset, never inspected URLs. Offline readiness is announced only after cache verification.
-
-Normal app startup/update requests are expected; pasted destinations are never requested. Browser cache removal can break hosted offline startup; keep the standalone fallback. GitHub project paths share an origin: other apps under the same `USERNAME.github.io` can access reference storage. Namespacing avoids accidental collisions, not hostile access. See [DEPLOYMENT.md](DEPLOYMENT.md) and [SECURITY_REVIEW.md](SECURITY_REVIEW.md). No repository was created or changed.
-
-## Validation and limits
-
-**109,454 checks and 118,210 assertions passed, with zero failures.** See [TEST_RESULTS.md](TEST_RESULTS.md) for scope and individual reports. Targeted tests cover shortcuts and their editing guards, native disclosure behavior, diagnostic completeness across all retained fixtures, character presentation, stored V3 compatibility, contrast targets, CSP hashes, and the preserved functional suites. The complete available regression/conformance suite was run after the final changes.
-
-The hosted UI and modified interactions were inspected in the **Codex in-app browser**, with desktop/narrow screenshots in `preview/` and observations in `tests/browser-preview.json`. Repeated actual hover/click cycles retained the primary button’s gradient and exact hit area. Dialog focus wrapping, Escape, cancellation/acceptance, native radio keyboard operation, file import, reviewed reloads, saved references, successful/failed update feedback, and cached startup with the local server stopped were observed. This was not Firefox or a fully disconnected internet test.
-
-The user’s nine successful V3.1 Firefox/macOS test groups are recorded as baseline evidence. **Final V3.1.1 Firefox verification is pending.** The known agent-environment native startup failure was not retried without changed conditions. Use the focused [FIREFOX_CHECKLIST.md](FIREFOX_CHECKLIST.md).
-
-This tool does not certify website safety or detect every phishing technique. Full RTL visual comparison is unavailable. Native IDNA/runtime differences, including the 19 reviewed Deno discrepancies, remain unchanged. No ownership/content/reputation/redirect lookup or Public Suffix List is provided. See [IDNA_REVIEW.md](IDNA_REVIEW.md), [UNICODE_DATA.md](UNICODE_DATA.md), and the remaining limits in the security review.
-
-## Package and maintenance
-
-| Location | Contents |
-|---|---|
-| `standalone/` | Complete offline HTML |
-| `site/` | GitHub Pages files only |
-| `src/` | Shared analysis, reference, presentation/UI, theme, template, hosted lifecycle, worker |
-| `data/` | Pinned Unicode 18 sources, unchanged derived JSON, manifest, full license |
-| `tests/` | Fixtures, automated tests, functional pins and reports |
-| `tools/` | Deterministic builder, local server, data verifier, test runner |
-| `preview/` | Actual in-app desktop/mobile screenshots |
-| `build-manifest.json`, `SHA256SUMS` | Release/data hashes and packaged file checksums |
-
-From the extracted project directory, with Python 3.10+ and Deno installed:
+Open `standalone/Offline_URL_Inspector.html` directly for a self-contained offline application. The hosted build is in `site/` and uses `/offline-url-inspector/`. For a local preview:
 
 ```sh
-deno cache tests/dom.mjs tests/dom-v3.mjs tests/refinement.mjs tests/polish.mjs
+python3 tools/serve.py
+```
+
+Open `http://127.0.0.1:8765/offline-url-inspector/`. Paste a copied link, optionally enter an expected hostname, and choose **Inspect without opening** or press **⌘ Return / Ctrl Enter**. Inspection never visits the destination. The manual expected hostname takes priority; saved references can still be evaluated separately.
+
+The focused [Technical Details review](TECHNICAL_DETAILS_REVIEW.md) covers balanced character-count spacing, contextual comparison methods without redundant raw panels, and extraction details shown only for uncertain/failed attribution. Current verification used targeted regressions; engine/data sources and the version are unchanged.
+
+Technical Details retains Input & Normalization, Character Details, URL Components, Reference Comparisons and the Full Diagnostic Log. Main hostname descriptors stay inline at desktop widths; narrow technical rows keep deliberate smaller second lines. One collapsed Raw Diagnostic Records section follows the ordinary findings. Actual mapping sequences, original case, code points/names, diagnostic codes/levels/order and every ASCII location remain accessible. Multi-character or whole-hostname resemblance never invents a one-to-one character match. Exact matches concern the hostname, not the entire URL or website safety.
+
+**Offline ready** describes a verified application copy. The top row puts updates on the left and a compact violet pill on the right; an independent details panel expands underneath. General guidance covers browser profiles and isolated sessions. The user reports that earlier 3.1.2 work fixed persistent cached-startup preparation; this pass preserves it and removes the unnecessary Preparing label during fast local verification. See [offline startup review](OFFLINE_STARTUP_REVIEW.md).
+
+## References and compatibility
+
+The focused Reference Domains follow-up groups the approved introduction and storage status, removes empty feedback space, distinguishes empty/overlength imported hostnames, and shows technical errors only when they add context. See [review and current focused checks](REFERENCE_DOMAINS_REVIEW.md). The earlier full-suite figures below describe the committed interface checkpoint; the Unicode suite was not rerun for this follow-up.
+
+Reference normalization, matching, storage schema/key and backup format are unchanged. Version 3.1.1 schema-1 records load without rewriting them under `offline-url-inspector:reference-domains`. Only explicitly managed reference hostnames are saved. Inspected links, credentials and expected-host text are not persisted by the app. Single-label names and IP addresses remain exact-only.
+
+**Export Backup** saves the readable list shown in the app; it cannot preserve an unreadable or different protected saved record. Clear/Replace warnings explain that distinction. Storage feedback distinguishes loaded data, readable storage without a tested write, successful writes, failed writes, temporary changes and protected/conflicting data. A successful write does not guarantee long-term file:// persistence. GitHub Pages projects on the same github.io hostname share a security origin despite different paths.
+
+## Editorial standard and validation
+
+[EDITORIAL_STYLE_GUIDE.md](EDITORIAL_STYLE_GUIDE.md) is the permanent writing standard. [COPY_AUDIT.md](COPY_AUDIT.md) records every major ordinary and conditional message family, changes, preserved technical terms and verification limits. `tests/copy-inventory.json` supplies source lines/hashes and literal candidates across all ten runtime-copy sources.
+
+**Previous committed interface checkpoint: 109,600 checks and 128,867 assertions passed, zero failures.** The complete available suite ran once after application changes settled. It includes 52 editorial acceptance checks, all 33 core diagnostic families, 139 unchanged complete pre-audit inspection objects, 64 hosted lifecycle checks and 12 final-interface checks. [Test results](TEST_RESULTS.md) distinguish source/DOM simulations, actual loopback HTTP and actual in-app browser observations.
+
+The final in-app review covers desktop 1100 px, tablet 768 px, mobile 390 px, expanded evidence, all four requested update layouts, CSS 200% magnification and 550 px reflow. See [focused interface review](FINAL_INTERFACE_REVIEW.md). Earlier cached-reopening observations are retained as historical evidence. **Final real Firefox verification remains pending.** See the [Firefox checklist](FIREFOX_CHECKLIST.md) for native 200% zoom, reduced motion, screen readers, file policies, Containers and full disconnected-network checks.
+
+## Build and test
+
+Both editions are generated from `src/` with pinned Unicode 18.0.0 data. There are no external runtime dependencies, fonts or analytics. Python and Deno are development tools.
+
+```sh
+deno cache --lock=deno.lock tests/dom.mjs tests/dom-v3.mjs tests/refinement.mjs tests/polish.mjs tests/clarity.mjs tests/editorial.mjs tests/interface.mjs
 python3 tools/verify_data.py
 python3 tools/build.py
+python3 tools/audit_copy.py --check
 python3 tools/test_all.py
 ```
 
-The dependency-cache command uses the network only on a fresh development machine; Happy DOM 20.8.4 is locked and is never a runtime HTML dependency. This run used Deno 2.9.7. The runner owns a loopback server on port 8765. For a separate manual preview use `python3 tools/serve.py`, then open `http://127.0.0.1:8765/offline-url-inspector/`; stop it before the full runner. Individual tasks are in `deno.json`.
+The runner owns loopback port 8765. Targeted tasks are defined in `deno.json`. Regenerate the copy inventory with `python3 tools/audit_copy.py` when source copy changes. Builds recompute exact CSP/HTML/release hashes without regenerating Unicode data. `SHA256SUMS` inventories files excluding itself and Git metadata.
 
-Normal builds verify and reuse the existing Unicode JSON; they do not regenerate unchanged tables. Edit source and rebuild both editions together so CSP and worker hashes stay correct. Verify an extracted package with `shasum -a 256 -c SHA256SUMS`.
+Core/reference/data algorithms are unchanged. Worker logic is unchanged; only its plaintext 503 recovery message was edited. A strict test restores that one literal and requires the original complete worker hash. Full RTL visual comparison, ownership/reputation/content/redirect checks, public-suffix inference, permanent storage/cache guarantees and comprehensive phishing detection remain outside scope. The 19 documented native Deno IDNA discrepancies remain unchanged; see [IDNA review](IDNA_REVIEW.md).
 
-See [CHANGELOG.md](CHANGELOG.md), [DESIGN_NOTES.md](DESIGN_NOTES.md), [SHORTCUTS.md](SHORTCUTS.md), and [UPDATES_AND_ROLLBACK.md](UPDATES_AND_ROLLBACK.md) for the design changes, optional launcher, maintenance, and rollback instructions.
+See [changelog](CHANGELOG.md), [security review](SECURITY_REVIEW.md), [deployment](DEPLOYMENT.md), [updates and rollback](UPDATES_AND_ROLLBACK.md), [design notes](DESIGN_NOTES.md), [Unicode data](UNICODE_DATA.md) and [optional shortcuts](SHORTCUTS.md).

@@ -1,84 +1,415 @@
 {
-  "applicationVersion": "3.1.1",
+  "applicationVersion": "3.1.2",
   "date": "2026-10-16",
-  "status": "pass",
-  "approvedV3_1Preserved": {
-    "filesChecked": 90,
-    "archiveFilesChecked": 2,
-    "inventoryUnchanged": true,
-    "allHashesUnchanged": true
+  "status": "pass: approved obsolete-code cleanup, one full regression run and in-app rendered review",
+  "repository": "Maximophanes/offline-url-inspector",
+  "origin": "https://github.com/Maximophanes/offline-url-inspector.git",
+  "branch": "dev/v3.1.2",
+  "headUnchanged": "769c6437cd6b360d8b920bfb440879de016a802c",
+  "mainUnchanged": "7909623ba5d2a33a51aaafa0bb72ca576959c546",
+  "uncommitted": true,
+  "stagedFiles": [],
+  "frozenBaselineFilesSHA256": {
+    "src/core.js": "b72aed56d0a1a65856611c8c3c3569436d383c5acc151386b364649cdbf5cf42",
+    "src/references.js": "6017e9dbb9806f5192a9691870fb82587220a8c8a3d165cfd0403e5c1d705d23",
+    "src/presentation.js": "a89771ae8dbc7b5815e54a5ff092f9a325590584ec40f031b91d9d673c7ad4fa",
+    "src/sw.js": "fb139641d523d4761b555825bd1365d53f553ee0c8fb2f6583c854fcc3f75034",
+    "src/hosted.js": "1fa488dea88060d8b6f404133c7a85458996d8761d036c7b3d3346bfc5449673",
+    "tools/build.py": "cdd516213021cbdcafbc776a7ca335531b3b35944dc6d98f3cb913d0e952c033",
+    "deno.lock": "826bb68fd80f677b365a1fc1d488696b9225319d6f56a8f9ca86e2d152c17d29",
+    ".github/workflows/deploy-pages.yml": "e99e0ac790b286e5a77d38eb11ebbb64afb492217cde8334153b9a4221b9e1a7",
+    "EDITORIAL_STYLE_GUIDE.md": "c56011426839d0095cf1bf82924243773ab19795f5f326772f45a3b6268cbe20",
+    "data/DerivedBidiClass.txt": "d9e23222522551348ea1ccfbb4f62efbf98982afb95840f8959c08ed992c5607",
+    "data/DerivedCoreProperties.txt": "09c928886a178fcafd93c29e4bd59073a058e5a100b716d425cb563ab50f68c9",
+    "data/IdnaMappingTable.txt": "a03b1eb38032268c696406a83f0972d6a815acd2c8d4151d42ec0fda70ffced1",
+    "data/IdnaTestV2.txt": "0236b75c5b20dfd857b3b5cf75509887959d6ab00d6c7bda9b7dc3df518c1fde",
+    "data/LICENSE.txt": "e7a93b009565cfce55919a381437ac4db883e9da2126fa28b91d12732bc53d96",
+    "data/NormalizationTest.txt": "25a50d816764b04abfb4a646d3eb2b2a803284c3873d9a06757b94fe4513dde3",
+    "data/PropertyValueAliases.txt": "06c4c8eaf7b0bf34abe73b113da1215bd784ac254d4c223600b90267caa4bbbd",
+    "data/ReadMe.txt": "b0ea442f29dee90584aacd3665a6e1ce87ffc917a4d31f34e1916d2d6f7f9205",
+    "data/ScriptExtensions.txt": "5c9d34a922f687726f2a8bcf57d49f905987e51f1b21b58c95a00fbe255cec23",
+    "data/Scripts.txt": "0071fd81b6aeae25f6e8bce8efec3066a6476a91b49bdb2f52dc76e817862a6a",
+    "data/UnicodeData.txt": "0736451de439ae7baf1425136617da495e09ee5afbe6e394374db7009ea08950",
+    "data/confusables.txt": "6ed3ee967c9dfdf6677d563c9985182fbc50a2efb7d6059cd57b2e2ce18f5b92",
+    "data/manifest.json": "a45e2b7ecc25ff75459f696ac0f15a892f8cee3f7b5f3c9a7b16805c6c68811a",
+    "data/unicode-data.json": "806135e914efe7978ca23124b2ad4472b5643adbb766dc1ab799b3ca1c7a5dc1",
+    "data/unicode-data.sha256": "cf7153e37416a5f919333e0068325b49026451da2c295768ab1ca242d4a8eadd"
   },
-  "trackerReferences": [
-    {
-      "reference": 1,
-      "sha256": "22aee1a6bcb15fc8b85b0d029d25c1093d2760b77159b077fdc19a66d1ac906d",
-      "unchanged": true
-    },
-    {
-      "reference": 2,
-      "sha256": "5a905b8edff3231ba8a0394b3aa87967c42d1a8cd5a683e8a8a2559e7d9ba80c",
-      "unchanged": true
-    }
-  ],
-  "frozenV3_1FunctionalFiles": {
-    "src/core.js": true,
-    "src/references.js": true,
-    "src/sw.js": true,
-    "data/unicode-data.json": true
-  },
-  "approvedTitle": {
-    "allTitleRulesIdentical": true,
-    "titleRulesCompared": 3,
-    "completeKeyframesIdentical": true
+  "allTrackedUnicodeDataFilesByteIdentical": 15,
+  "originalDevelopmentResults": {
+    "count": 139,
+    "sha256": "ab196d5f1e24eac9c204918d32da6fe26a61ff87858a36842a0b22f66c8afd00",
+    "completeObjectsAndRawMessagesIdentical": true,
+    "proof": "tests/editorial.mjs"
   },
   "referenceStorage": {
     "key": "offline-url-inspector:reference-domains",
     "schemaVersion": 1,
-    "compatibleWithV3_1": true,
-    "newSchemaOrKey": false
+    "compatibleWithVersion3_1_1": true,
+    "startupRewritesRequired": false
   },
   "serviceWorker": {
     "scope": "/offline-url-inspector/",
     "sourceByteIdentical": true,
+    "onlySourceDifference": "none relative to this checkpoint",
+    "actualSourceSHA256": "fb139641d523d4761b555825bd1365d53f553ee0c8fb2f6583c854fcc3f75034",
+    "normalizedSourceSHA256": "e9e0792d2f5d7570f33f847bd4babde0605198230d75ac4d84e47935677db290",
+    "normalizedSourceMatchesOriginalFullFile": true,
     "onlyFetch": "fixed INDEX_URL",
-    "integrity": "final worker and HTTP suites passed",
-    "controllerChange": "presentation/status/custom consent only; fixed registration and messages preserved"
+    "reviewedActivationAndHashVerification": "unchanged",
+    "comparisonBaseline": "committed 3.1.2 development checkpoint",
+    "historicalBaselineNote": "The previously committed plaintext 503 recovery wording change versus the older baseline is still covered by the original full-file normalization pin."
   },
+  "hostedPresentationSafeguards": [
+    "neutral initial label; ready still requires verified reply",
+    "clear stale preparation/waiting feedback",
+    "reviewed reload also protects visible results and session-only references",
+    "structured title/explanation/semantic indicator within atomic live region",
+    "full-width semantic offline paragraphs; exact approved ready wording",
+    "all original lifecycle, reviewed-worker, consent and storage decisions preserved"
+  ],
+  "approvedUnderstandingParagraphsAndUnicodeAttributionUnchanged": true,
   "deterministicBuild": {
     "passed": true,
     "sha256": {
-      "standalone/Offline_URL_Inspector.html": "d7e0d48228a9d9d34c7825f76910e170a0d3c54f5bc2c5c12f2ab43fec3b8ae9",
-      "site/index.html": "a59ba3b4926bb7f090d32b6a19263ca352692076ffedda8754a20fef1366e8de",
-      "site/sw.js": "07c8408b025d4012a94f836936ce8f4ff653f415d095162189ab3a484be60a1a",
-      "site/.nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "build-manifest.json": "7f29a9c8f3299ff78a193d1bb92e3203ceb2657dc40691b7f48d6c87afbb2b9f"
+      "site/index.html": "4b60415e57b7876af7243ad81c0354775a23007ba106bfd76d2333edd0283cbc",
+      "site/sw.js": "a39636bd54b5677fae9462f2ff0aa9a2baaa164fb2c9386379bea62efce4ae78",
+      "standalone/Offline_URL_Inspector.html": "6291d65163efa0c68a7872f73e04451e45e72ef17e0839fbe48dd4ca1d6bea03",
+      "build-manifest.json": "5ae57fef65ce98e2a3a702b69c122ff647ab7248e967b76dfe753e3786bdc97a",
+      "site/.nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     }
   },
-  "sourceScan": {
-    "unsafeSharedSinks": [],
-    "deploymentPrivateMarkers": [],
-    "nativeApplicationConfirmations": false
+  "csp": {
+    "bothEditionsExactScriptAndStyleHashes": true,
+    "policyRelaxed": false,
+    "runtimeExternalDependenciesAdded": false
   },
+  "release": "3.1.2-4b60415e57b7876a",
   "documentationLinks": {
-    "passed": true
+    "allExist": true,
+    "checked": 132
   },
-  "finalSuite": {
+  "copyInventory": "tests/copy-inventory.json",
+  "editorialAudit": "COPY_AUDIT.md",
+  "actualBrowser": "tests/technical-browser-preview.json",
+  "actualFirefoxVersion3_1_2Assertions": 0,
+  "userReportedBaseline": "Version 3.1.1 Firefox/macOS; earlier V3.1.2 persistent startup fix reported working; see tests/user-baseline-verification.json",
+  "published": false,
+  "committed": false,
+  "pushed": false,
+  "merged": false,
+  "pullRequestCreated": false,
+  "repositorySettingsChanged": false,
+  "knownLimits": [
+    "Rendered review used the in-app browser; no current native Firefox, screen-reader, native zoom or file:// storage-policy verification.",
+    "Update waiting/failure screenshots used explicitly controlled worker fixtures.",
+    "Current Firefox full-suite harness was not requested; driver availability was not checked.",
+    "19 native Deno IDNA discrepancies unchanged; independent ICU diagnostic matches official outputs."
+  ],
+  "failures": [],
+  "distributionChecksums": {
+    "path": "SHA256SUMS",
+    "fileCount": 242,
+    "exclusions": [
+      "SHA256SUMS itself",
+      "Git metadata",
+      "ignored files"
+    ],
+    "verified": true
+  },
+  "startingCommittedCheckpoint": "769c6437cd6b360d8b920bfb440879de016a802c",
+  "focusedInterfacePreservation": {
+    "fixtures": 139,
+    "completeResultsAndRecordsSHA256": "fba9fc3018576c81655312c2151698da934b2dd3dbdee33ed48cce9ca482c314",
+    "independentlyReproducedFromCommittedHEAD": true,
+    "completeOriginalRecordsRenderedInOrder": true,
+    "proof": "tests/interface.mjs",
+    "baseline": "tests/interface-baseline.json"
+  },
+  "focusedReview": "TECHNICAL_DETAILS_REVIEW.md",
+  "native200PercentZoomVerified": false,
+  "privacy": {
+    "privateAbsoluteHomeOrRepositoryPathInPendingFiles": false,
+    "workingDirectoryFieldAbsent": true,
+    "screenshots": "16 current before/after screenshots, synthetic/demo inputs only; no reference storage changes"
+  },
+  "pendingFiles": [
+    "COPY_AUDIT.md",
+    "DESIGN_NOTES.md",
+    "SECURITY_REVIEW.md",
+    "SHA256SUMS",
+    "TECHNICAL_DETAILS_REVIEW.md",
+    "TEST_RESULTS.md",
+    "build-manifest.json",
+    "preview/v3.1.2-character-cleanup-desktop-mapped.jpg",
+    "preview/v3.1.2-character-cleanup-mobile-related.jpg",
+    "preview/v3.1.2-character-cleanup-mobile-sequence.jpg",
+    "preview/v3.1.2-obsolete-after-desktop-failed.jpg",
+    "preview/v3.1.2-obsolete-after-desktop-reference.jpg",
+    "preview/v3.1.2-obsolete-after-desktop-waiting.jpg",
+    "preview/v3.1.2-obsolete-after-hosted-mobile.jpg",
+    "preview/v3.1.2-obsolete-after-mobile-character.jpg",
+    "preview/v3.1.2-obsolete-after-mobile-confirmation.jpg",
+    "preview/v3.1.2-obsolete-after-mobile-diagnostics.jpg",
+    "preview/v3.1.2-obsolete-after-mobile-failed.jpg",
+    "preview/v3.1.2-obsolete-after-mobile-waiting.jpg",
+    "preview/v3.1.2-obsolete-after-standalone-desktop.jpg",
+    "preview/v3.1.2-obsolete-after-standalone-mobile.jpg",
+    "preview/v3.1.2-obsolete-before-desktop-failed.jpg",
+    "preview/v3.1.2-obsolete-before-desktop-waiting.jpg",
+    "preview/v3.1.2-obsolete-before-mobile-diagnostics.jpg",
+    "preview/v3.1.2-obsolete-before-mobile-failed.jpg",
+    "preview/v3.1.2-obsolete-before-mobile-waiting.jpg",
+    "site/index.html",
+    "site/sw.js",
+    "src/base.css",
+    "src/template.html",
+    "src/ui.js",
+    "src/v3.css",
+    "standalone/Offline_URL_Inspector.html",
+    "tests/clarity-results.json",
+    "tests/clarity.mjs",
+    "tests/copy-inventory.json",
+    "tests/dom-v3.mjs",
+    "tests/editorial-results.json",
+    "tests/editorial.mjs",
+    "tests/harness.mjs",
+    "tests/interface.mjs",
+    "tests/polish.mjs",
+    "tests/release-checks.json",
+    "tests/summary-results.json",
+    "tests/technical-browser-preview.json",
+    "tests/technical-results.json",
+    "tests/technical-targeted-results.json",
+    "tests/technical.mjs",
+    "tests/test_runner.py",
+    "tools/generate_unicode_data.py",
+    "tools/test_all.py"
+  ],
+  "historicalFullSuite": {
     "tests": {
-      "executed": 109454,
-      "passed": 109454,
+      "executed": 109600,
+      "passed": 109600,
       "failed": 0
     },
     "assertions": {
-      "executed": 118210,
-      "passed": 118210,
+      "executed": 128867,
+      "passed": 128867,
       "failed": 0
-    }
+    },
+    "runNotes": [
+      "These full-suite totals are historical. Current focused results are recorded separately."
+    ],
+    "scope": "Previous committed interface checkpoint; not rerun for this reference-only follow-up"
   },
-  "actualBrowser": "Codex in-app interactions/cached server-unavailable startup; see browser-preview.json",
-  "actualFirefox3_1_1": "not executed; see focused checklist",
-  "userReportedBaseline": "nine V3.1.0 Firefox groups passed; not V3.1.1 verification",
-  "published": false,
-  "requiredFilesPresent": true,
-  "temporaryFiles": [],
-  "failures": []
+  "historicalInterfaceBrowser": "tests/interface-browser-preview.json",
+  "copyInventoryCandidateCount": 2028,
+  "referenceInterface": {
+    "approvedIntroduction": true,
+    "emptyFeedbackZeroHeightAndMargin": true,
+    "rawStorageStatusPreservedInternally": true,
+    "rawValidationErrorsRetainedInternally": true,
+    "onlyRedundantFixedErrorExplanationsSuppressed": true,
+    "referenceValidatorAndStoreByteIdentical": true,
+    "maximumInputCharacters": 2048,
+    "importSchemas": [
+      0,
+      1
+    ],
+    "screenshotsInspected": 33
+  },
+  "historicalReferencePresentationBoundary": {
+    "checkpointSHA256": "85e9a44c8cf4c88fcf08ef4839461d4489ab51328303f483d7ee5d9348dda1bf",
+    "originalCompleteSourceRestoredByScopedCopyBlockNormalization": true,
+    "scope": [
+      "reference validation presentation and useful-details helper",
+      "storage-status presentation",
+      "new helper export"
+    ],
+    "proof": "tests/reference-interface.mjs"
+  },
+  "historicalReferenceVerification": {
+    "report": "tests/reference-targeted-results.json",
+    "tests": {
+      "executed": 704,
+      "passed": 704,
+      "failed": 0
+    },
+    "assertions": {
+      "executed": 16421,
+      "passed": 16421,
+      "failed": 0
+    },
+    "unicodeConformanceSuiteRerun": false,
+    "allFinalCommandsPassed": true,
+    "notes": [
+      "All final targeted commands passed. The loopback HTTP check was rerun with required local-network permission after sandbox fetch failures.",
+      "Complete Unicode conformance suite was not rerun. Prior full-suite results remain historical evidence for the committed checkpoint."
+    ]
+  },
+  "focusedTechnicalPreservation": {
+    "fixtures": 139,
+    "completeResultsAndReferenceComparisonsSHA256": "edd43198a04e94926b5113826a7682782b74ee76afcf47ae4a8eabb7c50e0cce",
+    "proof": "tests/technical.mjs",
+    "baseline": "tests/technical-baseline.json",
+    "rawDiagnosticMessagesAndOrderUnchanged": true,
+    "originalExtractionObjectsPreserved": true,
+    "comparisonMetadataRetainedInternally": "WeakMap associated with current rendered comparison records; no persistence",
+    "noExtractionOrComparisonJSONAddedToRawDiagnosticRecords": true
+  },
+  "historicalReferenceBrowser": "tests/reference-browser-preview.json",
+  "technicalPresentation": {
+    "balancedCountGapPixels": 12,
+    "genericRawComparisonDisclosureRemoved": true,
+    "reliableExtractionJSONHidden": true,
+    "uncertainExtractionLimitationAndCompleteEvidence": true,
+    "screenshotsInspected": 28
+  },
+  "historicalTechnicalVerification": {
+    "report": "tests/technical-targeted-results.json",
+    "tests": {
+      "executed": 718,
+      "passed": 718,
+      "failed": 0
+    },
+    "assertions": {
+      "executed": 16600,
+      "passed": 16600,
+      "failed": 0
+    },
+    "unicodeConformanceSuiteRerun": false,
+    "allFinalCommandsPassed": true,
+    "notes": [
+      "All final targeted commands passed. The HTTP checks were rerun with local-network permission after sandbox fetch failures.",
+      "The full Unicode conformance suite was not rerun; engine/data sources and prior conformance reports remain unchanged."
+    ]
+  },
+  "characterCleanup": {
+    "rawCharacterJSONRemovedFromBothEditions": true,
+    "exclusiveCSSRemoved": true,
+    "underlyingCharacterObjectsRetainedInInspectionResult": true,
+    "mappedNamesAndRelatedComparisonEvidencePreserved": true,
+    "noJSONMovedToRawDiagnosticRecords": true,
+    "sharedRawTextKeptForExtraction": true,
+    "screenshotsInspected": 3,
+    "browserReport": "tests/technical-browser-preview.json: rawCharacterCleanup",
+    "phase2": "Prior audit was read-only. Only subsequently approved findings have now been implemented."
+  },
+  "historicalCharacterCleanupVerification": {
+    "phase": "Phase 1 raw-character disclosure cleanup",
+    "report": "tests/technical-targeted-results.json",
+    "tests": {
+      "executed": 720,
+      "passed": 720,
+      "failed": 0
+    },
+    "assertions": {
+      "executed": 16717,
+      "passed": 16717,
+      "failed": 0
+    },
+    "unicodeConformanceSuiteRerun": false,
+    "allFinalCommandsPassed": true
+  },
+  "currentTargetedVerification": {
+    "phase": "approved obsolete-code cleanup",
+    "report": "tests/technical-targeted-results.json",
+    "tests": {
+      "executed": 287,
+      "passed": 287,
+      "failed": 0
+    },
+    "assertions": {
+      "executed": 11454,
+      "passed": 11454,
+      "failed": 0
+    },
+    "runnerReportingChecks": 4,
+    "allFinalCommandsPassed": true
+  },
+  "currentFullRegression": {
+    "report": "tests/summary-results.json",
+    "runsAfterStabilization": 1,
+    "tests": {
+      "executed": 109636,
+      "passed": 109636,
+      "failed": 0
+    },
+    "assertions": {
+      "executed": 129347,
+      "passed": 129347,
+      "failed": 0
+    },
+    "unicodeConformanceSuiteRerun": true,
+    "firefox": "Not requested: use --with-firefox with a running local WebDriver endpoint. Driver availability was not checked."
+  },
+  "approvedSourceExceptions": {
+    "src/base.css": "Only unused relevant/gap rules removed; historical complete hash restored by reviewed test normalization.",
+    "src/template.html": "Only two empty placeholders removed.",
+    "src/ui.js": "Prior raw-character cleanup preserved; only dead placeholder operations and unused isOpen accessor removed.",
+    "src/v3.css": "Only approved dead/overridden declarations removed; mobile metadata padding preserved.",
+    "tools/generate_unicode_data.py": "Only unused base64 import removed; dataset not regenerated.",
+    "tools/test_all.py": "Only opt-in Firefox documentation/reporting corrected."
+  },
+  "obsoleteCleanup": {
+    "screenshotsInspected": 16,
+    "browserReport": "tests/technical-browser-preview.json: approvedObsoleteCleanup",
+    "mobileIndentationRetained": true,
+    "summaryRelevantPreserved": true,
+    "storageStatusEditionParameterPreserved": true,
+    "legacyStorageWorkerRecoveryAccessibilityPreserved": true,
+    "runnerReportingChecks": 4,
+    "recommendationsOutsideApprovedScopeImplemented": false,
+    "filesChangedFromStartingUncommittedState": [
+      "COPY_AUDIT.md",
+      "DESIGN_NOTES.md",
+      "SECURITY_REVIEW.md",
+      "SHA256SUMS",
+      "TECHNICAL_DETAILS_REVIEW.md",
+      "TEST_RESULTS.md",
+      "build-manifest.json",
+      "preview/v3.1.2-obsolete-after-desktop-failed.jpg",
+      "preview/v3.1.2-obsolete-after-desktop-reference.jpg",
+      "preview/v3.1.2-obsolete-after-desktop-waiting.jpg",
+      "preview/v3.1.2-obsolete-after-hosted-mobile.jpg",
+      "preview/v3.1.2-obsolete-after-mobile-character.jpg",
+      "preview/v3.1.2-obsolete-after-mobile-confirmation.jpg",
+      "preview/v3.1.2-obsolete-after-mobile-diagnostics.jpg",
+      "preview/v3.1.2-obsolete-after-mobile-failed.jpg",
+      "preview/v3.1.2-obsolete-after-mobile-waiting.jpg",
+      "preview/v3.1.2-obsolete-after-standalone-desktop.jpg",
+      "preview/v3.1.2-obsolete-after-standalone-mobile.jpg",
+      "preview/v3.1.2-obsolete-before-desktop-failed.jpg",
+      "preview/v3.1.2-obsolete-before-desktop-waiting.jpg",
+      "preview/v3.1.2-obsolete-before-mobile-diagnostics.jpg",
+      "preview/v3.1.2-obsolete-before-mobile-failed.jpg",
+      "preview/v3.1.2-obsolete-before-mobile-waiting.jpg",
+      "site/index.html",
+      "site/sw.js",
+      "src/base.css",
+      "src/template.html",
+      "src/ui.js",
+      "src/v3.css",
+      "standalone/Offline_URL_Inspector.html",
+      "tests/clarity.mjs",
+      "tests/copy-inventory.json",
+      "tests/dom-v3.mjs",
+      "tests/editorial.mjs",
+      "tests/harness.mjs",
+      "tests/interface.mjs",
+      "tests/polish.mjs",
+      "tests/release-checks.json",
+      "tests/summary-results.json",
+      "tests/technical-browser-preview.json",
+      "tests/technical-results.json",
+      "tests/technical-targeted-results.json",
+      "tests/technical.mjs",
+      "tests/test_runner.py",
+      "tools/generate_unicode_data.py",
+      "tools/test_all.py"
+    ],
+    "startingFileCount": 226,
+    "preservedInitialFiles": true
+  },
+  "frozenBoundaryFilesVerified": 24
 }

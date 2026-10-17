@@ -1,0 +1,133 @@
+{
+  "applicationVersion": "3.1.2",
+  "date": "2026-10-16",
+  "browser": "Codex in-app browser; not Firefox",
+  "origin": "http://127.0.0.1:8767/offline-url-inspector/",
+  "hostedHTMLSHA256": "f2e7553e217969fa5e95be2bed12d571b0846a35a9da3d4a5fc4bff1a6054e25",
+  "kind": "Actual UI observations; excluded from automated totals",
+  "finalBuild": {
+    "desktopBefore": {
+      "cardHeight": 537.1328125,
+      "references": "1 saved",
+      "scrollWidth": 1100,
+      "status": "Offline ready",
+      "styleCSP": "'sha256-WezoGhWR/x1EiPKWlpiYkSP4i5s55Hi5gl1cdi6gQ6o='",
+      "width": 1100
+    },
+    "desktopAfterFailedCheck": {
+      "cardHeight": 537.1328125,
+      "references": "1 saved",
+      "scrollWidth": 1100,
+      "status": "Offline ready",
+      "update": "Unable to check for updates. Your current page and saved references were kept.",
+      "width": 1100
+    },
+    "narrowBefore": {
+      "cardHeight": 681.1328125,
+      "scrollWidth": 390,
+      "status": "Offline ready",
+      "width": 390
+    },
+    "narrowAfterFailedCheck": {
+      "cardHeight": 681.1328125,
+      "scrollWidth": 390,
+      "status": "Offline ready",
+      "update": "Unable to check for updates. Your current page and saved references were kept.",
+      "width": 390
+    },
+    "repeatedCachedReloads": [
+      {
+        "cardHeight": 537.1328125,
+        "references": "1 saved",
+        "scrollWidth": 1100,
+        "scrollY": 0,
+        "status": "Offline ready",
+        "width": 1100
+      },
+      {
+        "cardHeight": 537.1328125,
+        "references": "1 saved",
+        "scrollWidth": 1100,
+        "scrollY": 0,
+        "status": "Offline ready",
+        "width": 1100
+      },
+      {
+        "cardHeight": 537.1328125,
+        "references": "1 saved",
+        "scrollWidth": 1100,
+        "scrollY": 0,
+        "status": "Offline ready",
+        "width": 1100
+      }
+    ],
+    "newTabWithServerStopped": {
+      "actualHostname": "xn--mazon-3ve.com",
+      "primary": "Potential hostname impersonation",
+      "references": "1 saved",
+      "scriptCSP": "'sha256-V2J1ehwo28TDSJxjP4/zQ1KIiqDdQ6iu5T8qtIX2b20='",
+      "status": "Offline ready"
+    }
+  },
+  "earlierBuildMeasurements": {
+    "narrowBefore": {
+      "cardHeight": 687.1328125,
+      "scrollWidth": 390,
+      "status": "Offline ready",
+      "width": 390
+    },
+    "narrowAfter": {
+      "cardHeight": 687.1328125,
+      "scrollWidth": 390,
+      "status": "Offline ready",
+      "update": "Unable to check for updates. Your current page and saved references were kept.",
+      "width": 390
+    },
+    "repeatedCachedReloads": [
+      {
+        "cardHeight": 543.1328125,
+        "references": "1 saved",
+        "scrollWidth": 1280,
+        "scrollY": 0,
+        "status": "Offline ready",
+        "width": 1280
+      },
+      {
+        "cardHeight": 543.1328125,
+        "references": "1 saved",
+        "scrollWidth": 1280,
+        "scrollY": 0,
+        "status": "Offline ready",
+        "width": 1280
+      },
+      {
+        "cardHeight": 543.1328125,
+        "references": "1 saved",
+        "scrollWidth": 1280,
+        "scrollY": 0,
+        "status": "Offline ready",
+        "width": 1280
+      }
+    ]
+  },
+  "reviewedUpdates": "Local matching releases applied through the existing waiting-worker control. Custom Cancel preserved built-in Unicode demo input; explicit Apply reloaded and retained the saved-reference count.",
+  "otherTabRetainedEarlierCompleteDocument": {
+    "references": "1 saved",
+    "scriptCSP": "'sha256-bCe7CKGfgUEgxiwyUotvXaHq9ub6Yd8raQqUXG5HMwI='",
+    "styleCSP": "'sha256-6gu79dbX6lQ0k/DXforT9nel7uHGcvyfIQsgfi5fyVw='"
+  },
+  "screenshots": [
+    "preview/v3.1.2-desktop.png",
+    "preview/v3.1.2-character-desktop.png",
+    "preview/v3.1.2-mobile-offline.png"
+  ],
+  "data": "Only built-in example URLs entered. Existing loopback saved-reference count stayed at one; that list was not cleared, replaced, exported or included in this report. User clipboard was not read.",
+  "limits": [
+    "Not real Firefox or Container testing",
+    "Server unavailable is not complete internet disconnection",
+    "Not standalone file-policy or storage enforcement",
+    "Settled reload measurements do not capture every compositor frame",
+    "Screen-reader, 200% zoom and OS reduced motion remain manual",
+    "No GitHub Pages publication"
+  ]
+}

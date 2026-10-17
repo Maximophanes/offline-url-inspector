@@ -2,7 +2,7 @@
 // Input strings enter text nodes only. The sole generated href is a local JSON
 // backup Blob created by an explicit Export click; it never contains inspected URLs.
 const $=id=>document.getElementById(id);
-const set=(id,value)=>{$(id).textContent=String(value);};
+const set=(id,value)=>{const text=String(value);if($(id).textContent!==text)$(id).textContent=text;};
 const clear=el=>el.replaceChildren();
 // Native modal semantics plus explicit safe dismissal/focus guards. Dynamic text is inert.
 const Confirmation=(()=>{
@@ -39,114 +39,196 @@ const Confirmation=(()=>{
    cancel.focus({preventScroll:true});
   });
  }
- return Object.freeze({request,isOpen:()=>!!pending});
+ return Object.freeze({request});
 })();
 const confirmAction=options=>Confirmation.request(options);
 const referenceStore=ReferenceDomains.create({storage:()=>window.localStorage,protocol:location.protocol});
+const comparisonRecords=new WeakMap();
 let lastResult=null,lastManual='',editingReference=null,importText='',importPlan=null,referenceActionBusy=false,storageSavingFailed=false;
 function element(tag,text,className=''){const e=document.createElement(tag);e.textContent=text;if(className)e.className=className;return e;}
-function note(message){
- const display=Presentation.diagnostic(message),record=document.createElement('details');record.className='diagnostic'+(message.level==='info'?' small':'');record.dataset.code=message.code;record.dataset.level=message.level;
- const heading=document.createElement('summary');heading.append(element('span',display.title,'diagnostic-title'),element('span',display.category,'diagnostic-kind'),element('span',display.severity,'diagnostic-severity'));
- record.append(heading,element('p',message.text,'diagnostic-text small'));$('messages').appendChild(record);
+const rawText=value=>JSON.stringify(value,null,2).replace(/[\u007f-\uffff]/g,ch=>'\\u'+ch.charCodeAt(0).toString(16).padStart(4,'0'));
+function rowLabel(label,descriptor=''){
+ const key=element('div',label,'key');if(descriptor)key.append(document.createTextNode(' '),element('span','('+descriptor+')','label-detail'));return key;
 }
-function highlighted(target,text){clear(target);for(const ch of text){const c=Inspector.info(ch),span=element('span',Inspector.visible(ch));if(c.nonASCII||c.invisible){span.className='badchar';span.title=c.code+' · '+c.name;}target.appendChild(span);}}
-function characterChips(target,characters,original,result,comparisonTarget){
-  clear(target);
-  if(!characters.length){target.appendChild(element('div',original?'No non-ASCII or invisible characters in the identified original hostname':'Readable hostname contains only ASCII characters','small'));return;}
-  const progress=element('div','','small'),more=element('button','Show next 50 character records','ghost small');more.type='button';target.append(progress,more);let position=0;
-  function nextPage(){const end=Math.min(position+50,characters.length);
-  let firstNewSummary=null;
-  for(const c of characters.slice(position,end)){
-    const record=document.createElement('details');record.className='character danger';
-    const summary=document.createElement('summary');const heading=element('span',c.code+' · '+c.name,'record-heading');heading.appendChild(element('span',c.evidenceSource||'Character evidence','evidence-source'));summary.append(element('span',Inspector.visible(c.ch),'glyph mono'),heading);record.appendChild(summary);if(!firstNewSummary)firstNewSummary=summary;
-    function row(key,value){const line=document.createElement('div');line.className='row';line.append(element('div',key,'key'),element('div',value,'value mono'));record.appendChild(line);}
-    row('Observed character',Inspector.visible(c.ch)+' · '+c.code);row('Official name',c.name);row('Writing system',c.script);
-    let mapping='Preserved by this character rule; complete hostname processing can include composition/reordering.';
-    if(/[\t\r\n]/.test(c.ch))mapping='removed by browser URL preprocessing';
-    else if(c.idnaStatus==='mapped')mapping='IDNA character mapping → '+Inspector.visible(c.idnaMapping)+' ('+[...c.idnaMapping].map(Inspector.cp).join(' ')+')';
-    else if(c.idnaStatus==='ignored')mapping='ignored/removed by IDNA processing';
-    else if(c.idnaStatus==='disallowed')mapping='Disallowed by Unicode 18 mapping data; installed-browser behavior is authoritative.';
-    else if(c.idnaStatus==='deviation')mapping='Deviation character; nontransitional processing normally preserves it.';
-    if(original&&!result.decodeError&&result.original?.reliable&&result.unicode&&!result.unicode.includes(c.ch)&&!['mapped','ignored'].includes(c.idnaStatus)&&!/[\t\r\n]/.test(c.ch))mapping+=' Absent from readable result; sequence normalization/composition can change individual characters.';
-    if(original&&!result.original?.reliable)mapping+=' Candidate only: normalization outcome unverified.';
-    row('Normalization rule',mapping);
-    const describe=value=>[...value].map(ch=>{const i=Inspector.info(ch);return Inspector.visible(ch)+' — '+i.code+' '+i.name;}).join('; ');
-    if(c.idnaStatus==='mapped')row('Mapped representation',describe(c.idnaMapping)||'(empty mapping)');
-    else if(c.idnaStatus==='ignored')row('Mapped representation','Removed by IDNA processing.');
-    else if(result.unicode?.includes(c.ch))row('Readable representation',describe(c.ch));
-    else if(original&&result.ok&&!result.decodeError)row('Readable representation','Sequence normalization → '+Inspector.visible(result.unicode)+'. Individual character alignment is not assumed.');
-    row('Confusable symbols',c.confusable===null?'No prototype mapping in the bundled table.':Inspector.visible(c.confusable)+' · '+[...c.confusable].map(Inspector.cp).join(' ')+' · internal comparison symbols, not a destination');
-    if(comparisonTarget){
-      const s=Inspector.skeleton(c.ch),matches=s===null?[]:[...new Set([...comparisonTarget.unicode].filter(ch=>Inspector.skeleton(ch)===s&&ch!==c.ch))];
-      row('Comparison character(s)',matches.length?matches.map(ch=>Inspector.visible(ch)+' '+Inspector.cp(ch)+' '+Inspector.info(ch).name).join('; '):'No individual-character equivalence established. Whole-host comparison is separate.');
-    }
-    if(original&&result.ok)row('Resulting actual host',result.ascii+' · character rules change written spelling, not proof of a different destination');
-    target.insertBefore(record,more);
+function referenceNotice(text='',tone='information',raw='',field=false,area='reference'){
+ const backup=area==='backup',id=backup?'backupStatus':'referenceError',details=backup?'backupErrorDetails':'referenceErrorDetails',rawId=backup?'backupErrorRaw':'referenceErrorRaw';
+ set(backup?'referenceError':'backupStatus','');set(backup?'referenceErrorRaw':'backupErrorRaw','');$(backup?'referenceErrorDetails':'backupErrorDetails').classList.add('hidden');
+ const target=$(id);target.dataset.tone=tone;
+ const prefix=text?({success:'Success',information:'Information',caution:'Caution',error:'Error'}[tone]+': '):'';
+ set(id,prefix+text);set(rawId,Inspector.visible(raw));$(details).classList.toggle('hidden',!raw||tone!=='error'||!Presentation.referenceErrorHasDetails(raw));
+ if(field&&tone==='error')$('referenceInput').setAttribute('aria-invalid','true');else $('referenceInput').removeAttribute('aria-invalid');
+}
+function referenceFailure(error,context='hostname',field=false,area=context==='import'?'backup':'reference'){referenceNotice(Presentation.validation(error.message,context,context==='import'?importText:field?$('referenceInput').value:undefined),'error',error.message,field,area);}
+function referenceOutcome(message,area='reference'){const state=referenceStore.snapshot();referenceNotice(state.mode==='browser'?message:message+' This change is only in this tab; export a backup before closing.',state.mode==='browser'?'success':'caution','',false,area);}
+function fieldError(id,input,message){set(id,message);$(id).classList.toggle('hidden',!message);if(message)$(input).setAttribute('aria-invalid','true');else $(input).removeAttribute('aria-invalid');}
+function asciiGroups(target,observations,locations=true){
+ for(const o of observations){
+  const group=element('section','','ascii-group');
+  const row=(label,value)=>{const line=element('div','','row');line.append(rowLabel(label),element('div',value,'value mono'));group.appendChild(line);};
+  row('Potential resemblance',o.alternatives.join(' / '));row('Observed',o.observed.map(s=>'“'+s+'”').join(', '));
+  const count=element('p',Presentation.count(o.occurrences.length,'occurrence')+' identified.','small occurrence-count');group.appendChild(count);
+  if(locations){
+   const list=element('ul','','diagnostic-occurrences mono'),progress=element('p','','small occurrence-progress'),more=element('button','','ghost small');progress.tabIndex=-1;more.type='button';let position=0;
+   const next=()=>{
+    for(const p of o.occurrences.slice(position,position+50))list.appendChild(element('li',(p.source==='original decoded hostname'?'Decoded hostname':p.source==='readable normalized hostname'?'Readable hostname':p.source)+' · Label '+p.label+', character '+p.offset+' · “'+p.text+'”'));
+    position=Math.min(position+50,o.occurrences.length);progress.textContent=position<o.occurrences.length?'Showing '+position+' of '+o.occurrences.length+' locations.':'';
+    progress.classList.toggle('hidden',!progress.textContent);more.classList.toggle('hidden',position===o.occurrences.length);
+    const nextCount=Math.min(50,o.occurrences.length-position);more.textContent='Show next '+Presentation.count(nextCount,'location');more.setAttribute('aria-label',more.textContent+' for '+o.alternatives.join(' / '));
+    if(position===o.occurrences.length&&document.activeElement===more)count.focus({preventScroll:true});
+   };
+   count.tabIndex=-1;more.addEventListener('click',next);next();group.append(element('div','Locations','key'),list,progress,more);
   }
-  position=end;progress.textContent='Showing '+position+' of '+characters.length+' unique character records. All original text remains available.';more.classList.toggle('hidden',position>=characters.length);if(position>=characters.length&&document.activeElement===more)firstNewSummary?.focus({preventScroll:true});}
-  more.addEventListener('click',nextPage);nextPage();
+  target.appendChild(group);
+ }
+}
+function note(message,result){
+ const display=Presentation.diagnostic(message),record=element('details','','diagnostic'+(message.level==='info'?' small':''));record.dataset.code=message.code;record.dataset.level=message.level;
+ const heading=document.createElement('summary');heading.append(element('span',display.title,'diagnostic-title'),element('span',display.severity,'diagnostic-severity'));
+ record.append(heading,element('p',Presentation.diagnosticText(message,result),'diagnostic-explanation small'));
+ if(message.code==='ascii-ambiguity'){
+  const evidence=element('details','','disclosure observation diagnostic-evidence');evidence.appendChild(element('summary','All ASCII Observations'));const body=element('div','','category-body');asciiGroups(body,result.asciiAmbiguities);evidence.appendChild(body);record.appendChild(evidence);
+ }
+ $('messages').appendChild(record);
+ const raw=element('article','','raw-diagnostic-record');raw.dataset.code=message.code;raw.dataset.level=message.level;raw.dataset.category=display.category;
+ raw.append(element('h3','Record '+($('rawRecords').children.length+1)+' · '+message.code,'raw-record-title'),element('p',message.text,'diagnostic-text small mono'),element('p','Category: '+display.category+' · Severity: '+display.severity+' · Original level: '+message.level+' · Code: '+message.code,'diagnostic-kind'));
+ $('rawRecords').appendChild(raw);
+}
+function highlighted(target,text,relevantCharacter=null){clear(target);for(const ch of text){const c=Inspector.info(ch),span=element('span',Inspector.visible(ch));if(c.nonASCII||c.invisible){span.className='badchar';span.dataset.tone=c.invisible||ch===relevantCharacter?'caution':'information';span.title=c.code+' · '+c.name;}target.appendChild(span);}}
+function characterChips(target,characters,original,result,comparisonTarget){
+ clear(target);
+ if(!characters.length){target.appendChild(element('div',original?'No internationalized or hidden characters were identified in the original hostname.':'The readable hostname uses only ASCII characters.','small'));return;}
+ const progress=element('div','','small character-count'),more=element('button','Show next 50 characters','ghost small');more.type='button';target.append(progress,more);let position=0;
+ const difference=Presentation.unicodeDifference(result,comparisonTarget),describe=value=>[...value].map(ch=>{const i=Inspector.info(ch);return Inspector.visible(ch)+' — '+i.code+' · '+i.name;}).join('\n');
+ function nextPage(){const end=Math.min(position+50,characters.length);let firstNewSummary=null;
+  for(const c of characters.slice(position,end)){
+   const record=element('details','','character');record.dataset.tone=c.invisible||difference?.actual.ch===c.ch?'caution':'information';
+   const summary=document.createElement('summary'),heading=element('span',c.code+' · '+c.name,'record-heading');heading.appendChild(element('span',c.evidenceSource||'Character evidence','evidence-source'));summary.append(element('span',Inspector.visible(c.ch),'glyph mono'),heading);record.appendChild(summary);if(!firstNewSummary)firstNewSummary=summary;
+   const row=(label,value,descriptor='')=>{const line=element('div','','row');line.append(rowLabel(label,descriptor),element('div',value,'value mono'));record.appendChild(line);};
+   row('Observed',Inspector.visible(c.ch));row('Code point',c.code);row('Official name',c.name);row('Writing system',c.script);row('Normalization',Presentation.characterNormalization(c,original,result));
+   if(c.idnaStatus==='mapped')row('Mapped representation',describe(c.idnaMapping)||'Removed; no replacement character.');
+   else if(c.idnaStatus==='ignored')row('Mapped representation','Removed; no replacement character.');
+   else if(result.unicode?.includes(c.ch))row('Readable representation','Same character as observed.');
+   else if(original&&result.ok&&!result.decodeError)row('Readable hostname',Inspector.visible(result.unicode),'Unicode');
+   if(difference?.actual.ch===c.ch)row('Visually resembles',describe(difference.expected.ch));
+   const advanced=element('details','','disclosure observation character-mapping');advanced.appendChild(element('summary','Unicode comparison data'));
+   const body=element('div','','category-body small');body.appendChild(element('div','UTS #39 Mapping','key'));
+   if(c.confusable===null)body.appendChild(element('p','No UTS #39 mapping is listed for this character.'));
+   else{
+    body.appendChild(element('p',Inspector.visible(c.ch)+' ('+c.code+') → '+[...c.confusable].map(ch=>Inspector.visible(ch)+' ('+Inspector.cp(ch)+')').join(' '),'mono mapping-value'));
+    body.appendChild(element('p','This mapping is used to compare visual similarities. It does not establish that characters occupy corresponding positions in two hostnames.'));
+    const names=element('details','','disclosure observation');names.append(element('summary','Mapped character names'),element('p',describe(c.confusable),'category-body mono small'));body.appendChild(names);
+   }
+   if(comparisonTarget){
+    const s=Inspector.skeleton(c.ch),matches=s===null?[]:[...new Set([...comparisonTarget.unicode].filter(ch=>Inspector.skeleton(ch)===s&&ch!==c.ch))];
+    if(matches.length&&difference?.actual.ch!==c.ch){const candidates=element('details','','disclosure observation');candidates.append(element('summary','Related comparison characters'),element('p',matches.map(ch=>describe(ch)).join('\n'),'category-body mono small'),element('p','These characters share comparison data. Their positions have not been matched.','category-body small'));body.appendChild(candidates);}
+    else if(!matches.length)body.appendChild(element('p','No individual character match was established. Whole-hostname resemblance is a separate comparison.'));
+   }
+   advanced.appendChild(body);record.appendChild(advanced);
+   if(result.ok)row('Actual Hostname',result.ascii,'ASCII / Punycode');
+   target.insertBefore(record,more);
+  }
+  position=end;progress.textContent=Presentation.count(characters.length,characters.every(c=>c.nonASCII)?'Unicode character':'character')+' identified.'+(position<characters.length?' Showing '+position+' of '+characters.length+'.':'');more.classList.toggle('hidden',position>=characters.length);if(position>=characters.length&&document.activeElement===more)firstNewSummary?.focus({preventScroll:true});
+ }
+ more.addEventListener('click',nextPage);nextPage();
 }
 function referenceSummary(refs){
-  if(!refs.checked)return 'No reference domains configured.';
-  const parts=[];
-  for(const [key,label]of [['exact','Exact reference'],['subdomains','Structural subdomain of'],['embedded','Embedded reference text; not a subdomain of'],['visual','Potential visual comparison with'],['spelling','Spelling similarity to']]){
-    if(refs[key].length)parts.push(label+': '+refs[key].slice(0,3).map(e=>e.hostname).join(', ')+(refs[key].length>3?' (+'+(refs[key].length-3)+' more in details)':'')+'.');
-  }
-  return parts.length?parts.join(' '):'No exact, structural, or supported similarity match among '+refs.checked+' local references. Destination remains unverified.';
+ if(!refs.checked)return 'No saved reference domains were used for this inspection.';
+ const parts=[];
+ for(const [key,label]of [['exact','Matches'],['subdomains','Subdomain of'],['embedded','Contains the name'],['visual','May look like'],['spelling','Similar spelling to']])if(refs[key].length){const names=refs[key].slice(0,3).map(e=>e.hostname).join(', ');parts.push(label+' '+names+(key==='embedded'?' inside a different hostname':'')+(refs[key].length>3?'; '+Presentation.count(refs[key].length-3,'more match','more matches')+' in Technical Details':'')+'.');}
+ if(parts.length)return parts.join(' ')+(refs.unavailable?' Some visual comparisons are unavailable.':'');
+ if(refs.unavailable)return 'No exact reference match was found. Some visual comparisons are unavailable.';
+ return refs.checked===1?'The saved reference did not produce a supported match.':'None of the '+refs.checked+' saved references produced a supported match.';
+}
+function comparisonEvidence(result,source,hostname,kind,comparison){
+ const record=element('div','','comparison-evidence'),row=(label,value)=>{const line=element('div','','row');line.append(rowLabel(label),element('div',value,label==='Compared with'?'value mono':'value'));record.appendChild(line);};
+ row('Comparison source',source);row('Compared with',hostname);row('Result',Presentation.comparisonResult(kind,comparison));
+ if(comparison?.visual){
+  for(const p of comparison.asciiSubstitutions||[])row('Relevant substitution','“'+p.actual+'” may resemble “'+p.expected+'” in some fonts.');
+  let target;try{target=Inspector.expectedHost(hostname);}catch{}
+  const difference=Presentation.unicodeDifference(result,target);
+  if(difference)row('Relevant character',difference.actual.script+' '+Inspector.visible(difference.actual.ch)+' ('+difference.actual.code+') resembles '+difference.expected.script+' '+Inspector.visible(difference.expected.ch)+' ('+difference.expected.code+').');
+ }
+ if(comparison){const method=Presentation.comparisonMethod(comparison),advanced=element('details','','disclosure observation');advanced.append(element('summary',method.title),element('p',method.text,'category-body small'));
+  record.appendChild(advanced);
+ }
+ comparisonRecords.set(record,{source,hostname,kind,comparison});
+ $('referenceCandidates').appendChild(record);
+}
+function extractionEvidence(original,failed=false){
+ const reliable=original?.reliable===true;
+ $('attributionEvidence').open=false;$('attributionEvidence').classList.toggle('hidden',reliable);$('attributionNotice').classList.toggle('hidden',reliable);
+ set('attributionNotice',reliable?'':original?.original!==undefined?'The hostname shown above is unverified. It could not be reliably established from the original URL.':'The original hostname could not be established reliably. Check the original URL and parsed hostname values, if available.');
+ const reasons={
+  'No unambiguous HTTP(S) authority prefix.':'A clear HTTP or HTTPS address prefix could not be identified.',
+  'Extra authority slashes or backslashes prevent reliable original-host attribution.':'Extra slashes or backslashes make the start of the hostname ambiguous.',
+  'Malformed bracketed IPv6 authority.':'The bracketed IP address or the text following it is incomplete or malformed.',
+  'Unbalanced hostname brackets.':'The hostname brackets do not form a matching pair.',
+  'Unbracketed IPv6 or multiple port delimiters.':'The hostname contains ambiguous colons. An IPv6 address must use brackets.',
+  'Invalid explicit port syntax.':'The port after the hostname is not written as a valid number.',
+  'Source offsets could not be reconstructed.':'The hostname could not be traced reliably to its position in the original URL.',
+  'Malformed percent encoding in candidate hostname.':'The possible hostname contains incomplete or invalid percent encoding.',
+  'Candidate hostname only: browser rejected the URL; destination and normalization are unverified.':'Your browser rejected this URL. The possible hostname and its normalization have not been verified.',
+  'Extracted hostname did not agree with the browser parser.':'The extracted hostname did not match the hostname read by your browser.'
+ };
+ set('attributionReason',reliable?'':failed?'Inspection failed before hostname extraction could be verified. Check the input and try again.':reasons[original?.reason]||'No reliable hostname extraction record was produced.');
+ set('attributionRaw',reliable?'':original?rawText(original):'No hostname extraction object was produced.');
 }
 function render(r){
-  $('results').classList.remove('hidden');for(const id of ['messages','coloredHost','chars','originalChars','supporting','relevantSubstitutions','referenceCandidates','asciiObservations'])clear($(id));
+  $('results').classList.remove('hidden');for(const id of ['messages','rawRecords','coloredHost','chars','originalChars','supporting','referenceCandidates','asciiObservations'])clear($(id));
   for(const id of ['ascii','unicode','original','decodedOriginal','normalized','scripts','scheme','port','path','query','fragment','compare','comparisonResult','referenceComparison'])set(id,'—');
   $('compare').className='value mono';$('comparisonResult').className='value';
   const refs=ReferenceDomains.compare(r,referenceStore.snapshot().references),summary=Presentation.summarize(r,refs,!!lastManual.trim());
+  fieldError('inspectionError','link',r.ok?'':Presentation.inputFailure(r).detail);fieldError('expectedError','expected',r.expectedError?Presentation.validation(r.expectedError):'');
   $('primary').dataset.kind=summary.kind;set('primaryTitle',summary.title);set('primaryDetail',Presentation.explain(r,summary));
-  set('raw',Inspector.visible(r.raw.slice(0,Inspector.MAX_INPUT))+(r.raw.length>Inspector.MAX_INPUT?'\n[Display truncated; the complete pasted text remains in the input field.]':''));
-  for(const m of r.messages)note(m);
-  if(r.original){if(r.original.original!==undefined)highlighted($('original'),r.original.original);else set('original','Unavailable: '+r.original.reason);set('decodedOriginal',r.original.decoded===undefined?'Unavailable':Inspector.visible(r.original.decoded)+(r.original.reliable?'':' (candidate only; not verified)'));}
+  set('raw',Inspector.visible(r.raw.slice(0,Inspector.MAX_INPUT))+(r.raw.length>Inspector.MAX_INPUT?'\n[Display shortened. The full original URL remains in the input field.]':''));
+  extractionEvidence(r.original);
+  $('rawDiagnostics').open=false;$('rawDiagnostics').classList.toggle('hidden',!r.messages.length);for(const m of r.messages)note(m,r);
   let target=null;try{if(summary.target)target=Inspector.expectedHost(summary.target);}catch{}
+  const difference=summary.kind==='visual'?Presentation.unicodeDifference(r,target):null;
+  if(r.original){if(r.original.original!==undefined)highlighted($('original'),r.original.original,difference?.actual.ch);else set('original','The original hostname could not be identified with certainty. See the technical evidence.');set('decodedOriginal',r.original.decoded===undefined?'Could not be decoded':Inspector.visible(r.original.decoded)+(r.original.reliable?'':' (unverified)'));}
   const evidence=Presentation.characterEvidence(r);
   characterChips($('originalChars'),evidence.original,true,r,target);
   $('originalCharacterGroup').classList.toggle('hidden',!evidence.original.length&&!!evidence.readable.length);
   $('readableCharacterGroup').classList.toggle('hidden',!evidence.readable.length);
-  $('asciiDetails').open=false;set('neutralSlot','');
+  $('asciiDetails').open=false;
   set('asciiSummary','ASCII lookalike observations');
   if(!r.ok){$('asciiDetails').classList.add('hidden');return;}
-  set('ascii',r.ascii);set('normalized',r.ascii);set('unicode',Inspector.visible(r.unicode));highlighted($('coloredHost'),r.unicode);characterChips($('chars'),evidence.readable,false,r,target);
-  set('scripts',r.writingSystems.join(', ')||'Common / Inherited');
-  if(r.decodeError){set('coloredHost','Readable hostname unavailable — Punycode/IDNA validation failed.');set('unicode','Unavailable — Punycode/IDNA validation failed.');set('scripts','Unavailable');clear($('chars'));}
-  set('scheme',r.scheme.slice(0,-1)+(r.assumed?' (assumed HTTPS; omitted in input)':''));set('port',r.port||'Default / not specified'+(r.original?.port?' (input '+r.original.port+')':''));set('path',Inspector.visible(r.path||'/'));set('query',Inspector.visible(r.query||'None'));set('fragment',Inspector.visible(r.fragment||'None'));
-  if(r.expectedError){set('compare','Invalid expected hostname');set('comparisonResult','Could not validate: '+r.expectedError);$('comparisonResult').className='value warn';}
+  set('ascii',r.ascii);set('normalized',r.ascii);set('unicode',Inspector.visible(r.unicode));highlighted($('coloredHost'),r.unicode,difference?.actual.ch);characterChips($('chars'),evidence.readable,false,r,target);
+  set('scripts',r.writingSystems.join(', ')||'Shared characters; no specific writing system');
+  if(r.decodeError){set('coloredHost','The encoded hostname could not be validated. Use the ASCII form above.');set('unicode','Unavailable: encoded hostname validation failed.');set('scripts','Unavailable');clear($('chars'));}
+  set('scheme',r.scheme.slice(0,-1)+(r.assumed?' (HTTPS assumed; no scheme was entered)':''));set('port',r.port||(r.original?.port?'Default (input '+r.original.port+'; omitted by the browser)':'Default (not specified)'));set('path',Inspector.visible(r.path||'/'));set('query',Inspector.visible(r.query||'None'));set('fragment',Inspector.visible(r.fragment||'None'));
+  if(r.expectedError){set('compare','Could not be checked');set('comparisonResult','Correct the expected hostname above to compare it.');$('comparisonResult').className='value warn';}
   else if(r.comparison){const c=r.comparison;set('compare',r.expected.ascii);set('comparisonResult',c.exact?'Exact hostname match':'Exact hostname mismatch'+(c.visual?' · Potential visual impersonation':c.kind==='spelling'?' · Ordinary spelling similarity':c.unavailable?' · Visual comparison unavailable':''));$('comparisonResult').className='value '+(c.exact?'good':'bad');}
-  else{set('compare','Not provided');set('comparisonResult',summary.target?'Reference comparison shown below':'No manual comparison');}
+  else{set('compare','Not provided');set('comparisonResult',summary.target?'Saved reference comparison shown below':'No expected hostname entered');}
   // Keep the main reference row brief when a manual target is already authoritative.
-  set('referenceComparison',summary.manual?(refs.exact.length?'Exact local reference entry: '+refs.exact[0].hostname+'. Manual expected-host comparison takes priority.':refs.checked?refs.checked+' local references checked; candidates remain in technical details.':'No reference domains configured.'):referenceSummary(refs));
-  for(const p of (summary.kind==='visual'&&summary.relevant.length?[]:summary.relevant))$('relevantSubstitutions').appendChild(element('li','“'+p.actual+'” may resemble “'+p.expected+'” in some fonts.'));
+  set('referenceComparison',summary.manual?(refs.checked?Presentation.count(refs.checked,'saved reference')+' checked separately. Your expected hostname takes priority.':'No saved reference domains were used for this inspection.'):referenceSummary(refs));
   for(const text of Presentation.supporting(r,summary,refs))$('supporting').appendChild(element('li',text));
-  if(refs.totalMatches){for(const [key,label]of [['exact','Exact hostname'],['subdomains','Structural subdomain (not exact)'],['embedded','Embedded text (not a subdomain)'],['visual','Visual similarity; exact mismatch'],['spelling','Ordinary spelling similarity']])for(const item of refs[key]){$('referenceCandidates').appendChild(element('p',label+': '+item.hostname+(item.comparison?.mechanism?' · '+item.comparison.mechanism:'')));for(const sub of item.comparison?.asciiSubstitutions||[])$('referenceCandidates').appendChild(element('p','Relevant substitution: “'+sub.actual+'” may resemble “'+sub.expected+'” in some fonts.','mono small'));}}
-  else set('referenceCandidates',refs.checked?'No comparison candidates. '+refs.checked+' references checked.':'No reference domains configured.');
-  if(refs.unavailable)$('referenceCandidates').appendChild(element('p','Visual comparisons unavailable for '+refs.unavailable+' target(s); no negative confusables conclusion was inferred.'));
-  $('asciiDetails').classList.toggle('hidden',!r.asciiAmbiguities.length);
-  for(const o of r.asciiAmbiguities){$('asciiObservations').appendChild(element('p',o.alternatives.map(s=>'“'+s+'”').join(' / ')+' · observed '+o.observed.map(s=>'“'+s+'”').join(', ')+'. Font-dependent observation, not an impersonation verdict.'));const sources=[...new Set(o.occurrences.map(p=>p.source))];$('asciiObservations').appendChild(element('div',sources.join('; ')+' · '+o.occurrences.length+' recorded occurrence(s).','small'));}
-  if(!lastManual.trim()&&!summary.target&&r.asciiAmbiguities.length){set('neutralSlot','Potential visual ambiguities identified. Expand Character Details for observations.');}
+  if(summary.manual){if(r.comparison){const kind=r.messages.some(m=>m.code==='subdomain')?'subdomains':r.messages.some(m=>m.code==='deceptive-subdomain')?'embedded':r.comparison.kind;comparisonEvidence(r,'Your expected hostname (manual; primary)',r.expected.ascii,kind,r.comparison);}else $('referenceCandidates').appendChild(element('p','No manual comparison: the expected hostname could not be checked.'));}
+  if(refs.totalMatches){for(const key of ['exact','subdomains','embedded','visual','spelling'])for(const item of refs[key])comparisonEvidence(r,'Saved reference domain'+(summary.manual?' (secondary)':''),item.hostname,key,item.comparison);}
+  else $('referenceCandidates').appendChild(element('p',refs.checked?refs.unavailable?'No exact saved hostname match was found.':referenceSummary(refs):'No saved reference domains were used for this inspection.'));
+  if(refs.unavailable)$('referenceCandidates').appendChild(element('p',Presentation.unavailableReferences(refs.unavailable),'comparison-unavailable small warn'));
+  const ascii=Presentation.asciiContext(r,summary);$('asciiDetails').classList.toggle('hidden',ascii.hidden);
+  for(const p of ascii.relevant)$('asciiObservations').appendChild(element('p','“'+p.actual+'” may resemble “'+p.expected+'” in some fonts.'));
+  if(ascii.neutral.length){$('asciiObservations').appendChild(element('p',Presentation.asciiIntroduction));asciiGroups($('asciiObservations'),ascii.neutral,false);}
+  if(!ascii.hidden)$('asciiObservations').appendChild(element('p','All observations and their locations are retained in the Full Diagnostic Log.','small'));
 }
 function analyze(){
   lastManual=$('expected').value;
   try{lastResult=Inspector.inspect($('link').value,lastManual);render(lastResult);}
-  catch{lastResult=null;$('results').classList.remove('hidden');for(const id of ['messages','coloredHost','chars','originalChars','supporting','relevantSubstitutions','referenceCandidates','asciiObservations'])clear($(id));for(const id of ['ascii','unicode','original','decodedOriginal','normalized','scripts','scheme','port','path','query','fragment','compare','comparisonResult','referenceComparison'])set(id,'—');set('primaryTitle','Unable to analyze this address reliably');set('primaryDetail','Inspection failed unexpectedly. No destination or safety conclusion is available.');$('primary').dataset.kind='error';}
+  catch{lastResult=null;$('rawDiagnostics').open=false;$('rawDiagnostics').classList.add('hidden');$('results').classList.remove('hidden');for(const id of ['messages','rawRecords','coloredHost','chars','originalChars','supporting','referenceCandidates','asciiObservations'])clear($(id));for(const id of ['ascii','unicode','original','decodedOriginal','normalized','scripts','scheme','port','path','query','fragment','compare','comparisonResult','referenceComparison'])set(id,'—');set('raw',Inspector.visible($('link').value.slice(0,Inspector.MAX_INPUT))+($('link').value.length>Inspector.MAX_INPUT?'\n[Display shortened. The full original URL remains in the input field.]':''));extractionEvidence(null,true);$('asciiDetails').classList.add('hidden');set('primaryTitle','Inspection could not be completed');set('primaryDetail','No result is available. Check the input and try again.');fieldError('inspectionError','link','Inspection could not be completed. Your original text is still in the input field.');fieldError('expectedError','expected','');$('primary').dataset.kind='error';}
 }
 function cancelImport(){importPlan=null;importText='';referenceStore.cancelImport();$('importReview').classList.add('hidden');$('importFile').value='';}
 function refreshReferences(){
-  const state=referenceStore.snapshot();set('referenceCount',state.references.length+(state.mode==='browser'?' saved':' this session'));if(state.mode==='browser')storageSavingFailed=false;else if(/could not be written|migration could not be saved/.test(state.status))storageSavingFailed=true;set('storageStatus',Presentation.storageStatus(state,APP.edition,storageSavingFailed));set('storageDetail',state.status);$('storageStatus').className=state.mode==='browser'?'small':'small warn';clear($('referenceList'));
+  const state=referenceStore.snapshot();set('referenceCount',state.references.length+(state.mode==='browser'?' saved':' in this tab'));if(state.mode==='browser')storageSavingFailed=false;else if(/could not be written|migration could not be saved/.test(state.status))storageSavingFailed=true;set('storageStatus',Presentation.storageStatus(state,APP.edition,storageSavingFailed));set('protectedStorageHelp',state.blocked?(/another tab or app/.test(state.status)?'Export Backup saves the list shown in this tab, not the different saved copy. Review that copy before choosing Replace or Clear.':'Export Backup saves only the readable list shown here. It cannot preserve unreadable saved data. If you need that data, copy the original storage record in browser developer tools before choosing Replace or Clear.'):'');$('protectedStorageHelp').classList.toggle('hidden',!state.blocked);$('storageStatus').dataset.tone=state.mode==='browser'?(state.revision>0||state.status.startsWith('Reference schema migrated')?'success':'information'):storageSavingFailed?'error':'caution';$('storageStatus').className=state.mode==='browser'?'small':'small warn';clear($('referenceList'));
   for(const host of state.references){const item=document.createElement('li'),name=document.createElement('div');name.className='ref-name';const decoded=Inspector.expectedHost(host).unicode;name.appendChild(element('span',decoded,'mono'));if(decoded!==host)name.appendChild(element('span',host,'mono small'));if(ReferenceDomains.special(host))name.appendChild(element('span',singleLabel(host)?'Single-label hostname · Exact matches only':'IP address · Exact matches only','small'));
     const edit=element('button','Edit','ghost'),remove=element('button','Remove','ghost');edit.type=remove.type='button';edit.setAttribute('aria-label','Edit reference '+host);remove.setAttribute('aria-label','Remove reference '+host);
-    edit.addEventListener('click',()=>{editingReference=host;$('referenceInput').value=host;set('referenceLabel','Edit reference hostname');set('saveReference','Save edit');$('cancelEdit').classList.remove('hidden');$('referenceInput').focus();});
-    remove.addEventListener('click',()=>{try{referenceStore.remove(host);if(editingReference===host)resetEdit();cancelImport();refreshReferences();}catch(e){set('referenceError',e.message);}});item.append(name,edit,remove);$('referenceList').appendChild(item);
+    edit.addEventListener('click',()=>{referenceNotice();editingReference=host;$('referenceInput').value=host;set('referenceLabel','Edit reference hostname');set('saveReference','Save edit');$('cancelEdit').classList.remove('hidden');$('referenceInput').focus();});
+    remove.addEventListener('click',()=>{try{referenceStore.remove(host);if(editingReference===host)resetEdit();cancelImport();refreshReferences();referenceOutcome('Reference removed.');}catch(e){referenceFailure(e);}});item.append(name,edit,remove);$('referenceList').appendChild(item);
   }
   if(!state.references.length)$('referenceList').appendChild(element('li','No reference domains saved yet.','small'));
   if(lastResult)render(lastResult);
 }
-function resetEdit(){editingReference=null;$('referenceInput').value='';set('referenceLabel','Add a reference hostname');set('saveReference','Add');$('cancelEdit').classList.add('hidden');}
+function resetEdit(){referenceNotice();editingReference=null;$('referenceInput').value='';set('referenceLabel','Add a reference hostname');set('saveReference','Add');$('cancelEdit').classList.add('hidden');}
 function singleLabel(host){return !host.includes('.')&&!host.startsWith('[');}
 async function saveReference(){
  if(referenceActionBusy)return;referenceActionBusy=true;
@@ -154,36 +236,36 @@ async function saveReference(){
   const previous=editingReference,host=ReferenceDomains.normalize($('referenceInput').value),entries=referenceStore.snapshot().references;
   if(entries.includes(host)&&host!==previous)throw Error('That normalized hostname is already in Reference Domains.');
   if(!previous&&entries.length>=ReferenceDomains.MAX_ENTRIES)throw Error('The reference list is limited to '+ReferenceDomains.MAX_ENTRIES+' entries.');
-  if(singleLabel(host)&&host!==previous&&!await confirmAction({title:'Is This Hostname Complete?',message:'You entered “'+Inspector.visible(host)+'”, a single-label hostname. It is different from a complete public hostname with a domain suffix. For a public website, edit it to include the complete hostname. Internal hostnames can be added as written; they receive exact matches only.',cancelLabel:'Edit Hostname',confirmLabel:previous?'Save Anyway':'Add Anyway',restoreFocus:$('referenceInput')}))return;
+  if(singleLabel(host)&&host!==previous&&!await confirmAction({title:'Is This Hostname Complete?',message:'You entered “'+Inspector.visible(host)+'”, which has no domain suffix.\n\nIf you intended a public website, enter its complete hostname. Single-label names are also valid on some private networks, but they can only be matched exactly.',cancelLabel:'Edit Hostname',confirmLabel:previous?'Save as Entered':'Add as Entered',restoreFocus:$('referenceInput')}))return;
   if(previous)referenceStore.edit(previous,host);else referenceStore.add(host);
-  set('referenceError','');resetEdit();cancelImport();refreshReferences();
- }catch(e){set('referenceError',e.message);}finally{referenceActionBusy=false;}
+  resetEdit();cancelImport();refreshReferences();referenceOutcome(previous?'Reference updated.':'Reference added.');
+ }catch(e){referenceFailure(e,'hostname',true);}finally{referenceActionBusy=false;}
 }
 function selectedImportMode(){return $('importReplace').checked?'replace':'merge';}
 function reviewImport(){try{
  importPlan=referenceStore.planImport(importText,selectedImportMode());
- set('importSummary',importPlan.mode.toUpperCase()+': '+importPlan.added.length+' additions, '+importPlan.removed.length+' removals, '+importPlan.duplicates+' duplicate representations. Final list: '+importPlan.final.length+'. Nothing has been applied.');
- set('importChanges','Add:\n'+(importPlan.added.join('\n')||'(none)')+'\n\nRemove:\n'+(importPlan.removed.join('\n')||'(none)')+'\n\nFinal normalized hostnames:\n'+(importPlan.final.join('\n')||'(empty)'));
- const internal=importPlan.final.filter(singleLabel);set('importSingleLabels',internal.length?'Single-label hostnames in the result (exact matches only): '+internal.join(', ')+'. These may identify internal services; no public suffix is inferred.':'');$('importSingleLabels').classList.toggle('hidden',!internal.length);
- $('importReview').classList.remove('hidden');set('referenceError','');
- }catch(e){importPlan=null;$('importReview').classList.add('hidden');set('referenceError',e.message);}}
+ const copy=Presentation.importSummary(importPlan);set('importPreviewTitle',copy.title);clear($('importSummary'));for(const line of copy.lines)$('importSummary').appendChild(element('p',line));if(copy.duplicates)$('importSummary').appendChild(element('p',copy.duplicates,'small'));
+ clear($('importChanges'));for(const [label,values]of [['To add',importPlan.added],['To remove',importPlan.removed],['References after import',importPlan.final]]){const group=element('div','','import-change-group');group.append(element('h3',label),element('div',values.join('\n')||'None','mono'));$('importChanges').appendChild(group);}
+ const internal=importPlan.final.filter(singleLabel);set('importSingleLabels',internal.length?Presentation.count(internal.length,'single-label hostname')+' in this preview: '+internal.join(', ')+'. '+(internal.length===1?'This name may identify a private-network service and can only be matched exactly.':'These names may identify private-network services and can only be matched exactly.'):'');$('importSingleLabels').classList.toggle('hidden',!internal.length);
+ $('importReview').classList.remove('hidden');referenceNotice();
+ }catch(e){importPlan=null;$('importReview').classList.add('hidden');referenceFailure(e,'import');}}
 function beginImport(text){importText=text;$('importMerge').checked=true;$('importReplace').checked=false;reviewImport();}
 $('saveReference').addEventListener('click',saveReference);$('referenceInput').addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.metaKey&&!e.ctrlKey&&!e.altKey&&!e.shiftKey&&!e.isComposing&&!e.repeat){e.preventDefault();saveReference();}});$('cancelEdit').addEventListener('click',resetEdit);
 $('clearReferences').addEventListener('click',async()=>{
  if(referenceActionBusy)return;referenceActionBusy=true;
- try{if(!await confirmAction({title:'Clear Reference Domains?',message:'This will clear your current reference list and, if storage is available, the saved list. You can restore references from an exported backup.',confirmLabel:'Clear References',danger:true}))return;
-  referenceStore.clear(true);resetEdit();cancelImport();refreshReferences();set('referenceError',referenceStore.snapshot().mode==='browser'?'Reference list cleared.':'The list was cleared in this tab only. Saved data could not be changed.');
- }catch(e){set('referenceError',e.message);}finally{referenceActionBusy=false;}
+ try{if(!await confirmAction({title:'Clear Reference Domains?',message:'This will clear your current reference list and, if storage is available, the saved list. You can restore references from an exported backup.'+(referenceStore.snapshot().blocked?'\n\nSaved data needs review. Export Backup keeps only the list shown here, not an unreadable or different saved copy. Preserve that copy separately before clearing it.':''),confirmLabel:'Clear References',danger:true}))return;
+  referenceStore.clear(true);resetEdit();cancelImport();refreshReferences();referenceOutcome('Reference list cleared.','backup');
+ }catch(e){referenceFailure(e,'hostname',false,'backup');}finally{referenceActionBusy=false;}
 });
-$('exportReferences').addEventListener('click',()=>{try{const url=URL.createObjectURL(new Blob([referenceStore.exportJSON()],{type:'application/json'})),link=document.createElement('a');link.href=url;link.download='offline-url-inspector-references.json';document.body.appendChild(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);set('referenceError','Reference backup prepared. It contains only normalized reference hostnames.');}catch{set('referenceError','Export could not create a download in this browser. Browser storage is not a backup.');}});
-$('importReferences').addEventListener('click',()=>$('importFile').click());$('importFile').addEventListener('change',async()=>{const file=$('importFile').files?.[0];if(!file)return;if(file.size>ReferenceDomains.MAX_BYTES){set('referenceError','Import exceeds 128 KiB.');return;}try{beginImport(await file.text());}catch{set('referenceError','Could not read the selected file.');}});
+$('exportReferences').addEventListener('click',()=>{try{const url=URL.createObjectURL(new Blob([referenceStore.exportJSON()],{type:'application/json'})),link=document.createElement('a');link.href=url;link.download='offline-url-inspector-references.json';document.body.appendChild(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);referenceNotice('Backup download prepared. Check your downloads to keep the file.','success','',false,'backup');}catch(e){referenceNotice("The backup download couldn't be created. Try exporting again before closing this tab.",'error',e.message,false,'backup');}});
+$('importReferences').addEventListener('click',()=>$('importFile').click());$('importFile').addEventListener('change',async()=>{const file=$('importFile').files?.[0];if(!file)return;if(file.size>ReferenceDomains.MAX_BYTES){referenceNotice('This backup is too large. The maximum size is 128 KiB.','error','',false,'backup');return;}try{beginImport(await file.text());}catch(e){referenceNotice("This file couldn't be read. Choose the backup again; no import changes have been applied.",'error',e.message,false,'backup');}});
 $('importMerge').addEventListener('change',reviewImport);$('importReplace').addEventListener('change',reviewImport);$('cancelImport').addEventListener('click',()=>{cancelImport();$('importReferences').focus({preventScroll:true});});
 $('applyImport').addEventListener('click',async()=>{
  if(!importPlan||referenceActionBusy)return;referenceActionBusy=true;const plan=importPlan,replace=plan.mode==='replace';
  try{
-  if(replace&&!await confirmAction({title:'Replace Reference Domains?',message:'Replace your current reference list with the reviewed backup?\nCurrent list: '+referenceStore.snapshot().references.length+' · Reviewed list: '+plan.final.length+'\n'+plan.added.length+' additions · '+plan.removed.length+' removals. Existing saved reference data will be replaced. Keep an exported backup if you may need it.',confirmLabel:'Replace References',danger:true}))return;
-  referenceStore.applyImport(plan,replace);cancelImport();refreshReferences();$('importReferences').focus({preventScroll:true});set('referenceError',referenceStore.snapshot().mode==='browser'?'Reviewed backup applied.':'Backup applied in this tab only. Export a backup before closing.');
- }catch(e){set('referenceError',e.message);}finally{referenceActionBusy=false;}
+  if(replace&&!await confirmAction({title:'Replace Reference Domains?',message:'Replace your current list with the reviewed backup?\nCurrent list: '+Presentation.count(referenceStore.snapshot().references.length,'reference')+'\nAfter import: '+Presentation.count(plan.final.length,'reference')+'\n\n'+(plan.removed.length?Presentation.count(plan.removed.length,'existing reference')+' will be removed.':'No existing references will be removed.')+' Keep an exported backup if you may need the old list.'+(referenceStore.snapshot().blocked?'\n\nSaved data needs review. Export Backup keeps only the list shown here, not an unreadable or different saved copy. Preserve that copy separately before replacing it.':''),confirmLabel:'Replace References',danger:true}))return;
+  referenceStore.applyImport(plan,replace);cancelImport();refreshReferences();$('importReferences').focus({preventScroll:true});referenceOutcome('Backup applied.','backup');
+ }catch(e){referenceFailure(e,'import');}finally{referenceActionBusy=false;}
 });
 $('inspect').addEventListener('click',analyze);
 // One bubbling handler: no field-specific duplicate, no unrelated editing takeover.

@@ -1,0 +1,37 @@
+{
+  "suite": "V3.1.2 technical clarity, contextual evidence and edition compatibility",
+  "groups": {
+    "accurate input representations and character explanations": {
+      "executed": 14,
+      "passed": 14,
+      "failed": 0
+    },
+    "ASCII observations in comparison context": {
+      "executed": 8,
+      "passed": 8,
+      "failed": 0
+    },
+    "structured comparisons, diagnostics and limitations": {
+      "executed": 17,
+      "passed": 17,
+      "failed": 0
+    },
+    "storage and build compatibility": {
+      "executed": 6,
+      "passed": 6,
+      "failed": 0
+    }
+  },
+  "failures": [],
+  "assertions": {
+    "executed": 357,
+    "passed": 357,
+    "failed": 0
+  },
+  "total": {
+    "executed": 45,
+    "passed": 45,
+    "failed": 0
+  },
+  "kind": "simulated DOM and source/data preservation; not actual layout, CSP enforcement or Firefox container testing"
+}

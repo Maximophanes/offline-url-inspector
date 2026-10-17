@@ -1,0 +1,185 @@
+{
+  "scope": "Focused reference presentation/regression/HTTP checks only; Unicode conformance suite not rerun",
+  "checkpoint": "9b017bd6a145fe664e26cf421f24db134c3fa24e",
+  "suites": [
+    {
+      "task": "test:references",
+      "report": "tests/references-results.json",
+      "tests": {
+        "executed": 70,
+        "passed": 70,
+        "failed": 0
+      },
+      "assertions": {
+        "executed": 135,
+        "passed": 135,
+        "failed": 0
+      },
+      "commandPassed": true
+    },
+    {
+      "task": "test:dom",
+      "report": "tests/dom-v3-results.json",
+      "tests": {
+        "executed": 33,
+        "passed": 33,
+        "failed": 0
+      },
+      "assertions": {
+        "executed": 114,
+        "passed": 114,
+        "failed": 0
+      },
+      "commandPassed": true
+    },
+    {
+      "task": "test:refinement",
+      "report": "tests/refinement-results.json",
+      "tests": {
+        "executed": 199,
+        "passed": 199,
+        "failed": 0
+      },
+      "assertions": {
+        "executed": 4103,
+        "passed": 4103,
+        "failed": 0
+      },
+      "commandPassed": true
+    },
+    {
+      "task": "test:polish",
+      "report": "tests/polish-results.json",
+      "tests": {
+        "executed": 45,
+        "passed": 45,
+        "failed": 0
+      },
+      "assertions": {
+        "executed": 161,
+        "passed": 161,
+        "failed": 0
+      },
+      "commandPassed": true
+    },
+    {
+      "task": "test:clarity",
+      "report": "tests/clarity-results.json",
+      "tests": {
+        "executed": 45,
+        "passed": 45,
+        "failed": 0
+      },
+      "assertions": {
+        "executed": 356,
+        "passed": 356,
+        "failed": 0
+      },
+      "commandPassed": true
+    },
+    {
+      "task": "test:editorial",
+      "report": "tests/editorial-results.json",
+      "tests": {
+        "executed": 52,
+        "passed": 52,
+        "failed": 0
+      },
+      "assertions": {
+        "executed": 5803,
+        "passed": 5803,
+        "failed": 0
+      },
+      "commandPassed": true
+    },
+    {
+      "task": "test:interface",
+      "report": "tests/interface-results.json",
+      "tests": {
+        "executed": 12,
+        "passed": 12,
+        "failed": 0
+      },
+      "assertions": {
+        "executed": 4354,
+        "passed": 4354,
+        "failed": 0
+      },
+      "commandPassed": true
+    },
+    {
+      "task": "test:reference-interface",
+      "report": "tests/reference-interface-results.json",
+      "tests": {
+        "executed": 19,
+        "passed": 19,
+        "failed": 0
+      },
+      "assertions": {
+        "executed": 124,
+        "passed": 124,
+        "failed": 0
+      },
+      "commandPassed": true
+    },
+    {
+      "task": "test:baseline-dom",
+      "report": "tests/dom-results.json",
+      "tests": {
+        "executed": 157,
+        "passed": 157,
+        "failed": 0
+      },
+      "assertions": {
+        "executed": 1045,
+        "passed": 1045,
+        "failed": 0
+      },
+      "commandPassed": true
+    },
+    {
+      "task": "test:hosted",
+      "report": "tests/hosted-bootstrap-results.json",
+      "tests": {
+        "executed": 64,
+        "passed": 64,
+        "failed": 0
+      },
+      "assertions": {
+        "executed": 192,
+        "passed": 192,
+        "failed": 0
+      },
+      "commandPassed": true
+    },
+    {
+      "task": "test:http",
+      "report": "tests/http-results.json",
+      "tests": {
+        "executed": 8,
+        "passed": 8,
+        "failed": 0
+      },
+      "assertions": {
+        "executed": 34,
+        "passed": 34,
+        "failed": 0
+      },
+      "commandPassed": true
+    }
+  ],
+  "tests": {
+    "executed": 704,
+    "passed": 704,
+    "failed": 0
+  },
+  "assertions": {
+    "executed": 16421,
+    "passed": 16421,
+    "failed": 0
+  },
+  "notes": [
+    "All final targeted commands passed. The loopback HTTP check was rerun with required local-network permission after sandbox fetch failures.",
+    "Complete Unicode conformance suite was not rerun. Prior full-suite results remain historical evidence for the committed checkpoint."
+  ]
+}

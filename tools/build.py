@@ -9,7 +9,7 @@ import json
 import pathlib
 
 ROOT=pathlib.Path(__file__).resolve().parents[1]
-VERSION='3.1.1'
+VERSION='3.1.2'
 def sha(data): return hashlib.sha256(data).hexdigest()
 def build():
     data=(ROOT/'data/unicode-data.json').read_bytes()
@@ -32,9 +32,11 @@ def build():
         csp="default-src 'none'; script-src 'sha256-"+digest+"'; style-src 'sha256-"+css_hash+"'; connect-src 'none'; img-src 'none'; font-src 'none'; object-src 'none'; frame-src 'none'; form-action 'none'; base-uri 'none'; media-src 'none'; worker-src "+("'self'" if edition=='hosted' else "'none'")+"; manifest-src 'none'"
         # No inline style/event attributes are needed in the V3 template.
         values={'@@CSP@@':csp,'@@CSS@@':css,'@@JS@@':program,'@@DATA@@':data.decode(),'@@VERSION@@':VERSION,
-          '@@EDITION_STATUS@@':'Standalone · Offline ready' if edition=='standalone' else 'Preparing offline access…',
+          '@@EDITION_STATUS@@':'Standalone · Offline ready' if edition=='standalone' else 'Offline access',
           '@@EDITION_FOOTER@@':'Standalone edition' if edition=='standalone' else 'Hosted edition',
-          '@@EDITION_PRIVACY@@':'Local-file browser storage is not standardized and can be unavailable. Use Export to keep a portable backup.' if edition=='standalone' else 'Hosting loads and updates only application resources. Other applications under the same username.github.io origin can access reference storage; namespacing avoids accidental collisions, not hostile access. A separate project path is not a separate security origin.'}
+          '@@HOSTED_ONLY@@':'hidden' if edition=='standalone' else '',
+          '@@STORAGE_HELP@@':'Reference domains are saved in this browser. Clearing browser data may remove them. Storage for locally opened HTML files is not standardized and may not last; export a backup to keep your list.' if edition=='standalone' else 'Reference domains are saved in this browser. Clearing site data or ending a private session may remove them. Export a backup to keep your list. GitHub Pages projects on the same github.io hostname share browser storage, even when their paths differ.',
+          '@@EDITION_PRIVACY@@':'Storage for locally opened HTML files is not standardized and may be unavailable or temporary. Export a backup to keep a portable copy of your references.' if edition=='standalone' else 'The hosted app loads and updates its own fixed application files. It does not request pasted destinations. GitHub Pages projects on the same github.io hostname share one browser security origin: other projects can access reference storage even when their repository paths differ. The storage key prevents accidental name collisions, not access by another app. A separate path does not isolate storage.'}
         html=template
         for key,value in values.items(): html=html.replace(key,value)
         dest.parent.mkdir(parents=True,exist_ok=True);dest.write_text(html)

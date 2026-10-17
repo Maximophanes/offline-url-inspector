@@ -1,0 +1,21 @@
+{
+  "suite": "V3.1.2 focused Reference Domains presentation",
+  "groups": {
+    "checks": {
+      "executed": 19,
+      "passed": 19,
+      "failed": 0
+    }
+  },
+  "failures": [],
+  "assertions": {
+    "executed": 124,
+    "passed": 124,
+    "failed": 0
+  },
+  "total": {
+    "executed": 19,
+    "passed": 19,
+    "failed": 0
+  }
+}

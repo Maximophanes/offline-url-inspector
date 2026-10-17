@@ -25,13 +25,13 @@ function test(name,fn){const g=report.groups[group]??={executed:0,passed:0,faile
 function inspect(url,expected=''){$('link').value=url;$('expected').value=expected;$('inspect').click();return I.inspect($('link').value,expected);}
 for(const c of JSON.parse(readFileSync(resolve(root,'tests/cases.json'))))test(c.name,()=>{
   const r=inspect(c.url,c.expected||'');equal(r.ok,!c.reject);assert(!$('results').classList.contains('hidden'));
-  if(r.ok){equal($('ascii').textContent,r.ascii);if(r.decodeError)assert($('unicode').textContent.startsWith('Unavailable'));else equal($('unicode').textContent,I.visible(r.unicode));assert($('messages').textContent.includes('Destination unverified'));}
+  if(r.ok){equal($('ascii').textContent,r.ascii);if(r.decodeError)assert($('unicode').textContent.startsWith('Unavailable'));else equal($('unicode').textContent,I.visible(r.unicode));assert($('diagnosticDetails').textContent.includes('Destination unverified'));}
   else equal($('ascii').textContent,'—');
   if(c.originalCodepoint)assert($('originalChars').textContent.includes(c.originalCodepoint),'Missing original Unicode code point in UI');
   if(c.original!==undefined)equal($('original').textContent,I.visible(c.original));
   if(c.kind==='exact')assert($('comparisonResult').textContent.startsWith('Exact hostname match'));
   if(c.kind==='visual')assert($('comparisonResult').textContent.includes('Potential visual impersonation'));
-  if(c.expectedError)assert($('comparisonResult').textContent.startsWith('Could not validate'));
+  if(c.expectedError){equal($('compare').textContent,'Could not be checked');assert($('comparisonResult').textContent.includes('Correct the expected hostname'));equal($('expected').getAttribute('aria-invalid'),'true');assert($('expectedError').textContent.length>10);}
 });
 group='Version 2.1 ASCII ambiguity rendering';
 for(const c of JSON.parse(readFileSync(resolve(root,'tests/ascii-cases.json'))))test(c.name,()=>{
@@ -50,12 +50,12 @@ for(const key of ['metaKey','ctrlKey'])test(key+' Return shortcut',()=>{$('link'
 test('Malformed input resets stale results and style',()=>{inspect('https://example.invalid','example.invalid');inspect('https://[');equal($('ascii').textContent,'—');equal($('comparisonResult').className,'value');equal($('coloredHost').textContent,'');});
 test('Invalid expected field resets previous match style',()=>{inspect('https://example.invalid','example.invalid');inspect('https://example.invalid','example.invalid:443');equal($('comparisonResult').className,'value warn');});
 test('XSS markup remains text',()=>{inspect('https://example.invalid/<img src=https://must-not-contact.invalid onerror="window.__attack=1">?q=<svg/onload=window.__attack=1>');equal(w.document.querySelectorAll('img,svg,iframe,object,embed,a,form,link').length,0);assert(!w.__attack);});
-test('Bidi and invisible source is explicitly escaped',()=>{inspect('https://ama\u200bzon.invalid');assert($('original').textContent.includes('⟦U+200B⟧'));assert($('originalChars').textContent.includes('ignored/removed'));});
-test('Combining mark source reports sequence normalization',()=>{inspect('https://cafe\u0301.invalid');assert($('originalChars').textContent.includes('sequence normalization'));});
+test('Bidi and invisible source is explicitly escaped',()=>{inspect('https://ama\u200bzon.invalid');assert($('original').textContent.includes('⟦U+200B⟧'));assert($('originalChars').textContent.includes('Removed during hostname processing'));});
+test('Combining mark source reports sequence normalization',()=>{inspect('https://cafe\u0301.invalid');assert($('originalChars').textContent.includes('Changed during hostname normalization'));assert($('originalChars').textContent.includes('U+0301'));assert($('chars').textContent.includes('U+00E9'));});
 test('Original percent spelling retained separately from decoded Unicode',()=>{inspect('https://%EF%BD%81mazon.invalid');equal($('original').textContent,'%EF%BD%81mazon.invalid');equal($('decodedOriginal').textContent,'ａmazon.invalid');assert($('originalChars').textContent.includes('U+FF41'));});
 test('No unrelated path Unicode becomes highlighted hostname',()=>{inspect('https://example.invalid/а?x=𝖺#ο');equal($('coloredHost').querySelectorAll('.badchar').length,0);equal($('originalChars').querySelectorAll('.danger').length,0);});
 test('Long path remains text within input limit',()=>{inspect('https://example.invalid/'+'x'.repeat(20000));equal($('ascii').textContent,'example.invalid');});
-test('Input cap clears normalized output and bounds preview',()=>{inspect('https://example.invalid/'+'x'.repeat(100000));equal($('ascii').textContent,'—');assert($('messages').textContent.includes('32,768'));assert($('raw').textContent.length<33000);assert($('link').value.length>100000);});
+test('Input cap clears normalized output and bounds preview',()=>{inspect('https://example.invalid/'+'x'.repeat(100000));equal($('ascii').textContent,'—');assert($('rawRecords').textContent.includes('32,768'));assert($('raw').textContent.length<33000);assert($('link').value.length>100000);});
 test('No submitted address reaches resource/navigation attributes',()=>equal(w.document.querySelectorAll('[src],[href],[action]').length,0));
 test('No network/navigation API attempts across the entire suite',()=>equal(attempts.length,0));
 test('Required original layout and responsive CSS retained',()=>{assert(html.includes('@media(max-width:620px)'));assert(html.includes('max-width:1040px'));assert(html.includes('--bg:#110a1b'));for(const id of ['inspect','demoUnicode','demoAscii','scheme','port','path','query','fragment'])assert($(id));});

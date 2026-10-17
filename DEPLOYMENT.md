@@ -1,46 +1,30 @@
-# GitHub Pages setup · prepare now, publish after approval
+# Existing GitHub Pages deployment contract
 
-All files are prepared locally. No repository was created, modified, or pushed. This project must stay independent of every existing repository and GitHub Pages project.
+Repository: `Maximophanes/offline-url-inspector`. The user reports Version 3.1.1 is published at `https://maximophanes.github.io/offline-url-inspector/`. This task leaves Version 3.1.2 uncommitted on `dev/v3.1.2` for review. It does not publish, push, merge, create releases/PRs, change settings or modify `main`.
 
-## Local preview first
+The existing `.github/workflows/deploy-pages.yml` remains unchanged. It deploys the `site/` directory using GitHub Pages Actions on matching `main` pushes (paths `site/**` or the workflow), and offers `workflow_dispatch`. It includes hidden files in the artifact. Use the existing repository/workflow after the user approves the release; do not create a replacement repository or change Pages to a root branch deployment.
 
-From the extracted V3.1.1 project directory:
+## Local validation
 
 ```sh
 python3 tools/build.py
 python3 tools/serve.py
 ```
 
-Open `http://127.0.0.1:8765/offline-url-inspector/` in Firefox. This loopback server deliberately simulates the intended project path, serves only the application resources, and does not log request/query strings. Stop with Control-C. Do not use `file://` to test the hosted service worker; use the standalone edition for direct local files.
+Open `http://127.0.0.1:8765/offline-url-inspector/`. The server binds only to loopback, serves the fixed project assets and avoids logging submitted query strings. Stop it before `python3 tools/test_all.py`, which owns port 8765. The standalone file can be opened directly and needs no worker/server.
 
-The automated release checks verified real HTTP responses, MIME types, hashes, and relative worker paths on this server. Registration, caching, updates, and failures were tested in simulations. Real Firefox offline operation remains a manual verification step; a local server response is not proof of successful live GitHub Pages deployment.
+## Fixed hosting contract
 
-## Create the separate repository when approved
-
-1. In the intended GitHub account, create a **new, empty repository named `offline-url-inspector`**. Do not use an existing checkout or existing project. Public Pages availability depends on repository visibility and the account's GitHub plan.
-2. Copy **the contents of `site/`** into the new repository root: `index.html`, `sw.js`, and the hidden `.nojekyll`. Do not upload the containing `site` folder as an extra path level. Finder hides dotfiles; Command-Shift-Period reveals `.nojekyll`.
-3. Commit the complete matching file set to the repository's `main` branch. Keep this full source ZIP separately as the maintenance source. The source/data/tests do not need to be public for static serving.
-4. In that repository's **Settings → Pages**, choose **Deploy from a branch**, branch **main**, folder **/(root)**, and save. Follow the current [GitHub publishing-source guide](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).
-5. After GitHub reports a successful deployment, open **`https://USERNAME.github.io/offline-url-inspector/`**, replacing `USERNAME` with the account. Preserve the trailing slash. Wait for **Offline ready**; then run [FIREFOX_CHECKLIST.md](FIREFOX_CHECKLIST.md).
-
-This guide intentionally does not provide commands that might operate in an unrelated current repository. The only deployment files are the three files in `site/`. Do not commit personal reference exports, copied links, credentials, browser profiles, local paths, or temporary test output. Deployment file scans passed; there is no new repository history to audit because no repository has been created.
-
-## Path and hosting contract
-
-| Item | Required value |
+| Item | Value |
 |---|---|
-| Public project path | `/offline-url-inspector/` |
+| Project path and worker scope | `/offline-url-inspector/` |
 | Worker URL | `/offline-url-inspector/sw.js` |
-| Worker scope | `/offline-url-inspector/` |
-| Cached asset | `/offline-url-inspector/index.html` only |
-| Standalone fallback | Downloaded `standalone/Offline_URL_Inspector.html` |
+| Complete cached application | `/offline-url-inspector/index.html` only |
+| Deployment directory | `site/` (`index.html`, `sw.js`, `.nojekyll`) |
+| Independent offline fallback | `standalone/Offline_URL_Inspector.html` |
 
-Do not register `/sw.js`, use a root scope, or copy an existing project's worker. Scope guards refuse the wrong project path. No `Service-Worker-Allowed` header is needed for a worker inside its own directory. HTTPS is required for hosted worker use; browsers make an exception for loopback development. See [MDN service workers](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers).
+Build both editions from shared sources. Deploy the matching generated HTML and worker together only after approval; the worker rejects an incomplete/mismatched release rather than accepting partial application bytes. Never hand-edit generated CSP hashes or broaden the worker scope. Keep an approved prior matched file set in version history for rollback.
 
-Both HTML editions contain all their own analysis code, styles, and Unicode data. Hosted registration uses a relative worker URL, with exact scope/path checks. The worker performs only a fixed application-asset fetch. Initial page/worker loading and later update checks are ordinary hosting requests; pasted destinations and reference lists are not sent to GitHub.
+Hosted status verifies an existing exact-scope cache before reporting Offline ready. Containers/profiles can isolate registrations and storage; an uncached offline context cannot download the app. Clearing caches can remove availability. Reference storage uses schema 1 and the same key as Version 3.1.1; no migration is needed. Other projects on the same GitHub Pages origin can access origin storage regardless of project path.
 
-GitHub project repositories share the `USERNAME.github.io` origin. Their localStorage is not isolated by project path. Namespacing avoids accidental key collisions only. The inspector never clears an entire origin or touches sibling projects. A dedicated hostname is an optional future privacy improvement; it is not required for V3.1.
-
-The package includes meta CSP hashes but no arbitrary response-header configuration. Do not assume a `_headers` file, meta `frame-ancestors`, or an unconfigured reporting endpoint will add protections on GitHub Pages. See [SECURITY_REVIEW.md](SECURITY_REVIEW.md) for enforceable policies and hosting limits. No backend, analytics, external fonts, third-party runtime libraries, PWA installation, or remote Unicode API is required.
-
-Use [UPDATES_AND_ROLLBACK.md](UPDATES_AND_ROLLBACK.md) for every later release. Deploy the matched HTML and worker together; never hand-edit generated code without rebuilding its hashes.
+Only fixed application resources load/update; submitted destinations are never contacted. Exact inline CSP hashes, complete worker release hashes and real loopback HTTP checks passed. Actual Version 3.1.2 Firefox/live Pages checks remain pending until explicitly performed. Local server or in-app cache tests do not establish a live deployment. Use FIREFOX_CHECKLIST.md, SECURITY_REVIEW.md and UPDATES_AND_ROLLBACK.md.

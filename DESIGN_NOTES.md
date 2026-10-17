@@ -1,3 +1,21 @@
+# Version 3.1.2 complete editorial and interface refinement
+
+The Blackberry & Amethyst appearance is preserved. The Georgia title, full ten-second animation, gradients and reduced-motion rules remain byte-identical; approved obsolete-code cleanup removes only unused base-CSS rules. No new title/page/pill animation was introduced.
+
+The permanent [editorial guide](EDITORIAL_STYLE_GUIDE.md) and [copy audit](COPY_AUDIT.md) cover ordinary and conditional strings. Main findings explain observations before methods. Main hostname descriptors stay inline at desktop widths; narrow technical rows use smaller muted second lines. One bottom Raw Diagnostic Records disclosure preserves the original ordered records. Original text, official names, code points, mapping sequences and diagnostic levels/codes/order remain; raw technical prose moves deeper.
+
+Ordinary Unicode has neutral lilac emphasis. A directly supported comparison character or invisible control keeps contextual caution. Character resemblance is combined in one row; UTS #39 mappings display actual sequences once, with mapped names expandable and complete character objects retained internally. ASCII observations use separated bordered groups and paged locations; completed small lists do not get redundant progress.
+
+Reference errors sit near their field; backup/import/clear feedback sits by those controls. Visible Success/Information/Caution/Error labels avoid color-only meaning. Structured import previews show complete additions/removals/final lists. Protected-storage help distinguishes the current readable list from unreadable/different saved bytes.
+
+Desktop offline controls occupy their own top row: updates at left, a compact violet pill at right. Update feedback occupies a full left-aligned row with a semantic dot, short title and optional explanation. Offline access details expands independently below it; semantic paragraphs use the full panel width. The initial cache label is neutral while verification runs; Preparing is reserved for installation. Update feedback has reserved space and no longer remains stuck on preparation after installation finishes. The primary result, cache and update statuses are separate live regions; full diagnostics are not live.
+
+Final focused in-app evidence is in `tests/interface-browser-preview.json` and [FINAL_INTERFACE_REVIEW.md](FINAL_INTERFACE_REVIEW.md). Earlier editorial evidence is in `tests/editorial-browser-preview.json`. Desktop document coordinates remain fixed when offline help expands; the pill measured about 106 pixels wide. Expanded character records fit at 390 and 320 pixels without horizontal overflow. Native Firefox, screen readers, 200% zoom, OS reduced motion and frame-by-frame repainting remain manual checks. The user reports the earlier persistent startup bug is fixed; this pass preserves that behavior.
+
+The sections below are historical design notes for earlier versions, not additional claims about current native Firefox verification.
+
+---
+
 # Version 3.1.1 targeted corrections
 
 The header edge came from `.masthead::before`: its `inset:-30px -14px -20px` bounded a radial gradient whose left/top edges were still nontransparent. The resulting glow was clipped by the header-sized box. That pseudo-element is removed, and the same restrained illumination is a page-level background layer that fades to transparent, with no internal header rectangle. Palette and panel layout remain.

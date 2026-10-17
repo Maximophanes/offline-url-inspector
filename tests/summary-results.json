@@ -1,13 +1,13 @@
 {
-  "applicationVersion": "3.1.1",
+  "applicationVersion": "3.1.2",
   "tests": {
-    "executed": 109454,
-    "passed": 109454,
+    "executed": 109636,
+    "passed": 109636,
     "failed": 0
   },
   "assertions": {
-    "executed": 118210,
-    "passed": 118210,
+    "executed": 129347,
+    "passed": 129347,
     "failed": 0
   },
   "commands": [
@@ -25,6 +25,26 @@
     },
     {
       "command": "test:polish",
+      "passed": true
+    },
+    {
+      "command": "test:clarity",
+      "passed": true
+    },
+    {
+      "command": "test:editorial",
+      "passed": true
+    },
+    {
+      "command": "test:interface",
+      "passed": true
+    },
+    {
+      "command": "test:reference-interface",
+      "passed": true
+    },
+    {
+      "command": "test:technical",
       "passed": true
     },
     {
@@ -85,8 +105,8 @@
         "failed": 0
       },
       "assertions": {
-        "executed": 1031,
-        "passed": 1031,
+        "executed": 1045,
+        "passed": 1045,
         "failed": 0
       },
       "status": "executed"
@@ -115,8 +135,8 @@
         "failed": 0
       },
       "assertions": {
-        "executed": 112,
-        "passed": 112,
+        "executed": 114,
+        "passed": 114,
         "failed": 0
       },
       "status": "executed"
@@ -130,8 +150,8 @@
         "failed": 0
       },
       "assertions": {
-        "executed": 4093,
-        "passed": 4093,
+        "executed": 4103,
+        "passed": 4103,
         "failed": 0
       },
       "status": "executed"
@@ -145,8 +165,83 @@
         "failed": 0
       },
       "assertions": {
-        "executed": 158,
-        "passed": 158,
+        "executed": 161,
+        "passed": 161,
+        "failed": 0
+      },
+      "status": "executed"
+    },
+    {
+      "report": "clarity-results.json",
+      "suite": "V3.1.2 technical clarity, contextual evidence and edition compatibility",
+      "tests": {
+        "executed": 45,
+        "passed": 45,
+        "failed": 0
+      },
+      "assertions": {
+        "executed": 357,
+        "passed": 357,
+        "failed": 0
+      },
+      "status": "executed"
+    },
+    {
+      "report": "editorial-results.json",
+      "suite": "V3.1.2 complete editorial acceptance and evidence preservation",
+      "tests": {
+        "executed": 52,
+        "passed": 52,
+        "failed": 0
+      },
+      "assertions": {
+        "executed": 5816,
+        "passed": 5816,
+        "failed": 0
+      },
+      "status": "executed"
+    },
+    {
+      "report": "interface-results.json",
+      "suite": "V3.1.2 final interface hierarchy and evidence preservation",
+      "tests": {
+        "executed": 12,
+        "passed": 12,
+        "failed": 0
+      },
+      "assertions": {
+        "executed": 4354,
+        "passed": 4354,
+        "failed": 0
+      },
+      "status": "executed"
+    },
+    {
+      "report": "reference-interface-results.json",
+      "suite": "V3.1.2 focused Reference Domains presentation",
+      "tests": {
+        "executed": 19,
+        "passed": 19,
+        "failed": 0
+      },
+      "assertions": {
+        "executed": 124,
+        "passed": 124,
+        "failed": 0
+      },
+      "status": "executed"
+    },
+    {
+      "report": "technical-results.json",
+      "suite": "V3.1.2 focused Technical Details presentation",
+      "tests": {
+        "executed": 17,
+        "passed": 17,
+        "failed": 0
+      },
+      "assertions": {
+        "executed": 336,
+        "passed": 336,
         "failed": 0
       },
       "status": "executed"
@@ -170,13 +265,13 @@
       "report": "hosted-bootstrap-results.json",
       "suite": "Hosted cache readiness, update feedback and reviewed reload simulation",
       "tests": {
-        "executed": 27,
-        "passed": 27,
+        "executed": 64,
+        "passed": 64,
         "failed": 0
       },
       "assertions": {
-        "executed": 71,
-        "passed": 71,
+        "executed": 192,
+        "passed": 192,
         "failed": 0
       },
       "status": "executed"
@@ -242,6 +337,6 @@
       "status": "executed"
     }
   ],
-  "firefox": "Not run; unchanged agent-environment startup failure. User-reported V3.1.0 nine-group Firefox results are baseline evidence, not V3.1.1 verification.",
+  "firefox": "Not requested: use --with-firefox with a running local WebDriver endpoint. Driver availability was not checked.",
   "scope": "Unit/official conformance, simulated DOM and worker lifecycle, actual loopback HTTP. Simulations are not actual Firefox/GitHub Pages deployment."
 }
