@@ -5,17 +5,27 @@
       "executed": 27,
       "passed": 27,
       "failed": 0
+    },
+    "V3.1.2 bounded offline startup and recovery": {
+      "executed": 18,
+      "passed": 18,
+      "failed": 0
+    },
+    "editorial certainty, announcements and unsaved-reference guards": {
+      "executed": 11,
+      "passed": 11,
+      "failed": 0
     }
   },
   "failures": [],
   "assertions": {
-    "executed": 71,
-    "passed": 71,
+    "executed": 159,
+    "passed": 159,
     "failed": 0
   },
   "total": {
-    "executed": 27,
-    "passed": 27,
+    "executed": 56,
+    "passed": 56,
     "failed": 0
   },
   "kind": "simulated lifecycle/messages/update UI; not actual Firefox or disconnected-network testing"

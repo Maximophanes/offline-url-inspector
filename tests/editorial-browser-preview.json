@@ -1,0 +1,152 @@
+{
+  "applicationVersion": "3.1.2",
+  "date": "2026-10-16",
+  "browser": "Codex in-app browser",
+  "origin": "http://127.0.0.1:8771/offline-url-inspector/",
+  "scope": "Actual rendered review of synthetic inputs at local loopback origin; no publication or inspected destination navigation.",
+  "checks": [
+    {
+      "check": "desktop disclosure document layout stays independent of top controls",
+      "viewport": {
+        "width": 1100,
+        "height": 900
+      },
+      "before": {
+        "checkCache": {
+          "height": 36,
+          "width": 142,
+          "x": 80,
+          "y": 672.6796875
+        },
+        "offlineHelp": {
+          "height": 40,
+          "width": 164.1875,
+          "x": 80,
+          "y": 766.6796875
+        },
+        "offlineStatus": {
+          "height": 36,
+          "width": 105.6953125,
+          "x": 914.3046875,
+          "y": 672.6796875
+        }
+      },
+      "after": {
+        "checkCache": {
+          "height": 36,
+          "width": 142,
+          "x": 80,
+          "y": 672.6796875
+        },
+        "offlineHelp": {
+          "height": 177.96875,
+          "width": 940,
+          "x": 80,
+          "y": 766.6796875
+        },
+        "offlineStatus": {
+          "height": 36,
+          "width": 105.6953125,
+          "x": 914.3046875,
+          "y": 672.6796875
+        }
+      },
+      "passed": true,
+      "note": "Document coordinates account for normal browser scrolling to a clicked disclosure."
+    },
+    {
+      "check": "Unicode character evidence, combined resemblance row, actual mapping and two-line Actual Hostname label",
+      "passed": true
+    },
+    {
+      "check": "expanded complete ASCII groups; actual source/label/offset/count; no redundant complete-page counter",
+      "passed": true
+    },
+    {
+      "check": "real file selection creates Merge/Replace preview without applying; complete normalized lists and counts visible",
+      "passed": true
+    },
+    {
+      "check": "390px narrow character layout; no horizontal overflow; descriptor kept whole",
+      "metrics": {
+        "documentWidth": 390,
+        "labels": [
+          {
+            "text": "(ASCII / Punycode)",
+            "whiteSpace": "nowrap",
+            "width": 258
+          }
+        ],
+        "viewport": 390
+      },
+      "passed": true
+    },
+    {
+      "check": "320px CSS reflow stress on expanded character evidence",
+      "metrics": {
+        "documentWidth": 320,
+        "viewport": 320
+      },
+      "passed": true,
+      "note": "CSS reflow check, not native 200% browser zoom."
+    },
+    {
+      "check": "approved three Understanding paragraphs and expanded technical/privacy explanations reviewed together",
+      "passed": true
+    },
+    {
+      "check": "invalid URL has nearby actionable error, clears actual hostname and preserves input",
+      "passed": true
+    },
+    {
+      "check": "cached new tab with server stopped; verified readiness, retained saved reference, failed check retains page and offline analysis works",
+      "passed": true,
+      "feedback": "Could not check for updates. Your current page remains available; try again when online."
+    },
+    {
+      "check": "cached reload while server stopped settles ready; feedback space keeps inspection card height stable",
+      "before": 583.1328125,
+      "after": 583.1328125,
+      "passed": true
+    },
+    {
+      "check": "final build singular imported-hostname guidance and real Replace cancellation preserve saved list",
+      "passed": true
+    },
+    {
+      "check": "narrow offline controls/disclosure after cached reopening with server stopped",
+      "passed": true,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      }
+    }
+  ],
+  "screenshots": [
+    "preview/v3.1.2-editorial-character.png",
+    "preview/v3.1.2-editorial-ascii.png",
+    "preview/v3.1.2-editorial-import.png",
+    "preview/v3.1.2-editorial-mobile-character.png",
+    "preview/v3.1.2-editorial-mobile-offline.png"
+  ],
+  "observations": [
+    "Reviewed primary/technical/character/ASCII/reference/import/help/privacy flow together.",
+    "Reviewed update offered matching local release, required consent with work present, and retained the synthetic saved reference.",
+    "The browser review found stale Preparing the new version feedback after first installation; code corrected and lifecycle regression added.",
+    "Stopped the application server: new cached tab and reload settled Offline ready, analysis worked, update check failed truthfully, saved reference persisted.",
+    "No frame-by-frame initial-paint or native Firefox claim."
+  ],
+  "limits": [
+    "Not actual Firefox or GitHub Pages.",
+    "Stopping the local server is not a full internet disconnect.",
+    "Native 200% zoom, OS reduced motion, screen-reader announcements, file:// CSP/storage, Firefox Containers and actual rare cache-eviction/quota races remain manual or simulated."
+  ],
+  "consoleAfterServerStopped": [],
+  "screenshotSHA256": {
+    "preview/v3.1.2-editorial-character.png": "4aef05f49823baad418947c526351034e06ca927351a48c00398fc2630311329",
+    "preview/v3.1.2-editorial-ascii.png": "7087c05d401edc30763a7b18ebae2d037de5ab81cf3488a9dca7dcd7aa23e987",
+    "preview/v3.1.2-editorial-import.png": "920e9b6feea1099661849f6ccaca7296337ff24de56781c37c2e5a8d1253c6ab",
+    "preview/v3.1.2-editorial-mobile-character.png": "0b4bb01d6e4630ab2472d6aae0dd6a398095b233fbf757b8775c59d2b1e14827",
+    "preview/v3.1.2-editorial-mobile-offline.png": "d99ec4de9c77b90614d82985340891afe26ac50d3398cf5449b1fb10aafb4a81"
+  }
+}

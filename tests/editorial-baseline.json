@@ -1,0 +1,33 @@
+{
+  "description": "Current uncommitted Version 3.1.2 before the complete editorial pass. Only the worker navigation-recovery prose may vary inside the exactly identified 503 Response string; all other worker bytes must match the original pin.",
+  "sourceFilesReviewed": [
+    "src/template.html",
+    "src/presentation.js",
+    "src/ui.js",
+    "src/references.js",
+    "src/core.js",
+    "src/hosted.js",
+    "src/sw.js",
+    "tools/build.py"
+  ],
+  "beforeSourceSHA256": {
+    "src/template.html": "ca9b66126aa61ab66e0e33447fda10dd07a7b2585cc91293f57374d25d6c3ea5",
+    "src/presentation.js": "33449640e2e77148fc359323bf70bd0e4a86e0c5bf14a2eb1c5b02ab2a3663a5",
+    "src/ui.js": "7b308c5e6c867d9c2b00da75ed306692d02f1fd696bc743da3eac475c736b2ac",
+    "src/references.js": "6017e9dbb9806f5192a9691870fb82587220a8c8a3d165cfd0403e5c1d705d23",
+    "src/core.js": "b72aed56d0a1a65856611c8c3c3569436d383c5acc151386b364649cdbf5cf42",
+    "src/hosted.js": "1db7b6b7e5d132309bdbb15fd8021683463863709c6422cc8ee443692ee0e6d8",
+    "src/sw.js": "e9e0792d2f5d7570f33f847bd4babde0605198230d75ac4d84e47935677db290",
+    "src/v3.css": "72b34eb1a2f695dbd1ad72226f6c5e5c0177d734f91e733cc900ae425bca14f9",
+    "src/base.css": "4b05accd9c83c870f9e4ef74741161784f0eb45387fe0b505466167df288a3f9",
+    "tools/build.py": "9d49b9001b81a35f793c8c284d82722271baf033cf3898990c2e545c58fb2ec2",
+    "build-manifest.json": "1aa7bfb3d3d610cb48f145949e5abe328405fd6f5a5b5f7580a89c3753984163"
+  },
+  "workerRecoveryLiteral": "'Offline URL Inspector: the complete application cache is unavailable. Reconnect and check for an update, or use your downloaded standalone HTML. If recovery fails, unregister only the /offline-url-inspector/ worker in browser developer tools, then reopen the app. Reference-domain browser storage is separate; export it before clearing site data.'",
+  "analysisResultCount": 139,
+  "analysisResultsSHA256": "ab196d5f1e24eac9c204918d32da6fe26a61ff87858a36842a0b22f66c8afd00",
+  "fixtureSHA256": {
+    "tests/cases.json": "0efc2cf1f69ef7e33c7c895d357517b3263c5d6442f435b3d907676a3b9f3356",
+    "tests/ascii-cases.json": "a0cc22639df86c7c22d0292ea1bf1ba6f0da229b164ba8df8091b25c4fd23d0b"
+  }
+}

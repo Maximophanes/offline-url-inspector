@@ -22,6 +22,7 @@ def run(command):
     if result.returncode: print(result.stdout);print(result.stderr)
     return result.returncode==0
 if not run([sys.executable,'tools/build.py']): raise SystemExit(1)
+if not run([sys.executable,'tools/audit_copy.py','--check']): raise SystemExit(1)
 server=subprocess.Popen([sys.executable,'tools/serve.py'],cwd=ROOT,stdout=subprocess.DEVNULL,stderr=subprocess.PIPE,text=True)
 commands=[]
 try:
@@ -34,7 +35,7 @@ try:
         except Exception: pass
         time.sleep(.05)
     if not ready: raise RuntimeError('Loopback test server did not become ready.')
-    for task in ['test:references','test:dom','test:refinement','test:polish','test:baseline-dom','test:worker','test:hosted','test:differential','test:idna','test:http','test:unicode']:
+    for task in ['test:references','test:dom','test:refinement','test:polish','test:clarity','test:editorial','test:baseline-dom','test:worker','test:hosted','test:differential','test:idna','test:http','test:unicode']:
         commands.append({'command':task,'passed':run(['deno','task',task])})
     icu=Path('/opt/homebrew/opt/icu4c/lib/libicuuc.78.dylib')
     if icu.exists():
@@ -47,7 +48,7 @@ finally:
     server.terminate()
     try: server.wait(timeout=5)
     except subprocess.TimeoutExpired: server.kill();server.wait()
-files=['unit-results.json','dom-results.json','references-results.json','dom-v3-results.json','refinement-results.json','polish-results.json','service-worker-results.json','hosted-bootstrap-results.json','differential-results.json','idna-review-results.json','idna-icu-results.json','http-results.json']
+files=['unit-results.json','dom-results.json','references-results.json','dom-v3-results.json','refinement-results.json','polish-results.json','clarity-results.json','editorial-results.json','service-worker-results.json','hosted-bootstrap-results.json','differential-results.json','idna-review-results.json','idna-icu-results.json','http-results.json']
 if args.with_firefox: files.extend(['firefox-standalone-results.json','firefox-hosted-results.json'])
 reports=[]
 for filename in files:
@@ -56,7 +57,7 @@ for filename in files:
     r=json.loads(p.read_text());reports.append({'report':filename,'suite':r['suite'],'tests':r['total'],'assertions':r['assertions'],'status':r.get('status','executed')})
 total={k:sum(r['tests'][k] for r in reports) for k in ['executed','passed','failed']}
 assertions={k:sum(r['assertions'][k] for r in reports) for k in ['executed','passed','failed']}
-summary={'applicationVersion':'3.1.1','tests':total,'assertions':assertions,'commands':commands,'suites':reports,'firefox':'See real-browser reports' if args.with_firefox else 'Not run; known native startup failure in agent environment, no meaningful change. User-reported V3.1.0 Firefox results are baseline evidence, not V3.1.1 verification.','scope':'Unit/official conformance, simulated DOM and worker lifecycle, actual loopback HTTP. Simulations are not actual Firefox/GitHub Pages deployment.'}
+summary={'applicationVersion':'3.1.2','tests':total,'assertions':assertions,'commands':commands,'suites':reports,'firefox':'See real-browser reports' if args.with_firefox else 'Not run: geckodriver is not on PATH in the reviewed environment. Historical native startup failure is not a current test. User reports the earlier V3.1.2 persistent offline-startup issue fixed; final editorial Firefox verification remains pending.','scope':'Unit/official conformance, simulated DOM and worker lifecycle, actual loopback HTTP. Simulations are not actual Firefox/GitHub Pages deployment.'}
 (ROOT/'tests/summary-results.json').write_text(json.dumps(summary,indent=2)+'\n')
 print(json.dumps({'tests':total,'assertions':assertions,'firefox':summary['firefox']},indent=2))
 if total['failed'] or assertions['failed'] or any(not c['passed'] for c in commands): raise SystemExit(1)

@@ -1,67 +1,123 @@
 'use strict';
 // Fixed application lifecycle only. No inspected input enters a fetch or message.
 const HostedOffline=(()=>{
- const PATH='/offline-url-inspector/';let registration=null,reloadRequested=false,watchAttached=false,checking=null,applying=false;const watched=new WeakSet();
+ const PATH='/offline-url-inspector/';
+ let registration=null,workerURL='',scopeURL='',reloadRequested=false,checking=null,applying=false,connecting=null,refreshing=null;
+ let registrationPending=false,preparationExpired=false,preparationTimer=null,feedbackType='';
+ const watched=new WeakSet(),watchedRegistrations=new WeakSet();
  const el=id=>document.getElementById(id);
- function status(short,detail){el('offlineStatus').textContent=short;el('offlineDetail').textContent=detail;el('offlineHelp').classList.remove('hidden');}
- const feedback=text=>{el('updateStatus').textContent=text;};
- function askStatus(worker){return new Promise(resolve=>{
-  if(!worker){resolve(false);return;}const channel=new MessageChannel();
-  const timeout=setTimeout(()=>{channel.port1.close();resolve(false);},3000);
-  channel.port1.onmessage=e=>{clearTimeout(timeout);channel.port1.close();resolve(e.data?.ready===true);};
-  try{worker.postMessage({type:'GET_CACHE_STATUS'},[channel.port2]);}catch{clearTimeout(timeout);channel.port1.close();resolve(false);}
+ function status(short,detail){if(el('offlineStatus').textContent!==short)el('offlineStatus').textContent=short;if(el('offlineDetail').textContent!==detail)el('offlineDetail').textContent=detail;el('offlineHelp').classList.remove('hidden');}
+ const feedback=(text,type='information')=>{feedbackType=type;if(el('updateStatus').textContent!==text)el('updateStatus').textContent=text;};
+ // A timed-out browser operation may still finish; attach no success claims to it.
+ function bounded(operation,ms){return new Promise(resolve=>{
+  let settled=false;
+  const finish=value=>{if(settled)return;settled=true;clearTimeout(timer);resolve(value);};
+  const timer=setTimeout(()=>finish({ok:false}),ms);
+  Promise.resolve().then(operation).then(value=>finish({ok:true,value}),()=>finish({ok:false}));
  });}
- async function refresh(){
-  const active=registration?.active,waiting=registration?.waiting,installingWorker=registration?.installing,installing=!!installingWorker;
-  const [ready,waitingReady]=await Promise.all([askStatus(active),askStatus(waiting)]);
-  if(active!==registration?.active||waiting!==registration?.waiting||installingWorker!==registration?.installing)return refresh();
-  el('applyUpdate').classList.toggle('hidden',!waiting);
-  status(ready?'Offline ready':installing?'Preparing offline access…':'Offline access unavailable',ready?'The complete application cache has been verified. Clearing browser data or private-mode cleanup can remove it; keep the standalone fallback.':'A complete offline cache is not verified. Analysis still runs locally in the loaded page. Reconnect to prepare offline access, or use the standalone file.');
-  if(waiting&&!checking)feedback(waitingReady?'Update ready to apply.':'Update available. Its cache needs to be restored before applying; retry online.');
-  else if(!waiting&&!installing&&!checking&&/^Update (?:ready to apply\.|available\.)/.test(el('updateStatus').textContent))feedback('');
-  return {ready,waiting:!!waiting,waitingReady,installing};
+ function controller(){const active=navigator.serviceWorker.controller;return active?.scriptURL===workerURL?active:null;}
+ function askStatus(worker){return new Promise(resolve=>{
+  if(!worker){resolve(false);return;}
+  let channel,timer;
+  const finish=ready=>{clearTimeout(timer);if(channel){channel.port1.onmessage=null;channel.port1.close();channel.port2.close?.();}resolve(ready===true);};
+  try{
+   channel=new MessageChannel();timer=setTimeout(()=>finish(false),3000);
+   channel.port1.onmessage=e=>finish(e.data?.ready===true);
+   worker.postMessage({type:'GET_CACHE_STATUS'},[channel.port2]);
+  }catch{finish(false);}
+ });}
+ function present(state){
+  const preparing=!state.ready&&(state.installing||registrationPending)&&!preparationExpired;
+  if(preparing&&preparationTimer===null)preparationTimer=setTimeout(()=>{preparationTimer=null;preparationExpired=true;refresh();},12000);
+  if(!preparing&&preparationTimer!==null){clearTimeout(preparationTimer);preparationTimer=null;}
+  el('applyUpdate').classList.toggle('hidden',!state.waiting);
+  // Fast cache verification goes from a neutral label directly to verified readiness.
+  // Preparing is reserved for an actual installation, not a brief local lookup.
+  const short=state.ready?'Offline ready':preparing?(state.installing?'Preparing offline access…':'Offline access'):'Offline access unavailable';
+  const detail=state.ready?'A verified copy of the URL Inspector is stored locally, allowing it to work without an internet connection.\n\nClearing browser data may remove this copy. Other browser profiles or isolated browsing sessions may need to cache the application separately.':preparing?'Checking for a verified offline copy. Readiness has not yet been confirmed.':'A verified offline copy could not be confirmed. Inspection still works in this open page.\n\nReconnect and check for updates, or use the standalone HTML file. A new browser profile or isolated session may need its own online visit first.';
+  status(short,detail);
+  if(state.waiting&&!checking)feedback(state.waitingReady?'Update ready. Choose Apply Update when you are ready to reload.':'Update not ready. Reconnect and try Apply Update again.','waiting');
+  else if(!state.waiting&&!state.installing&&!checking&&['waiting','preparing'].includes(feedbackType))feedback('');
+ }
+ function refresh(){
+  if(refreshing)return refreshing;
+  refreshing=(async()=>{
+   // One bounded retry when activation changes the snapshot; no recursive polling.
+   for(let attempt=0;attempt<2;attempt++){
+    const current=registration,active=current?.active||controller(),waiting=current?.waiting,installing=current?.installing;
+    const [ready,waitingReady]=await Promise.all([askStatus(active),askStatus(waiting)]);
+    if(current!==registration||active!==(registration?.active||controller())||waiting!==registration?.waiting||installing!==registration?.installing)continue;
+    const state={ready,waiting:!!waiting,waitingReady,installing:!!installing};present(state);return state;
+   }
+   const state={ready:false,waiting:!!registration?.waiting,waitingReady:false,installing:!!registration?.installing};present(state);return state;
+  })().finally(()=>{refreshing=null;});
+  return refreshing;
  }
  function watch(){
-  const worker=registration?.installing;if(worker&&!watched.has(worker)){watched.add(worker);worker.addEventListener('statechange',async()=>{const state=await refresh();if(worker.state==='redundant'&&!state.waiting)feedback('The update could not be prepared. Your current page is kept; retry online.');});}
-  if(!watchAttached){watchAttached=true;registration?.addEventListener('updatefound',()=>{watch();feedback('Update available. Preparing the complete release…');refresh();});}
+  for(const worker of [registration?.active,registration?.waiting,registration?.installing])if(worker&&!watched.has(worker)){
+   watched.add(worker);worker.addEventListener('statechange',async()=>{watch();const state=await refresh();if(worker.state==='redundant'&&!state.waiting)feedback('The new version could not be prepared. Your current page remains available. Reconnect and check for updates again.');});
+  }
+  if(registration&&!watchedRegistrations.has(registration)){
+   watchedRegistrations.add(registration);registration.addEventListener('updatefound',()=>{preparationExpired=false;watch();feedback('Preparing the new version…','preparing');refresh();});
+  }
+ }
+ function connect(allowRegister){
+  if(registration)return Promise.resolve({created:false});
+  if(connecting)return connecting;
+  registrationPending=true;
+  connecting=(async()=>{
+   // Read local registration state before any potentially network-backed register().
+   const existing=await bounded(()=>navigator.serviceWorker.getRegistration(scopeURL),1500);
+   if(existing.ok&&existing.value?.scope===scopeURL){registration=existing.value;watch();return {created:false};}
+   if(!allowRegister||navigator.onLine===false)return {created:false};
+   const fresh=await bounded(()=>navigator.serviceWorker.register(workerURL,{scope:scopeURL,updateViaCache:'none'}),6000);
+   if(fresh.ok&&fresh.value?.scope===scopeURL){registration=fresh.value;watch();return {created:true};}
+   return {created:false};
+  })().finally(()=>{registrationPending=false;connecting=null;});
+  return connecting;
  }
  function check(){
-  if(checking)return checking;if(!registration)return Promise.resolve();
+  if(checking)return checking;
   el('checkCache').disabled=true;el('checkCache').textContent='Checking…';feedback('Checking for updates…');
   checking=(async()=>{
-   const offline=navigator.onLine===false;let failed=false;
-   if(!offline){try{await registration.update();}catch{failed=true;}}
+   const offline=navigator.onLine===false,connection=await connect(!offline);let failed=false;
+   if(!offline){if(!registration)failed=true;else if(!connection.created)failed=!(await bounded(()=>registration.update(),6000)).ok;}
    const state=await refresh();
-   if(offline)feedback('Offline — update check unavailable.');
-   else if(failed)feedback('Unable to check for updates. Your current page and saved references were kept.');
-   else if(state.waiting)feedback(state.waitingReady?'Update ready to apply.':'Update available. Its complete cache must be restored before applying; retry online.');
-   else if(state.installing)feedback('Update available. Preparing the complete release…');
-   else feedback('You’re up to date.');
-  })().catch(()=>{feedback('Unable to check for updates. Try again when online.');}).finally(()=>{el('checkCache').disabled=false;el('checkCache').textContent='Check for Updates';checking=null;});
+   if(offline)feedback('Update check unavailable while offline. Reconnect to try again.');
+   else if(failed)feedback('Could not check for updates. Your current page remains available; try again when online.');
+   else if(state.waiting)feedback(state.waitingReady?'Update ready. Choose Apply Update when you are ready to reload.':'Update not ready. Reconnect and try Apply Update again.','waiting');
+   else if(state.installing)feedback('Preparing the new version…','preparing');
+   else feedback(state.ready?'You’re up to date.':'The current page is available, but offline access could not be verified.');
+  })().catch(()=>{feedback('Could not check for updates. Try again when online.');}).finally(()=>{el('checkCache').disabled=false;el('checkCache').textContent='Check for Updates';checking=null;});
   return checking;
  }
  async function start(){
   const url=new URL(location.href);
-  if(url.pathname!==PATH&&url.pathname!==PATH+'index.html'){status('Offline access unavailable','Caching is disabled outside the exact /offline-url-inspector/ project path. Local analysis still works.');return;}
-  if(!('serviceWorker' in navigator)||!(url.protocol==='https:'||url.protocol==='http:'&&['localhost','127.0.0.1','[::1]'].includes(url.hostname))){status('Offline access unavailable','Service-worker caching is unavailable in this context. Local analysis works; use the standalone file for offline access.');return;}
-  const scope=new URL('./',url),worker=new URL('sw.js',scope);
-  try{registration=await navigator.serviceWorker.register(worker.href,{scope:scope.href,updateViaCache:'none'});}catch{try{const existing=await navigator.serviceWorker.getRegistration(scope.href);if(existing?.scope===scope.href)registration=existing;}catch{}}
-  if(!registration){status('Offline access unavailable','The application cache could not be registered. No offline access is promised; use the standalone fallback.');return;}
-  watch();el('updatePanel').classList.remove('hidden');
-  navigator.serviceWorker.addEventListener('controllerchange',()=>{if(reloadRequested){reloadRequested=false;location.reload();}else refresh();});
+  if(url.pathname!==PATH&&url.pathname!==PATH+'index.html'){status('Offline access unavailable','Offline storage is only available at /offline-url-inspector/. Open the hosted app at its project address or use the standalone file.');return;}
+  if(!('serviceWorker' in navigator)||!(url.protocol==='https:'||url.protocol==='http:'&&['localhost','127.0.0.1','[::1]'].includes(url.hostname))){status('Offline access unavailable','This browser or address does not support offline storage for the app. Inspection still works here; use the standalone HTML file for offline access.');return;}
+  scopeURL=new URL('./',url).href;workerURL=new URL('sw.js',scopeURL).href;
+  el('updatePanel').classList.remove('hidden');el('checkCache').disabled=false;
+  navigator.serviceWorker.addEventListener('controllerchange',()=>{
+   if(reloadRequested){reloadRequested=false;feedback('Update applied. Reloading the app…');location.reload();}
+   else connect(false).then(refresh);
+  });
   el('checkCache').addEventListener('click',check);
   el('applyUpdate').addEventListener('click',async()=>{
-   if(!registration.waiting||applying)return;applying=true;
+   if(!registration?.waiting||applying)return;applying=true;
    try{
-    const waiting=registration.waiting,editing=['link','expected','referenceInput'].some(id=>el(id).value)||!el('importReview').classList.contains('hidden');
-    if(editing&&!await confirmAction({title:'Apply Update and Reload?',message:'Current URL text, results, and unapplied reference edits or imports will be cleared. Saved reference domains remain.',confirmLabel:'Apply and Reload'}))return;
-    if(registration.waiting!==waiting){feedback('The waiting update changed. Check for updates again before applying.');return;}
-    reloadRequested=true;feedback('Applying the verified update…');waiting.postMessage({type:'ACTIVATE_REVIEWED_UPDATE'});
-    setTimeout(()=>{if(reloadRequested){reloadRequested=false;feedback('The update has not activated. Your current page is kept; retry online.');}},10000);
-   }catch{reloadRequested=false;feedback('The update could not be applied. Your current page is kept.');}finally{applying=false;}
+    const waiting=registration.waiting,store=typeof referenceStore==='undefined'?null:referenceStore.snapshot(),sessionReferences=store&&store.mode!=='browser'&&store.references.length>0;
+    const editing=['link','expected','referenceInput'].some(id=>el(id).value)||!el('importReview').classList.contains('hidden')||sessionReferences||el('results')&&!el('results').classList.contains('hidden');
+    if(editing&&!await confirmAction({title:'Apply Update and Reload?',message:'Applying the update reloads the app. Current URL text, results and unapplied edits or imports will be cleared.'+(sessionReferences?'\n\nReferences that exist only in this tab will also be lost. Choose Cancel and export a backup if you need to keep them.':'\n\nThe update does not change reference data already saved in browser storage.'),confirmLabel:'Apply and Reload'}))return;
+    if(registration.waiting!==waiting){feedback('The available update changed. Check for updates again before applying it.');return;}
+    reloadRequested=true;feedback('Applying the update… Keep this tab open.');waiting.postMessage({type:'ACTIVATE_REVIEWED_UPDATE'});
+    setTimeout(()=>{if(reloadRequested){reloadRequested=false;feedback('The update has not finished applying. Your current page remains open; reconnect and try again.');}},10000);
+   }catch{reloadRequested=false;feedback('The update could not be applied. Your current page remains open; try again when online.');}finally{applying=false;}
   });
-  window.addEventListener('online',check);await refresh();
+  window.addEventListener('online',check);
+  // A verified controller can answer even while registration discovery is delayed.
+  registrationPending=true;const initial=refresh();await connect(true);await initial;const state=await refresh();
+  if(!registration&&!state.ready)feedback('Offline setup could not be completed. Reconnect and try Check for Updates, or use the standalone file.');
  }
  return Object.freeze({start});
 })();
-const hostedStartup=HostedOffline.start().catch(()=>{document.getElementById('offlineStatus').textContent='Offline access unavailable';document.getElementById('offlineDetail').textContent='Analysis remains local. Use the standalone fallback.';document.getElementById('offlineHelp').classList.remove('hidden');});
+const hostedStartup=HostedOffline.start().catch(()=>{document.getElementById('offlineStatus').textContent='Offline access unavailable';document.getElementById('offlineDetail').textContent='Offline access could not be checked. Inspection still works in this page; reload when online or use the standalone HTML file.';document.getElementById('offlineHelp').classList.remove('hidden');});

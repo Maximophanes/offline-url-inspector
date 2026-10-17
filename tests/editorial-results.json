@@ -1,0 +1,77 @@
+{
+  "suite": "V3.1.2 complete editorial acceptance and evidence preservation",
+  "groups": {
+    "traceable inventory, immutable analysis and presentation scope": {
+      "executed": 4,
+      "passed": 4,
+      "failed": 0
+    },
+    "result distinctions, dynamic values and exact-match scope": {
+      "executed": 14,
+      "passed": 14,
+      "failed": 0
+    },
+    "Unicode/ASCII evidence and accurate visual semantics": {
+      "executed": 12,
+      "passed": 12,
+      "failed": 0
+    },
+    "complete diagnostics, safe rendering and announcements": {
+      "executed": 4,
+      "passed": 4,
+      "failed": 0
+    },
+    "reference validation, import grammar, storage and recovery": {
+      "executed": 18,
+      "passed": 18,
+      "failed": 0
+    }
+  },
+  "failures": [],
+  "assertions": {
+    "executed": 4197,
+    "passed": 4197,
+    "failed": 0
+  },
+  "diagnosticCodesExercised": [
+    "ascii-ambiguity",
+    "attribution",
+    "backslash",
+    "bidi-limit",
+    "character-confusables",
+    "comparison-limit",
+    "deceptive-subdomain",
+    "dns",
+    "empty",
+    "exact",
+    "expected-error",
+    "explicit-port",
+    "http",
+    "impersonation",
+    "invisible",
+    "mismatch",
+    "mixed",
+    "no-anomalies",
+    "non-ascii",
+    "normalization",
+    "normalized-ascii",
+    "parse",
+    "percent",
+    "port",
+    "preprocessing",
+    "punycode",
+    "scheme",
+    "scripts",
+    "spelling",
+    "subdomain",
+    "too-long",
+    "unverified",
+    "userinfo"
+  ],
+  "total": {
+    "executed": 52,
+    "passed": 52,
+    "failed": 0
+  },
+  "kind": "source and simulated DOM; does not establish native Firefox, layout, zoom, screen-reader or container behavior"
+}

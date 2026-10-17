@@ -1,77 +1,60 @@
-# Version 3.1.1 final test results
+# Version 3.1.2 test results
 
-Run date: 2026-10-16. Application 3.1.1. **109,454 checks passed; 118,210 assertions passed; zero failures.** Cases/checks and assertions are separate counts; they are not all independent browser scenarios.
+Run date: 2026-10-16. **109,580 checks passed; 122,882 assertions passed; zero failures.** The complete available regression/Unicode suite ran once after application changes and rendered review settled. All commands passed on that final run. Counts are dominated by official Unicode fixtures, not independent browser scenarios. Aggregate: `tests/summary-results.json`.
 
-Targeted tests were used while changing the affected UI. After the final runtime changes, the complete available regression/conformance suite ran once and every command passed. Packaging checks and actual interactive browser observations are separate, not added to these totals. Aggregate: `tests/summary-results.json`.
-
-| Suite | Cases/checks | Assertions | Failures |
+| Suite | Passed checks | Passed assertions | Failures |
 |---|---:|---:|---:|
 | unit and official Unicode fixtures | 108,664 | 112,223 | 0 |
-| isolated Happy DOM integration | 157 | 1,031 | 0 |
+| isolated Happy DOM integration | 157 | 1,045 | 0 |
 | Reference domains, storage, imports, prioritization | 70 | 135 | 0 |
-| V3 information hierarchy and reference management DOM | 33 | 112 | 0 |
-| V3.1 presentation, shortcuts, disclosures and accessibility structure | 199 | 4,093 | 0 |
-| V3.1.1 custom confirmations, storage wording, import choices and polish | 45 | 158 | 0 |
+| V3 information hierarchy and reference management DOM | 33 | 114 | 0 |
+| V3.1 presentation, shortcuts, disclosures and accessibility structure | 199 | 4,103 | 0 |
+| V3.1.1 custom confirmations, storage wording, import choices and polish | 45 | 160 | 0 |
+| V3.1.2 technical clarity, contextual evidence and edition compatibility | 45 | 359 | 0 |
+| V3.1.2 complete editorial acceptance and evidence preservation | 52 | 4,197 | 0 |
 | Service worker atomic lifecycle simulation | 25 | 84 | 0 |
-| Hosted cache readiness, update feedback and reviewed reload simulation | 27 | 71 | 0 |
+| Hosted cache readiness, update feedback and reviewed reload simulation | 56 | 159 | 0 |
 | Approved V2.1 core and Unicode preservation | 143 | 148 | 0 |
 | review of the 19 original IDNA discrepancies | 64 | 102 | 0 |
 | independent ICU UTS 46 review | 19 | 19 | 0 |
 | Local /offline-url-inspector/ HTTP deployment | 8 | 34 | 0 |
-| **Total** | **109,454** | **118,210** | **0** |
+| **Total** | **109,580** | **122,882** | **0** |
 
-## Functional preservation and compatibility
+## Coverage and preserved behavior
 
-The approved V3.1.0 files/archive and both tracker references are compared with hashes captured before work; release records are in `tests/release-checks.json`. No previous release or reference file was modified. Core parsing, Unicode/ASCII/Punycode processing, Reference Domains implementation/storage schema/import parser, service-worker source and bundled Unicode JSON are byte-identical. Hosted controller presentation necessarily changed for compact statuses, real update-check feedback and custom reload consent; its fixed URL/scope/messages/complete-cache architecture is preserved.
+- **Editorial:** 52 acceptance checks / 4,197 assertions cover negative/unavailable/uncertain/invalid outcomes, hostname-only match scope, exact dynamic values, zero/one/many grammar, actual methods, raw data, ordinary Unicode versus supported caution, field errors, imports, protected/conflicting data, failed writes, migration outcomes and announcements. All **33** emitted core diagnostic codes are exercised with original code/level/text/order preserved. All **139** pre-audit development inspection objects match their saved SHA-256 exactly, including raw messages; fixture hashes are pinned too.
+- **Inventory:** 1,950 literal/text candidates across ten copy-supplying sources, with line numbers and hashes. The runner checks inventory freshness. This includes non-copy tokens; the human family decisions and exceptions are in [COPY_AUDIT.md](COPY_AUDIT.md), governed by [EDITORIAL_STYLE_GUIDE.md](EDITORIAL_STYLE_GUIDE.md).
+- **Core/data:** parser, Unicode/ASCII/Punycode analysis, reference engine/schema, Unicode JSON, base theme, lockfile and workflow remain byte-identical to the baseline. Differential and official normalization/confusables tests pass. The 19 known native Deno IDNA discrepancies are unchanged; independent ICU matches all 19 official outputs. This is not a claim of complete native UTS #46 conformance.
+- **Worker exception:** only the plaintext navigation-recovery 503 string changed. The pin check restores exactly that literal and then requires the old full-file hash, proving every other worker byte is unchanged. Atomic install, complete-cache hashing, activation/recovery, fixed fetch/scope and old-cache preservation still pass.
+- **Hosted:** 56 checks / 159 assertions cover bounded cached startup, strict status replies, unavailable contexts, discovery/registration/message/update deadlines, interrupted preparations, waiting identity, consent and activation. Eleven editorial/loss/announcement scenarios include no premature readiness, no Preparing flash on cached lookup, no false server/save claims, session-only reference protection and clearing stale preparation after installation finishes.
+- **References:** schema-1 records load without startup writes; key/application ID/fields/filename stay stable. Existing validation, conflicts, limits, private import plans, Merge/Replace consent and single-label/modal/keyboard guards pass. Failed writes preserve previous stored bytes and get caution rather than saved-success feedback. Export cannot preserve unreadable/different protected records; help and consent explain this.
+- **Rendering/network/CSP:** guarded DOM suites record zero inspected-destination requests/navigation. Markup stays inert. Original case, bidi/control escapes, multi-character mappings and full paged evidence remain. Actual loopback HTTP verifies MIME/path boundaries and exact HTML/worker/script/style hashes for both editions. No runtime dependency or CSP relaxation was introduced.
 
-The full existing differential suite retains 139 complete inspection-object comparisons against the earlier approved core. New polish pins also check the entire V3.1 title rule and keyframe block unchanged. Existing schema-1 records load without rewriting entries. Both editions retain the same application ID, stable key `offline-url-inspector:reference-domains`, schema 1 and portable backup filename. No storage migration is needed.
+Text-sensitive existing tests were updated to the revised language while retaining checks for actual classifications, values, original evidence, consent, saved bytes, no-network guards and functional pins. Targeted suites ran during development; the large Unicode suite was not repeatedly run after minor copy/CSS work.
 
-## What the automated tests establish
+## Actual rendered product review
 
-**Core and independent data:** Deno 2.9.7 / V8 15.0.245.2-rusty. The main suite includes 100,855 official Unicode normalization checks, 6,712 official prototype-mapping checks, independent Python RFC 3492 fixtures, original application/ASCII/authority cases and 300 sampled IDNA vectors. The unchanged Unicode 18.0.0 source and derived-data hashes were verified, without regenerating tables.
+`tests/editorial-browser-preview.json` records the current Codex in-app review and screenshot paths. It used only synthetic inputs and a separate loopback test origin. The review followed Input → Findings → Technical Details → References → Help, including character/mapping panels, structured complete ASCII groups, inline errors, successful saves/duplicates, Merge/Replace file previews/cancellation and neighboring Understanding/privacy explanations.
 
-**Existing UI/reference integration:** Original regression and V3/V3.1 suites preserve analysis classifications, original/normalized spelling, character evidence, diagnostic completeness/levels, reference comparisons/manual priority, persistence, protected/unknown data, stale tabs, session fallback, malformed/malicious/oversized imports and portable backups. UI assertions were updated only for the requested controls/presentation. Guarded network/navigation APIs recorded no prohibited attempts. Happy DOM 20.8.4 evaluates trusted app code for these tests; it is not actual Firefox, layout/CSP enforcement or a sandbox for arbitrary untrusted test scripts.
+At 1100 pixels, the pill was about 106 pixels wide and update controls stayed in the same document positions when offline details expanded from 40 to about 178 pixels. Browser scrolling to the clicked disclosure was accounted for separately. Expanded character evidence had no horizontal page overflow at 390 and 320 pixels. The latter is a CSS reflow check, not native 200% zoom.
 
-**V3.1.1 polish:** 45 new targeted checks / 158 assertions cover actual store-state wording, no save claim before a verified write, protected/failed storage, modal safe defaults, Escape/cancel/ambiguous close, Tab wrapping/focus restoration, inert/blocked background controls, duplicate submission, fallback behavior, single-label add/edit/cancel/unchanged edits, IP exceptions, normalized duplicates, native radio choices, reviewed Merge/Replace and counts, stale-plan rejection, failed writes, batch imported single labels, backup schema/filename, prominent data-derived substitutions, title preservation and the stable primary-button CSS. These are simulated DOM/source tests; live interaction observations are below.
+A reviewed local update required consent with current work and retained the synthetic saved reference. The rendered review found stale “Preparing the new version…” feedback after first installation; it was corrected before the final run and now has a regression check. With the local server stopped, a new cached tab and reload reached verified Offline ready, analysis worked, saved references remained, and failed-check feedback kept the current page available. Reserved feedback space kept the inspection-card height stable.
 
-**Hosted controller:** 27 checks / 71 assertions cover exact registration/scope, truthful verified readiness, initial preparation/unavailable states, immediate busy feedback, successful no-update results, deduplicated rapid checks, known offline state, network/interrupted failures, failed installation, waiting-cache restoration state, reviewed custom reload, changed-worker approval invalidation, activation timeout, preserved work, and fixed message payloads. A waiting-to-active asynchronous status race found in the preview now has a regression check: stale “ready to apply” feedback cannot survive after the waiting worker disappears.
+Earlier `tests/v312-browser-preview.json` and Version 3.1.1 preview reports remain historical evidence. Neither those nor the current in-app observations establish Firefox, a live Pages deployment, full internet disconnection, native screen readers, 200% zoom, reduced-motion settings, file:// policy or Container isolation. Rare quota/cache/race states are controlled simulations unless explicitly listed as actual observations.
 
-**Worker integrity/lifecycle:** The unchanged worker is tested for complete single-asset hash verification, waiting/reviewed activation, failed/interrupted/mismatched/quota updates preserving old offline startup, cache eviction/recovery, sibling-cache isolation and reference storage preservation. The new controller does not weaken those protections. These worker failure scenarios are simulations, not an actual interrupted download in Firefox.
+## User evidence and pending Firefox verification
 
-**Actual loopback HTTP:** The final runner served the generated files at `/offline-url-inspector/` and verified real responses, MIME types, exact HTML/worker bytes, relative worker path, absence of a root worker/sibling exposure, deployment privacy markers, and exact script/style CSP hashes for both editions. No unsafe-inline, unsafe-eval or new runtime resources were introduced. No repository was created or published.
+The user reports that the earlier 3.1.2 changes fixed the persistent offline-startup problem. That report is preserved separately from the user-verified 3.1.1 baseline and from the agent's final editorial testing. The brief Preparing transition is addressed without announcing readiness before verification; frame-by-frame Firefox repainting is not claimed solved.
 
-## Actual interactive browser observations
-
-The Codex in-app browser rendered the hosted build on loopback port 8767. It is **not Firefox**. Structured evidence is in `tests/browser-preview.json`, with screenshots under `preview/`.
-
-- At 1100 px and 390 px, the header glow blended into the page and there was no horizontal page overflow. The narrow modal measured 354 px and stayed within the viewport.
-- Three repeated actual pointer entry/exit/click cycles produced the same 190.523 × 44 px button rectangle and no transform. Normal and hover each remained gradients. This verifies observed stable states, not frame-by-frame video of every browser/compositor.
-- Single-label guidance defaulted to Edit Hostname; Shift-Tab/Tab wrapped between actions; Escape preserved the list/input and returned focus; Add Anyway saved `intranet` without a suffix. Background controls were inert/excluded from the modal accessibility tree.
-- Clear cancellation preserved the list. Explicit Clear References cleared the synthetic list once and restored focus.
-- A synthetic schema-1 backup was selected through the native file picker. Merge/Replace radios and native arrow-key operation updated the preview. Imported single labels were described together. Replace Cancel preserved data; explicit Replace applied the reviewed counts and returned focus to Import Backup.
-- A waiting local build update prompted custom reload consent. Cancel retained URL text and an unapplied import; explicit Apply/reload loaded the matching complete build with references retained. A successful check reported up to date.
-- The preview server was then stopped. Checking for updates reported **Unable to check for updates**, while verified **Offline ready** remained separate. Reload still initialized the cached application and retained references; inspection continued with the server unavailable. This is a real server-unavailable cache test, not an internet-disconnected/private-mode test.
-- No console warnings/errors were observed in the captured session. No destination-network monitoring claim is inferred merely from this visual session; source/guarded tests establish the application data-flow evidence.
-
-## Firefox baseline and remaining checks
-
-The user reported **nine V3.1.0 manual Firefox/macOS groups passed**, including standalone/hosted reference persistence, backup/restore, clear/cancel, keyboard/examples, hosted startup and operation after stopping the server. Those are recorded as user-reported baseline evidence in `tests/user-baseline-verification.json`.
-
-**Actual V3.1.1 agent Firefox assertions: 0.** The known native Firefox 158.0 / geckodriver 0.37.1 / macOS 27.0.1 SIGABRT occurred before session/page creation in earlier attempts. Conditions have not meaningfully changed, so that startup procedure was not repeatedly retried. The updated opt-in harness is syntax-checked but not executed. No startup failure is counted as a pass.
-
-Use the focused [FIREFOX_CHECKLIST.md](FIREFOX_CHECKLIST.md) for final hover, custom dialogs/focus, radios, single-label guidance, storage failures, updated statuses, reload/upgrade, standalone policy and real cache behavior. Screen-reader, 200% zoom, OS reduced-motion and full interactive contrast checks remain manual. Structural/declared-color tests are not an accessibility certification. Legacy dialog fallback is simulated, not verified in a legacy browser.
-
-The 19 retained Deno IDNA discrepancies remain in the 300-vector sample (281 output matches / 19 discrepancies). Passing assertions require honest native rejection, not fabricated full UTS #46 conformance. Independent ICU 78.3 matches all 19 official outputs. The exact runtime component cause and Firefox behavior for those vectors remain unresolved; [IDNA_REVIEW.md](IDNA_REVIEW.md) retains the evidence. Full RTL visual comparisons, page/redirect/reputation/ownership checks, permanent storage/cache availability and website safety are not claimed.
+**Agent-executed real Version 3.1.2 Firefox assertions: 0.** Current local read-only checks found Firefox 158.0 installed and no geckodriver on PATH. Historical repository records show an earlier native startup failure; that history was not counted as a current attempt or pass. Complete [FIREFOX_CHECKLIST.md](FIREFOX_CHECKLIST.md) before publication. Native zoom/screen-reader/reduced-motion behavior, standalone policy and fully disconnected same/uncached Container behavior remain pending.
 
 ## Reproduce
 
-From the extracted project directory, with Python 3.10+ and Deno:
-
 ```sh
-deno cache tests/dom.mjs tests/dom-v3.mjs tests/refinement.mjs tests/polish.mjs
+deno cache --lock=deno.lock tests/dom.mjs tests/dom-v3.mjs tests/refinement.mjs tests/polish.mjs tests/clarity.mjs tests/editorial.mjs
+python3 tools/verify_data.py
+python3 tools/audit_copy.py --check
 python3 tools/test_all.py
 ```
 
-The cache command downloads locked Happy DOM only when needed for development. Runtime HTML has no package dependencies. The runner owns/stops loopback port 8765. Individual tasks include `test:polish`, `test:hosted`, `test:worker` and the preserved suites. The ICU diagnostic runs when the tested library exists; on another system provide its installed library/symbol suffix or report that check as not executed.
-
-For opt-in real Firefox testing on a working setup, start `geckodriver --host 127.0.0.1 --port 4445`, then run `python3 tools/test_all.py --with-firefox` in a disposable environment. Startup errors fail the command. Follow the manual checklist for the modified workflows and additional offline/accessibility scenarios. No live GitHub Pages or Shortcuts setup was performed.
+The runner owns loopback port 8765 and stops it afterward. Happy DOM 20.8.4 evaluates trusted generated app code for development tests; it is not a browser sandbox or runtime dependency. ICU is optional when its library is available. Firefox harnesses remain opt-in on a working driver setup; startup failures fail the command. Both editions were rebuilt deterministically; final integrity/branch/CSP checks are in `tests/release-checks.json`. No commit, push, merge, pull request, publication or settings change was performed.

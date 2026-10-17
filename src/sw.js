@@ -45,7 +45,7 @@ self.addEventListener('fetch',event=>{
   event.respondWith((async()=>{
     try{let response=await cachedRelease();if(response)return response;await installRelease();response=await cachedRelease();if(response)return response;}catch{}
     // No arbitrary-request fallback: even cache recovery fetches only INDEX_URL.
-    return new Response('Offline URL Inspector: the complete application cache is unavailable. Reconnect and check for an update, or use your downloaded standalone HTML. If recovery fails, unregister only the /offline-url-inspector/ worker in browser developer tools, then reopen the app. Reference-domain browser storage is separate; export it before clearing site data.',{status:503,headers:{'Content-Type':'text/plain; charset=utf-8','Cache-Control':'no-store'}});
+    return new Response('The saved offline copy of URL Inspector is unavailable.\n\nReconnect and reopen the app, or use your downloaded standalone HTML file.\n\nIf recovery still fails, use browser developer tools to unregister only the worker scoped to /offline-url-inspector/, then reopen the app online.\n\nReference storage is separate. Export a backup from an open app before clearing site data; other projects may share that data.',{status:503,headers:{'Content-Type':'text/plain; charset=utf-8','Cache-Control':'no-store'}});
   })());
 });
 self.addEventListener('message',event=>{

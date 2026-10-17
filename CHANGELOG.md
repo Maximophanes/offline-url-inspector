@@ -1,4 +1,20 @@
-# Version 3.1.1
+# Version 3.1.2
+
+Complete editorial and interface audit of the existing uncommitted 3.1.2 work on `dev/v3.1.2`. Published 3.1.1 remains the stable baseline; nothing was committed or published.
+
+- Established [EDITORIAL_STYLE_GUIDE.md](EDITORIAL_STYLE_GUIDE.md), a traceable [COPY_AUDIT.md](COPY_AUDIT.md) and a generated line/hash inventory for every runtime-copy source, including conditional/error/recovery messages.
+- Rewrote primary/supporting findings around the observation, with distinct invalid, uncertain, unavailable and completed-negative outcomes. Exact matches explicitly concern hostnames rather than scheme/port/path/query/site safety.
+- Applied deliberate two-line hostname labels. Ordinary Unicode uses neutral emphasis; supported resemblance/hidden characters retain contextual caution. Combined comparison-character evidence and rendered real single/multi-character UTS #39 sequences without invented alignment.
+- Replaced giant ASCII prose with separated resemblance/observed/location/count groups and accurate paging. Preserved the complete original diagnostic text, codes, levels and order in deeper disclosures beneath concise explanations.
+- Improved reference errors, operation tones, storage states, conflict/failed-write recovery and structured Merge/Replace previews with complete lists and natural counts. Clear/Replace help does not pretend Export preserves unreadable or different saved data.
+- Put update controls left, a content-sized violet cache pill right, and an independent offline disclosure below. Reserved feedback space and scoped announcements. Retained the earlier cached-startup fix the user now reports working; neutral initial status avoids routine Preparing flashes without premature readiness.
+- Corrected stale preparation feedback after completed installation. Preserved reviewed-update safeguards and added consent for visible results/session-only references that would be lost on reload.
+- Preserved the approved Understanding paragraphs, exact comma sentence and full Unicode attribution/license. Clarified technical terms, app-resource requests, local persistence limits and shared github.io security origins.
+- Rebuilt both editions and matching CSP/release hashes. Final complete available suite ran once after changes settled: **109,580 checks / 122,882 assertions passed**, zero failures. Includes 52 editorial checks and 56 hosted lifecycle checks. Actual in-app desktop/narrow/expanded/offline observations are distinct from pending final Firefox verification.
+
+Core parsing, Unicode/ASCII/Punycode processing, reference logic/storage/schema/format, Unicode tables and base title/theme are unchanged. Worker code differs only in its plaintext 503 recovery message; restoring that exact literal produces the original full-file hash. See [security review](SECURITY_REVIEW.md), [test results](TEST_RESULTS.md), [offline review](OFFLINE_STARTUP_REVIEW.md) and [Firefox checklist](FIREFOX_CHECKLIST.md).
+
+# Version 3.1.1 (historical)
 
 Focused final polish on the approved, user-verified V3.1.0 release. V3.1.0 and both tracker references remain unchanged. Deployment is prepared locally only; nothing was published.
 

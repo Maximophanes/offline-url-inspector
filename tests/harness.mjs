@@ -20,3 +20,11 @@ export class MemoryStorage {
  setItem(k,v){if(this.failWrite)throw Error('Quota exceeded');this.values.set(k,String(v));this.writes.push([k,String(v)]);}
  removeItem(k){this.values.delete(k);}
 }
+// Restore only the navigation-recovery prose when checking published worker pins.
+// Matching the old full-file hash then proves every other worker byte is unchanged.
+export function functionalSource(path){
+ const source=read(path);if(path!=='src/sw.js')return source;
+ const pattern=/(?<=return new Response\()'(?:\\.|[^'\\])*'(?=,\{status:503)/g,matches=[...source.matchAll(pattern)];
+ if(matches.length!==1)throw Error('Expected exactly one scoped 503 recovery message');
+ return source.replace(pattern,JSON.parse(read('tests/editorial-baseline.json')).workerRecoveryLiteral);
+}

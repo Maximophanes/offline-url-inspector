@@ -1,7 +1,7 @@
 {
-  "applicationVersion": "3.1.1",
+  "applicationVersion": "3.1.2",
   "status": "not executed",
-  "reason": "Known agent-environment native startup failure before session/page load; no meaningful environmental change, so no repeated V3.1.1 startup attempts.",
+  "reason": "Not executed: geckodriver is not on PATH. Earlier native-startup failure is historical repository evidence, not a fresh Version 3.1.2 test.",
   "priorEnvironment": {
     "firefox": "158.0",
     "geckodriver": "0.37.1",
@@ -15,13 +15,14 @@
     "verifiesV3_1": false
   },
   "pending": [
-    "targeted Firefox 3.1.1 confirmation/radio/hover/status checks",
-    "standalone file-protocol policy and persistence",
-    "Firefox cache and update handling",
-    "screen-reader, zoom and reduced-motion checks",
-    "live GitHub Pages after explicit deployment approval"
+    "Focused Version 3.1.2 Firefox checklist",
+    "Cached/new-tab same-Container disconnected startup; uncached-Container isolation",
+    "Repeated Command-R repaint/scroll behavior",
+    "Standalone file-policy/storage and CSP enforcement",
+    "Screen-reader, zoom and OS reduced-motion checks",
+    "Live GitHub Pages only after separate approval"
   ],
-  "otherBrowserEvidence": "Actual Codex in-app browser interactions, cached startup with the server stopped and failed update feedback; see browser-preview.json",
+  "otherBrowserEvidence": "Current editorial-browser-preview.json; earlier v312-browser-preview.json is historical",
   "actualV3_1_1FirefoxAssertions": 0,
   "userReportedV3_1Baseline": {
     "edition": "Version 3.1.0",
@@ -39,5 +40,39 @@
     ],
     "verifiedByAgent": false,
     "verifiesVersion3_1_1": false
+  },
+  "actualV3_1_2FirefoxAssertions": 0,
+  "userReportedV3_1_1Baseline": {
+    "edition": "Version 3.1.1",
+    "source": "User-provided Version 3.1.2 request; reported Firefox on macOS",
+    "verifiedByAgent": false,
+    "groupsReportedPassed": [
+      "Standalone inspection",
+      "Unicode and ASCII lookalikes",
+      "Reference Domains",
+      "Reference persistence",
+      "Backup/Restore",
+      "Custom confirmations",
+      "Keyboard shortcuts",
+      "GitHub-hosted startup",
+      "Offline loading in an already-cached Firefox Container",
+      "Offline suspicious-URL analysis",
+      "Failed update-check handling without a server"
+    ],
+    "reportedIssue": "New offline tab in the same cached Firefox Container loads the app but remains Preparing offline access",
+    "expectedIsolation": "Different previously uncached Container fails to connect while offline",
+    "verifiesVersion3_1_2": false
+  },
+  "currentReadOnlyEnvironment": {
+    "date": "2026-10-16",
+    "installedFirefoxVersion": "158.0",
+    "geckodriverOnPATH": false
+  },
+  "userReportedV3_1_2": {
+    "source": "User complete editorial audit section 16, 2026-10-16",
+    "reportedPersistentOfflineStartupFixed": true,
+    "remainingReportedObservation": "Brief Preparing offline access flash during repeated normal reloads",
+    "verifiedByAgentInFirefox": false,
+    "verifiesFinalEditorialBuild": false
   }
 }

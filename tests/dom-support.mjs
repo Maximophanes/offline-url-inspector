@@ -9,7 +9,7 @@ export function mount({storage=new MemoryStorage(),platform='MacIntel',edition='
  w.document.write(source.replace(/<script\b[^>]*>[\s\S]*?<\/script>/g,''));
  const tag=w.document.createElement('script');tag.type='application/json';tag.id='unicode-data';tag.textContent=source.match(/id="unicode-data">([\s\S]*?)<\/script>/)[1];w.document.body.append(tag);
  // Count invocations for shortcut/double-execution tests only; analysis is unchanged.
- const runtime=source.match(/<script>([\s\S]*?)<\/script>/)[1].replace('function analyze(){','function analyze(){window.inspectionRuns=(window.inspectionRuns||0)+1;');
+ const runtime=source.match(/<script>([\s\S]*?)<\/script>/)[1].replace('function analyze(){','function analyze(){window.inspectionRuns=(window.inspectionRuns||0)+1;').replace('try{lastResult=Inspector.inspect','try{if(window.testInspectionFailure)throw Error("Controlled test failure");lastResult=Inspector.inspect');
  w.eval(runtime+'\nwindow.testInspector=Inspector;window.testPresentation=Presentation;window.testReferences=referenceStore;window.reviewImportText=beginImport;window.resetReferenceUI=()=>{referenceStore.clear(true);resetEdit();cancelImport();refreshReferences();};');
  const $=id=>w.document.getElementById(id),inspect=(url,expected='')=>{$('link').value=url;$('expected').value=expected;$('inspect').click();return w.testInspector.inspect(url,expected);};
  const key=(target,options={})=>{const event=new w.KeyboardEvent('keydown',{key:'Enter',metaKey:true,bubbles:true,cancelable:true,...options});target.dispatchEvent(event);return event;};

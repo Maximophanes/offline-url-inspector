@@ -1,13 +1,13 @@
 {
-  "applicationVersion": "3.1.1",
+  "applicationVersion": "3.1.2",
   "tests": {
-    "executed": 109454,
-    "passed": 109454,
+    "executed": 109580,
+    "passed": 109580,
     "failed": 0
   },
   "assertions": {
-    "executed": 118210,
-    "passed": 118210,
+    "executed": 122882,
+    "passed": 122882,
     "failed": 0
   },
   "commands": [
@@ -25,6 +25,14 @@
     },
     {
       "command": "test:polish",
+      "passed": true
+    },
+    {
+      "command": "test:clarity",
+      "passed": true
+    },
+    {
+      "command": "test:editorial",
       "passed": true
     },
     {
@@ -85,8 +93,8 @@
         "failed": 0
       },
       "assertions": {
-        "executed": 1031,
-        "passed": 1031,
+        "executed": 1045,
+        "passed": 1045,
         "failed": 0
       },
       "status": "executed"
@@ -115,8 +123,8 @@
         "failed": 0
       },
       "assertions": {
-        "executed": 112,
-        "passed": 112,
+        "executed": 114,
+        "passed": 114,
         "failed": 0
       },
       "status": "executed"
@@ -130,8 +138,8 @@
         "failed": 0
       },
       "assertions": {
-        "executed": 4093,
-        "passed": 4093,
+        "executed": 4103,
+        "passed": 4103,
         "failed": 0
       },
       "status": "executed"
@@ -145,8 +153,38 @@
         "failed": 0
       },
       "assertions": {
-        "executed": 158,
-        "passed": 158,
+        "executed": 160,
+        "passed": 160,
+        "failed": 0
+      },
+      "status": "executed"
+    },
+    {
+      "report": "clarity-results.json",
+      "suite": "V3.1.2 technical clarity, contextual evidence and edition compatibility",
+      "tests": {
+        "executed": 45,
+        "passed": 45,
+        "failed": 0
+      },
+      "assertions": {
+        "executed": 359,
+        "passed": 359,
+        "failed": 0
+      },
+      "status": "executed"
+    },
+    {
+      "report": "editorial-results.json",
+      "suite": "V3.1.2 complete editorial acceptance and evidence preservation",
+      "tests": {
+        "executed": 52,
+        "passed": 52,
+        "failed": 0
+      },
+      "assertions": {
+        "executed": 4197,
+        "passed": 4197,
         "failed": 0
       },
       "status": "executed"
@@ -170,13 +208,13 @@
       "report": "hosted-bootstrap-results.json",
       "suite": "Hosted cache readiness, update feedback and reviewed reload simulation",
       "tests": {
-        "executed": 27,
-        "passed": 27,
+        "executed": 56,
+        "passed": 56,
         "failed": 0
       },
       "assertions": {
-        "executed": 71,
-        "passed": 71,
+        "executed": 159,
+        "passed": 159,
         "failed": 0
       },
       "status": "executed"
@@ -242,6 +280,6 @@
       "status": "executed"
     }
   ],
-  "firefox": "Not run; unchanged agent-environment startup failure. User-reported V3.1.0 nine-group Firefox results are baseline evidence, not V3.1.1 verification.",
+  "firefox": "Not run: geckodriver is not on PATH in the reviewed environment. Historical native startup failure is not a current test. User reports the earlier V3.1.2 persistent offline-startup issue fixed; final editorial Firefox verification remains pending.",
   "scope": "Unit/official conformance, simulated DOM and worker lifecycle, actual loopback HTTP. Simulations are not actual Firefox/GitHub Pages deployment."
 }

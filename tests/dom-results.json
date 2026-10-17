@@ -21,8 +21,8 @@
   "failures": [],
   "networkAttempts": [],
   "assertions": {
-    "executed": 1031,
-    "passed": 1031,
+    "executed": 1045,
+    "passed": 1045,
     "failed": 0
   },
   "total": {

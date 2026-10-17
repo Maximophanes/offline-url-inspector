@@ -13,6 +13,8 @@
     "test:firefox-standalone": "deno run --allow-read=. --allow-write=tests --allow-net=127.0.0.1 tests/firefox.mjs",
     "test:firefox-hosted": "deno run --allow-read=. --allow-write=tests --allow-net=127.0.0.1 tests/firefox.mjs --hosted",
     "test:refinement": "deno run --cached-only --allow-read=. --allow-write=tests --allow-env=WS_NO_BUFFER_UTIL,WS_NO_UTF_8_VALIDATE tests/refinement.mjs",
-    "test:polish": "deno run --cached-only --allow-read=. --allow-write=tests --allow-env=WS_NO_BUFFER_UTIL,WS_NO_UTF_8_VALIDATE tests/polish.mjs"
+    "test:polish": "deno run --cached-only --allow-read=. --allow-write=tests --allow-env=WS_NO_BUFFER_UTIL,WS_NO_UTF_8_VALIDATE tests/polish.mjs",
+    "test:clarity": "deno run --cached-only --allow-read=. --allow-write=tests --allow-env=WS_NO_BUFFER_UTIL,WS_NO_UTF_8_VALIDATE tests/clarity.mjs",
+    "test:editorial": "deno run --cached-only --allow-read=. --allow-write=tests --allow-env=WS_NO_BUFFER_UTIL,WS_NO_UTF_8_VALIDATE tests/editorial.mjs"
   }
 }
