@@ -87,8 +87,10 @@ function note(message,result){
  if(message.code==='ascii-ambiguity'){
   const evidence=element('details','','disclosure observation diagnostic-evidence');evidence.appendChild(element('summary','All ASCII Observations'));const body=element('div','','category-body');asciiGroups(body,result.asciiAmbiguities);evidence.appendChild(body);record.appendChild(evidence);
  }
- const raw=element('details','','disclosure observation raw-diagnostic');raw.append(element('summary','Technical evidence'),element('p',message.text,'diagnostic-text small mono'),element('p','Category: '+display.category+' · Severity: '+display.severity+' · Code: '+message.code,'diagnostic-kind diagnostic-text'));
- record.appendChild(raw);$('messages').appendChild(record);
+ $('messages').appendChild(record);
+ const raw=element('article','','raw-diagnostic-record');raw.dataset.code=message.code;raw.dataset.level=message.level;raw.dataset.category=display.category;
+ raw.append(element('h3','Record '+($('rawRecords').children.length+1)+' · '+message.code,'raw-record-title'),element('p',message.text,'diagnostic-text small mono'),element('p','Category: '+display.category+' · Severity: '+display.severity+' · Original level: '+message.level+' · Code: '+message.code,'diagnostic-kind'));
+ $('rawRecords').appendChild(raw);
 }
 function highlighted(target,text,relevantCharacter=null){clear(target);for(const ch of text){const c=Inspector.info(ch),span=element('span',Inspector.visible(ch));if(c.nonASCII||c.invisible){span.className='badchar';span.dataset.tone=c.invisible||ch===relevantCharacter?'caution':'information';span.title=c.code+' · '+c.name;}target.appendChild(span);}}
 function characterChips(target,characters,original,result,comparisonTarget){
@@ -153,7 +155,7 @@ function comparisonEvidence(result,source,hostname,kind,comparison){
  $('referenceCandidates').appendChild(record);
 }
 function render(r){
-  $('results').classList.remove('hidden');for(const id of ['messages','coloredHost','chars','originalChars','supporting','relevantSubstitutions','referenceCandidates','asciiObservations'])clear($(id));
+  $('results').classList.remove('hidden');for(const id of ['messages','rawRecords','coloredHost','chars','originalChars','supporting','relevantSubstitutions','referenceCandidates','asciiObservations'])clear($(id));
   for(const id of ['ascii','unicode','original','decodedOriginal','normalized','scripts','scheme','port','path','query','fragment','compare','comparisonResult','referenceComparison'])set(id,'—');
   $('compare').className='value mono';$('comparisonResult').className='value';
   const refs=ReferenceDomains.compare(r,referenceStore.snapshot().references),summary=Presentation.summarize(r,refs,!!lastManual.trim());
@@ -161,7 +163,7 @@ function render(r){
   $('primary').dataset.kind=summary.kind;set('primaryTitle',summary.title);set('primaryDetail',Presentation.explain(r,summary));
   set('raw',Inspector.visible(r.raw.slice(0,Inspector.MAX_INPUT))+(r.raw.length>Inspector.MAX_INPUT?'\n[Display shortened. The full original URL remains in the input field.]':''));
   set('attributionRaw',r.original?rawText(r.original):'No original hostname was identified.');
-  for(const m of r.messages)note(m,r);
+  $('rawDiagnostics').open=false;$('rawDiagnostics').classList.toggle('hidden',!r.messages.length);for(const m of r.messages)note(m,r);
   let target=null;try{if(summary.target)target=Inspector.expectedHost(summary.target);}catch{}
   const difference=summary.kind==='visual'?Presentation.unicodeDifference(r,target):null;
   if(r.original){if(r.original.original!==undefined)highlighted($('original'),r.original.original,difference?.actual.ch);else set('original','The original hostname could not be identified with certainty. See the technical evidence.');set('decodedOriginal',r.original.decoded===undefined?'Could not be decoded':Inspector.visible(r.original.decoded)+(r.original.reliable?'':' (unverified)'));}
@@ -195,7 +197,7 @@ function render(r){
 function analyze(){
   lastManual=$('expected').value;
   try{lastResult=Inspector.inspect($('link').value,lastManual);render(lastResult);}
-  catch{lastResult=null;$('results').classList.remove('hidden');for(const id of ['messages','coloredHost','chars','originalChars','supporting','relevantSubstitutions','referenceCandidates','asciiObservations'])clear($(id));for(const id of ['ascii','unicode','original','decodedOriginal','normalized','scripts','scheme','port','path','query','fragment','compare','comparisonResult','referenceComparison'])set(id,'—');set('raw',Inspector.visible($('link').value.slice(0,Inspector.MAX_INPUT))+($('link').value.length>Inspector.MAX_INPUT?'\n[Display shortened. The full original URL remains in the input field.]':''));set('attributionRaw','Original hostname evidence is unavailable because inspection failed.');$('asciiDetails').classList.add('hidden');set('primaryTitle','Inspection could not be completed');set('primaryDetail','No result is available. Check the input and try again.');fieldError('inspectionError','link','Inspection could not be completed. Your original text is still in the input field.');fieldError('expectedError','expected','');$('primary').dataset.kind='error';}
+  catch{lastResult=null;$('rawDiagnostics').open=false;$('rawDiagnostics').classList.add('hidden');$('results').classList.remove('hidden');for(const id of ['messages','rawRecords','coloredHost','chars','originalChars','supporting','relevantSubstitutions','referenceCandidates','asciiObservations'])clear($(id));for(const id of ['ascii','unicode','original','decodedOriginal','normalized','scripts','scheme','port','path','query','fragment','compare','comparisonResult','referenceComparison'])set(id,'—');set('raw',Inspector.visible($('link').value.slice(0,Inspector.MAX_INPUT))+($('link').value.length>Inspector.MAX_INPUT?'\n[Display shortened. The full original URL remains in the input field.]':''));set('attributionRaw','Original hostname evidence is unavailable because inspection failed.');$('asciiDetails').classList.add('hidden');set('primaryTitle','Inspection could not be completed');set('primaryDetail','No result is available. Check the input and try again.');fieldError('inspectionError','link','Inspection could not be completed. Your original text is still in the input field.');fieldError('expectedError','expected','');$('primary').dataset.kind='error';}
 }
 function cancelImport(){importPlan=null;importText='';referenceStore.cancelImport();$('importReview').classList.add('hidden');$('importFile').value='';}
 function refreshReferences(){

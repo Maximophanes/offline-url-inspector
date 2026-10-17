@@ -1,22 +1,24 @@
 {
   "applicationVersion": "3.1.2",
   "date": "2026-10-16",
-  "status": "pass",
+  "status": "pass within automated and in-app scope; native Firefox and native zoom pending",
   "repository": "Maximophanes/offline-url-inspector",
   "origin": "https://github.com/Maximophanes/offline-url-inspector.git",
   "branch": "dev/v3.1.2",
-  "headUnchanged": "7909623ba5d2a33a51aaafa0bb72ca576959c546",
+  "headUnchanged": "1a6b9a39c22b44a52cd2e9c8879dc4aba2482fe8",
   "mainUnchanged": "7909623ba5d2a33a51aaafa0bb72ca576959c546",
   "uncommitted": true,
   "stagedFiles": [],
   "frozenBaselineFilesSHA256": {
     "src/core.js": "b72aed56d0a1a65856611c8c3c3569436d383c5acc151386b364649cdbf5cf42",
     "src/references.js": "6017e9dbb9806f5192a9691870fb82587220a8c8a3d165cfd0403e5c1d705d23",
+    "src/sw.js": "fb139641d523d4761b555825bd1365d53f553ee0c8fb2f6583c854fcc3f75034",
     "src/base.css": "4b05accd9c83c870f9e4ef74741161784f0eb45387fe0b505466167df288a3f9",
+    "src/presentation.js": "85e9a44c8cf4c88fcf08ef4839461d4489ab51328303f483d7ee5d9348dda1bf",
     "data/unicode-data.json": "806135e914efe7978ca23124b2ad4472b5643adbb766dc1ab799b3ca1c7a5dc1",
     "data/LICENSE.txt": "e7a93b009565cfce55919a381437ac4db883e9da2126fa28b91d12732bc53d96",
-    ".github/workflows/deploy-pages.yml": "e99e0ac790b286e5a77d38eb11ebbb64afb492217cde8334153b9a4221b9e1a7",
-    "deno.lock": "826bb68fd80f677b365a1fc1d488696b9225319d6f56a8f9ca86e2d152c17d29"
+    "deno.lock": "826bb68fd80f677b365a1fc1d488696b9225319d6f56a8f9ca86e2d152c17d29",
+    ".github/workflows/deploy-pages.yml": "e99e0ac790b286e5a77d38eb11ebbb64afb492217cde8334153b9a4221b9e1a7"
   },
   "allTrackedUnicodeDataFilesByteIdentical": 15,
   "originalDevelopmentResults": {
@@ -33,28 +35,33 @@
   },
   "serviceWorker": {
     "scope": "/offline-url-inspector/",
-    "sourceByteIdentical": false,
-    "onlySourceDifference": "plaintext navigation recovery 503 Response literal",
+    "sourceByteIdentical": true,
+    "onlySourceDifference": "none relative to this checkpoint",
     "actualSourceSHA256": "fb139641d523d4761b555825bd1365d53f553ee0c8fb2f6583c854fcc3f75034",
     "normalizedSourceSHA256": "e9e0792d2f5d7570f33f847bd4babde0605198230d75ac4d84e47935677db290",
     "normalizedSourceMatchesOriginalFullFile": true,
     "onlyFetch": "fixed INDEX_URL",
-    "reviewedActivationAndHashVerification": "unchanged"
+    "reviewedActivationAndHashVerification": "unchanged",
+    "comparisonBaseline": "committed 3.1.2 development checkpoint",
+    "historicalBaselineNote": "The previously committed plaintext 503 recovery wording change versus the older baseline is still covered by the original full-file normalization pin."
   },
   "hostedPresentationSafeguards": [
     "neutral initial label; ready still requires verified reply",
     "clear stale preparation/waiting feedback",
-    "reviewed reload also protects visible results and session-only references"
+    "reviewed reload also protects visible results and session-only references",
+    "structured title/explanation/semantic indicator within atomic live region",
+    "full-width semantic offline paragraphs; exact approved ready wording",
+    "all original lifecycle, reviewed-worker, consent and storage decisions preserved"
   ],
   "approvedUnderstandingParagraphsAndUnicodeAttributionUnchanged": true,
   "deterministicBuild": {
     "passed": true,
     "sha256": {
-      "standalone/Offline_URL_Inspector.html": "26aee5dd84b929cb2a0b768bd16105321ac3ba7cd35d33d6ad0b8ae9321066a7",
-      "site/index.html": "fa651e9ae1059f521fc59396769ab25dd3c4ae4ec877b1e53e91dd62fa9cad27",
-      "site/sw.js": "13042f4493c015c4eb61afd823dab04037884e0f18bd153d17d7cfad6d38d29d",
+      "standalone/Offline_URL_Inspector.html": "f5d32f4d37cf7e390bce4abc5571439b6eae17f48c63d8d199ae2d6b35a6187f",
+      "site/index.html": "b7cfb7016cd1b04ece59783f5a6c15edae12bd0b473a7276af829551d1060bc2",
+      "site/sw.js": "f2d105ef3b421eef59362e47fc6b91bd2a23713b214293bf01ad9ed2ae68a4ce",
       "site/.nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "build-manifest.json": "cb30f6859466dfb365a8b27d16868e6e04784a4ab9ef816cb8b8b40283b890ef"
+      "build-manifest.json": "2f2067c3d6c5ce71449c22ecb50a81f714401af74ddd86b6cfc4ef76981c173a"
     }
   },
   "csp": {
@@ -62,30 +69,30 @@
     "policyRelaxed": false,
     "runtimeExternalDependenciesAdded": false
   },
-  "release": "3.1.2-fa651e9ae1059f52",
+  "release": "3.1.2-b7cfb7016cd1b04e",
   "documentationLinks": {
     "allExist": true,
-    "checked": 32
+    "checked": 62
   },
   "finalSuite": {
     "tests": {
-      "executed": 109580,
-      "passed": 109580,
+      "executed": 109600,
+      "passed": 109600,
       "failed": 0
     },
     "assertions": {
-      "executed": 122882,
-      "passed": 122882,
+      "executed": 128867,
+      "passed": 128867,
       "failed": 0
     },
     "runNotes": [
-      "Complete available regression/Unicode/ICU/HTTP suite executed once after application changes settled. All commands passed.",
-      "Only documentation/report wording and final integrity metadata changed afterward; no application changes followed the run."
+      "Complete available regression/Unicode/ICU/HTTP suite executed once after final application changes settled. All commands passed.",
+      "No application changes followed the run; subsequent changes only documented/refreshed verification and integrity metadata."
     ]
   },
   "copyInventory": "tests/copy-inventory.json",
   "editorialAudit": "COPY_AUDIT.md",
-  "actualBrowser": "tests/editorial-browser-preview.json",
+  "actualBrowser": "tests/interface-browser-preview.json",
   "actualFirefoxVersion3_1_2Assertions": 0,
   "userReportedBaseline": "Version 3.1.1 Firefox/macOS; earlier V3.1.2 persistent startup fix reported working; see tests/user-baseline-verification.json",
   "published": false,
@@ -95,7 +102,7 @@
   "pullRequestCreated": false,
   "repositorySettingsChanged": false,
   "knownLimits": [
-    "Final native Firefox/Containers, standalone policies, native zoom/screen readers/OS reduced motion and full disconnected network checks pending",
+    "Native Firefox control blocked by unavailable Computer Use permission; native 200% zoom, screen readers, OS reduced motion, standalone policies, Containers and full disconnected-network checks pending",
     "Historical application ordering defect reproduced; no fresh Firefox-internal trace captured",
     "No frame-by-frame Firefox repaint/flicker elimination claim",
     "19 native Deno IDNA discrepancies unchanged; independent ICU diagnostic matches official outputs"
@@ -103,12 +110,89 @@
   "failures": [],
   "distributionChecksums": {
     "path": "SHA256SUMS",
-    "fileCount": 120,
+    "fileCount": 148,
     "exclusions": [
       "SHA256SUMS itself",
       "Git metadata",
       "ignored files"
     ],
     "verified": true
-  }
+  },
+  "startingCommittedCheckpoint": "1a6b9a39c22b44a52cd2e9c8879dc4aba2482fe8",
+  "focusedInterfacePreservation": {
+    "fixtures": 139,
+    "completeResultsAndRecordsSHA256": "fba9fc3018576c81655312c2151698da934b2dd3dbdee33ed48cce9ca482c314",
+    "independentlyReproducedFromCommittedHEAD": true,
+    "completeOriginalRecordsRenderedInOrder": true,
+    "proof": "tests/interface.mjs",
+    "baseline": "tests/interface-baseline.json"
+  },
+  "focusedReview": "FINAL_INTERFACE_REVIEW.md",
+  "native200PercentZoomVerified": false,
+  "privacy": {
+    "privateAbsoluteHomeOrRepositoryPathInPendingFiles": false,
+    "workingDirectoryFieldAbsent": true,
+    "screenshots": "Inspected synthetic built-in examples and empty fields only"
+  },
+  "pendingFiles": [
+    "CHANGELOG.md",
+    "COPY_AUDIT.md",
+    "DESIGN_NOTES.md",
+    "EDITORIAL_STYLE_GUIDE.md",
+    "FINAL_INTERFACE_REVIEW.md",
+    "FIREFOX_CHECKLIST.md",
+    "README.md",
+    "SECURITY_REVIEW.md",
+    "SHA256SUMS",
+    "TEST_RESULTS.md",
+    "build-manifest.json",
+    "deno.json",
+    "preview/v3.1.2-final-ascii.jpg",
+    "preview/v3.1.2-final-controls.jpg",
+    "preview/v3.1.2-final-css-200.jpg",
+    "preview/v3.1.2-final-current.jpg",
+    "preview/v3.1.2-final-diagnostics.jpg",
+    "preview/v3.1.2-final-empty.jpg",
+    "preview/v3.1.2-final-failed.jpg",
+    "preview/v3.1.2-final-labels.jpg",
+    "preview/v3.1.2-final-main-labels.jpg",
+    "preview/v3.1.2-final-mobile-ascii.jpg",
+    "preview/v3.1.2-final-mobile-current.jpg",
+    "preview/v3.1.2-final-mobile-empty.jpg",
+    "preview/v3.1.2-final-mobile-failed.jpg",
+    "preview/v3.1.2-final-mobile-labels.jpg",
+    "preview/v3.1.2-final-mobile-raw.jpg",
+    "preview/v3.1.2-final-mobile-waiting.jpg",
+    "preview/v3.1.2-final-pending.jpg",
+    "preview/v3.1.2-final-raw-records.jpg",
+    "preview/v3.1.2-final-reflow.jpg",
+    "preview/v3.1.2-final-tablet.jpg",
+    "preview/v3.1.2-final-update-failure.jpg",
+    "preview/v3.1.2-final-waiting.jpg",
+    "site/index.html",
+    "site/sw.js",
+    "src/hosted.js",
+    "src/template.html",
+    "src/ui.js",
+    "src/v3.css",
+    "standalone/Offline_URL_Inspector.html",
+    "tests/clarity-results.json",
+    "tests/clarity.mjs",
+    "tests/copy-inventory.json",
+    "tests/dom-v3.mjs",
+    "tests/dom.mjs",
+    "tests/editorial-results.json",
+    "tests/editorial.mjs",
+    "tests/hosted-bootstrap-results.json",
+    "tests/hosted-bootstrap.mjs",
+    "tests/interface-baseline.json",
+    "tests/interface-browser-preview.json",
+    "tests/interface-results.json",
+    "tests/interface.mjs",
+    "tests/refinement.mjs",
+    "tests/release-checks.json",
+    "tests/summary-results.json",
+    "tools/preview_interface.py",
+    "tools/test_all.py"
+  ]
 }

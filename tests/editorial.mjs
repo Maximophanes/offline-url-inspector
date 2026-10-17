@@ -89,7 +89,7 @@ await test('unverified original text retains attribution without asserting norma
 await test('all Actual/Decoded labels use explicit descriptor elements',()=>{
  inspect('https://аmazon.com','amazon.com');for(const id of ['decodedOriginal','normalized'])assert($(id).previousElementSibling.querySelector('.label-detail'));
  const labels=[...$('characterDetails').querySelectorAll('.key')].filter(e=>e.textContent.startsWith('Actual Hostname'));assert(labels.length>0);for(const label of labels)equal(label.querySelector('.label-detail').textContent,'(ASCII / Punycode)');
- assert(read('src/v3.css').includes('.label-detail{display:block;white-space:nowrap'));
+ assert(read('src/v3.css').includes('.row .label-detail{display:block;white-space:nowrap'));
 });
 await test('ASCII groups retain actual alternatives and positions with natural counts',()=>{
  reset();const r=inspect('https://m.invalid'),groups=$('messages').querySelector('[data-code="ascii-ambiguity"] .diagnostic-evidence').querySelectorAll('.ascii-group');
@@ -98,7 +98,7 @@ await test('ASCII groups retain actual alternatives and positions with natural c
 });
 await test('relevant ASCII substitution appears once prominently and raw evidence survives',()=>{
  inspect('https://arnazon.com','amazon.com');equal(($('primaryDetail').textContent.match(/“rn” may resemble “m”/g)||[]).length,1);equal($('relevantSubstitutions').children.length,0);
- assert($('messages').querySelector('[data-code="ascii-ambiguity"] .diagnostic-text').textContent.includes('“rn”'));assert($('asciiDetails').parentElement.closest('#characterDetails'));
+ assert($('rawRecords').querySelector('[data-code="ascii-ambiguity"] .diagnostic-text').textContent.includes('“rn”'));assert($('asciiDetails').parentElement.closest('#characterDetails'));
 });
 await test('comparison method headings reflect the actual algorithm',()=>{
  for(const [url,target,heading]of [['https://аmazon.com','amazon.com','Unicode visual comparison'],['https://vveb.com','web.com','ASCII visual comparison'],['https://amazoon.com','amazon.com','Spelling comparison'],['https://example.com','example.com','Hostname identity comparison']]){
@@ -109,9 +109,9 @@ t.group('complete diagnostics, safe rendering and announcements');
 await test('representative diagnostics retain order, raw prose, codes and severity',()=>{
  const covered=new Set();
  for(const c of [...fixtures,{url:'https://example.invalid/'+'x'.repeat(I.MAX_INPUT)}]){const r=inspect(c.url,c.expected||'');[...$('messages').children].forEach((record,i)=>{
-  const m=r.messages[i];covered.add(m.code);equal(record.dataset.code,m.code);equal(record.dataset.level,m.level);equal(record.querySelector('.diagnostic-text').textContent,m.text);
+  const m=r.messages[i];covered.add(m.code);equal(record.dataset.code,m.code);equal(record.dataset.level,m.level);equal($('rawRecords').children[i].querySelector('.diagnostic-text').textContent,m.text);
   equal(record.querySelector('.diagnostic-severity').textContent,m.level==='alert'?'Warning':m.level==='warn'?'Caution':'Information');
-  assert(!record.open);assert(!record.querySelector('.raw-diagnostic').open);assert(record.querySelector('.diagnostic-explanation').textContent.length>10);
+  assert(!record.open);assert(!record.querySelector('.raw-diagnostic'));assert(!$('rawDiagnostics').open);equal($('rawRecords').children[i].dataset.code,m.code);equal($('rawRecords').children[i].dataset.level,m.level);assert(record.querySelector('.diagnostic-explanation').textContent.length>10);
  });}
  equal([...covered].sort(),[...P.diagnosticCodes].sort());t.report.diagnosticCodesExercised=[...covered].sort();
 });

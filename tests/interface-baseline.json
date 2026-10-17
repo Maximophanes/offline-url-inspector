@@ -1,0 +1,17 @@
+{
+  "version": "3.1.2",
+  "description": "Committed checkpoint before focused final interface refinements; no private local paths.",
+  "fixtures": 139,
+  "completeResultsAndRecordsSHA256": "fba9fc3018576c81655312c2151698da934b2dd3dbdee33ed48cce9ca482c314",
+  "sourceFiles": {
+    "src/core.js": "b72aed56d0a1a65856611c8c3c3569436d383c5acc151386b364649cdbf5cf42",
+    "src/references.js": "6017e9dbb9806f5192a9691870fb82587220a8c8a3d165cfd0403e5c1d705d23",
+    "src/sw.js": "fb139641d523d4761b555825bd1365d53f553ee0c8fb2f6583c854fcc3f75034",
+    "src/base.css": "4b05accd9c83c870f9e4ef74741161784f0eb45387fe0b505466167df288a3f9",
+    "src/presentation.js": "85e9a44c8cf4c88fcf08ef4839461d4489ab51328303f483d7ee5d9348dda1bf",
+    "data/unicode-data.json": "806135e914efe7978ca23124b2ad4472b5643adbb766dc1ab799b3ca1c7a5dc1",
+    "data/LICENSE.txt": "e7a93b009565cfce55919a381437ac4db883e9da2126fa28b91d12732bc53d96",
+    "deno.lock": "826bb68fd80f677b365a1fc1d488696b9225319d6f56a8f9ca86e2d152c17d29",
+    ".github/workflows/deploy-pages.yml": "e99e0ac790b286e5a77d38eb11ebbb64afb492217cde8334153b9a4221b9e1a7"
+  }
+}

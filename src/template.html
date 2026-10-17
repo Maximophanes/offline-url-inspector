@@ -21,10 +21,11 @@
 <div class="interaction-meta"><span id="shortcutHint" class="shortcut">⌘ + Return to inspect</span></div>
 <div class="offline-controls">
 <div class="offline-toolbar">
-<div id="updatePanel" class="update-panel @@HOSTED_ONLY@@"><div class="line cache-actions"><button id="checkCache" class="ghost small" type="button" disabled>Check for Updates</button><button id="applyUpdate" class="ghost small hidden" type="button" aria-label="Apply update and reload the app">Apply Update</button></div><p id="updateStatus" class="small update-feedback" role="status" aria-live="polite" aria-atomic="true"></p></div>
+<div id="updatePanel" class="update-panel @@HOSTED_ONLY@@"><div class="line cache-actions"><button id="checkCache" class="ghost small" type="button" disabled>Check for Updates</button><button id="applyUpdate" class="ghost small hidden" type="button" aria-label="Apply update and reload the app">Apply Update</button></div></div>
 <span id="offlineStatus" class="edition-status" role="status" aria-label="Application offline access">@@EDITION_STATUS@@</span>
+<div id="updateStatus" class="small update-feedback @@HOSTED_ONLY@@" role="status" aria-live="polite" aria-atomic="true" data-state=""><span class="update-indicator" aria-hidden="true"></span><div class="update-message"><span id="updateSummary"></span><p id="updateExplanation" class="hidden"></p></div></div>
 </div>
-<details id="offlineHelp" class="disclosure status-help @@HOSTED_ONLY@@"><summary>Offline access details</summary><div class="panel-body small" id="offlineDetail">Checking whether a verified offline copy is available. Readiness has not yet been confirmed.</div></details>
+<details id="offlineHelp" class="disclosure status-help @@HOSTED_ONLY@@"><summary>Offline access details</summary><div class="panel-body small" id="offlineDetail"><p>Checking whether a verified offline copy is available. Readiness has not yet been confirmed.</p></div></details>
 </div>
 </section>
 <details class="card disclosure major" id="referencePanel"><summary><span>Reference Domains</span><span class="count" id="referenceCount">0 saved</span></summary>
@@ -85,7 +86,7 @@
 <div class="row"><div class="key">Fragment</div><div id="fragment" class="value mono"></div></div>
 </div></details>
 <details class="disclosure category" id="referencesDetails"><summary>Reference Comparisons</summary><div id="referenceCandidates" class="category-body small"></div></details>
-<details class="disclosure category" id="diagnosticDetails"><summary>Full Diagnostic Log</summary><div class="category-body"><p class="small">Detailed analysis findings. Multiple observations may relate to the same underlying issue.</p><div id="messages" class="diagnostic-list"></div></div></details>
+<details class="disclosure category" id="diagnosticDetails"><summary>Full Diagnostic Log</summary><div class="category-body"><p class="small">Detailed analysis findings. Multiple observations may relate to the same underlying issue.</p><div id="messages" class="diagnostic-list"></div><details id="rawDiagnostics" class="disclosure observation raw-diagnostics"><summary>Raw Diagnostic Records</summary><div id="rawRecords" class="raw-record-list" tabindex="0" role="region" aria-label="Complete original diagnostic records"></div></details></div></details>
 </div></details></section>
 <details class="disclosure supporting-panel" id="understanding"><summary>Understanding Your Results</summary><div class="panel-body">
 <p>The URL Inspector examines a link's hostname, characters, and structure without visiting its destination. It can identify deceptive spellings, unusual characters, suspicious URL syntax, and similarities to expected or saved reference hostnames.</p>

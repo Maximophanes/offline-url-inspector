@@ -40,7 +40,7 @@ An exact **hostname** match compares hostname identity only. It does not compare
 | Potential visual resemblance | A supported Unicode or finite ASCII heuristic result, with the actual method preserved in deeper evidence. |
 | Unavailable comparison | A check could not be completed; no negative resemblance or safety conclusion follows. |
 
-Format parenthetical hostname descriptors as a smaller, muted, nonbreaking second line. This applies to generated character rows as well as static labels. Hostname values must wrap without hiding a distinguishing suffix.
+Use context-specific hostname labels: main result labels stay on one line when space permits; narrow table and generated character rows use smaller, muted, nonbreaking second-line descriptors. Hostname values must wrap without hiding a distinguishing suffix.
 
 Explain ASCII/Unicode/Punycode briefly at their first general presentation. Explain IDNA, UTS #39, normalization, DNS labels, public suffixes and registrable domains once in contextual or subordinate help. Keep precise technical names in advanced evidence. CSP remains a policy mechanism, not a user-facing safety verdict; do not invent a browser certification claim.
 
@@ -48,7 +48,7 @@ Explain ASCII/Unicode/Punycode briefly at their first general presentation. Expl
 
 Preserve diagnostic code, level, category, trigger, order, comparison classification and underlying values. Prefer presentation helpers over editing the security-sensitive engine or reference store. Raw Unicode names, code points, mapping sequences, normalization information and original diagnostic prose are evidence, not material to rewrite casually.
 
-Use a concise title and the actual severity in each collapsed log entry. An expanded entry gives a short plain-language explanation. Put original prose, codes and processing details in clearly labeled Technical evidence. Do not turn the log into a second primary findings panel.
+Use a concise title and the actual severity in each collapsed log entry. An expanded entry gives a short plain-language explanation. Put original prose, codes and processing details in one collapsed Raw Diagnostic Records section at the bottom of the log. Keep useful structured evidence with its finding. Do not turn the log into a second primary findings panel.
 
 Preserve multi-character mappings. Present UTS #39 mapping sequences once, using actual glyphs/code points; names and raw records can sit deeper. A character's IDNA rule need not describe the normalization of an entire sequence. Mark unverified outcomes rather than asserting preservation. Keep official Unicode names verbatim.
 

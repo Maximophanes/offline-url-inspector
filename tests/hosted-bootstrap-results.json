@@ -15,17 +15,22 @@
       "executed": 11,
       "passed": 11,
       "failed": 0
+    },
+    "structured final update feedback and semantic offline paragraphs": {
+      "executed": 8,
+      "passed": 8,
+      "failed": 0
     }
   },
   "failures": [],
   "assertions": {
-    "executed": 159,
-    "passed": 159,
+    "executed": 192,
+    "passed": 192,
     "failed": 0
   },
   "total": {
-    "executed": 56,
-    "passed": 56,
+    "executed": 64,
+    "passed": 64,
     "failed": 0
   },
   "kind": "simulated lifecycle/messages/update UI; not actual Firefox or disconnected-network testing"

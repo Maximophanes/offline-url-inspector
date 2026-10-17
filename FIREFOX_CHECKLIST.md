@@ -56,3 +56,14 @@ Establish the cache in the same Container online first. Stop the local server fo
 16. Watch Network/Console while inspecting synthetic `.invalid` URLs with distinctive path/query tokens. No inspected destination/token may be requested. Only fixed application files may load/update. Verify exact CSP initialization in both editions, no external runtime assets and no inspected input in browser storage/exports.
 
 Final editorial Firefox, native zoom, screen-reader, OS reduced-motion, file-policy and full-disconnection results remain pending until performed. Record them separately from historical baseline and current in-app observations.
+
+
+## Final focused interface verification (pending native Firefox)
+
+The agent inspected the current in-app screenshots in [FINAL_INTERFACE_REVIEW.md](FINAL_INTERFACE_REVIEW.md). Native Firefox control failed because Computer Use permission was unavailable; no native pass is claimed.
+
+1. Run `python3 tools/serve.py` and open the printed loopback project URL in Firefox. Use the built-in Unicode example. At desktop width, confirm both main hostname labels are inline, while Input & Normalization descriptors use smaller second lines. Expand Character Details and verify mapping sequences remain contextual.
+2. Expand Full Diagnostic Log and its bottom Raw Diagnostic Records. Check original messages, codes, categories, severity and order; Tab into the record region and use Page Down, with a visible focus ring. Use the ASCII example and expand All ASCII Observations and locations.
+3. Inspect no-feedback, successful check, failure and Apply Update states. For hard-to-reproduce states, run `python3 tools/preview_interface.py` and use its explicitly simulated dropdown; this does not verify actual installation. Confirm Check/Apply stay left, the compact lilac pill stays right on desktop, feedback and its explanations stay left, and offline details expand independently across the panel.
+4. Repeat at tablet/mobile widths and **native Firefox 200% zoom**. Confirm no horizontal overflow or clipped controls, sensible responsive wrapping, compact collapsed offline help, and readable full-width paragraphs. CSS magnification screenshots are supplemental only.
+5. For actual lifecycle assurance, complete the matched-build update and same-context disconnected-startup matrix above. Confirm readiness only after cache verification, current only after successful update check, cancellation protects work, and only the consenting tab reloads.

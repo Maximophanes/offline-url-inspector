@@ -1,0 +1,22 @@
+{
+  "suite": "V3.1.2 final interface hierarchy and evidence preservation",
+  "groups": {
+    "checks": {
+      "executed": 12,
+      "passed": 12,
+      "failed": 0
+    }
+  },
+  "failures": [],
+  "assertions": {
+    "executed": 4354,
+    "passed": 4354,
+    "failed": 0
+  },
+  "total": {
+    "executed": 12,
+    "passed": 12,
+    "failed": 0
+  },
+  "kind": "source and simulated DOM; actual desktop/tablet/mobile review and zoom limits are in FINAL_INTERFACE_REVIEW.md"
+}

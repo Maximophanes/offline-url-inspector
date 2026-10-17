@@ -1,0 +1,463 @@
+{
+  "applicationVersion": "3.1.2",
+  "date": "2026-10-16",
+  "environment": "Codex in-app browser; rendered screenshots personally inspected by the agent",
+  "inputs": "Only built-in synthetic Unicode/ASCII examples and empty inspection fields",
+  "productionPreview": "Local matched site build on loopback port 8777; real service worker",
+  "controlledPreview": "tools/preview_interface.py on loopback port 8778; exact controller and shared application source, in-memory worker fixtures, no real registration",
+  "checks": [
+    {
+      "check": "desktop success feedback left-aligned, green indicator; compact lilac pill right; semantic full-width offline paragraphs",
+      "passed": true,
+      "measurements": {
+        "check": {
+          "h": 36,
+          "w": 142,
+          "x": 80,
+          "y": 683.6796875
+        },
+        "feedback": {
+          "h": 38,
+          "w": 940,
+          "x": 80,
+          "y": 733.6796875
+        },
+        "help": {
+          "h": 42,
+          "w": 168.1875,
+          "x": 80,
+          "y": 784.6796875
+        },
+        "pill": {
+          "h": 36,
+          "w": 105.6953125,
+          "x": 914.3046875,
+          "y": 684.6796875
+        },
+        "summary": {
+          "h": 14,
+          "w": 100.265625,
+          "x": 94,
+          "y": 735.6796875
+        },
+        "viewport": 1100,
+        "width": 1100
+      },
+      "offline": {
+        "panelWidth": 938,
+        "paragraphs": [
+          {
+            "text": "A verified copy of the URL Inspector is stored locally, allowing it to work without an internet connection.",
+            "width": 906
+          },
+          {
+            "text": "Clearing browser data may remove this copy. Other browser profiles or isolated browsing sessions may need to cache the application separately.",
+            "width": 906
+          }
+        ],
+        "whiteSpace": "normal"
+      }
+    },
+    {
+      "check": "desktop main descriptors inline; technical descriptors block; complete original URL retained",
+      "passed": true,
+      "measurements": {
+        "main": [
+          {
+            "display": "inline",
+            "parentY": -51.140625,
+            "y": -49.140625
+          },
+          {
+            "display": "inline",
+            "parentY": 56.25,
+            "y": 58.25
+          }
+        ],
+        "table": [
+          "block",
+          "block",
+          "block"
+        ],
+        "viewport": 1100,
+        "width": 1100
+      }
+    },
+    {
+      "check": "consolidated records accessible by Tab and PageDown; complete original records remain",
+      "passed": true,
+      "measurements": {
+        "focused": true,
+        "h": 650,
+        "records": 7,
+        "scrollHeight": 840,
+        "scrollTop": 190
+      }
+    },
+    {
+      "check": "actual rendered controlled long failure: amber, left-aligned, supporting text aligned under title, no overflow",
+      "passed": true,
+      "measurements": {
+        "check": {
+          "height": 36,
+          "width": 142,
+          "x": 31,
+          "y": 975.25
+        },
+        "explanation": {
+          "height": 36,
+          "width": 332,
+          "x": 45,
+          "y": 1093.25
+        },
+        "pill": {
+          "height": 36,
+          "width": 105.6953125,
+          "x": 271.3046875,
+          "y": 1024.25
+        },
+        "summary": {
+          "height": 14,
+          "width": 116.484375,
+          "x": 45,
+          "y": 1075.25
+        },
+        "tone": "caution",
+        "viewport": 408,
+        "width": 408
+      },
+      "simulated": true
+    },
+    {
+      "check": "desktop no-feedback/success/Apply Update/failure layouts; controls keep document positions and pill stays right",
+      "simulated": true,
+      "measurements": [
+        {
+          "state": "empty",
+          "applyVisible": false,
+          "check": {
+            "h": 36,
+            "w": 142,
+            "x": 80,
+            "y": 867.0703125
+          },
+          "detail": "",
+          "help": {
+            "h": 42,
+            "w": 168.1875,
+            "x": 80,
+            "y": 967.0703125
+          },
+          "pill": {
+            "h": 36,
+            "w": 105.6953125,
+            "x": 914.3046875,
+            "y": 867.0703125
+          },
+          "status": {
+            "h": 38,
+            "w": 940,
+            "x": 80,
+            "y": 916.0703125
+          },
+          "title": "",
+          "viewport": 1100,
+          "width": 1100
+        },
+        {
+          "state": "current",
+          "applyVisible": false,
+          "check": {
+            "h": 36,
+            "w": 142,
+            "x": 80,
+            "y": 867.0703125
+          },
+          "detail": "",
+          "help": {
+            "h": 42,
+            "w": 168.1875,
+            "x": 80,
+            "y": 967.0703125
+          },
+          "pill": {
+            "h": 36,
+            "w": 105.6953125,
+            "x": 914.3046875,
+            "y": 867.0703125
+          },
+          "status": {
+            "h": 38,
+            "w": 940,
+            "x": 80,
+            "y": 916.0703125
+          },
+          "title": "You’re up to date.",
+          "tone": "success",
+          "viewport": 1100,
+          "width": 1100
+        },
+        {
+          "state": "waiting",
+          "applyVisible": true,
+          "check": {
+            "h": 36,
+            "w": 142,
+            "x": 80,
+            "y": 867.0703125
+          },
+          "detail": "Choose Apply Update when you are ready to reload.",
+          "help": {
+            "h": 42,
+            "w": 168.1875,
+            "x": 80,
+            "y": 967.0703125
+          },
+          "pill": {
+            "h": 36,
+            "w": 105.6953125,
+            "x": 914.3046875,
+            "y": 867.0703125
+          },
+          "status": {
+            "h": 38,
+            "w": 940,
+            "x": 80,
+            "y": 916.0703125
+          },
+          "title": "Update ready.",
+          "tone": "progress",
+          "viewport": 1100,
+          "width": 1100
+        },
+        {
+          "state": "failed",
+          "applyVisible": false,
+          "check": {
+            "h": 36,
+            "w": 142,
+            "x": 80,
+            "y": 867.0703125
+          },
+          "detail": "Your current page remains available; try again when online.",
+          "help": {
+            "h": 42,
+            "w": 168.1875,
+            "x": 80,
+            "y": 967.0703125
+          },
+          "pill": {
+            "h": 36,
+            "w": 105.6953125,
+            "x": 914.3046875,
+            "y": 867.0703125
+          },
+          "status": {
+            "h": 38,
+            "w": 940,
+            "x": 80,
+            "y": 916.0703125
+          },
+          "title": "Update check failed.",
+          "tone": "caution",
+          "viewport": 1100,
+          "width": 1100
+        }
+      ],
+      "passed": true
+    },
+    {
+      "check": "tablet 768px: Apply Update beside Check, right-hand pill, full-width paragraphs, no overflow",
+      "simulated": true,
+      "passed": true,
+      "measurements": {
+        "applyVisible": true,
+        "paragraphWidth": 634,
+        "viewport": 768,
+        "width": 768
+      }
+    },
+    {
+      "check": "mobile 390px: all four required update states plus expanded offline details; natural wrapping, no horizontal status movement/overflow",
+      "simulated": true,
+      "measurements": [
+        {
+          "state": "empty",
+          "applyVisible": false,
+          "check": {
+            "h": 36,
+            "w": 142,
+            "x": 31,
+            "y": 974.40625
+          },
+          "pill": {
+            "h": 36,
+            "w": 105.6953125,
+            "x": 253.3046875,
+            "y": 1023.40625
+          },
+          "status": {
+            "h": 38,
+            "w": 328,
+            "x": 31,
+            "y": 1072.40625
+          },
+          "viewport": 390,
+          "width": 390
+        },
+        {
+          "state": "current",
+          "applyVisible": false,
+          "check": {
+            "h": 36,
+            "w": 142,
+            "x": 31,
+            "y": 974.40625
+          },
+          "pill": {
+            "h": 36,
+            "w": 105.6953125,
+            "x": 253.3046875,
+            "y": 1023.40625
+          },
+          "status": {
+            "h": 38,
+            "w": 328,
+            "x": 31,
+            "y": 1072.40625
+          },
+          "viewport": 390,
+          "width": 390
+        },
+        {
+          "state": "waiting",
+          "applyVisible": true,
+          "check": {
+            "h": 36,
+            "w": 142,
+            "x": 31,
+            "y": 974.40625
+          },
+          "pill": {
+            "h": 36,
+            "w": 105.6953125,
+            "x": 253.3046875,
+            "y": 1023.40625
+          },
+          "status": {
+            "h": 38,
+            "w": 328,
+            "x": 31,
+            "y": 1072.40625
+          },
+          "viewport": 390,
+          "width": 390
+        },
+        {
+          "state": "failed",
+          "applyVisible": false,
+          "check": {
+            "h": 36,
+            "w": 142,
+            "x": 31,
+            "y": 974.40625
+          },
+          "pill": {
+            "h": 36,
+            "w": 105.6953125,
+            "x": 253.3046875,
+            "y": 1023.40625
+          },
+          "status": {
+            "h": 56,
+            "w": 328,
+            "x": 31,
+            "y": 1072.40625
+          },
+          "viewport": 390,
+          "width": 390
+        }
+      ],
+      "passed": true
+    },
+    {
+      "check": "mobile structured ASCII context and consolidated complete raw records expanded; no overflow",
+      "simulated": true,
+      "measurements": {
+        "groups": 3,
+        "rawRecords": 4,
+        "rawRegion": "0",
+        "viewport": 390,
+        "width": 390
+      },
+      "passed": true
+    },
+    {
+      "check": "controlled CSS 200% magnification at 1100px; explicitly not native browser zoom",
+      "simulated": true,
+      "passed": true,
+      "measurements": {
+        "zoom": 2,
+        "viewport": 1100,
+        "width": 1100
+      }
+    },
+    {
+      "check": "550px reduced-width reflow with both buttons and expanded details",
+      "simulated": true,
+      "passed": true,
+      "measurements": {
+        "viewport": 550,
+        "width": 550
+      }
+    },
+    {
+      "check": "mobile Input & Normalization retains intentional two-line descriptors and complete original URL",
+      "passed": true,
+      "simulated": true
+    },
+    {
+      "check": "controlled activation timeout: amber dot, accurate pending message, left alignment and unchanged controls",
+      "simulated": true,
+      "passed": true
+    }
+  ],
+  "screenshots": [
+    "preview/v3.1.2-final-ascii.jpg",
+    "preview/v3.1.2-final-controls.jpg",
+    "preview/v3.1.2-final-css-200.jpg",
+    "preview/v3.1.2-final-current.jpg",
+    "preview/v3.1.2-final-diagnostics.jpg",
+    "preview/v3.1.2-final-empty.jpg",
+    "preview/v3.1.2-final-failed.jpg",
+    "preview/v3.1.2-final-labels.jpg",
+    "preview/v3.1.2-final-main-labels.jpg",
+    "preview/v3.1.2-final-mobile-ascii.jpg",
+    "preview/v3.1.2-final-mobile-current.jpg",
+    "preview/v3.1.2-final-mobile-empty.jpg",
+    "preview/v3.1.2-final-mobile-failed.jpg",
+    "preview/v3.1.2-final-mobile-labels.jpg",
+    "preview/v3.1.2-final-mobile-raw.jpg",
+    "preview/v3.1.2-final-mobile-waiting.jpg",
+    "preview/v3.1.2-final-pending.jpg",
+    "preview/v3.1.2-final-raw-records.jpg",
+    "preview/v3.1.2-final-reflow.jpg",
+    "preview/v3.1.2-final-tablet.jpg",
+    "preview/v3.1.2-final-update-failure.jpg",
+    "preview/v3.1.2-final-waiting.jpg"
+  ],
+  "nativeFirefox": {
+    "executed": 0,
+    "reason": "Computer Use permissions are not granted for native Firefox"
+  },
+  "native200PercentZoom": {
+    "executed": false,
+    "reason": "In-app browser exposes viewport but no native zoom capability; attempted keyboard zoom did not change the measured viewport or DPR"
+  },
+  "supplementalMagnification": "200% CSS magnification and 550px reflow were rendered and inspected; neither is counted as native browser zoom",
+  "limitations": [
+    "Native Firefox, native 200% zoom and screen-reader announcements pending",
+    "Controlled update fixtures do not establish actual worker installation or full internet disconnection",
+    "Screenshots alone do not establish frame timing or absence of all repaint flicker"
+  ]
+}

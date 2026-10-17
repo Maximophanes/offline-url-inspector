@@ -1,13 +1,13 @@
 {
   "applicationVersion": "3.1.2",
   "tests": {
-    "executed": 109580,
-    "passed": 109580,
+    "executed": 109600,
+    "passed": 109600,
     "failed": 0
   },
   "assertions": {
-    "executed": 122882,
-    "passed": 122882,
+    "executed": 128867,
+    "passed": 128867,
     "failed": 0
   },
   "commands": [
@@ -33,6 +33,10 @@
     },
     {
       "command": "test:editorial",
+      "passed": true
+    },
+    {
+      "command": "test:interface",
       "passed": true
     },
     {
@@ -168,8 +172,8 @@
         "failed": 0
       },
       "assertions": {
-        "executed": 359,
-        "passed": 359,
+        "executed": 355,
+        "passed": 355,
         "failed": 0
       },
       "status": "executed"
@@ -183,8 +187,23 @@
         "failed": 0
       },
       "assertions": {
-        "executed": 4197,
-        "passed": 4197,
+        "executed": 5799,
+        "passed": 5799,
+        "failed": 0
+      },
+      "status": "executed"
+    },
+    {
+      "report": "interface-results.json",
+      "suite": "V3.1.2 final interface hierarchy and evidence preservation",
+      "tests": {
+        "executed": 12,
+        "passed": 12,
+        "failed": 0
+      },
+      "assertions": {
+        "executed": 4354,
+        "passed": 4354,
         "failed": 0
       },
       "status": "executed"
@@ -208,13 +227,13 @@
       "report": "hosted-bootstrap-results.json",
       "suite": "Hosted cache readiness, update feedback and reviewed reload simulation",
       "tests": {
-        "executed": 56,
-        "passed": 56,
+        "executed": 64,
+        "passed": 64,
         "failed": 0
       },
       "assertions": {
-        "executed": 159,
-        "passed": 159,
+        "executed": 192,
+        "passed": 192,
         "failed": 0
       },
       "status": "executed"

@@ -10,7 +10,7 @@ The implementation-specific controls below are retained from the earlier review 
 
 ## Complete editorial pass: preservation evidence
 
-The current audit preserves all 139 pre-audit complete inspection results and every raw diagnostic code/level/text/order. Source hashes for core/reference/data/base CSS/lockfile/workflow remain exact. **The worker is not byte-identical:** its one plaintext 503 recovery literal was revised for readable, scope-specific recovery. Tests replace only that exact literal and require the original full-file hash; cache/scope/hash/fetch/activation logic therefore remains byte-identical. No existing pin was simply replaced with a new hash.
+The final focused interface pass preserves all 139 pre-audit complete inspection results and every raw diagnostic code/level/text/order. Source hashes for core/reference/data/base CSS/lockfile/workflow remain exact. Relative to the committed 3.1.2 checkpoint, `src/sw.js` is byte-identical. Relative to the older baseline, **the worker is not byte-identical:** its one plaintext 503 recovery literal was revised for readable, scope-specific recovery. Tests replace only that exact literal and require the original full-file hash; cache/scope/hash/fetch/activation logic therefore remains byte-identical. No existing pin was simply replaced with a new hash.
 
 Presentation changes distinguish unavailable, negative, invalid and uncertain results; actual warning severity is retained. Ordinary Unicode is neutral, supported/control evidence remains emphasized, and raw mapping/attribution records are reversible escaped JSON. All untrusted values still enter text nodes. Exact hostname results disclaim comparison of the rest of the URL.
 

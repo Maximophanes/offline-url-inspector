@@ -2,7 +2,7 @@
 <html lang="en"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-REijb2JXCJ98/TkVCbE2vPxyWX5Czm6pN66OEJ6PcS4='; style-src 'sha256-dNTCjoiH7hsTxJ4RmG2V22D2M05wn24oqt8Zt0d83rM='; connect-src 'none'; img-src 'none'; font-src 'none'; object-src 'none'; frame-src 'none'; form-action 'none'; base-uri 'none'; media-src 'none'; worker-src 'self'; manifest-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-33eEMxs2WoWIP5YkNmqYUcnG7mO66lUDNoP1oFJxN4U='; style-src 'sha256-Yi2mtL9fWYSwKtFwZICzA3d6cGBXnJLr7nkekt8giaw='; connect-src 'none'; img-src 'none'; font-src 'none'; object-src 'none'; frame-src 'none'; form-action 'none'; base-uri 'none'; media-src 'none'; worker-src 'self'; manifest-src 'none'">
 <title>URL Inspector · Version 3.1.2</title>
 <style>/* Blackberry & Amethyst — local system fonts, no external assets. */
 :root{
@@ -92,18 +92,19 @@ footer{margin-top:25px}.footer-meta{display:flex;justify-content:space-between;g
 
 #checkCache{min-width:142px}
 /* 3.1.2 editorial structure: deliberate labels, neutral evidence and stable controls. */
-.label-detail{display:block;white-space:nowrap;font-size:10.5px;font-weight:400;color:var(--muted);text-transform:none;letter-spacing:normal;line-height:1.6}.hostname-help{margin:12px 0 0;max-width:78ch}
-.offline-controls{margin-top:12px;min-width:0}.offline-toolbar{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px 20px;min-height:86px}.offline-toolbar .update-panel{display:block;flex:1 1 260px;min-width:0;margin:0}.offline-toolbar .cache-actions,.offline-toolbar .cache-actions:has(>button:not(.hidden)){margin:0}.offline-toolbar .cache-actions button{min-height:36px}
-.offline-toolbar .edition-status{display:inline-flex;align-items:center;gap:8px;flex:0 0 auto;margin-left:auto;min-width:0;width:auto;max-width:100%;min-height:36px;padding:8px 11px;border:1px solid #795b90;border-radius:10px;background:linear-gradient(180deg,#281c35,#1b1226);color:var(--muted);font-size:11px;line-height:18px;white-space:nowrap;text-align:left}
+.label-detail{font-weight:400;color:var(--muted);text-transform:none;letter-spacing:normal}.row .label-detail{display:block;white-space:nowrap;font-size:10.5px;line-height:1.6}.hostname-grid .label-detail{font-size:inherit}.hostname-help{margin:12px 0 0;max-width:78ch}
+.offline-controls{margin-top:24px;min-width:0}.offline-toolbar{display:grid;grid-template-columns:minmax(0,1fr) max-content;align-items:start;gap:13px 16px}.offline-toolbar .update-panel{grid-column:1;grid-row:1;min-width:0;margin:0}.offline-toolbar .cache-actions,.offline-toolbar .cache-actions:has(>button:not(.hidden)){margin:0}.offline-toolbar .cache-actions button{min-height:36px}
+.offline-toolbar .edition-status{grid-column:2;grid-row:1;justify-self:end;display:inline-flex;align-items:center;gap:8px;min-width:0;width:auto;max-width:100%;min-height:36px;margin:0;padding:8px 11px;border:1px solid #795b90;border-radius:10px;background:linear-gradient(180deg,#281c35,#1b1226);color:var(--muted);font-size:11px;line-height:18px;white-space:nowrap;text-align:left}
 .edition-status::before{content:"";width:6px;height:6px;flex:0 0 6px;border-radius:50%;background:var(--accent);box-shadow:0 0 5px rgba(182,135,231,.2)}
-.offline-controls .update-feedback{min-height:40px;margin:6px 0 0;max-width:76ch;text-align:left;overflow-wrap:anywhere}.offline-controls .status-help{display:block;width:fit-content;max-width:100%;margin:8px 0 0}.offline-controls .status-help[open]{width:100%}.offline-controls .status-help>summary{justify-content:flex-start;min-height:36px}.offline-controls .status-help>.panel-body{white-space:pre-line;max-width:78ch;font-size:12px;line-height:1.8;padding:13px 16px 16px}
-.diagnostic>summary{grid-template-columns:minmax(0,1fr) auto}.diagnostic-title{min-width:0;overflow-wrap:anywhere}.diagnostic-explanation{margin:0 0 12px;padding-left:20px;overflow-wrap:anywhere;line-height:1.7}.diagnostic-evidence,.raw-diagnostic{margin:8px 0 12px 20px}.raw-diagnostic>.diagnostic-text{white-space:pre-wrap;margin:0;padding:12px 14px}.diagnostic-kind.diagnostic-text{white-space:normal;font-size:10px}.raw-diagnostic>summary{font-size:11px}
+.offline-controls .update-feedback{grid-column:1/-1;grid-row:2;display:grid;grid-template-columns:6px minmax(0,1fr);align-items:start;gap:8px;min-height:38px;margin:0;text-align:left;overflow-wrap:anywhere;line-height:18px;--update-color:var(--accent)}.update-indicator{width:6px;height:6px;margin-top:6px;border-radius:50%;background:var(--update-color)}.update-feedback[data-state=""] .update-indicator{visibility:hidden}.update-feedback[data-tone="success"]{--update-color:var(--green)}.update-feedback[data-tone="caution"]{--update-color:var(--orange)}.update-feedback[data-tone="error"]{--update-color:var(--red)}.update-message p{margin:2px 0 0}#updateSummary{color:var(--ink)}
+.offline-controls .status-help{display:block;width:max-content;max-width:100%;margin:13px 0 0}.offline-controls .status-help[open]{width:100%}.offline-controls .status-help>summary{justify-content:flex-start;min-height:36px;white-space:nowrap;overflow-wrap:normal;padding:9px 12px}.offline-controls .status-help>.panel-body{font-size:12px;line-height:1.8;padding:13px 16px 16px}.status-help .panel-body p{margin:0}.status-help .panel-body p+p{margin-top:13px}
+.diagnostic>summary{grid-template-columns:minmax(0,1fr) auto}.diagnostic-title{min-width:0;overflow-wrap:anywhere}.diagnostic-explanation{margin:0 0 12px;padding-left:20px;overflow-wrap:anywhere;line-height:1.7}.diagnostic-evidence{margin:8px 0 12px 20px}.raw-diagnostics{margin-top:15px}.raw-record-list{max-height:65vh;overflow:auto;padding:0 14px 14px}.raw-record-list:focus-visible{outline:2px solid var(--hover);outline-offset:-3px;border-radius:8px}.raw-diagnostic-record{padding:14px 0;border-bottom:1px solid var(--line)}.raw-diagnostic-record:last-child{border-bottom:0}.raw-record-title{font-size:12px;margin:0 0 9px;color:var(--ink);overflow-wrap:anywhere}.raw-diagnostic-record .diagnostic-text{white-space:pre-wrap;margin:0 0 10px;padding:0}.raw-diagnostic-record .diagnostic-kind{white-space:normal;font-size:10px;margin:0;overflow-wrap:anywhere}
 .ascii-group{padding:10px 0 15px;border-bottom:1px solid var(--line-soft)}.ascii-group:last-child{border-bottom:0}.ascii-group .row{font-size:12px;grid-template-columns:145px minmax(0,1fr);padding:8px 0}.occurrence-count{margin:8px 0}.diagnostic-occurrences{padding-left:20px;margin:7px 0 10px;font-size:11px;overflow-wrap:anywhere}.occurrence-progress{margin:8px 0}.ascii-group button{margin-top:4px}
 .character-mapping{margin:8px 12px 12px}.character[data-tone="information"]{border-color:var(--line-soft)}.badchar[data-tone="information"]{background:#342046;color:var(--ink);border-color:var(--accent)}.badchar[data-tone="caution"]{background:#75263f;color:#fff4f7;border-color:#f5a0b3}.mapping-value{white-space:pre-wrap;overflow-wrap:anywhere}.raw-character pre{white-space:pre-wrap;overflow-wrap:anywhere;margin:0;font:11px/1.7 var(--mono)}.character-mapping .category-body{padding:11px 13px 13px}
 .comparison-evidence{padding:9px 0 15px;border-bottom:1px solid var(--line-soft)}.comparison-evidence:last-child{border-bottom:0}.comparison-evidence .row{font-size:12px}.comparison-evidence>.observation{margin-top:6px}.comparison-evidence>.observation>.observation{margin:0 12px 12px}.comparison-unavailable{padding:10px 0}
 .field-error{color:var(--red);margin:7px 0 0}.form-status{min-height:40px;margin:9px 0 0;overflow-wrap:anywhere}.form-status[data-tone="success"]{color:var(--green)}.form-status[data-tone="information"]{color:var(--muted)}.form-status[data-tone="caution"]{color:var(--orange)}.form-status[data-tone="error"],#storageStatus[data-tone="error"]{color:var(--red)}
 #importSummary p{margin:5px 0}.import-change-group{padding:10px 0;border-top:1px solid var(--line-soft)}.import-change-group h3{font-size:12px;margin:0 0 7px;color:var(--muted)}.import-change-group .mono{white-space:pre-wrap}#importChanges:focus-visible{outline:2px solid var(--hover);outline-offset:3px;border-radius:4px}#hostnameTerms dt{font-weight:650;color:var(--ink);margin-top:10px}#hostnameTerms dt:first-child{margin-top:0}#hostnameTerms dd{margin:3px 0 12px}
-@media(max-width:620px){.offline-toolbar{gap:6px;min-height:0}.offline-toolbar .update-panel{flex-basis:100%}.offline-controls .update-feedback{min-height:60px}.offline-toolbar .edition-status{margin-top:2px}.ascii-group .row{grid-template-columns:1fr;gap:3px}.diagnostic-evidence,.raw-diagnostic{margin-left:8px}.diagnostic-severity{grid-column:2;grid-row:1}}
+@media(max-width:620px){.offline-toolbar{grid-template-columns:minmax(0,1fr)}.offline-toolbar .edition-status{grid-column:1;grid-row:2}.offline-controls .update-feedback{grid-row:3}.ascii-group .row{grid-template-columns:1fr;gap:3px}.diagnostic-evidence{margin-left:8px}.diagnostic-severity{grid-column:2;grid-row:1}.raw-record-list{padding:0 10px 10px}}
 </style>
 </head><body><main class="wrap">
 <header class="masthead">
@@ -121,10 +122,11 @@ footer{margin-top:25px}.footer-meta{display:flex;justify-content:space-between;g
 <div class="interaction-meta"><span id="shortcutHint" class="shortcut">⌘ + Return to inspect</span></div>
 <div class="offline-controls">
 <div class="offline-toolbar">
-<div id="updatePanel" class="update-panel "><div class="line cache-actions"><button id="checkCache" class="ghost small" type="button" disabled>Check for Updates</button><button id="applyUpdate" class="ghost small hidden" type="button" aria-label="Apply update and reload the app">Apply Update</button></div><p id="updateStatus" class="small update-feedback" role="status" aria-live="polite" aria-atomic="true"></p></div>
+<div id="updatePanel" class="update-panel "><div class="line cache-actions"><button id="checkCache" class="ghost small" type="button" disabled>Check for Updates</button><button id="applyUpdate" class="ghost small hidden" type="button" aria-label="Apply update and reload the app">Apply Update</button></div></div>
 <span id="offlineStatus" class="edition-status" role="status" aria-label="Application offline access">Offline access</span>
+<div id="updateStatus" class="small update-feedback " role="status" aria-live="polite" aria-atomic="true" data-state=""><span class="update-indicator" aria-hidden="true"></span><div class="update-message"><span id="updateSummary"></span><p id="updateExplanation" class="hidden"></p></div></div>
 </div>
-<details id="offlineHelp" class="disclosure status-help "><summary>Offline access details</summary><div class="panel-body small" id="offlineDetail">Checking whether a verified offline copy is available. Readiness has not yet been confirmed.</div></details>
+<details id="offlineHelp" class="disclosure status-help "><summary>Offline access details</summary><div class="panel-body small" id="offlineDetail"><p>Checking whether a verified offline copy is available. Readiness has not yet been confirmed.</p></div></details>
 </div>
 </section>
 <details class="card disclosure major" id="referencePanel"><summary><span>Reference Domains</span><span class="count" id="referenceCount">0 saved</span></summary>
@@ -185,7 +187,7 @@ footer{margin-top:25px}.footer-meta{display:flex;justify-content:space-between;g
 <div class="row"><div class="key">Fragment</div><div id="fragment" class="value mono"></div></div>
 </div></details>
 <details class="disclosure category" id="referencesDetails"><summary>Reference Comparisons</summary><div id="referenceCandidates" class="category-body small"></div></details>
-<details class="disclosure category" id="diagnosticDetails"><summary>Full Diagnostic Log</summary><div class="category-body"><p class="small">Detailed analysis findings. Multiple observations may relate to the same underlying issue.</p><div id="messages" class="diagnostic-list"></div></div></details>
+<details class="disclosure category" id="diagnosticDetails"><summary>Full Diagnostic Log</summary><div class="category-body"><p class="small">Detailed analysis findings. Multiple observations may relate to the same underlying issue.</p><div id="messages" class="diagnostic-list"></div><details id="rawDiagnostics" class="disclosure observation raw-diagnostics"><summary>Raw Diagnostic Records</summary><div id="rawRecords" class="raw-record-list" tabindex="0" role="region" aria-label="Complete original diagnostic records"></div></details></div></details>
 </div></details></section>
 <details class="disclosure supporting-panel" id="understanding"><summary>Understanding Your Results</summary><div class="panel-body">
 <p>The URL Inspector examines a link's hostname, characters, and structure without visiting its destination. It can identify deceptive spellings, unusual characters, suspicious URL syntax, and similarities to expected or saved reference hostnames.</p>
@@ -901,8 +903,10 @@ function note(message,result){
  if(message.code==='ascii-ambiguity'){
   const evidence=element('details','','disclosure observation diagnostic-evidence');evidence.appendChild(element('summary','All ASCII Observations'));const body=element('div','','category-body');asciiGroups(body,result.asciiAmbiguities);evidence.appendChild(body);record.appendChild(evidence);
  }
- const raw=element('details','','disclosure observation raw-diagnostic');raw.append(element('summary','Technical evidence'),element('p',message.text,'diagnostic-text small mono'),element('p','Category: '+display.category+' · Severity: '+display.severity+' · Code: '+message.code,'diagnostic-kind diagnostic-text'));
- record.appendChild(raw);$('messages').appendChild(record);
+ $('messages').appendChild(record);
+ const raw=element('article','','raw-diagnostic-record');raw.dataset.code=message.code;raw.dataset.level=message.level;raw.dataset.category=display.category;
+ raw.append(element('h3','Record '+($('rawRecords').children.length+1)+' · '+message.code,'raw-record-title'),element('p',message.text,'diagnostic-text small mono'),element('p','Category: '+display.category+' · Severity: '+display.severity+' · Original level: '+message.level+' · Code: '+message.code,'diagnostic-kind'));
+ $('rawRecords').appendChild(raw);
 }
 function highlighted(target,text,relevantCharacter=null){clear(target);for(const ch of text){const c=Inspector.info(ch),span=element('span',Inspector.visible(ch));if(c.nonASCII||c.invisible){span.className='badchar';span.dataset.tone=c.invisible||ch===relevantCharacter?'caution':'information';span.title=c.code+' · '+c.name;}target.appendChild(span);}}
 function characterChips(target,characters,original,result,comparisonTarget){
@@ -967,7 +971,7 @@ function comparisonEvidence(result,source,hostname,kind,comparison){
  $('referenceCandidates').appendChild(record);
 }
 function render(r){
-  $('results').classList.remove('hidden');for(const id of ['messages','coloredHost','chars','originalChars','supporting','relevantSubstitutions','referenceCandidates','asciiObservations'])clear($(id));
+  $('results').classList.remove('hidden');for(const id of ['messages','rawRecords','coloredHost','chars','originalChars','supporting','relevantSubstitutions','referenceCandidates','asciiObservations'])clear($(id));
   for(const id of ['ascii','unicode','original','decodedOriginal','normalized','scripts','scheme','port','path','query','fragment','compare','comparisonResult','referenceComparison'])set(id,'—');
   $('compare').className='value mono';$('comparisonResult').className='value';
   const refs=ReferenceDomains.compare(r,referenceStore.snapshot().references),summary=Presentation.summarize(r,refs,!!lastManual.trim());
@@ -975,7 +979,7 @@ function render(r){
   $('primary').dataset.kind=summary.kind;set('primaryTitle',summary.title);set('primaryDetail',Presentation.explain(r,summary));
   set('raw',Inspector.visible(r.raw.slice(0,Inspector.MAX_INPUT))+(r.raw.length>Inspector.MAX_INPUT?'\n[Display shortened. The full original URL remains in the input field.]':''));
   set('attributionRaw',r.original?rawText(r.original):'No original hostname was identified.');
-  for(const m of r.messages)note(m,r);
+  $('rawDiagnostics').open=false;$('rawDiagnostics').classList.toggle('hidden',!r.messages.length);for(const m of r.messages)note(m,r);
   let target=null;try{if(summary.target)target=Inspector.expectedHost(summary.target);}catch{}
   const difference=summary.kind==='visual'?Presentation.unicodeDifference(r,target):null;
   if(r.original){if(r.original.original!==undefined)highlighted($('original'),r.original.original,difference?.actual.ch);else set('original','The original hostname could not be identified with certainty. See the technical evidence.');set('decodedOriginal',r.original.decoded===undefined?'Could not be decoded':Inspector.visible(r.original.decoded)+(r.original.reliable?'':' (unverified)'));}
@@ -1009,7 +1013,7 @@ function render(r){
 function analyze(){
   lastManual=$('expected').value;
   try{lastResult=Inspector.inspect($('link').value,lastManual);render(lastResult);}
-  catch{lastResult=null;$('results').classList.remove('hidden');for(const id of ['messages','coloredHost','chars','originalChars','supporting','relevantSubstitutions','referenceCandidates','asciiObservations'])clear($(id));for(const id of ['ascii','unicode','original','decodedOriginal','normalized','scripts','scheme','port','path','query','fragment','compare','comparisonResult','referenceComparison'])set(id,'—');set('raw',Inspector.visible($('link').value.slice(0,Inspector.MAX_INPUT))+($('link').value.length>Inspector.MAX_INPUT?'\n[Display shortened. The full original URL remains in the input field.]':''));set('attributionRaw','Original hostname evidence is unavailable because inspection failed.');$('asciiDetails').classList.add('hidden');set('primaryTitle','Inspection could not be completed');set('primaryDetail','No result is available. Check the input and try again.');fieldError('inspectionError','link','Inspection could not be completed. Your original text is still in the input field.');fieldError('expectedError','expected','');$('primary').dataset.kind='error';}
+  catch{lastResult=null;$('rawDiagnostics').open=false;$('rawDiagnostics').classList.add('hidden');$('results').classList.remove('hidden');for(const id of ['messages','rawRecords','coloredHost','chars','originalChars','supporting','relevantSubstitutions','referenceCandidates','asciiObservations'])clear($(id));for(const id of ['ascii','unicode','original','decodedOriginal','normalized','scripts','scheme','port','path','query','fragment','compare','comparisonResult','referenceComparison'])set(id,'—');set('raw',Inspector.visible($('link').value.slice(0,Inspector.MAX_INPUT))+($('link').value.length>Inspector.MAX_INPUT?'\n[Display shortened. The full original URL remains in the input field.]':''));set('attributionRaw','Original hostname evidence is unavailable because inspection failed.');$('asciiDetails').classList.add('hidden');set('primaryTitle','Inspection could not be completed');set('primaryDetail','No result is available. Check the input and try again.');fieldError('inspectionError','link','Inspection could not be completed. Your original text is still in the input field.');fieldError('expectedError','expected','');$('primary').dataset.kind='error';}
 }
 function cancelImport(){importPlan=null;importText='';referenceStore.cancelImport();$('importReview').classList.add('hidden');$('importFile').value='';}
 function refreshReferences(){
@@ -1079,14 +1083,41 @@ set('license',"UNICODE LICENSE V3\n\nCOPYRIGHT AND PERMISSION NOTICE\n\nCopyrigh
 
 'use strict';
 // Fixed application lifecycle only. No inspected input enters a fetch or message.
+function offlineDescription(text){
+ const target=document.getElementById('offlineDetail');
+ if([...target.children].map(p=>p.textContent).join('\n\n')===text)return;
+ target.replaceChildren(...text.split('\n\n').map(text=>{const p=document.createElement('p');p.textContent=text;return p;}));
+}
 const HostedOffline=(()=>{
  const PATH='/offline-url-inspector/';
  let registration=null,workerURL='',scopeURL='',reloadRequested=false,checking=null,applying=false,connecting=null,refreshing=null;
  let registrationPending=false,preparationExpired=false,preparationTimer=null,feedbackType='';
  const watched=new WeakSet(),watchedRegistrations=new WeakSet();
  const el=id=>document.getElementById(id);
- function status(short,detail){if(el('offlineStatus').textContent!==short)el('offlineStatus').textContent=short;if(el('offlineDetail').textContent!==detail)el('offlineDetail').textContent=detail;el('offlineHelp').classList.remove('hidden');}
- const feedback=(text,type='information')=>{feedbackType=type;if(el('updateStatus').textContent!==text)el('updateStatus').textContent=text;};
+ function status(short,detail){if(el('offlineStatus').textContent!==short)el('offlineStatus').textContent=short;offlineDescription(detail);el('offlineHelp').classList.remove('hidden');}
+ const feedbackMessages={
+  checking:['Checking for updates…','','progress'],
+  current:['You’re up to date.','','success'],
+  preparing:['Preparing the new version…','','progress','preparing'],
+  ready:['Update ready.','Choose Apply Update when you are ready to reload.','progress','waiting'],
+  notReady:['Update not ready.','Reconnect and try Apply Update again.','caution','waiting'],
+  offline:['Update check unavailable.','You’re offline. Reconnect and try again.','caution'],
+  checkFailed:['Update check failed.','Your current page remains available; try again when online.','caution'],
+  unverified:['Offline access unverified.','The current page is available, but an offline copy could not be confirmed.','caution'],
+  prepareFailed:['Update preparation failed.','The current page remains available. Reconnect and check for updates again.','caution'],
+  changed:['Available update changed.','Check for updates again before applying it.','caution'],
+  applying:['Applying the update…','Keep this tab open.','progress'],
+  pending:['Update still pending.','The update has not finished applying. Your current page remains open; reconnect and try again.','caution'],
+  applyFailed:['Update could not be applied.','Your current page remains open; try again when online.','caution'],
+  applied:['Update applied.','Reloading the app…','success'],
+  setupFailed:['Offline setup unavailable.','Reconnect and try Check for Updates, or use the standalone file.','caution']
+ };
+ const feedback=(key='')=>{
+  const [title='',detail='',tone='progress',type='information']=feedbackMessages[key]||[];
+  feedbackType=type;el('updateStatus').dataset.state=key;el('updateStatus').dataset.tone=tone;
+  for(const [id,text]of [['updateSummary',title],['updateExplanation',detail]])if(el(id).textContent!==text)el(id).textContent=text;
+  el('updateExplanation').classList.toggle('hidden',!detail);
+ };
  // A timed-out browser operation may still finish; attach no success claims to it.
  function bounded(operation,ms){return new Promise(resolve=>{
   let settled=false;
@@ -1115,7 +1146,7 @@ const HostedOffline=(()=>{
   const short=state.ready?'Offline ready':preparing?(state.installing?'Preparing offline access…':'Offline access'):'Offline access unavailable';
   const detail=state.ready?'A verified copy of the URL Inspector is stored locally, allowing it to work without an internet connection.\n\nClearing browser data may remove this copy. Other browser profiles or isolated browsing sessions may need to cache the application separately.':preparing?'Checking for a verified offline copy. Readiness has not yet been confirmed.':'A verified offline copy could not be confirmed. Inspection still works in this open page.\n\nReconnect and check for updates, or use the standalone HTML file. A new browser profile or isolated session may need its own online visit first.';
   status(short,detail);
-  if(state.waiting&&!checking)feedback(state.waitingReady?'Update ready. Choose Apply Update when you are ready to reload.':'Update not ready. Reconnect and try Apply Update again.','waiting');
+  if(state.waiting&&!checking)feedback(state.waitingReady?'ready':'notReady');
   else if(!state.waiting&&!state.installing&&!checking&&['waiting','preparing'].includes(feedbackType))feedback('');
  }
  function refresh(){
@@ -1134,10 +1165,10 @@ const HostedOffline=(()=>{
  }
  function watch(){
   for(const worker of [registration?.active,registration?.waiting,registration?.installing])if(worker&&!watched.has(worker)){
-   watched.add(worker);worker.addEventListener('statechange',async()=>{watch();const state=await refresh();if(worker.state==='redundant'&&!state.waiting)feedback('The new version could not be prepared. Your current page remains available. Reconnect and check for updates again.');});
+   watched.add(worker);worker.addEventListener('statechange',async()=>{watch();const state=await refresh();if(worker.state==='redundant'&&!state.waiting)feedback('prepareFailed');});
   }
   if(registration&&!watchedRegistrations.has(registration)){
-   watchedRegistrations.add(registration);registration.addEventListener('updatefound',()=>{preparationExpired=false;watch();feedback('Preparing the new version…','preparing');refresh();});
+   watchedRegistrations.add(registration);registration.addEventListener('updatefound',()=>{preparationExpired=false;watch();feedback('preparing');refresh();});
   }
  }
  function connect(allowRegister){
@@ -1157,17 +1188,17 @@ const HostedOffline=(()=>{
  }
  function check(){
   if(checking)return checking;
-  el('checkCache').disabled=true;el('checkCache').textContent='Checking…';feedback('Checking for updates…');
+  el('checkCache').disabled=true;el('checkCache').textContent='Checking…';feedback('checking');
   checking=(async()=>{
    const offline=navigator.onLine===false,connection=await connect(!offline);let failed=false;
    if(!offline){if(!registration)failed=true;else if(!connection.created)failed=!(await bounded(()=>registration.update(),6000)).ok;}
    const state=await refresh();
-   if(offline)feedback('Update check unavailable while offline. Reconnect to try again.');
-   else if(failed)feedback('Could not check for updates. Your current page remains available; try again when online.');
-   else if(state.waiting)feedback(state.waitingReady?'Update ready. Choose Apply Update when you are ready to reload.':'Update not ready. Reconnect and try Apply Update again.','waiting');
-   else if(state.installing)feedback('Preparing the new version…','preparing');
-   else feedback(state.ready?'You’re up to date.':'The current page is available, but offline access could not be verified.');
-  })().catch(()=>{feedback('Could not check for updates. Try again when online.');}).finally(()=>{el('checkCache').disabled=false;el('checkCache').textContent='Check for Updates';checking=null;});
+   if(offline)feedback('offline');
+   else if(failed)feedback('checkFailed');
+   else if(state.waiting)feedback(state.waitingReady?'ready':'notReady');
+   else if(state.installing)feedback('preparing');
+   else feedback(state.ready?'current':'unverified');
+  })().catch(()=>{feedback('checkFailed');}).finally(()=>{el('checkCache').disabled=false;el('checkCache').textContent='Check for Updates';checking=null;});
   return checking;
  }
  async function start(){
@@ -1177,7 +1208,7 @@ const HostedOffline=(()=>{
   scopeURL=new URL('./',url).href;workerURL=new URL('sw.js',scopeURL).href;
   el('updatePanel').classList.remove('hidden');el('checkCache').disabled=false;
   navigator.serviceWorker.addEventListener('controllerchange',()=>{
-   if(reloadRequested){reloadRequested=false;feedback('Update applied. Reloading the app…');location.reload();}
+   if(reloadRequested){reloadRequested=false;feedback('applied');location.reload();}
    else connect(false).then(refresh);
   });
   el('checkCache').addEventListener('click',check);
@@ -1187,17 +1218,17 @@ const HostedOffline=(()=>{
     const waiting=registration.waiting,store=typeof referenceStore==='undefined'?null:referenceStore.snapshot(),sessionReferences=store&&store.mode!=='browser'&&store.references.length>0;
     const editing=['link','expected','referenceInput'].some(id=>el(id).value)||!el('importReview').classList.contains('hidden')||sessionReferences||el('results')&&!el('results').classList.contains('hidden');
     if(editing&&!await confirmAction({title:'Apply Update and Reload?',message:'Applying the update reloads the app. Current URL text, results and unapplied edits or imports will be cleared.'+(sessionReferences?'\n\nReferences that exist only in this tab will also be lost. Choose Cancel and export a backup if you need to keep them.':'\n\nThe update does not change reference data already saved in browser storage.'),confirmLabel:'Apply and Reload'}))return;
-    if(registration.waiting!==waiting){feedback('The available update changed. Check for updates again before applying it.');return;}
-    reloadRequested=true;feedback('Applying the update… Keep this tab open.');waiting.postMessage({type:'ACTIVATE_REVIEWED_UPDATE'});
-    setTimeout(()=>{if(reloadRequested){reloadRequested=false;feedback('The update has not finished applying. Your current page remains open; reconnect and try again.');}},10000);
-   }catch{reloadRequested=false;feedback('The update could not be applied. Your current page remains open; try again when online.');}finally{applying=false;}
+    if(registration.waiting!==waiting){feedback('changed');return;}
+    reloadRequested=true;feedback('applying');waiting.postMessage({type:'ACTIVATE_REVIEWED_UPDATE'});
+    setTimeout(()=>{if(reloadRequested){reloadRequested=false;feedback('pending');}},10000);
+   }catch{reloadRequested=false;feedback('applyFailed');}finally{applying=false;}
   });
   window.addEventListener('online',check);
   // A verified controller can answer even while registration discovery is delayed.
   registrationPending=true;const initial=refresh();await connect(true);await initial;const state=await refresh();
-  if(!registration&&!state.ready)feedback('Offline setup could not be completed. Reconnect and try Check for Updates, or use the standalone file.');
+  if(!registration&&!state.ready)feedback('setupFailed');
  }
  return Object.freeze({start});
 })();
-const hostedStartup=HostedOffline.start().catch(()=>{document.getElementById('offlineStatus').textContent='Offline access unavailable';document.getElementById('offlineDetail').textContent='Offline access could not be checked. Inspection still works in this page; reload when online or use the standalone HTML file.';document.getElementById('offlineHelp').classList.remove('hidden');});
+const hostedStartup=HostedOffline.start().catch(()=>{document.getElementById('offlineStatus').textContent='Offline access unavailable';offlineDescription('Offline access could not be checked. Inspection still works in this page; reload when online or use the standalone HTML file.');document.getElementById('offlineHelp').classList.remove('hidden');});
 </script></body></html>
