@@ -1,11 +1,11 @@
 {
   "applicationVersion": "3.1.2",
   "date": "2026-10-16",
-  "status": "pass within automated and in-app scope; native Firefox and native zoom pending",
+  "status": "pass within focused automated and rendered in-app scope",
   "repository": "Maximophanes/offline-url-inspector",
   "origin": "https://github.com/Maximophanes/offline-url-inspector.git",
   "branch": "dev/v3.1.2",
-  "headUnchanged": "1a6b9a39c22b44a52cd2e9c8879dc4aba2482fe8",
+  "headUnchanged": "9b017bd6a145fe664e26cf421f24db134c3fa24e",
   "mainUnchanged": "7909623ba5d2a33a51aaafa0bb72ca576959c546",
   "uncommitted": true,
   "stagedFiles": [],
@@ -13,12 +13,25 @@
     "src/core.js": "b72aed56d0a1a65856611c8c3c3569436d383c5acc151386b364649cdbf5cf42",
     "src/references.js": "6017e9dbb9806f5192a9691870fb82587220a8c8a3d165cfd0403e5c1d705d23",
     "src/sw.js": "fb139641d523d4761b555825bd1365d53f553ee0c8fb2f6583c854fcc3f75034",
+    "src/hosted.js": "1fa488dea88060d8b6f404133c7a85458996d8761d036c7b3d3346bfc5449673",
     "src/base.css": "4b05accd9c83c870f9e4ef74741161784f0eb45387fe0b505466167df288a3f9",
-    "src/presentation.js": "85e9a44c8cf4c88fcf08ef4839461d4489ab51328303f483d7ee5d9348dda1bf",
-    "data/unicode-data.json": "806135e914efe7978ca23124b2ad4472b5643adbb766dc1ab799b3ca1c7a5dc1",
-    "data/LICENSE.txt": "e7a93b009565cfce55919a381437ac4db883e9da2126fa28b91d12732bc53d96",
     "deno.lock": "826bb68fd80f677b365a1fc1d488696b9225319d6f56a8f9ca86e2d152c17d29",
-    ".github/workflows/deploy-pages.yml": "e99e0ac790b286e5a77d38eb11ebbb64afb492217cde8334153b9a4221b9e1a7"
+    ".github/workflows/deploy-pages.yml": "e99e0ac790b286e5a77d38eb11ebbb64afb492217cde8334153b9a4221b9e1a7",
+    "data/DerivedBidiClass.txt": "d9e23222522551348ea1ccfbb4f62efbf98982afb95840f8959c08ed992c5607",
+    "data/DerivedCoreProperties.txt": "09c928886a178fcafd93c29e4bd59073a058e5a100b716d425cb563ab50f68c9",
+    "data/IdnaMappingTable.txt": "a03b1eb38032268c696406a83f0972d6a815acd2c8d4151d42ec0fda70ffced1",
+    "data/IdnaTestV2.txt": "0236b75c5b20dfd857b3b5cf75509887959d6ab00d6c7bda9b7dc3df518c1fde",
+    "data/LICENSE.txt": "e7a93b009565cfce55919a381437ac4db883e9da2126fa28b91d12732bc53d96",
+    "data/NormalizationTest.txt": "25a50d816764b04abfb4a646d3eb2b2a803284c3873d9a06757b94fe4513dde3",
+    "data/PropertyValueAliases.txt": "06c4c8eaf7b0bf34abe73b113da1215bd784ac254d4c223600b90267caa4bbbd",
+    "data/ReadMe.txt": "b0ea442f29dee90584aacd3665a6e1ce87ffc917a4d31f34e1916d2d6f7f9205",
+    "data/ScriptExtensions.txt": "5c9d34a922f687726f2a8bcf57d49f905987e51f1b21b58c95a00fbe255cec23",
+    "data/Scripts.txt": "0071fd81b6aeae25f6e8bce8efec3066a6476a91b49bdb2f52dc76e817862a6a",
+    "data/UnicodeData.txt": "0736451de439ae7baf1425136617da495e09ee5afbe6e394374db7009ea08950",
+    "data/confusables.txt": "6ed3ee967c9dfdf6677d563c9985182fbc50a2efb7d6059cd57b2e2ce18f5b92",
+    "data/manifest.json": "a45e2b7ecc25ff75459f696ac0f15a892f8cee3f7b5f3c9a7b16805c6c68811a",
+    "data/unicode-data.json": "806135e914efe7978ca23124b2ad4472b5643adbb766dc1ab799b3ca1c7a5dc1",
+    "data/unicode-data.sha256": "cf7153e37416a5f919333e0068325b49026451da2c295768ab1ca242d4a8eadd"
   },
   "allTrackedUnicodeDataFilesByteIdentical": 15,
   "originalDevelopmentResults": {
@@ -57,11 +70,11 @@
   "deterministicBuild": {
     "passed": true,
     "sha256": {
-      "standalone/Offline_URL_Inspector.html": "f5d32f4d37cf7e390bce4abc5571439b6eae17f48c63d8d199ae2d6b35a6187f",
-      "site/index.html": "b7cfb7016cd1b04ece59783f5a6c15edae12bd0b473a7276af829551d1060bc2",
-      "site/sw.js": "f2d105ef3b421eef59362e47fc6b91bd2a23713b214293bf01ad9ed2ae68a4ce",
+      "standalone/Offline_URL_Inspector.html": "1b405a733ea3df4a64ad29bb6d5954090d77365ba2fbd061d581e78f23d4f46d",
+      "site/index.html": "d250dc52a254a5a004d56401503cf6c7946264a4f6ef78ceb17cde1a03ed3c52",
+      "site/sw.js": "f9160913fedff49c260b8b65eb5cd880de9265662369382b067717378a4a9a04",
       "site/.nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "build-manifest.json": "2f2067c3d6c5ce71449c22ecb50a81f714401af74ddd86b6cfc4ef76981c173a"
+      "build-manifest.json": "07b14deef1815f1a340a2e0517441ed607837a76dfb0ff464aecdf39339de2a3"
     }
   },
   "csp": {
@@ -69,12 +82,135 @@
     "policyRelaxed": false,
     "runtimeExternalDependenciesAdded": false
   },
-  "release": "3.1.2-b7cfb7016cd1b04e",
+  "release": "3.1.2-d250dc52a254a5a0",
   "documentationLinks": {
     "allExist": true,
-    "checked": 62
+    "checked": 97
   },
-  "finalSuite": {
+  "copyInventory": "tests/copy-inventory.json",
+  "editorialAudit": "COPY_AUDIT.md",
+  "actualBrowser": "tests/reference-browser-preview.json",
+  "actualFirefoxVersion3_1_2Assertions": 0,
+  "userReportedBaseline": "Version 3.1.1 Firefox/macOS; earlier V3.1.2 persistent startup fix reported working; see tests/user-baseline-verification.json",
+  "published": false,
+  "committed": false,
+  "pushed": false,
+  "merged": false,
+  "pullRequestCreated": false,
+  "repositorySettingsChanged": false,
+  "knownLimits": [
+    "Native Firefox and screen readers not tested in this focused pass; controlled storage/export failures are simulations, and file:// persistence/actual disk download delivery remain unverified.",
+    "Historical application ordering defect reproduced; no fresh Firefox-internal trace captured",
+    "No frame-by-frame Firefox repaint/flicker elimination claim",
+    "19 native Deno IDNA discrepancies unchanged; independent ICU diagnostic matches official outputs"
+  ],
+  "failures": [],
+  "distributionChecksums": {
+    "path": "SHA256SUMS",
+    "fileCount": 188,
+    "exclusions": [
+      "SHA256SUMS itself",
+      "Git metadata",
+      "ignored files"
+    ],
+    "verified": true
+  },
+  "startingCommittedCheckpoint": "9b017bd6a145fe664e26cf421f24db134c3fa24e",
+  "focusedInterfacePreservation": {
+    "fixtures": 139,
+    "completeResultsAndRecordsSHA256": "fba9fc3018576c81655312c2151698da934b2dd3dbdee33ed48cce9ca482c314",
+    "independentlyReproducedFromCommittedHEAD": true,
+    "completeOriginalRecordsRenderedInOrder": true,
+    "proof": "tests/interface.mjs",
+    "baseline": "tests/interface-baseline.json"
+  },
+  "focusedReview": "REFERENCE_DOMAINS_REVIEW.md",
+  "native200PercentZoomVerified": false,
+  "privacy": {
+    "privateAbsoluteHomeOrRepositoryPathInPendingFiles": false,
+    "workingDirectoryFieldAbsent": true,
+    "screenshots": "33 inspected screenshots; example.com and synthetic .invalid references only; no personal inputs"
+  },
+  "pendingFiles": [
+    "CHANGELOG.md",
+    "COPY_AUDIT.md",
+    "EDITORIAL_STYLE_GUIDE.md",
+    "README.md",
+    "REFERENCE_DOMAINS_REVIEW.md",
+    "SHA256SUMS",
+    "TEST_RESULTS.md",
+    "build-manifest.json",
+    "deno.json",
+    "preview/v3.1.2-references-conflict.jpg",
+    "preview/v3.1.2-references-duplicate.jpg",
+    "preview/v3.1.2-references-exportFailure-details.jpg",
+    "preview/v3.1.2-references-exportFailure.jpg",
+    "preview/v3.1.2-references-exportSuccess.jpg",
+    "preview/v3.1.2-references-failedStorage.jpg",
+    "preview/v3.1.2-references-hosted-clear-confirm.jpg",
+    "preview/v3.1.2-references-hosted-cleared.jpg",
+    "preview/v3.1.2-references-hosted-edited.jpg",
+    "preview/v3.1.2-references-hosted-empty-error.jpg",
+    "preview/v3.1.2-references-hosted-empty.jpg",
+    "preview/v3.1.2-references-hosted-help.jpg",
+    "preview/v3.1.2-references-hosted-multiple.jpg",
+    "preview/v3.1.2-references-hosted-removed.jpg",
+    "preview/v3.1.2-references-hosted-saved.jpg",
+    "preview/v3.1.2-references-importEmpty.jpg",
+    "preview/v3.1.2-references-importLong.jpg",
+    "preview/v3.1.2-references-importMalformed.jpg",
+    "preview/v3.1.2-references-importPreview.jpg",
+    "preview/v3.1.2-references-malformed.jpg",
+    "preview/v3.1.2-references-mobile-empty.jpg",
+    "preview/v3.1.2-references-mobile-exportFailure.jpg",
+    "preview/v3.1.2-references-mobile-failedStorage.jpg",
+    "preview/v3.1.2-references-mobile-hosted-empty-error.jpg",
+    "preview/v3.1.2-references-mobile-hosted-help.jpg",
+    "preview/v3.1.2-references-mobile-importLong.jpg",
+    "preview/v3.1.2-references-mobile-importPreview.jpg",
+    "preview/v3.1.2-references-mobile-malformed.jpg",
+    "preview/v3.1.2-references-mobile-session.jpg",
+    "preview/v3.1.2-references-overlength.jpg",
+    "preview/v3.1.2-references-protected-help.jpg",
+    "preview/v3.1.2-references-protected.jpg",
+    "preview/v3.1.2-references-session.jpg",
+    "site/index.html",
+    "site/sw.js",
+    "src/presentation.js",
+    "src/template.html",
+    "src/ui.js",
+    "src/v3.css",
+    "standalone/Offline_URL_Inspector.html",
+    "tests/clarity-results.json",
+    "tests/clarity.mjs",
+    "tests/copy-inventory.json",
+    "tests/dom-v3.mjs",
+    "tests/editorial-results.json",
+    "tests/editorial.mjs",
+    "tests/harness.mjs",
+    "tests/interface.mjs",
+    "tests/polish-results.json",
+    "tests/polish.mjs",
+    "tests/reference-browser-preview.json",
+    "tests/reference-interface-baseline.json",
+    "tests/reference-interface-results.json",
+    "tests/reference-interface.mjs",
+    "tests/reference-targeted-results.json",
+    "tests/release-checks.json",
+    "tools/preview_references.py",
+    "tools/test_all.py"
+  ],
+  "presentationCopyBoundary": {
+    "checkpointSHA256": "85e9a44c8cf4c88fcf08ef4839461d4489ab51328303f483d7ee5d9348dda1bf",
+    "originalCompleteSourceRestoredByScopedCopyBlockNormalization": true,
+    "scope": [
+      "reference validation presentation and useful-details helper",
+      "storage-status presentation",
+      "new helper export"
+    ],
+    "proof": "tests/reference-interface.mjs"
+  },
+  "historicalFullSuite": {
     "tests": {
       "executed": 109600,
       "passed": 109600,
@@ -86,113 +222,43 @@
       "failed": 0
     },
     "runNotes": [
-      "Complete available regression/Unicode/ICU/HTTP suite executed once after final application changes settled. All commands passed.",
-      "No application changes followed the run; subsequent changes only documented/refreshed verification and integrity metadata."
+      "These full-suite totals are historical. Current focused results are recorded separately."
+    ],
+    "scope": "Previous committed interface checkpoint; not rerun for this reference-only follow-up"
+  },
+  "currentTargetedVerification": {
+    "report": "tests/reference-targeted-results.json",
+    "tests": {
+      "executed": 704,
+      "passed": 704,
+      "failed": 0
+    },
+    "assertions": {
+      "executed": 16421,
+      "passed": 16421,
+      "failed": 0
+    },
+    "unicodeConformanceSuiteRerun": false,
+    "allFinalCommandsPassed": true,
+    "notes": [
+      "All final targeted commands passed. The loopback HTTP check was rerun with required local-network permission after sandbox fetch failures.",
+      "Complete Unicode conformance suite was not rerun. Prior full-suite results remain historical evidence for the committed checkpoint."
     ]
   },
-  "copyInventory": "tests/copy-inventory.json",
-  "editorialAudit": "COPY_AUDIT.md",
-  "actualBrowser": "tests/interface-browser-preview.json",
-  "actualFirefoxVersion3_1_2Assertions": 0,
-  "userReportedBaseline": "Version 3.1.1 Firefox/macOS; earlier V3.1.2 persistent startup fix reported working; see tests/user-baseline-verification.json",
-  "published": false,
-  "committed": false,
-  "pushed": false,
-  "merged": false,
-  "pullRequestCreated": false,
-  "repositorySettingsChanged": false,
-  "knownLimits": [
-    "Native Firefox control blocked by unavailable Computer Use permission; native 200% zoom, screen readers, OS reduced motion, standalone policies, Containers and full disconnected-network checks pending",
-    "Historical application ordering defect reproduced; no fresh Firefox-internal trace captured",
-    "No frame-by-frame Firefox repaint/flicker elimination claim",
-    "19 native Deno IDNA discrepancies unchanged; independent ICU diagnostic matches official outputs"
-  ],
-  "failures": [],
-  "distributionChecksums": {
-    "path": "SHA256SUMS",
-    "fileCount": 148,
-    "exclusions": [
-      "SHA256SUMS itself",
-      "Git metadata",
-      "ignored files"
+  "historicalInterfaceBrowser": "tests/interface-browser-preview.json",
+  "copyInventoryCandidateCount": 2031,
+  "referenceInterface": {
+    "approvedIntroduction": true,
+    "emptyFeedbackZeroHeightAndMargin": true,
+    "rawStorageStatusPreservedInternally": true,
+    "rawValidationErrorsRetainedInternally": true,
+    "onlyRedundantFixedErrorExplanationsSuppressed": true,
+    "referenceValidatorAndStoreByteIdentical": true,
+    "maximumInputCharacters": 2048,
+    "importSchemas": [
+      0,
+      1
     ],
-    "verified": true
-  },
-  "startingCommittedCheckpoint": "1a6b9a39c22b44a52cd2e9c8879dc4aba2482fe8",
-  "focusedInterfacePreservation": {
-    "fixtures": 139,
-    "completeResultsAndRecordsSHA256": "fba9fc3018576c81655312c2151698da934b2dd3dbdee33ed48cce9ca482c314",
-    "independentlyReproducedFromCommittedHEAD": true,
-    "completeOriginalRecordsRenderedInOrder": true,
-    "proof": "tests/interface.mjs",
-    "baseline": "tests/interface-baseline.json"
-  },
-  "focusedReview": "FINAL_INTERFACE_REVIEW.md",
-  "native200PercentZoomVerified": false,
-  "privacy": {
-    "privateAbsoluteHomeOrRepositoryPathInPendingFiles": false,
-    "workingDirectoryFieldAbsent": true,
-    "screenshots": "Inspected synthetic built-in examples and empty fields only"
-  },
-  "pendingFiles": [
-    "CHANGELOG.md",
-    "COPY_AUDIT.md",
-    "DESIGN_NOTES.md",
-    "EDITORIAL_STYLE_GUIDE.md",
-    "FINAL_INTERFACE_REVIEW.md",
-    "FIREFOX_CHECKLIST.md",
-    "README.md",
-    "SECURITY_REVIEW.md",
-    "SHA256SUMS",
-    "TEST_RESULTS.md",
-    "build-manifest.json",
-    "deno.json",
-    "preview/v3.1.2-final-ascii.jpg",
-    "preview/v3.1.2-final-controls.jpg",
-    "preview/v3.1.2-final-css-200.jpg",
-    "preview/v3.1.2-final-current.jpg",
-    "preview/v3.1.2-final-diagnostics.jpg",
-    "preview/v3.1.2-final-empty.jpg",
-    "preview/v3.1.2-final-failed.jpg",
-    "preview/v3.1.2-final-labels.jpg",
-    "preview/v3.1.2-final-main-labels.jpg",
-    "preview/v3.1.2-final-mobile-ascii.jpg",
-    "preview/v3.1.2-final-mobile-current.jpg",
-    "preview/v3.1.2-final-mobile-empty.jpg",
-    "preview/v3.1.2-final-mobile-failed.jpg",
-    "preview/v3.1.2-final-mobile-labels.jpg",
-    "preview/v3.1.2-final-mobile-raw.jpg",
-    "preview/v3.1.2-final-mobile-waiting.jpg",
-    "preview/v3.1.2-final-pending.jpg",
-    "preview/v3.1.2-final-raw-records.jpg",
-    "preview/v3.1.2-final-reflow.jpg",
-    "preview/v3.1.2-final-tablet.jpg",
-    "preview/v3.1.2-final-update-failure.jpg",
-    "preview/v3.1.2-final-waiting.jpg",
-    "site/index.html",
-    "site/sw.js",
-    "src/hosted.js",
-    "src/template.html",
-    "src/ui.js",
-    "src/v3.css",
-    "standalone/Offline_URL_Inspector.html",
-    "tests/clarity-results.json",
-    "tests/clarity.mjs",
-    "tests/copy-inventory.json",
-    "tests/dom-v3.mjs",
-    "tests/dom.mjs",
-    "tests/editorial-results.json",
-    "tests/editorial.mjs",
-    "tests/hosted-bootstrap-results.json",
-    "tests/hosted-bootstrap.mjs",
-    "tests/interface-baseline.json",
-    "tests/interface-browser-preview.json",
-    "tests/interface-results.json",
-    "tests/interface.mjs",
-    "tests/refinement.mjs",
-    "tests/release-checks.json",
-    "tests/summary-results.json",
-    "tools/preview_interface.py",
-    "tools/test_all.py"
-  ]
+    "screenshotsInspected": 33
+  }
 }

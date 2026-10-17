@@ -133,7 +133,7 @@ await test('untrusted markup and bidi source remain inert, exact and isolated',(
 t.group('reference validation, import grammar, storage and recovery');
 await test('reference errors retain raw details and never rewrite stored bytes',()=>{
  reset(['example.com']);const old=a.storage.getItem(R.KEY);add('EXAMPLE.COM.');equal($('referenceError').dataset.tone,'error');assert($('referenceError').textContent.includes('already saved'));equal($('referenceInput').getAttribute('aria-invalid'),'true');
- assert(!hidden('referenceErrorDetails'));assert($('referenceErrorRaw').textContent.includes('normalized hostname'));equal(a.storage.getItem(R.KEY),old);
+ assert(hidden('referenceErrorDetails'));assert($('referenceErrorRaw').textContent.includes('normalized hostname'));equal(a.storage.getItem(R.KEY),old);
  add('new.invalid');equal($('referenceError').dataset.tone,'success');assert($('referenceError').textContent.startsWith('Success:'));assert(!$('referenceError').classList.contains('warn'));assert(hidden('referenceErrorDetails'));assert(!$('referenceInput').hasAttribute('aria-invalid'));equal($('backupStatus').textContent,'');
 });
 for(const [values,title,added,removed,total]of [
@@ -147,7 +147,7 @@ for(const [values,title,added,removed,total]of [
  equal(a.storage.getItem(R.KEY),old);assert(!/\w+\(s\)|1 references/.test(copy));$('cancelImport').click();
 });
 for(const [value,pattern]of [['not json',/isn't valid JSON/],[JSON.stringify({application:R.APPLICATION,schemaVersion:99,references:[]}),/unsupported format version/],[JSON.stringify({application:R.APPLICATION,schemaVersion:1,references:[],extra:true}),/expected backup format/],[backup(['example.com/path']),/Reference 1:/]])await test('invalid import preserves bytes and gives recovery: '+pattern,()=>{
- reset(['example.com']);const old=a.storage.getItem(R.KEY);w.reviewImportText(value);assert(hidden('importReview'));equal($('backupStatus').dataset.tone,'error');assert(pattern.test($('backupStatus').textContent));assert(!hidden('backupErrorDetails'));equal($('referenceError').textContent,'');equal(a.storage.getItem(R.KEY),old);
+ reset(['example.com']);const old=a.storage.getItem(R.KEY);w.reviewImportText(value);assert(hidden('importReview'));equal($('backupStatus').dataset.tone,'error');assert(pattern.test($('backupStatus').textContent));assert(hidden('backupErrorDetails'));assert($('backupErrorRaw').textContent.length>0);equal($('referenceError').textContent,'');equal(a.storage.getItem(R.KEY),old);
 });
 await test('unreadable saved data stays protected and Export cannot promise to preserve it',async()=>{
  const data=new MemoryStorage();data.setItem(R.KEY,'unreadable original');const b=mount({storage:data});b.$('referenceInput').value='example.com';b.$('saveReference').click();
@@ -164,7 +164,7 @@ await test('failed write never claims saved success',async()=>{
 });
 await test('legacy migration retains references and reports actual persistence',async()=>{
  for(const fail of [false,true]){const data=new MemoryStorage(),old=JSON.stringify({application:R.APPLICATION,schemaVersion:0,domains:['EXAMPLE.COM']});data.setItem(R.KEY,old);data.failWrite=fail;const b=mount({storage:data});
- equal(b.w.testReferences.snapshot().references,['example.com']);if(fail){equal(data.getItem(R.KEY),old);assert(b.$('storageStatus').textContent.startsWith('Saving failed'));}else{equal(JSON.parse(data.getItem(R.KEY)).schemaVersion,1);assert(b.$('storageStatus').textContent.startsWith('Changes saved'));}await b.close();}
+ equal(b.w.testReferences.snapshot().references,['example.com']);if(fail){equal(data.getItem(R.KEY),old);assert(b.$('storageStatus').textContent.startsWith('Saving failed'));}else{equal(JSON.parse(data.getItem(R.KEY)).schemaVersion,1);assert(b.$('storageStatus').textContent.startsWith('Saved in this browser'));}await b.close();}
 });
 await test('inspection/expected text never enters storage or destination requests',()=>{
  const values=a.storage.writes.map(e=>e[1]).join('');assert(!/ATTACK|onerror|x=2|8080|token=/.test(values));equal(a.network,[]);

@@ -23,7 +23,15 @@ export class MemoryStorage {
 // Restore only the navigation-recovery prose when checking published worker pins.
 // Matching the old full-file hash then proves every other worker byte is unchanged.
 export function functionalSource(path){
- const source=read(path);if(path!=='src/sw.js')return source;
+ let source=read(path);
+ if(path==='src/presentation.js'){
+  const baseline=JSON.parse(read('tests/reference-interface-baseline.json'));
+  for(const [start,end,key]of [['  function validation(','  function inputFailure(','validationBlock'],['  function storageStatus(','  function importSummary(','storageStatusBlock']]){
+   const a=source.indexOf(start),b=source.indexOf(end,a);if(a<0||b<0)throw Error('Missing scoped presentation block');source=source.slice(0,a)+baseline[key]+source.slice(b);
+  }
+  return source.replace('asciiIntroduction,validation,referenceErrorHasDetails,inputFailure','asciiIntroduction,validation,inputFailure');
+ }
+ if(path!=='src/sw.js')return source;
  const pattern=/(?<=return new Response\()'(?:\\.|[^'\\])*'(?=,\{status:503)/g,matches=[...source.matchAll(pattern)];
  if(matches.length!==1)throw Error('Expected exactly one scoped 503 recovery message');
  return source.replace(pattern,JSON.parse(read('tests/editorial-baseline.json')).workerRecoveryLiteral);

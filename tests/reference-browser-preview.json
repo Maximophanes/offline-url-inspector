@@ -1,0 +1,663 @@
+{
+  "applicationVersion": "3.1.2",
+  "date": "2026-10-16",
+  "checkpoint": "9b017bd6a145fe664e26cf421f24db134c3fa24e",
+  "environment": "Actual rendered Codex in-app browser at 1100x1000 and 390x844",
+  "review": "All listed screenshots were visually inspected by the agent",
+  "productionPreview": "Matched hosted site on a new loopback origin, port 8781; real browser storage, synthetic hostnames only",
+  "controlledPreview": "tools/preview_references.py, port 8782; exact generated standalone program with in-memory storage and explicit synthetic actions; no production logic changed",
+  "checks": [
+    {
+      "name": "hosted empty list",
+      "simulated": false,
+      "screenshot": "preview/v3.1.2-references-hosted-empty.jpg",
+      "passed": true,
+      "measurements": {
+        "viewport": 1100,
+        "width": 1100,
+        "referenceFeedbackHeight": 0,
+        "backupFeedbackHeight": 0,
+        "referenceFeedbackMargin": 0,
+        "backupFeedbackMargin": 0
+      }
+    },
+    {
+      "name": "hosted verified save",
+      "simulated": false,
+      "screenshot": "preview/v3.1.2-references-hosted-saved.jpg",
+      "passed": true,
+      "measurements": {
+        "storage": "Saved in this browser",
+        "references": [
+          "example.com"
+        ]
+      }
+    },
+    {
+      "name": "hosted-empty-error",
+      "simulated": false,
+      "measurements": {
+        "backupFeedback": "",
+        "backupHeight": 0,
+        "feedbackHeight": 19.1953125,
+        "focus": "saveReference",
+        "list": [
+          "example.com"
+        ],
+        "referenceFeedback": "Error: Enter a hostname, such as example.com.",
+        "storage": "Saved in this browser",
+        "viewport": 1100,
+        "width": 1100
+      },
+      "screenshot": "preview/v3.1.2-references-hosted-empty-error.jpg",
+      "passed": true
+    },
+    {
+      "name": "hosted-multiple",
+      "simulated": false,
+      "measurements": {
+        "backupFeedback": "",
+        "backupHeight": 0,
+        "feedbackHeight": 19.1953125,
+        "focus": "referenceInput",
+        "list": [
+          "example.com",
+          "two.invalid"
+        ],
+        "referenceFeedback": "Success: Reference added.",
+        "storage": "Saved in this browser",
+        "viewport": 1100,
+        "width": 1100
+      },
+      "screenshot": "preview/v3.1.2-references-hosted-multiple.jpg",
+      "passed": true
+    },
+    {
+      "name": "hosted-edited",
+      "simulated": false,
+      "measurements": {
+        "backupFeedback": "",
+        "backupHeight": 0,
+        "feedbackHeight": 19.1953125,
+        "focus": "saveReference",
+        "list": [
+          "edited.invalid",
+          "two.invalid"
+        ],
+        "referenceFeedback": "Success: Reference updated.",
+        "storage": "Saved in this browser",
+        "viewport": 1100,
+        "width": 1100
+      },
+      "screenshot": "preview/v3.1.2-references-hosted-edited.jpg",
+      "passed": true
+    },
+    {
+      "name": "hosted-removed",
+      "simulated": false,
+      "measurements": {
+        "backupFeedback": "",
+        "backupHeight": 0,
+        "feedbackHeight": 19.1953125,
+        "focus": "",
+        "list": [
+          "two.invalid"
+        ],
+        "referenceFeedback": "Success: Reference removed.",
+        "storage": "Saved in this browser",
+        "viewport": 1100,
+        "width": 1100
+      },
+      "screenshot": "preview/v3.1.2-references-hosted-removed.jpg",
+      "passed": true
+    },
+    {
+      "name": "hosted-clear-confirm",
+      "simulated": false,
+      "measurements": {
+        "backupFeedback": "",
+        "backupHeight": 0,
+        "feedbackHeight": 19.1953125,
+        "focus": "confirmCancel",
+        "list": [
+          "two.invalid"
+        ],
+        "referenceFeedback": "Success: Reference removed.",
+        "storage": "Saved in this browser",
+        "viewport": 1100,
+        "width": 1100
+      },
+      "screenshot": "preview/v3.1.2-references-hosted-clear-confirm.jpg",
+      "passed": true
+    },
+    {
+      "name": "hosted-cleared",
+      "simulated": false,
+      "measurements": {
+        "backupFeedback": "Success: Reference list cleared.",
+        "backupHeight": 19.1953125,
+        "feedbackHeight": 0,
+        "focus": "clearReferences",
+        "list": [],
+        "referenceFeedback": "",
+        "storage": "Saved in this browser",
+        "viewport": 1100,
+        "width": 1100
+      },
+      "screenshot": "preview/v3.1.2-references-hosted-cleared.jpg",
+      "passed": true
+    },
+    {
+      "name": "hosted-help",
+      "simulated": false,
+      "measurements": {
+        "backupFeedback": "Success: Reference list cleared.",
+        "backupHeight": 19.1953125,
+        "feedbackHeight": 0,
+        "focus": "",
+        "list": [],
+        "referenceFeedback": "",
+        "storage": "Saved in this browser",
+        "viewport": 1100,
+        "width": 1100
+      },
+      "screenshot": "preview/v3.1.2-references-hosted-help.jpg",
+      "passed": true
+    },
+    {
+      "name": "mobile-hosted-help",
+      "simulated": false,
+      "measurements": {
+        "backupFeedback": "Success: Reference list cleared.",
+        "backupHeight": 19.1953125,
+        "feedbackHeight": 0,
+        "focus": "referenceInput",
+        "list": [],
+        "referenceFeedback": "",
+        "storage": "Saved in this browser",
+        "viewport": 390,
+        "width": 390
+      },
+      "screenshot": "preview/v3.1.2-references-mobile-hosted-help.jpg",
+      "passed": true
+    },
+    {
+      "name": "mobile-hosted-empty-error",
+      "simulated": false,
+      "measurements": {
+        "backupFeedback": "",
+        "backupHeight": 0,
+        "feedbackHeight": 19.1953125,
+        "focus": "saveReference",
+        "list": [],
+        "referenceFeedback": "Error: Enter a hostname, such as example.com.",
+        "storage": "Saved in this browser",
+        "viewport": 390,
+        "width": 390
+      },
+      "screenshot": "preview/v3.1.2-references-mobile-hosted-empty-error.jpg",
+      "passed": true
+    },
+    {
+      "name": "overlength",
+      "simulated": true,
+      "measurements": {
+        "backupFeedback": "",
+        "backupHeight": 0,
+        "feedbackHeight": 19.1953125,
+        "focus": "referenceInput",
+        "list": [],
+        "referenceFeedback": "Error: The hostname exceeds the 2,048-character limit.",
+        "storage": "This browser can read reference storage. Saving hasn't been checked yet.",
+        "viewport": 1100,
+        "width": 1100
+      },
+      "screenshot": "preview/v3.1.2-references-overlength.jpg",
+      "passed": true
+    },
+    {
+      "name": "duplicate",
+      "simulated": true,
+      "measurements": {
+        "backupFeedback": "",
+        "backupHeight": 0,
+        "feedbackHeight": 19.1953125,
+        "focus": "referenceInput",
+        "list": [
+          "example.com"
+        ],
+        "referenceFeedback": "Error: This hostname is already saved.",
+        "storage": "Previously saved references loaded.",
+        "viewport": 1100,
+        "width": 1100
+      },
+      "screenshot": "preview/v3.1.2-references-duplicate.jpg",
+      "passed": true
+    },
+    {
+      "name": "malformed",
+      "simulated": true,
+      "measurements": {
+        "backupFeedback": "",
+        "backupHeight": 0,
+        "feedbackHeight": 19.1953125,
+        "focus": "referenceInput",
+        "list": [
+          "example.com"
+        ],
+        "referenceFeedback": "Error: Enter a hostname without sign-in details, a port, path, query or fragment. A final slash is allowed.",
+        "storage": "Previously saved references loaded.",
+        "viewport": 1100,
+        "width": 1100
+      },
+      "screenshot": "preview/v3.1.2-references-malformed.jpg",
+      "passed": true
+    },
+    {
+      "name": "exportSuccess",
+      "simulated": true,
+      "measurements": {
+        "backupFeedback": "Success: Backup download prepared. Check your downloads to keep the file.",
+        "backupHeight": 19.1953125,
+        "feedbackHeight": 0,
+        "focus": "referenceInput",
+        "list": [
+          "example.com"
+        ],
+        "referenceFeedback": "",
+        "storage": "Previously saved references loaded.",
+        "viewport": 1100,
+        "width": 1100
+      },
+      "screenshot": "preview/v3.1.2-references-exportSuccess.jpg",
+      "passed": true
+    },
+    {
+      "name": "exportFailure",
+      "simulated": true,
+      "measurements": {
+        "backupFeedback": "Error: The backup download couldn't be created. Try exporting again before closing this tab.",
+        "backupHeight": 19.1953125,
+        "feedbackHeight": 0,
+        "focus": "referenceInput",
+        "list": [
+          "example.com"
+        ],
+        "referenceFeedback": "",
+        "storage": "Previously saved references loaded.",
+        "viewport": 1100,
+        "width": 1100
+      },
+      "screenshot": "preview/v3.1.2-references-exportFailure.jpg",
+      "passed": true
+    },
+    {
+      "name": "exportFailure-details",
+      "simulated": true,
+      "measurements": {
+        "backupFeedback": "Error: The backup download couldn't be created. Try exporting again before closing this tab.",
+        "backupHeight": 19.1953125,
+        "feedbackHeight": 0,
+        "focus": "",
+        "list": [
+          "example.com"
+        ],
+        "referenceFeedback": "",
+        "storage": "Previously saved references loaded.",
+        "viewport": 1100,
+        "width": 1100
+      },
+      "screenshot": "preview/v3.1.2-references-exportFailure-details.jpg",
+      "passed": true
+    },
+    {
+      "name": "importEmpty",
+      "simulated": true,
+      "measurements": {
+        "backupFeedback": "Error: Reference 1: Enter a hostname, such as example.com.",
+        "backupHeight": 19.1953125,
+        "feedbackHeight": 0,
+        "focus": "referenceInput",
+        "list": [
+          "example.com"
+        ],
+        "referenceFeedback": "",
+        "storage": "Previously saved references loaded.",
+        "viewport": 1100,
+        "width": 1100
+      },
+      "screenshot": "preview/v3.1.2-references-importEmpty.jpg",
+      "passed": true
+    },
+    {
+      "name": "importLong",
+      "simulated": true,
+      "measurements": {
+        "backupFeedback": "Error: Reference 1: The hostname exceeds the 2,048-character limit.",
+        "backupHeight": 19.1953125,
+        "feedbackHeight": 0,
+        "focus": "referenceInput",
+        "list": [
+          "example.com"
+        ],
+        "referenceFeedback": "",
+        "storage": "Previously saved references loaded.",
+        "viewport": 1100,
+        "width": 1100
+      },
+      "screenshot": "preview/v3.1.2-references-importLong.jpg",
+      "passed": true
+    },
+    {
+      "name": "importMalformed",
+      "simulated": true,
+      "measurements": {
+        "backupFeedback": "Error: This file isn't valid JSON. Choose a backup exported by URL Inspector.",
+        "backupHeight": 19.1953125,
+        "feedbackHeight": 0,
+        "focus": "referenceInput",
+        "list": [
+          "example.com"
+        ],
+        "referenceFeedback": "",
+        "storage": "Previously saved references loaded.",
+        "viewport": 1100,
+        "width": 1100
+      },
+      "screenshot": "preview/v3.1.2-references-importMalformed.jpg",
+      "passed": true
+    },
+    {
+      "name": "importPreview",
+      "simulated": true,
+      "measurements": {
+        "backupFeedback": "",
+        "backupHeight": 0,
+        "feedbackHeight": 0,
+        "focus": "cancelImport",
+        "list": [
+          "example.com"
+        ],
+        "referenceFeedback": "",
+        "storage": "Previously saved references loaded.",
+        "viewport": 1100,
+        "width": 1100
+      },
+      "screenshot": "preview/v3.1.2-references-importPreview.jpg",
+      "passed": true
+    },
+    {
+      "name": "session",
+      "simulated": true,
+      "measurements": {
+        "backupFeedback": "",
+        "backupHeight": 0,
+        "feedbackHeight": 19.1953125,
+        "focus": "referenceInput",
+        "list": [
+          "new.invalid"
+        ],
+        "referenceFeedback": "Caution: Reference added. This change is only in this tab; export a backup before closing.",
+        "storage": "Storage unavailable. References stay in this tab only; export a backup before closing.",
+        "viewport": 1100,
+        "width": 1100
+      },
+      "screenshot": "preview/v3.1.2-references-session.jpg",
+      "passed": true
+    },
+    {
+      "name": "failedStorage",
+      "simulated": true,
+      "measurements": {
+        "backupFeedback": "",
+        "backupHeight": 0,
+        "feedbackHeight": 19.1953125,
+        "focus": "referenceInput",
+        "list": [
+          "example.com",
+          "new.invalid"
+        ],
+        "referenceFeedback": "Caution: Reference added. This change is only in this tab; export a backup before closing.",
+        "storage": "Saving failed. Changes stay in this tab; the saved copy was not replaced. Export a backup before closing.",
+        "viewport": 1100,
+        "width": 1100
+      },
+      "screenshot": "preview/v3.1.2-references-failedStorage.jpg",
+      "passed": true
+    },
+    {
+      "name": "protected",
+      "simulated": true,
+      "measurements": {
+        "backupFeedback": "",
+        "backupHeight": 0,
+        "feedbackHeight": 19.1953125,
+        "focus": "referenceInput",
+        "list": [
+          "new.invalid"
+        ],
+        "referenceFeedback": "Caution: Reference added. This change is only in this tab; export a backup before closing.",
+        "storage": "Saved data needs review. It has not been replaced; changes stay in this tab. See Storage & hostname help.",
+        "viewport": 1100,
+        "width": 1100
+      },
+      "screenshot": "preview/v3.1.2-references-protected.jpg",
+      "passed": true
+    },
+    {
+      "name": "conflict",
+      "simulated": true,
+      "measurements": {
+        "backupFeedback": "",
+        "backupHeight": 0,
+        "feedbackHeight": 19.1953125,
+        "focus": "referenceInput",
+        "list": [
+          "example.com",
+          "new.invalid"
+        ],
+        "referenceFeedback": "Caution: Reference added. This change is only in this tab; export a backup before closing.",
+        "storage": "Your saved references changed elsewhere. Edits in this tab have not replaced them. Export a backup before reviewing a replacement.",
+        "viewport": 1100,
+        "width": 1100
+      },
+      "screenshot": "preview/v3.1.2-references-conflict.jpg",
+      "passed": true
+    },
+    {
+      "name": "protected-help",
+      "simulated": true,
+      "measurements": {
+        "backupFeedback": "",
+        "backupHeight": 0,
+        "feedbackHeight": 19.1953125,
+        "focus": "",
+        "list": [
+          "example.com",
+          "new.invalid"
+        ],
+        "referenceFeedback": "Caution: Reference added. This change is only in this tab; export a backup before closing.",
+        "storage": "Your saved references changed elsewhere. Edits in this tab have not replaced them. Export a backup before reviewing a replacement.",
+        "viewport": 1100,
+        "width": 1100
+      },
+      "screenshot": "preview/v3.1.2-references-protected-help.jpg",
+      "passed": true
+    },
+    {
+      "name": "mobile-failedStorage",
+      "simulated": true,
+      "measurements": {
+        "backupFeedback": "",
+        "backupHeight": 0,
+        "feedbackHeight": 38.390625,
+        "focus": "referenceInput",
+        "list": [
+          "example.com",
+          "new.invalid"
+        ],
+        "referenceFeedback": "Caution: Reference added. This change is only in this tab; export a backup before closing.",
+        "storage": "Saving failed. Changes stay in this tab; the saved copy was not replaced. Export a backup before closing.",
+        "viewport": 390,
+        "width": 390
+      },
+      "screenshot": "preview/v3.1.2-references-mobile-failedStorage.jpg",
+      "passed": true
+    },
+    {
+      "name": "mobile-session",
+      "simulated": true,
+      "measurements": {
+        "backupFeedback": "",
+        "backupHeight": 0,
+        "feedbackHeight": 38.390625,
+        "focus": "referenceInput",
+        "list": [
+          "new.invalid"
+        ],
+        "referenceFeedback": "Caution: Reference added. This change is only in this tab; export a backup before closing.",
+        "storage": "Storage unavailable. References stay in this tab only; export a backup before closing.",
+        "viewport": 390,
+        "width": 390
+      },
+      "screenshot": "preview/v3.1.2-references-mobile-session.jpg",
+      "passed": true
+    },
+    {
+      "name": "mobile-malformed",
+      "simulated": true,
+      "measurements": {
+        "backupFeedback": "",
+        "backupHeight": 0,
+        "feedbackHeight": 38.390625,
+        "focus": "referenceInput",
+        "list": [
+          "example.com"
+        ],
+        "referenceFeedback": "Error: Enter a hostname without sign-in details, a port, path, query or fragment. A final slash is allowed.",
+        "storage": "Previously saved references loaded.",
+        "viewport": 390,
+        "width": 390
+      },
+      "screenshot": "preview/v3.1.2-references-mobile-malformed.jpg",
+      "passed": true
+    },
+    {
+      "name": "mobile-empty",
+      "simulated": true,
+      "measurements": {
+        "backupFeedback": "",
+        "backupHeight": 0,
+        "feedbackHeight": 0,
+        "focus": "referenceInput",
+        "list": [],
+        "referenceFeedback": "",
+        "storage": "This browser can read reference storage. Saving hasn't been checked yet.",
+        "viewport": 390,
+        "width": 390
+      },
+      "screenshot": "preview/v3.1.2-references-mobile-empty.jpg",
+      "passed": true
+    },
+    {
+      "name": "mobile-importLong",
+      "simulated": true,
+      "measurements": {
+        "backupFeedback": "Error: Reference 1: The hostname exceeds the 2,048-character limit.",
+        "backupHeight": 38.390625,
+        "feedbackHeight": 0,
+        "focus": "referenceInput",
+        "list": [
+          "example.com"
+        ],
+        "referenceFeedback": "",
+        "storage": "Previously saved references loaded.",
+        "viewport": 390,
+        "width": 390
+      },
+      "screenshot": "preview/v3.1.2-references-mobile-importLong.jpg",
+      "passed": true
+    },
+    {
+      "name": "mobile-exportFailure",
+      "simulated": true,
+      "measurements": {
+        "backupFeedback": "Error: The backup download couldn't be created. Try exporting again before closing this tab.",
+        "backupHeight": 38.390625,
+        "feedbackHeight": 0,
+        "focus": "referenceInput",
+        "list": [
+          "example.com"
+        ],
+        "referenceFeedback": "",
+        "storage": "Previously saved references loaded.",
+        "viewport": 390,
+        "width": 390
+      },
+      "screenshot": "preview/v3.1.2-references-mobile-exportFailure.jpg",
+      "passed": true
+    },
+    {
+      "name": "mobile-importPreview",
+      "simulated": true,
+      "measurements": {
+        "backupFeedback": "",
+        "backupHeight": 0,
+        "feedbackHeight": 0,
+        "focus": "cancelImport",
+        "list": [
+          "example.com"
+        ],
+        "referenceFeedback": "",
+        "storage": "Previously saved references loaded.",
+        "viewport": 390,
+        "width": 390
+      },
+      "screenshot": "preview/v3.1.2-references-mobile-importPreview.jpg",
+      "passed": true
+    }
+  ],
+  "screenshots": [
+    "preview/v3.1.2-references-conflict.jpg",
+    "preview/v3.1.2-references-duplicate.jpg",
+    "preview/v3.1.2-references-exportFailure-details.jpg",
+    "preview/v3.1.2-references-exportFailure.jpg",
+    "preview/v3.1.2-references-exportSuccess.jpg",
+    "preview/v3.1.2-references-failedStorage.jpg",
+    "preview/v3.1.2-references-hosted-clear-confirm.jpg",
+    "preview/v3.1.2-references-hosted-cleared.jpg",
+    "preview/v3.1.2-references-hosted-edited.jpg",
+    "preview/v3.1.2-references-hosted-empty-error.jpg",
+    "preview/v3.1.2-references-hosted-empty.jpg",
+    "preview/v3.1.2-references-hosted-help.jpg",
+    "preview/v3.1.2-references-hosted-multiple.jpg",
+    "preview/v3.1.2-references-hosted-removed.jpg",
+    "preview/v3.1.2-references-hosted-saved.jpg",
+    "preview/v3.1.2-references-importEmpty.jpg",
+    "preview/v3.1.2-references-importLong.jpg",
+    "preview/v3.1.2-references-importMalformed.jpg",
+    "preview/v3.1.2-references-importPreview.jpg",
+    "preview/v3.1.2-references-malformed.jpg",
+    "preview/v3.1.2-references-mobile-empty.jpg",
+    "preview/v3.1.2-references-mobile-exportFailure.jpg",
+    "preview/v3.1.2-references-mobile-failedStorage.jpg",
+    "preview/v3.1.2-references-mobile-hosted-empty-error.jpg",
+    "preview/v3.1.2-references-mobile-hosted-help.jpg",
+    "preview/v3.1.2-references-mobile-importLong.jpg",
+    "preview/v3.1.2-references-mobile-importPreview.jpg",
+    "preview/v3.1.2-references-mobile-malformed.jpg",
+    "preview/v3.1.2-references-mobile-session.jpg",
+    "preview/v3.1.2-references-overlength.jpg",
+    "preview/v3.1.2-references-protected-help.jpg",
+    "preview/v3.1.2-references-protected.jpg",
+    "preview/v3.1.2-references-session.jpg"
+  ],
+  "keyboard": "Actual Enter submission, edit focus, safe-default clear dialog focus, Tab navigation and restored clear-button focus inspected; preview controls focused by Tab",
+  "privacy": "Only example.com and synthetic .invalid hosts were used; production-preview list cleared after testing; no inspected input persisted",
+  "limitations": [
+    "Native Firefox and screen-reader verification not performed in this focused pass",
+    "Standalone build served over loopback for rendered fixtures; not proof of file:// storage policy",
+    "Controlled read/write/conflict/export failures are simulations; export success fixture intercepts disk download",
+    "Download filename/schema/blob contents verified by focused DOM tests; actual disk delivery not claimed"
+  ]
+}

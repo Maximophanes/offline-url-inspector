@@ -2,7 +2,7 @@
 <html lang="en"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-33eEMxs2WoWIP5YkNmqYUcnG7mO66lUDNoP1oFJxN4U='; style-src 'sha256-Yi2mtL9fWYSwKtFwZICzA3d6cGBXnJLr7nkekt8giaw='; connect-src 'none'; img-src 'none'; font-src 'none'; object-src 'none'; frame-src 'none'; form-action 'none'; base-uri 'none'; media-src 'none'; worker-src 'self'; manifest-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-RgRTT2dNdpdpWBi2A6ftj1kbzvxSpX2baCCkxgjU4QM='; style-src 'sha256-2WNAGPJS20xN/NMqRetqkjKY7MkWhXj/kAYNSHkrlsA='; connect-src 'none'; img-src 'none'; font-src 'none'; object-src 'none'; frame-src 'none'; form-action 'none'; base-uri 'none'; media-src 'none'; worker-src 'self'; manifest-src 'none'">
 <title>URL Inspector · Version 3.1.2</title>
 <style>/* Blackberry & Amethyst — local system fonts, no external assets. */
 :root{
@@ -75,7 +75,7 @@ footer{margin-top:25px}.footer-meta{display:flex;justify-content:space-between;g
 .disclosure[open]>summary::before{transform:rotate(90deg);color:var(--hover)}.disclosure>summary:hover{background:rgba(182,135,231,.045);color:var(--hover)}.disclosure:hover{border-color:#725585}.disclosure[open]{border-color:#795b90}.disclosure[open]>summary{border-bottom:1px solid var(--line-soft)}
 .disclosure>summary:focus-visible{outline-offset:-3px;border-radius:10px}.major{background:linear-gradient(180deg,#20152c,#171020);padding:0}.major>summary{padding:17px 21px;font-size:15px;font-weight:700;min-height:60px}.major>summary>span:first-of-type{flex:1;min-width:0}.count{font-size:11px;font-weight:600;padding:3px 9px;border:1px solid #6c507e;border-radius:999px;color:var(--muted);white-space:nowrap}.summary-aside{font-size:11px;font-weight:400;color:var(--muted)}
 .panel-body{padding:18px 21px 21px}.technical{margin-top:23px;box-shadow:none}.technical>.panel-body{padding:8px 13px 13px;background:rgba(7,5,13,.23);border-radius:0 0 12px 12px}.category{margin-top:8px;background:#160f1f;border-color:var(--line-soft)}.category>summary{font-size:12.5px;min-height:48px;padding:13px 14px}.category-body{padding:6px 17px 15px}.category-body>.row{font-size:13px}.observation{margin-top:13px;background:#1a1025;border-color:var(--line-soft)}.observation>summary{font-size:12px;font-weight:500;min-height:41px;padding:10px 12px}
-.reference-list{list-style:none;padding:0;margin:12px 0 18px;max-height:320px;overflow:auto}.reference-list li{display:flex;gap:8px;align-items:center;flex-wrap:wrap;border-top:1px solid var(--line-soft);padding:10px 0}.ref-name{flex:1;min-width:170px}.ref-name .mono{display:block;font-size:13px}.ref-name .small{font-size:11px}.reference-list button{padding:8px 11px;min-height:36px;font-size:12px}.import-review{border-top:1px solid var(--line);margin-top:20px;padding-top:18px}select{font:inherit;font-size:13px;padding:8px;margin:0 0 0 10px;max-width:100%}#importChanges{max-height:250px;overflow:auto;white-space:pre-wrap;margin:12px 0}.reference-list .small:only-child{margin-bottom:0}#referenceError:not(:empty){margin-top:9px}
+.reference-list{list-style:none;padding:0;margin:10px 0 14px;max-height:320px;overflow:auto}.reference-list li{display:flex;gap:8px;align-items:center;flex-wrap:wrap;border-top:1px solid var(--line-soft);padding:8px 0}.ref-name{flex:1;min-width:170px}.ref-name .mono{display:block;font-size:13px}.ref-name .small{font-size:11px}.reference-list button{padding:8px 11px;min-height:36px;font-size:12px}.import-review{border-top:1px solid var(--line);margin-top:20px;padding-top:18px}select{font:inherit;font-size:13px;padding:8px;margin:0 0 0 10px;max-width:100%}#importChanges{max-height:250px;overflow:auto;white-space:pre-wrap;margin:12px 0}.reference-list .small:only-child{margin-bottom:0}#referenceError:not(:empty){margin-top:9px}
 .primary{border-left:3px solid var(--accent);padding:0 0 0 16px;margin-bottom:23px}.primary>.eyebrow{color:var(--muted);font-size:10px;letter-spacing:.13em}.primary h2{font-size:23px;letter-spacing:-.02em;line-height:1.3;margin:7px 0 9px}.primary p{font-size:14px;line-height:1.7;margin:0;max-width:850px;overflow-wrap:anywhere}.primary[data-kind="visual"],.primary[data-kind="structure"],.primary[data-kind="error"]{border-color:var(--red)}.primary[data-kind="mismatch"]{border-color:var(--orange)}
 .hostname-grid{display:grid;grid-template-columns:1fr;gap:16px}.comparison-rows{margin-top:18px}.character-list{display:grid;gap:7px}.character{border:1px solid var(--line-soft);border-radius:9px;background:var(--field);min-width:0}.character>summary{display:flex;align-items:center;gap:9px;cursor:pointer;font:11px/1.5 var(--mono);padding:10px;overflow-wrap:anywhere;list-style:none}.character>summary::before{content:"›";font:700 19px/1 Georgia,serif;color:var(--muted);transition:transform .16s ease}.character[open]>summary::before{transform:rotate(90deg)}.character>summary::-webkit-details-marker{display:none}.character>summary:hover{color:var(--hover)}.character>summary:focus-visible{outline-offset:-3px}.character .glyph{font-size:21px;flex:0 0 auto;color:var(--ink)}.character .record-heading{min-width:0;flex:1}.evidence-source{display:block;color:var(--muted);font:10px/1.4 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin-top:2px}.character .row{font-size:12px;grid-template-columns:145px minmax(0,1fr);margin:0 12px;padding:9px 0}.character .key{font-size:11px}.character-list>button{justify-self:start}.character-list>.small{margin-top:5px}
 .diagnostic{border-top:1px solid var(--line-soft);margin:0}.diagnostic:first-child{border-top:0}.diagnostic>summary{cursor:pointer;display:grid;grid-template-columns:minmax(0,1fr) auto auto;align-items:baseline;gap:8px;list-style:none;padding:10px 3px;font-size:12px;color:var(--ink)}.diagnostic>summary::-webkit-details-marker{display:none}.diagnostic-title::before{content:"+";display:inline-block;width:17px;color:var(--accent)}.diagnostic[open] .diagnostic-title::before{content:"−"}.diagnostic>summary:hover{color:var(--hover)}.diagnostic>summary:focus-visible{outline-offset:1px}.diagnostic-kind,.diagnostic-severity{font-size:10px;color:var(--muted);white-space:nowrap}.diagnostic[data-level="alert"] .diagnostic-severity{color:var(--red)}.diagnostic[data-level="warn"] .diagnostic-severity{color:var(--orange)}.diagnostic-text{margin:0 0 12px;padding:0 0 0 20px;overflow-wrap:anywhere;line-height:1.7}
@@ -102,9 +102,12 @@ footer{margin-top:25px}.footer-meta{display:flex;justify-content:space-between;g
 .ascii-group{padding:10px 0 15px;border-bottom:1px solid var(--line-soft)}.ascii-group:last-child{border-bottom:0}.ascii-group .row{font-size:12px;grid-template-columns:145px minmax(0,1fr);padding:8px 0}.occurrence-count{margin:8px 0}.diagnostic-occurrences{padding-left:20px;margin:7px 0 10px;font-size:11px;overflow-wrap:anywhere}.occurrence-progress{margin:8px 0}.ascii-group button{margin-top:4px}
 .character-mapping{margin:8px 12px 12px}.character[data-tone="information"]{border-color:var(--line-soft)}.badchar[data-tone="information"]{background:#342046;color:var(--ink);border-color:var(--accent)}.badchar[data-tone="caution"]{background:#75263f;color:#fff4f7;border-color:#f5a0b3}.mapping-value{white-space:pre-wrap;overflow-wrap:anywhere}.raw-character pre{white-space:pre-wrap;overflow-wrap:anywhere;margin:0;font:11px/1.7 var(--mono)}.character-mapping .category-body{padding:11px 13px 13px}
 .comparison-evidence{padding:9px 0 15px;border-bottom:1px solid var(--line-soft)}.comparison-evidence:last-child{border-bottom:0}.comparison-evidence .row{font-size:12px}.comparison-evidence>.observation{margin-top:6px}.comparison-evidence>.observation>.observation{margin:0 12px 12px}.comparison-unavailable{padding:10px 0}
-.field-error{color:var(--red);margin:7px 0 0}.form-status{min-height:40px;margin:9px 0 0;overflow-wrap:anywhere}.form-status[data-tone="success"]{color:var(--green)}.form-status[data-tone="information"]{color:var(--muted)}.form-status[data-tone="caution"]{color:var(--orange)}.form-status[data-tone="error"],#storageStatus[data-tone="error"]{color:var(--red)}
+.field-error{color:var(--red);margin:7px 0 0}.form-status{margin:0;overflow-wrap:anywhere}.form-status:not(:empty){margin-top:8px}.form-status[data-tone="success"]{color:var(--green)}.form-status[data-tone="information"]{color:var(--muted)}.form-status[data-tone="caution"]{color:var(--orange)}.form-status[data-tone="error"],#storageStatus[data-tone="error"]{color:var(--red)}
 #importSummary p{margin:5px 0}.import-change-group{padding:10px 0;border-top:1px solid var(--line-soft)}.import-change-group h3{font-size:12px;margin:0 0 7px;color:var(--muted)}.import-change-group .mono{white-space:pre-wrap}#importChanges:focus-visible{outline:2px solid var(--hover);outline-offset:3px;border-radius:4px}#hostnameTerms dt{font-weight:650;color:var(--ink);margin-top:10px}#hostnameTerms dt:first-child{margin-top:0}#hostnameTerms dd{margin:3px 0 12px}
 @media(max-width:620px){.offline-toolbar{grid-template-columns:minmax(0,1fr)}.offline-toolbar .edition-status{grid-column:1;grid-row:2}.offline-controls .update-feedback{grid-row:3}.ascii-group .row{grid-template-columns:1fr;gap:3px}.diagnostic-evidence{margin-left:8px}.diagnostic-severity{grid-column:2;grid-row:1}.raw-record-list{padding:0 10px 10px}}
+
+/* Focused Reference Domains hierarchy; messages grow in normal flow. */
+.reference-intro{margin:0 0 12px}.reference-description{font-size:14px;line-height:1.75;margin:0 0 9px;color:var(--ink)}#storageStatus{display:flex;align-items:baseline;gap:8px;margin:0;color:var(--muted);line-height:1.7;overflow-wrap:anywhere}#storageStatus::before{content:"";width:6px;height:6px;flex:0 0 6px;border-radius:50%;background:var(--accent)}#storageStatus[data-tone="success"]::before{background:var(--green)}#storageStatus[data-tone="caution"]::before{background:var(--orange)}#storageStatus[data-tone="error"]::before{background:var(--red)}#referencePanel .reference-help{margin:0 0 14px}#referencePanel .reference-help .panel-body{max-width:none}#referencePanel .reference-help p{line-height:1.75}#referenceErrorDetails,#backupErrorDetails{margin-top:8px}#referenceErrorDetails .category-body,#backupErrorDetails .category-body{white-space:pre-wrap;overflow-wrap:anywhere}
 </style>
 </head><body><main class="wrap">
 <header class="masthead">
@@ -131,8 +134,8 @@ footer{margin-top:25px}.footer-meta{display:flex;justify-content:space-between;g
 </section>
 <details class="card disclosure major" id="referencePanel"><summary><span>Reference Domains</span><span class="count" id="referenceCount">0 saved</span></summary>
 <div class="panel-body">
-<p class="small">Save familiar hostnames to compare against suspicious URLs. Reference domains are comparison targets, not guarantees of website safety.</p>
-<p id="storageStatus" class="small"></p><details class="disclosure reference-help"><summary>Storage &amp; hostname help</summary><div class="panel-body small"><div class="label">Browser Storage</div><p>Reference domains are saved in this browser. Clearing site data or ending a private session may remove them. Export a backup to keep your list. GitHub Pages projects on the same github.io hostname share browser storage, even when their paths differ.</p><p id="protectedStorageHelp" class="hidden"></p><details class="disclosure observation"><summary>Technical storage status</summary><p class="category-body mono" id="storageDetail"></p></details><div class="label readable-label">Hostname Comparisons</div><p>Single-label names, such as intranet, are commonly used on private networks. These names and IP addresses are compared only for exact matches. Reference domains are never added automatically.</p></div></details>
+<div class="reference-intro"><p class="reference-description">Save hostnames to compare with URLs you inspect. A match doesn't verify that a website is safe.</p>
+<p id="storageStatus" class="small"></p></div><details class="disclosure reference-help"><summary>Storage &amp; hostname help</summary><div class="panel-body small"><div class="label">Browser Storage</div><p>Reference domains are saved in this browser. Clearing site data or ending a private session may remove them. Export a backup to keep your list. GitHub Pages projects on the same github.io hostname share browser storage, even when their paths differ.</p><p id="protectedStorageHelp" class="hidden"></p><div class="label readable-label">Hostname Comparisons</div><p>Single-label names, such as intranet, are commonly used on private networks. These names and IP addresses are compared only for exact matches. Reference domains are never added automatically.</p></div></details>
 <label class="label" for="referenceInput" id="referenceLabel">Add a reference hostname</label>
 <div class="line"><input id="referenceInput" class="grow" maxlength="2048" aria-describedby="referenceError" spellcheck="false" autocomplete="off" autocapitalize="off" placeholder="example.com"><button id="saveReference" type="button">Add</button><button id="cancelEdit" type="button" class="ghost hidden">Cancel edit</button></div>
 <div id="referenceError" class="small form-status" role="status" aria-live="polite" aria-atomic="true"></div>
@@ -671,10 +674,13 @@ const Presentation = (() => {
   const count=(n,singular,plural=singular+'s')=>n+' '+(n===1?singular:plural);
   const visible=value=>Inspector.visible(String(value??''));
   const asciiIntroduction='Some characters in this hostname have similar-looking alternatives in certain fonts. These observations alone do not establish impersonation.';
-  function validation(message,context='hostname'){
+  function validation(message,context='hostname',input){
     const text=String(message||'');
     const entry=/^Entry (\d+): ([\s\S]*)$/.exec(text);
-    if(entry)return 'Reference '+entry[1]+': '+validation(entry[2],'hostname');
+    if(entry){
+      let value;try{const data=JSON.parse(input);value=(data.schemaVersion===0?data.domains:data.references)?.[Number(entry[1])-1];}catch{}
+      return 'Reference '+entry[1]+': '+validation(entry[2],'reference',value);
+    }
     if(/already (?:in Reference Domains|exists)/.test(text))return 'This hostname is already saved.';
     if(/Reference JSON exceeds/.test(text))return 'This backup is too large. The maximum size is 128 KiB.';
     if(/not valid JSON/.test(text))return "This file isn't valid JSON. Choose a backup exported by URL Inspector.";
@@ -689,7 +695,12 @@ const Presentation = (() => {
     if(/Clearing all references requires/.test(text))return 'Confirm Clear References before removing the list.';
     if(/Replacing references requires/.test(text))return 'Confirm Replace References before applying this backup.';
     if(/Choose Merge or Replace/.test(text))return 'Choose Merge or Replace, then review the preview.';
-    if(/Each reference must be|Expected hostname is too long/.test(text))return 'Enter a hostname using no more than 2,048 characters.';
+    if(/Each reference must be/.test(text)){
+      if(typeof input!=='string')return 'Enter a hostname as text, such as example.com.';
+      if(!input.trim())return 'Enter a hostname, such as example.com.';
+      return 'The hostname exceeds the 2,048-character limit.';
+    }
+    if(/Expected hostname is too long/.test(text))return 'Enter a hostname using no more than 2,048 characters.';
     if(/A hostname is required/.test(text))return 'Enter a hostname, such as example.com.';
     if(/Enter only a hostname/.test(text))return 'Enter a hostname without sign-in details, a port, path, query or fragment. A final slash is allowed.';
     if(/Expected hostname has invalid DNS/.test(text))return 'This hostname has an invalid section or is too long. Check its spelling and dots.';
@@ -699,6 +710,27 @@ const Presentation = (() => {
     if(/Punycode|IDNA/i.test(text))return 'This encoded hostname could not be validated. Check the xn-- spelling or use its original Unicode spelling.';
     return context==='import'?"This backup couldn't be imported. Review the file and try again.":'This hostname could not be read. Check its spelling, spaces and brackets.';
   }
+  function referenceErrorHasDetails(message){
+    const text=String(message||'').replace(/^Entry \d+: /,'');
+    // Match only complete fixed messages; any additional technical context stays accessible.
+    return ![
+      'Each reference must be a nonempty hostname (at most 2,048 input characters).',
+      'A hostname is required.',
+      'That normalized hostname is already in Reference Domains.',
+      'That normalized hostname already exists.',
+      'Enter only a hostname, without credentials, port, path, query, or fragment (a trailing root slash is allowed).',
+      'Reference file is not valid JSON.',
+      'This is not an Offline URL Inspector reference backup.',
+      'Unsupported reference schema. Existing data has been preserved.',
+      'Unexpected fields in reference data. Import only the documented backup format.',
+      'Reference lists must contain at most '+ReferenceDomains.MAX_ENTRIES+' entries.',
+      'The reference list is limited to '+ReferenceDomains.MAX_ENTRIES+' entries.',
+      'Reference JSON exceeds the 128 KiB limit.',
+      'That reference no longer exists.',
+      'Invalid URL'
+    ].includes(text);
+  }
+
   function inputFailure(r){
     const m=r.messages.find(m=>['empty','too-long','scheme','parse'].includes(m.code));
     if(!m)return {title:'Inspection could not be completed',detail:'No result is available. Check the input and try again.'};
@@ -805,13 +837,13 @@ const Presentation = (() => {
     if(state.blocked)return /another tab or app/.test(state.status)?'Your saved references changed elsewhere. Edits in this tab have not replaced them. Export a backup before reviewing a replacement.':'Saved data needs review. It has not been replaced; changes stay in this tab. See Storage & hostname help.';
     if(writeFailed)return "Saving failed. Changes stay in this tab; the saved copy was not replaced. Export a backup before closing.";
     if(state.mode!=='browser')return 'Storage unavailable. References stay in this tab only; export a backup before closing.';
-    if(state.revision>0||state.status.startsWith('Reference schema migrated'))return 'Changes saved in this browser.'+(edition==='standalone'?" Lasting storage for local files isn't guaranteed; keep a backup.":'');
-    return state.status.startsWith('Saved')?'Previously saved references loaded.'+(edition==='standalone'?' Local-file storage may not last; keep a backup.':''):"This browser can read reference storage. Saving hasn't been checked yet.";
+    if(state.revision>0||state.status.startsWith('Reference schema migrated'))return 'Saved in this browser';
+    return state.status.startsWith('Saved')?'Previously saved references loaded.':"This browser can read reference storage. Saving hasn't been checked yet.";
   }
   function importSummary(plan){
     return {title:'Import Preview — '+(plan.mode==='replace'?'Replace':'Merge'),lines:[plan.added.length?count(plan.added.length,'new reference')+' will be added.':'No new references will be added.',plan.removed.length?count(plan.removed.length,'existing reference')+' will be removed.':'No existing references will be removed.','References after import: '+plan.final.length,'No changes have been made yet.'],duplicates:plan.duplicates?'Duplicate or already saved entries: '+plan.duplicates+'.':''};
   }
-  return Object.freeze({count,asciiIntroduction,validation,inputFailure,summarize,supporting,explain,characterEvidence,characterNormalization,unicodeDifference,asciiContext,comparisonResult,comparisonMethod,unavailableReferences,diagnostic,diagnosticText,diagnosticCodes:Object.keys(diagnosticTitles),storageStatus,importSummary});
+  return Object.freeze({count,asciiIntroduction,validation,referenceErrorHasDetails,inputFailure,summarize,supporting,explain,characterEvidence,characterNormalization,unicodeDifference,asciiContext,comparisonResult,comparisonMethod,unavailableReferences,diagnostic,diagnosticText,diagnosticCodes:Object.keys(diagnosticTitles),storageStatus,importSummary});
 })();
 
 'use strict';
@@ -870,10 +902,10 @@ function referenceNotice(text='',tone='information',raw='',field=false,area='ref
  set(backup?'referenceError':'backupStatus','');set(backup?'referenceErrorRaw':'backupErrorRaw','');$(backup?'referenceErrorDetails':'backupErrorDetails').classList.add('hidden');
  const target=$(id);target.dataset.tone=tone;
  const prefix=text?({success:'Success',information:'Information',caution:'Caution',error:'Error'}[tone]+': '):'';
- set(id,prefix+text);set(rawId,Inspector.visible(raw));$(details).classList.toggle('hidden',!raw||tone!=='error');
+ set(id,prefix+text);set(rawId,Inspector.visible(raw));$(details).classList.toggle('hidden',!raw||tone!=='error'||!Presentation.referenceErrorHasDetails(raw));
  if(field&&tone==='error')$('referenceInput').setAttribute('aria-invalid','true');else $('referenceInput').removeAttribute('aria-invalid');
 }
-function referenceFailure(error,context='hostname',field=false,area=context==='import'?'backup':'reference'){referenceNotice(Presentation.validation(error.message,context),'error',error.message,field,area);}
+function referenceFailure(error,context='hostname',field=false,area=context==='import'?'backup':'reference'){referenceNotice(Presentation.validation(error.message,context,context==='import'?importText:field?$('referenceInput').value:undefined),'error',error.message,field,area);}
 function referenceOutcome(message,area='reference'){const state=referenceStore.snapshot();referenceNotice(state.mode==='browser'?message:message+' This change is only in this tab; export a backup before closing.',state.mode==='browser'?'success':'caution','',false,area);}
 function fieldError(id,input,message){set(id,message);$(id).classList.toggle('hidden',!message);if(message)$(input).setAttribute('aria-invalid','true');else $(input).removeAttribute('aria-invalid');}
 function asciiGroups(target,observations,locations=true){
@@ -1017,7 +1049,7 @@ function analyze(){
 }
 function cancelImport(){importPlan=null;importText='';referenceStore.cancelImport();$('importReview').classList.add('hidden');$('importFile').value='';}
 function refreshReferences(){
-  const state=referenceStore.snapshot();set('referenceCount',state.references.length+(state.mode==='browser'?' saved':' in this tab'));if(state.mode==='browser')storageSavingFailed=false;else if(/could not be written|migration could not be saved/.test(state.status))storageSavingFailed=true;set('storageStatus',Presentation.storageStatus(state,APP.edition,storageSavingFailed));set('storageDetail',Inspector.visible(state.status));set('protectedStorageHelp',state.blocked?(/another tab or app/.test(state.status)?'Export Backup saves the list shown in this tab, not the different saved copy. Review that copy before choosing Replace or Clear.':'Export Backup saves only the readable list shown here. It cannot preserve unreadable saved data. If you need that data, copy the original storage record in browser developer tools before choosing Replace or Clear.'):'');$('protectedStorageHelp').classList.toggle('hidden',!state.blocked);$('storageStatus').dataset.tone=state.mode==='browser'?'information':storageSavingFailed?'error':'caution';$('storageStatus').className=state.mode==='browser'?'small':'small warn';clear($('referenceList'));
+  const state=referenceStore.snapshot();set('referenceCount',state.references.length+(state.mode==='browser'?' saved':' in this tab'));if(state.mode==='browser')storageSavingFailed=false;else if(/could not be written|migration could not be saved/.test(state.status))storageSavingFailed=true;set('storageStatus',Presentation.storageStatus(state,APP.edition,storageSavingFailed));set('protectedStorageHelp',state.blocked?(/another tab or app/.test(state.status)?'Export Backup saves the list shown in this tab, not the different saved copy. Review that copy before choosing Replace or Clear.':'Export Backup saves only the readable list shown here. It cannot preserve unreadable saved data. If you need that data, copy the original storage record in browser developer tools before choosing Replace or Clear.'):'');$('protectedStorageHelp').classList.toggle('hidden',!state.blocked);$('storageStatus').dataset.tone=state.mode==='browser'?(state.revision>0||state.status.startsWith('Reference schema migrated')?'success':'information'):storageSavingFailed?'error':'caution';$('storageStatus').className=state.mode==='browser'?'small':'small warn';clear($('referenceList'));
   for(const host of state.references){const item=document.createElement('li'),name=document.createElement('div');name.className='ref-name';const decoded=Inspector.expectedHost(host).unicode;name.appendChild(element('span',decoded,'mono'));if(decoded!==host)name.appendChild(element('span',host,'mono small'));if(ReferenceDomains.special(host))name.appendChild(element('span',singleLabel(host)?'Single-label hostname · Exact matches only':'IP address · Exact matches only','small'));
     const edit=element('button','Edit','ghost'),remove=element('button','Remove','ghost');edit.type=remove.type='button';edit.setAttribute('aria-label','Edit reference '+host);remove.setAttribute('aria-label','Remove reference '+host);
     edit.addEventListener('click',()=>{referenceNotice();editingReference=host;$('referenceInput').value=host;set('referenceLabel','Edit reference hostname');set('saveReference','Save edit');$('cancelEdit').classList.remove('hidden');$('referenceInput').focus();});
@@ -1055,8 +1087,8 @@ $('clearReferences').addEventListener('click',async()=>{
   referenceStore.clear(true);resetEdit();cancelImport();refreshReferences();referenceOutcome('Reference list cleared.','backup');
  }catch(e){referenceFailure(e,'hostname',false,'backup');}finally{referenceActionBusy=false;}
 });
-$('exportReferences').addEventListener('click',()=>{try{const url=URL.createObjectURL(new Blob([referenceStore.exportJSON()],{type:'application/json'})),link=document.createElement('a');link.href=url;link.download='offline-url-inspector-references.json';document.body.appendChild(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);referenceNotice('Backup download prepared. Check your downloads to keep the file.','success','',false,'backup');}catch{referenceNotice("The backup download couldn't be created. Try exporting again before closing this tab.",'error','',false,'backup');}});
-$('importReferences').addEventListener('click',()=>$('importFile').click());$('importFile').addEventListener('change',async()=>{const file=$('importFile').files?.[0];if(!file)return;if(file.size>ReferenceDomains.MAX_BYTES){referenceNotice('This backup is too large. The maximum size is 128 KiB.','error','',false,'backup');return;}try{beginImport(await file.text());}catch{referenceNotice("This file couldn't be read. Choose the backup again; no import changes have been applied.",'error','',false,'backup');}});
+$('exportReferences').addEventListener('click',()=>{try{const url=URL.createObjectURL(new Blob([referenceStore.exportJSON()],{type:'application/json'})),link=document.createElement('a');link.href=url;link.download='offline-url-inspector-references.json';document.body.appendChild(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);referenceNotice('Backup download prepared. Check your downloads to keep the file.','success','',false,'backup');}catch(e){referenceNotice("The backup download couldn't be created. Try exporting again before closing this tab.",'error',e.message,false,'backup');}});
+$('importReferences').addEventListener('click',()=>$('importFile').click());$('importFile').addEventListener('change',async()=>{const file=$('importFile').files?.[0];if(!file)return;if(file.size>ReferenceDomains.MAX_BYTES){referenceNotice('This backup is too large. The maximum size is 128 KiB.','error','',false,'backup');return;}try{beginImport(await file.text());}catch(e){referenceNotice("This file couldn't be read. Choose the backup again; no import changes have been applied.",'error',e.message,false,'backup');}});
 $('importMerge').addEventListener('change',reviewImport);$('importReplace').addEventListener('change',reviewImport);$('cancelImport').addEventListener('click',()=>{cancelImport();$('importReferences').focus({preventScroll:true});});
 $('applyImport').addEventListener('click',async()=>{
  if(!importPlan||referenceActionBusy)return;referenceActionBusy=true;const plan=importPlan,replace=plan.mode==='replace';

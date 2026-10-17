@@ -16,6 +16,7 @@
     "test:polish": "deno run --cached-only --allow-read=. --allow-write=tests --allow-env=WS_NO_BUFFER_UTIL,WS_NO_UTF_8_VALIDATE tests/polish.mjs",
     "test:clarity": "deno run --cached-only --allow-read=. --allow-write=tests --allow-env=WS_NO_BUFFER_UTIL,WS_NO_UTF_8_VALIDATE tests/clarity.mjs",
     "test:editorial": "deno run --cached-only --allow-read=. --allow-write=tests --allow-env=WS_NO_BUFFER_UTIL,WS_NO_UTF_8_VALIDATE tests/editorial.mjs",
-    "test:interface": "deno run --cached-only --allow-read=. --allow-write=tests --allow-env=WS_NO_BUFFER_UTIL,WS_NO_UTF_8_VALIDATE tests/interface.mjs"
+    "test:interface": "deno run --cached-only --allow-read=. --allow-write=tests --allow-env=WS_NO_BUFFER_UTIL,WS_NO_UTF_8_VALIDATE tests/interface.mjs",
+    "test:reference-interface": "deno run --cached-only --allow-read=. --allow-write=tests --allow-env=WS_NO_BUFFER_UTIL,WS_NO_UTF_8_VALIDATE tests/reference-interface.mjs"
   }
 }

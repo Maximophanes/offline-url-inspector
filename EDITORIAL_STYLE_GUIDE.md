@@ -60,7 +60,7 @@ Handle zero, one and many explicitly. Use “No existing references will be remo
 
 For errors, explain what failed, what the action did not change when known, and a practical next step. Never claim “no changes” when an earlier independent action changed the list. Never claim an export was saved to disk merely because a download was prepared.
 
-Keep reference-entry errors by the reference field and backup/import/clear feedback by the backup controls. Preserve useful raw errors behind Technical error details. Use native modal safe defaults, Escape, focus restoration and existing duplicate-action guards. Single-label guidance substitutes the real normalized hostname, never guesses a suffix, and keeps Edit Hostname / Add as Entered.
+Keep reference-entry errors by the reference field and backup/import/clear feedback by the backup controls. Preserve useful raw errors behind Technical error details when they add context; suppress fixed explanations that merely repeat the displayed correction, while retaining the underlying error internally. Use native modal safe defaults, Escape, focus restoration and existing duplicate-action guards. Single-label guidance substitutes the real normalized hostname, never guesses a suffix, and keeps Edit Hostname / Add as Entered.
 
 Import previews are structured: mode, additions, removals, final count, pending status and complete hostname lists. “Duplicate or already saved entries” describes the actual plan count, including replacement cases; do not relabel that count as only discarded duplicates.
 

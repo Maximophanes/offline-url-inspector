@@ -5,7 +5,7 @@
   "scope": "All runtime-copy source files, HTML attributes, CSS generated content and build substitutions. Candidates include non-copy tokens; the family matrix records editorial decisions.",
   "sources": {
     "src/template.html": {
-      "sha256": "b421e071168d256b54b942b4f66f3cb3142f38c370c77665d96b88e1afbe9649",
+      "sha256": "600eae3d7efcfa3c600d2313ab604d2f703d3fa6f1a2c45d443e47cf828668d9",
       "items": [
         {
           "line": 6,
@@ -140,7 +140,7 @@
         {
           "line": 33,
           "kind": "markup text",
-          "text": "Save familiar hostnames to compare against suspicious URLs. Reference domains are comparison targets, not guarantees of website safety."
+          "text": "Save hostnames to compare with URLs you inspect. A match doesn't verify that a website is safe."
         },
         {
           "line": 34,
@@ -156,11 +156,6 @@
           "line": 34,
           "kind": "markup text",
           "text": "@@STORAGE_HELP@@"
-        },
-        {
-          "line": 34,
-          "kind": "markup text",
-          "text": "Technical storage status"
         },
         {
           "line": 34,
@@ -630,7 +625,7 @@
       ]
     },
     "src/presentation.js": {
-      "sha256": "85e9a44c8cf4c88fcf08ef4839461d4489ab51328303f483d7ee5d9348dda1bf",
+      "sha256": "a89771ae8dbc7b5815e54a5ff092f9a325590584ec40f031b91d9d673c7ad4fa",
       "items": [
         {
           "line": 1,
@@ -658,1864 +653,1944 @@
           "text": "hostname"
         },
         {
-          "line": 10,
+          "line": 12,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "Reference "
         },
         {
-          "line": 10,
+          "line": 12,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": ": "
         },
         {
-          "line": 10,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "hostname"
-        },
-        {
-          "line": 11,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "This hostname is already saved."
-        },
-        {
           "line": 12,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "This backup is too large. The maximum size is 128 KiB."
-        },
-        {
-          "line": 13,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "This file isn't valid JSON. Choose a backup exported by URL Inspector."
+          "text": "reference"
         },
         {
           "line": 14,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "This isn't a URL Inspector reference backup. Choose a backup exported by this app."
+          "text": "This hostname is already saved."
         },
         {
           "line": 15,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "This backup uses an unsupported format version. Your saved references have not been changed."
+          "text": "This backup is too large. The maximum size is 128 KiB."
         },
         {
           "line": 16,
           "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "This file isn't valid JSON. Choose a backup exported by URL Inspector."
+        },
+        {
+          "line": 17,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "This isn't a URL Inspector reference backup. Choose a backup exported by this app."
+        },
+        {
+          "line": 18,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "This backup uses an unsupported format version. Your saved references have not been changed."
+        },
+        {
+          "line": 19,
+          "kind": "JavaScript literal candidate (includes code/data)",
           "text": "This file doesn't match the expected backup format. Your references have not been changed."
-        },
-        {
-          "line": 17,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "The backup must contain a list of no more than "
-        },
-        {
-          "line": 17,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": " hostnames."
-        },
-        {
-          "line": 18,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "This import would exceed the "
-        },
-        {
-          "line": 18,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "-reference limit. Use a smaller backup or remove some references first."
-        },
-        {
-          "line": 19,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "You can save up to "
-        },
-        {
-          "line": 19,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": " references. Remove one before adding another."
         },
         {
           "line": 20,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Your reference list changed during the import. Please review the updated preview before continuing."
+          "text": "The backup must contain a list of no more than "
+        },
+        {
+          "line": 20,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": " hostnames."
         },
         {
           "line": 21,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "This reference is no longer in the list. Choose another entry."
+          "text": "This import would exceed the "
+        },
+        {
+          "line": 21,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "-reference limit. Use a smaller backup or remove some references first."
         },
         {
           "line": 22,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Confirm Clear References before removing the list."
+          "text": "You can save up to "
+        },
+        {
+          "line": 22,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": " references. Remove one before adding another."
         },
         {
           "line": 23,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Confirm Replace References before applying this backup."
+          "text": "Your reference list changed during the import. Please review the updated preview before continuing."
         },
         {
           "line": 24,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Choose Merge or Replace, then review the preview."
+          "text": "This reference is no longer in the list. Choose another entry."
         },
         {
           "line": 25,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Enter a hostname using no more than 2,048 characters."
+          "text": "Confirm Clear References before removing the list."
         },
         {
           "line": 26,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Enter a hostname, such as example.com."
+          "text": "Confirm Replace References before applying this backup."
         },
         {
           "line": 27,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Enter a hostname without sign-in details, a port, path, query or fragment. A final slash is allowed."
-        },
-        {
-          "line": 28,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "This hostname has an invalid section or is too long. Check its spelling and dots."
+          "text": "Choose Merge or Replace, then review the preview."
         },
         {
           "line": 29,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Remove the hidden or spacing characters at the start, then try again. Your original text has been preserved."
+          "text": "string"
+        },
+        {
+          "line": 29,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Enter a hostname as text, such as example.com."
         },
         {
           "line": 30,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "url"
-        },
-        {
-          "line": 30,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Only HTTP and HTTPS links can be inspected. Check the beginning of the URL."
-        },
-        {
-          "line": 30,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Enter a hostname or an HTTP/HTTPS address, such as example.com."
+          "text": "Enter a hostname, such as example.com."
         },
         {
           "line": 31,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Include :// after http or https, then try again."
-        },
-        {
-          "line": 32,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "This encoded hostname could not be validated. Check the xn-- spelling or use its original Unicode spelling."
+          "text": "The hostname exceeds the 2,048-character limit."
         },
         {
           "line": 33,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "import"
+          "text": "Enter a hostname using no more than 2,048 characters."
         },
         {
-          "line": 33,
+          "line": 34,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "This backup couldn't be imported. Review the file and try again."
+          "text": "Enter a hostname, such as example.com."
         },
         {
-          "line": 33,
+          "line": 35,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "This hostname could not be read. Check its spelling, spaces and brackets."
-        },
-        {
-          "line": 36,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "empty"
+          "text": "Enter a hostname without sign-in details, a port, path, query or fragment. A final slash is allowed."
         },
         {
           "line": 36,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "too-long"
-        },
-        {
-          "line": 36,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "scheme"
-        },
-        {
-          "line": 36,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "parse"
+          "text": "This hostname has an invalid section or is too long. Check its spelling and dots."
         },
         {
           "line": 37,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Inspection could not be completed"
-        },
-        {
-          "line": 37,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "No result is available. Check the input and try again."
+          "text": "Remove the hidden or spacing characters at the start, then try again. Your original text has been preserved."
         },
         {
           "line": 38,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "empty"
-        },
-        {
-          "line": 38,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Enter a URL to inspect"
-        },
-        {
-          "line": 38,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "too-long"
-        },
-        {
-          "line": 38,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "URL exceeds the inspection limit"
-        },
-        {
-          "line": 38,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "scheme"
-        },
-        {
-          "line": 38,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "URL format needs review"
-        },
-        {
-          "line": 38,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Unable to read this URL"
-        },
-        {
-          "line": 42,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "neutral"
-        },
-        {
-          "line": 42,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "No unusual hostname characters identified"
-        },
-        {
-          "line": 42,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "No internationalized or hidden characters were found in the hostname. Check its spelling and context before opening the link."
-        },
-        {
-          "line": 43,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "error"
-        },
-        {
-          "line": 48,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "visual"
-        },
-        {
-          "line": 48,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Potential hostname impersonation"
-        },
-        {
-          "line": 48,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "The hostname differs from "
-        },
-        {
-          "line": 48,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": " and may look similar. Visual resemblance does not establish malicious intent."
-        },
-        {
-          "line": 49,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "userinfo"
-        },
-        {
-          "line": 49,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "deceptive-subdomain"
-        },
-        {
-          "line": 49,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "attribution"
-        },
-        {
-          "line": 49,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "backslash"
-        },
-        {
-          "line": 50,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "structure"
-        },
-        {
-          "line": 50,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Potentially misleading URL structure"
-        },
-        {
-          "line": 51,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "userinfo"
-        },
-        {
-          "line": 51,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "userinfo"
-        },
-        {
-          "line": 51,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "deceptive-subdomain"
-        },
-        {
-          "line": 51,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "deceptive-subdomain"
-        },
-        {
-          "line": 51,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "embedded"
-        },
-        {
-          "line": 51,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "attribution"
-        },
-        {
-          "line": 51,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "attribution"
-        },
-        {
-          "line": 51,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "backslash"
-        },
-        {
-          "line": 52,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "userinfo"
-        },
-        {
-          "line": 52,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Text before @ is sign-in information, not the hostname. Check the actual hostname below."
-        },
-        {
-          "line": 52,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "deceptive-subdomain"
-        },
-        {
-          "line": 52,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "embedded"
-        },
-        {
-          "line": 52,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "A comparison hostname appears inside a longer hostname. That does not make this a subdomain of the comparison hostname."
-        },
-        {
-          "line": 52,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "attribution"
-        },
-        {
-          "line": 52,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "The original hostname could not be identified with certainty. Review the actual hostname and original URL."
-        },
-        {
-          "line": 52,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Backslashes can change where the hostname ends. Review the actual hostname and original URL."
-        },
-        {
-          "line": 53,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "dns"
-        },
-        {
-          "line": 53,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "error"
-        },
-        {
-          "line": 53,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Hostname needs manual review"
-        },
-        {
-          "line": 53,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "punycode"
-        },
-        {
-          "line": 53,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "dns"
-        },
-        {
-          "line": 53,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Your browser can parse this URL, but its hostname still needs review. See the validation findings in Technical Details."
-        },
-        {
-          "line": 54,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "error"
-        },
-        {
-          "line": 54,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Expected hostname could not be checked"
-        },
-        {
-          "line": 56,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "unavailable"
-        },
-        {
-          "line": 56,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "mismatch"
-        },
-        {
-          "line": 56,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Visual comparison unavailable"
-        },
-        {
-          "line": 56,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Hostname mismatch"
-        },
-        {
-          "line": 57,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "The hostname differs from "
-        },
-        {
-          "line": 57,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": ", but visual resemblance couldn't be checked."
-        },
-        {
-          "line": 57,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "subdomain"
-        },
-        {
-          "line": 57,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "This hostname is a subdomain of "
-        },
-        {
-          "line": 57,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": ", not an exact match."
-        },
-        {
-          "line": 57,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "The actual hostname differs from "
-        },
-        {
-          "line": 57,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "."
-        },
-        {
-          "line": 57,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "spelling"
-        },
-        {
-          "line": 57,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": " The two have similar spelling."
-        },
-        {
-          "line": 58,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "exact"
-        },
-        {
-          "line": 58,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Exact hostname match"
-        },
-        {
-          "line": 58,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "The hostname matches your expected hostname. This match does not compare the scheme, port, path or query."
-        },
-        {
-          "line": 59,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "exact"
-        },
-        {
-          "line": 59,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Exact reference hostname match"
-        },
-        {
-          "line": 59,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "The hostname matches a saved reference. This match does not compare the rest of the URL or verify the website."
-        },
-        {
-          "line": 60,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "subdomain"
-        },
-        {
-          "line": 60,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Subdomain of a reference hostname"
-        },
-        {
-          "line": 60,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "This hostname is a subdomain of "
-        },
-        {
-          "line": 60,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": ", not an exact match."
-        },
-        {
-          "line": 61,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "unavailable"
-        },
-        {
-          "line": 61,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Visual comparison unavailable"
-        },
-        {
-          "line": 61,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "No exact reference match was found, but some visual comparisons could not be completed. See Reference Comparisons."
-        },
-        {
-          "line": 62,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "international"
-        },
-        {
-          "line": 62,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Internationalized hostname"
-        },
-        {
-          "line": 62,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "This hostname contains Unicode characters. Internationalized names can be legitimate; review the spelling in context."
-        },
-        {
-          "line": 63,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "normalization"
-        },
-        {
-          "line": 63,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Hostname spelling changed during processing"
-        },
-        {
-          "line": 63,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "The original and readable spellings differ. Review both forms in Technical Details; a spelling transformation alone does not establish impersonation."
-        },
-        {
-          "line": 64,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "similarity"
-        },
-        {
-          "line": 64,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Spelling similarity to a reference hostname"
-        },
-        {
-          "line": 64,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "The hostname differs from "
-        },
-        {
-          "line": 64,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": " but has similar spelling. This is separate from a visual lookalike comparison."
-        },
-        {
-          "line": 69,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Hidden or formatting characters occur in the submitted text. Technical Details identifies their code points."
-        },
-        {
-          "line": 69,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Text before @ can distract from the actual hostname."
-        },
-        {
-          "line": 69,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "This URL uses unencrypted HTTP."
-        },
-        {
-          "line": 69,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "The URL specifies port "
-        },
-        {
-          "line": 69,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": ". Check that this is expected."
-        },
-        {
-          "line": 69,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "The readable hostname could not be validated. The ASCII form remains available."
-        },
-        {
-          "line": 69,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "The hostname does not follow standard DNS naming rules. Review the validation findings."
-        },
-        {
-          "line": 69,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "The original hostname could not be identified with certainty."
-        },
-        {
-          "line": 69,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Your browser removed spaces or control characters while reading the URL. The original text is preserved."
-        },
-        {
-          "line": 69,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "The browser treats backslashes as forward slashes, which can change hostname boundaries."
-        },
-        {
-          "line": 69,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "deceptive-subdomain"
-        },
-        {
-          "line": 69,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "The expected hostname appears inside a longer, different hostname."
-        },
-        {
-          "line": 74,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "normalization"
-        },
-        {
-          "line": 74,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "international"
-        },
-        {
-          "line": 74,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "The original spelling changed during hostname processing. Its code points remain in Character Details."
-        },
-        {
-          "line": 75,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "bidi-limit"
-        },
-        {
-          "line": 75,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "unavailable"
-        },
-        {
-          "line": 75,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Right-to-left visual comparison is unavailable. Exact hostname comparison remains available."
-        },
-        {
-          "line": 76,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Saved reference text occurs inside this longer hostname. It is not a subdomain of "
-        },
-        {
-          "line": 76,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": ", "
-        },
-        {
-          "line": 76,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "."
-        },
-        {
-          "line": 80,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "visual"
-        },
-        {
-          "line": 81,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": " may look like "
-        },
-        {
-          "line": 81,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "your expected hostname "
-        },
-        {
-          "line": 81,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "your saved reference "
-        },
-        {
-          "line": 81,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": ". "
-        },
-        {
-          "line": 81,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "“"
-        },
-        {
-          "line": 81,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "” may resemble “"
-        },
-        {
-          "line": 81,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "” in some fonts."
-        },
-        {
-          "line": 81,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": " "
-        },
-        {
-          "line": 81,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": " Visual resemblance does not establish malicious intent."
-        },
-        {
-          "line": 84,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "first"
-        },
-        {
-          "line": 84,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "second"
-        },
-        {
-          "line": 84,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "third"
-        },
-        {
-          "line": 84,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "fourth"
-        },
-        {
-          "line": 84,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "fifth"
-        },
-        {
-          "line": 84,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "its "
-        },
-        {
-          "line": 84,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": " character"
-        },
-        {
-          "line": 84,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "the character at position "
-        },
-        {
-          "line": 85,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "The inspected hostname resembles "
-        },
-        {
-          "line": 85,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": ", but "
-        },
-        {
-          "line": 85,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": " is "
-        },
-        {
-          "line": 85,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": " "
-        },
-        {
-          "line": 85,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": " ("
-        },
-        {
-          "line": 85,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "), not "
-        },
-        {
-          "line": 85,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": " "
-        },
-        {
-          "line": 85,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": " ("
-        },
-        {
-          "line": 85,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "). Visual resemblance does not establish malicious intent."
-        },
-        {
-          "line": 90,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Original & readable"
-        },
-        {
-          "line": 90,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Original"
-        },
-        {
-          "line": 90,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Original text (unverified)"
-        },
-        {
-          "line": 90,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Readable hostname"
-        },
-        {
-          "line": 93,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Character preserved unchanged."
-        },
-        {
-          "line": 94,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Removed while the browser read the URL."
-        },
-        {
-          "line": 95,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "mapped"
-        },
-        {
-          "line": 95,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Changed by the hostname character-mapping rules."
-        },
-        {
-          "line": 96,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "ignored"
-        },
-        {
-          "line": 96,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Removed during hostname processing."
-        },
-        {
-          "line": 97,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "disallowed"
-        },
-        {
-          "line": 97,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "This character is not allowed by the bundled IDNA rules. The actual hostname shows your browser's result."
-        },
-        {
-          "line": 98,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "deviation"
-        },
-        {
-          "line": 98,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Normally preserved by current hostname rules. Older compatibility rules may replace it."
-        },
-        {
-          "line": 99,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "mapped"
-        },
-        {
-          "line": 99,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "ignored"
-        },
-        {
-          "line": 99,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "disallowed"
-        },
-        {
-          "line": 99,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Changed during hostname normalization."
-        },
-        {
-          "line": 100,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "The normalization result is unverified. "
-        },
-        {
-          "line": 100,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Character preserved unchanged."
-        },
-        {
-          "line": 100,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "The character rule would normally preserve it."
-        },
-        {
-          "line": 116,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "exact"
-        },
-        {
-          "line": 116,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "The normalized hostnames match exactly."
-        },
-        {
-          "line": 116,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "subdomains"
-        },
-        {
-          "line": 116,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "The inspected hostname is a subdomain of this hostname, not an exact match."
-        },
-        {
-          "line": 116,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "embedded"
-        },
-        {
-          "line": 116,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "This name appears inside a different, longer hostname. It does not make that hostname a subdomain of this one."
-        },
-        {
-          "line": 116,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Different hostnames with a potential visual resemblance."
-        },
-        {
-          "line": 116,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "spelling"
-        },
-        {
-          "line": 116,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "spelling"
-        },
-        {
-          "line": 116,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Different hostnames with similar spelling. This is separate from visual resemblance."
-        },
-        {
-          "line": 116,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "The hostnames differ."
-        },
-        {
-          "line": 117,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": " Visual comparison is unavailable."
-        },
-        {
-          "line": 120,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Visual comparison unavailable"
-        },
-        {
-          "line": 120,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "The inspector could compare hostname identity, but could not complete the visual check."
-        },
-        {
-          "line": 121,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "UTS #39"
-        },
-        {
-          "line": 121,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Unicode visual comparison"
-        },
-        {
-          "line": 121,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Unicode lookalike data (UTS #39) was used to compare the readable hostnames."
-        },
-        {
-          "line": 122,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "supplemental ASCII visual heuristic"
-        },
-        {
-          "line": 122,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "ASCII visual comparison"
-        },
-        {
-          "line": 122,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Font-dependent ASCII alternatives were used to compare the original spellings."
-        },
-        {
-          "line": 123,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Hostname identity comparison"
-        },
-        {
-          "line": 123,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Hostnames were compared after browser normalization, ignoring case and one final root dot."
-        },
-        {
-          "line": 123,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "spelling"
-        },
-        {
-          "line": 123,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Spelling comparison"
-        },
-        {
-          "line": 123,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "The readable hostnames were compared for spelling differences."
-        },
-        {
-          "line": 123,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Hostname comparison"
-        },
-        {
-          "line": 123,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "The readable hostnames were compared for supported visual and spelling similarities."
-        },
-        {
-          "line": 125,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "The inspector couldn't check for visual resemblance to "
-        },
-        {
-          "line": 125,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "saved reference"
-        },
-        {
-          "line": 125,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": ". A visual resemblance may still exist."
-        },
-        {
-          "line": 126,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "No URL supplied"
-        },
-        {
-          "line": 126,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "too-long"
-        },
-        {
-          "line": 126,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "URL exceeds the inspection limit"
-        },
-        {
-          "line": 126,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "URL format"
-        },
-        {
-          "line": 126,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "URL could not be read"
-        },
-        {
-          "line": 126,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Hidden or formatting characters"
-        },
-        {
-          "line": 126,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Invalid percent encoding"
-        },
-        {
-          "line": 126,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Spaces or control characters removed"
-        },
-        {
-          "line": 126,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Encoded hostname could not be validated"
-        },
-        {
-          "line": 126,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Original hostname uncertain"
-        },
-        {
-          "line": 126,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "normalized-ascii"
-        },
-        {
-          "line": 126,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Original characters mapped to ASCII"
-        },
-        {
-          "line": 126,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "non-ascii"
-        },
-        {
-          "line": 126,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Internationalized hostname"
-        },
-        {
-          "line": 126,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Hostname spelling changed"
-        },
-        {
-          "line": 126,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Sign-in text before @"
-        },
-        {
-          "line": 126,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Unencrypted HTTP"
-        },
-        {
-          "line": 126,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Non-default port"
-        },
-        {
-          "line": 126,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "explicit-port"
-        },
-        {
-          "line": 126,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Explicit port omitted by the browser"
-        },
-        {
-          "line": 126,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Backslashes affect hostname boundaries"
-        },
-        {
-          "line": 126,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Hostname format needs review"
-        },
-        {
-          "line": 126,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Writing systems mixed within a hostname section"
-        },
-        {
-          "line": 126,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Writing systems across hostname sections"
-        },
-        {
-          "line": 126,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "character-confusables"
-        },
-        {
-          "line": 126,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Unicode lookalike mappings"
-        },
-        {
-          "line": 126,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "ascii-ambiguity"
-        },
-        {
-          "line": 126,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "ASCII visual ambiguity"
-        },
-        {
-          "line": 126,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "bidi-limit"
-        },
-        {
-          "line": 126,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Right-to-left visual comparison unavailable"
-        },
-        {
-          "line": 126,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "expected-error"
-        },
-        {
-          "line": 126,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Expected hostname could not be checked"
-        },
-        {
-          "line": 126,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Exact hostname match"
-        },
-        {
-          "line": 126,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Hostname mismatch"
-        },
-        {
-          "line": 126,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Potential visual impersonation"
-        },
-        {
-          "line": 126,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Similar spelling"
-        },
-        {
-          "line": 126,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "comparison-limit"
-        },
-        {
-          "line": 126,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Visual comparison unavailable"
-        },
-        {
-          "line": 126,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Subdomain of the expected hostname"
-        },
-        {
-          "line": 126,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "deceptive-subdomain"
-        },
-        {
-          "line": 126,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Expected name inside a different hostname"
-        },
-        {
-          "line": 126,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "no-anomalies"
-        },
-        {
-          "line": 126,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "No unusual hostname characters"
-        },
-        {
-          "line": 126,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Website not verified"
-        },
-        {
-          "line": 128,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "too-long"
-        },
-        {
-          "line": 128,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "scheme"
-        },
-        {
-          "line": 128,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "parse"
-        },
-        {
-          "line": 128,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "punycode"
-        },
-        {
-          "line": 128,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "attribution"
-        },
-        {
-          "line": 128,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "bidi-limit"
-        },
-        {
-          "line": 128,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "expected-error"
-        },
-        {
-          "line": 128,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "comparison-limit"
-        },
-        {
-          "line": 128,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "exact"
-        },
-        {
-          "line": 128,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "mismatch"
-        },
-        {
-          "line": 128,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "impersonation"
-        },
-        {
-          "line": 128,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "spelling"
-        },
-        {
-          "line": 128,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "subdomain"
-        },
-        {
-          "line": 128,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "deceptive-subdomain"
-        },
-        {
-          "line": 129,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "alert"
-        },
-        {
-          "line": 129,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Warning"
-        },
-        {
-          "line": 129,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "warn"
-        },
-        {
-          "line": 129,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Caution"
-        },
-        {
-          "line": 129,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Information"
-        },
-        {
-          "line": 130,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Additional analysis finding"
-        },
-        {
-          "line": 130,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "unverified"
-        },
-        {
-          "line": 130,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Verification limit"
-        },
-        {
-          "line": 130,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Processing limit"
-        },
-        {
-          "line": 130,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Comparison"
-        },
-        {
-          "line": 130,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Observation"
-        },
-        {
-          "line": 133,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Paste a URL to begin."
-        },
-        {
-          "line": 133,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "too-long"
-        },
-        {
-          "line": 133,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "This URL exceeds the inspection limit. Shorten it and try again; the complete original remains in the input field."
-        },
-        {
-          "line": 133,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "url"
         },
         {
-          "line": 133,
+          "line": 38,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Your browser couldn't read this URL. Check the hostname, brackets and port before trying again."
+          "text": "Only HTTP and HTTPS links can be inspected. Check the beginning of the URL."
         },
         {
-          "line": 133,
+          "line": 38,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Hidden or formatting characters occur in the submitted text. Their code points are retained in the technical evidence; they may occur outside the hostname."
+          "text": "Enter a hostname or an HTTP/HTTPS address, such as example.com."
         },
         {
-          "line": 133,
+          "line": 39,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Some percent-encoded text is incomplete or invalid. Review the original URL; this can affect how it is read."
+          "text": "Include :// after http or https, then try again."
         },
         {
-          "line": 133,
+          "line": 40,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Your browser removed spaces or control characters while reading the URL. The original URL is preserved."
+          "text": "This encoded hostname could not be validated. Check the xn-- spelling or use its original Unicode spelling."
         },
         {
-          "line": 133,
+          "line": 41,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "The encoded hostname couldn't be validated. Its ASCII form remains available; the readable form could not be established."
+          "text": "import"
         },
         {
-          "line": 133,
+          "line": 41,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "The original hostname could not be identified with certainty. Review the parsed actual hostname and original URL."
+          "text": "This backup couldn't be imported. Review the file and try again."
         },
         {
-          "line": 133,
+          "line": 41,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "normalized-ascii"
+          "text": "This hostname could not be read. Check its spelling, spaces and brackets."
         },
         {
-          "line": 133,
+          "line": 47,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Hostname processing mapped the original characters to ASCII. This transformation alone does not establish a different destination."
+          "text": "Each reference must be a nonempty hostname (at most 2,048 input characters)."
         },
         {
-          "line": 133,
+          "line": 48,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "non-ascii"
+          "text": "A hostname is required."
         },
         {
-          "line": 133,
+          "line": 49,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Unicode characters remain in the readable hostname. Internationalized names can be legitimate."
+          "text": "That normalized hostname is already in Reference Domains."
         },
         {
-          "line": 133,
+          "line": 50,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "The original spelling and readable hostname differ. Both forms are retained in the technical evidence."
+          "text": "That normalized hostname already exists."
         },
         {
-          "line": 133,
+          "line": 51,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "The text before @ belongs to the sign-in section of the URL. It is not the destination hostname."
+          "text": "Enter only a hostname, without credentials, port, path, query, or fragment (a trailing root slash is allowed)."
         },
         {
-          "line": 133,
+          "line": 52,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "This link uses HTTP, which does not encrypt traffic to the website."
+          "text": "Reference file is not valid JSON."
         },
         {
-          "line": 133,
+          "line": 53,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "The URL specifies port "
+          "text": "This is not an Offline URL Inspector reference backup."
         },
         {
-          "line": 133,
+          "line": 54,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": ". Check that this is expected."
+          "text": "Unsupported reference schema. Existing data has been preserved."
         },
         {
-          "line": 133,
+          "line": 55,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "explicit-port"
+          "text": "Unexpected fields in reference data. Import only the documented backup format."
         },
         {
-          "line": 133,
+          "line": 56,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "The input explicitly supplied port syntax "
+          "text": "Reference lists must contain at most "
         },
         {
-          "line": 133,
+          "line": 56,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": ". The browser left out the default or empty port."
+          "text": " entries."
         },
         {
-          "line": 133,
+          "line": 57,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "The browser treats backslashes as forward slashes in HTTP(S) URLs. This can change where the hostname ends."
+          "text": "The reference list is limited to "
         },
         {
-          "line": 133,
+          "line": 57,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "More than one writing system occurs within "
+          "text": " entries."
         },
         {
-          "line": 133,
+          "line": 58,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "hostname section"
+          "text": "Reference JSON exceeds the 128 KiB limit."
         },
         {
-          "line": 133,
+          "line": 59,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": ". This can be legitimate; review the spelling."
+          "text": "That reference no longer exists."
         },
         {
-          "line": 133,
+          "line": 60,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Different writing systems appear across hostname sections. This can be legitimate."
+          "text": "Invalid URL"
         },
         {
-          "line": 133,
+          "line": 65,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "character-confusables"
+          "text": "empty"
         },
         {
-          "line": 133,
+          "line": 65,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Some characters have Unicode lookalike mappings. Character Details retains the mapping data."
+          "text": "too-long"
         },
         {
-          "line": 133,
+          "line": 65,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "ascii-ambiguity"
+          "text": "scheme"
         },
         {
-          "line": 133,
+          "line": 65,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "bidi-limit"
+          "text": "parse"
         },
         {
-          "line": 133,
+          "line": 66,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Complete right-to-left visual comparisons aren't supported. Exact hostname comparisons remain available."
+          "text": "Inspection could not be completed"
         },
         {
-          "line": 133,
+          "line": 66,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "expected-error"
+          "text": "No result is available. Check the input and try again."
         },
         {
-          "line": 133,
+          "line": 67,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "The hostnames match after normalization. This does not compare the rest of the URL."
+          "text": "empty"
         },
         {
-          "line": 133,
+          "line": 67,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Expected "
+          "text": "Enter a URL to inspect"
         },
         {
-          "line": 133,
+          "line": 67,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "; actual "
+          "text": "too-long"
         },
         {
-          "line": 133,
+          "line": 67,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "."
+          "text": "URL exceeds the inspection limit"
         },
         {
-          "line": 133,
+          "line": 67,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "The hostnames differ but may look alike. The technical evidence retains the comparison method and any supported substitutions."
+          "text": "scheme"
         },
         {
-          "line": 133,
+          "line": 67,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "The hostnames have similar spelling. This is separate from a Unicode or font-based visual resemblance."
+          "text": "URL format needs review"
         },
         {
-          "line": 133,
+          "line": 67,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "comparison-limit"
+          "text": "Unable to read this URL"
         },
         {
-          "line": 133,
+          "line": 71,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Visual resemblance could not be checked. A hostname mismatch here does not rule out a lookalike."
+          "text": "neutral"
         },
         {
-          "line": 133,
+          "line": 71,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "The actual hostname is a subdomain of "
+          "text": "No unusual hostname characters identified"
         },
         {
-          "line": 133,
+          "line": 71,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": ", not an exact match."
+          "text": "No internationalized or hidden characters were found in the hostname. Check its spelling and context before opening the link."
         },
         {
-          "line": 133,
+          "line": 72,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "error"
+        },
+        {
+          "line": 77,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "visual"
+        },
+        {
+          "line": 77,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Potential hostname impersonation"
+        },
+        {
+          "line": 77,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "The hostname differs from "
+        },
+        {
+          "line": 77,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": " and may look similar. Visual resemblance does not establish malicious intent."
+        },
+        {
+          "line": 78,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "userinfo"
+        },
+        {
+          "line": 78,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "deceptive-subdomain"
         },
         {
-          "line": 133,
+          "line": 78,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "The expected hostname appears inside a longer, different hostname. That occurrence does not make it a subdomain of the expected hostname."
+          "text": "attribution"
         },
         {
-          "line": 133,
+          "line": 78,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "no-anomalies"
+          "text": "backslash"
         },
         {
-          "line": 133,
+          "line": 79,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "No non-ASCII or hidden hostname characters were identified. ASCII lookalikes can still exist."
+          "text": "structure"
         },
         {
-          "line": 133,
+          "line": 79,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "The website has not been visited or checked for ownership, reputation, content or redirects."
+          "text": "Potentially misleading URL structure"
         },
         {
-          "line": 134,
+          "line": 80,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "userinfo"
+        },
+        {
+          "line": 80,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "userinfo"
+        },
+        {
+          "line": 80,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "deceptive-subdomain"
+        },
+        {
+          "line": 80,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "deceptive-subdomain"
+        },
+        {
+          "line": 80,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "embedded"
+        },
+        {
+          "line": 80,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "attribution"
+        },
+        {
+          "line": 80,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "attribution"
+        },
+        {
+          "line": 80,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "backslash"
+        },
+        {
+          "line": 81,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "userinfo"
+        },
+        {
+          "line": 81,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Text before @ is sign-in information, not the hostname. Check the actual hostname below."
+        },
+        {
+          "line": 81,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "deceptive-subdomain"
+        },
+        {
+          "line": 81,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "embedded"
+        },
+        {
+          "line": 81,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "A comparison hostname appears inside a longer hostname. That does not make this a subdomain of the comparison hostname."
+        },
+        {
+          "line": 81,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "attribution"
+        },
+        {
+          "line": 81,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "The original hostname could not be identified with certainty. Review the actual hostname and original URL."
+        },
+        {
+          "line": 81,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Backslashes can change where the hostname ends. Review the actual hostname and original URL."
+        },
+        {
+          "line": 82,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "dns"
         },
         {
-          "line": 134,
+          "line": 82,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "error"
+        },
+        {
+          "line": 82,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Hostname needs manual review"
+        },
+        {
+          "line": 82,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "punycode"
+        },
+        {
+          "line": 82,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "dns"
+        },
+        {
+          "line": 82,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Your browser can parse this URL, but its hostname still needs review. See the validation findings in Technical Details."
+        },
+        {
+          "line": 83,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "error"
+        },
+        {
+          "line": 83,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Expected hostname could not be checked"
+        },
+        {
+          "line": 85,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "unavailable"
+        },
+        {
+          "line": 85,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "mismatch"
+        },
+        {
+          "line": 85,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Visual comparison unavailable"
+        },
+        {
+          "line": 85,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Hostname mismatch"
+        },
+        {
+          "line": 86,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "The hostname differs from "
+        },
+        {
+          "line": 86,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": ", but visual resemblance couldn't be checked."
+        },
+        {
+          "line": 86,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "subdomain"
+        },
+        {
+          "line": 86,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "This hostname is a subdomain of "
+        },
+        {
+          "line": 86,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": ", not an exact match."
+        },
+        {
+          "line": 86,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "The actual hostname differs from "
+        },
+        {
+          "line": 86,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "."
+        },
+        {
+          "line": 86,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "spelling"
+        },
+        {
+          "line": 86,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": " The two have similar spelling."
+        },
+        {
+          "line": 87,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "exact"
+        },
+        {
+          "line": 87,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Exact hostname match"
+        },
+        {
+          "line": 87,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "The hostname matches your expected hostname. This match does not compare the scheme, port, path or query."
+        },
+        {
+          "line": 88,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "exact"
+        },
+        {
+          "line": 88,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Exact reference hostname match"
+        },
+        {
+          "line": 88,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "The hostname matches a saved reference. This match does not compare the rest of the URL or verify the website."
+        },
+        {
+          "line": 89,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "subdomain"
+        },
+        {
+          "line": 89,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Subdomain of a reference hostname"
+        },
+        {
+          "line": 89,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "This hostname is a subdomain of "
+        },
+        {
+          "line": 89,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": ", not an exact match."
+        },
+        {
+          "line": 90,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "unavailable"
+        },
+        {
+          "line": 90,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Visual comparison unavailable"
+        },
+        {
+          "line": 90,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "No exact reference match was found, but some visual comparisons could not be completed. See Reference Comparisons."
+        },
+        {
+          "line": 91,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "international"
+        },
+        {
+          "line": 91,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Internationalized hostname"
+        },
+        {
+          "line": 91,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "This hostname contains Unicode characters. Internationalized names can be legitimate; review the spelling in context."
+        },
+        {
+          "line": 92,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "normalization"
+        },
+        {
+          "line": 92,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Hostname spelling changed during processing"
+        },
+        {
+          "line": 92,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "The original and readable spellings differ. Review both forms in Technical Details; a spelling transformation alone does not establish impersonation."
+        },
+        {
+          "line": 93,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "similarity"
+        },
+        {
+          "line": 93,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Spelling similarity to a reference hostname"
+        },
+        {
+          "line": 93,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "The hostname differs from "
+        },
+        {
+          "line": 93,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": " but has similar spelling. This is separate from a visual lookalike comparison."
+        },
+        {
+          "line": 98,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Hidden or formatting characters occur in the submitted text. Technical Details identifies their code points."
+        },
+        {
+          "line": 98,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Text before @ can distract from the actual hostname."
+        },
+        {
+          "line": 98,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "This URL uses unencrypted HTTP."
+        },
+        {
+          "line": 98,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "The URL specifies port "
+        },
+        {
+          "line": 98,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": ". Check that this is expected."
+        },
+        {
+          "line": 98,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "The readable hostname could not be validated. The ASCII form remains available."
+        },
+        {
+          "line": 98,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "The hostname does not follow standard DNS naming rules. Review the validation findings."
+        },
+        {
+          "line": 98,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "The original hostname could not be identified with certainty."
+        },
+        {
+          "line": 98,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Your browser removed spaces or control characters while reading the URL. The original text is preserved."
+        },
+        {
+          "line": 98,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "The browser treats backslashes as forward slashes, which can change hostname boundaries."
+        },
+        {
+          "line": 98,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "deceptive-subdomain"
+        },
+        {
+          "line": 98,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "The expected hostname appears inside a longer, different hostname."
+        },
+        {
+          "line": 103,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "normalization"
+        },
+        {
+          "line": 103,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "international"
+        },
+        {
+          "line": 103,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "The original spelling changed during hostname processing. Its code points remain in Character Details."
+        },
+        {
+          "line": 104,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "bidi-limit"
+        },
+        {
+          "line": 104,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "unavailable"
+        },
+        {
+          "line": 104,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Right-to-left visual comparison is unavailable. Exact hostname comparison remains available."
+        },
+        {
+          "line": 105,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Saved reference text occurs inside this longer hostname. It is not a subdomain of "
+        },
+        {
+          "line": 105,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": ", "
+        },
+        {
+          "line": 105,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "."
+        },
+        {
+          "line": 109,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "visual"
+        },
+        {
+          "line": 110,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": " may look like "
+        },
+        {
+          "line": 110,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "your expected hostname "
+        },
+        {
+          "line": 110,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "your saved reference "
+        },
+        {
+          "line": 110,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": ". "
+        },
+        {
+          "line": 110,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "“"
+        },
+        {
+          "line": 110,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "” may resemble “"
+        },
+        {
+          "line": 110,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "” in some fonts."
+        },
+        {
+          "line": 110,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": " "
+        },
+        {
+          "line": 110,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": " Visual resemblance does not establish malicious intent."
+        },
+        {
+          "line": 113,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "first"
+        },
+        {
+          "line": 113,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "second"
+        },
+        {
+          "line": 113,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "third"
+        },
+        {
+          "line": 113,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "fourth"
+        },
+        {
+          "line": 113,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "fifth"
+        },
+        {
+          "line": 113,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "its "
+        },
+        {
+          "line": 113,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": " character"
+        },
+        {
+          "line": 113,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "the character at position "
+        },
+        {
+          "line": 114,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "The inspected hostname resembles "
+        },
+        {
+          "line": 114,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": ", but "
+        },
+        {
+          "line": 114,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": " is "
+        },
+        {
+          "line": 114,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": " "
+        },
+        {
+          "line": 114,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": " ("
+        },
+        {
+          "line": 114,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "), not "
+        },
+        {
+          "line": 114,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": " "
+        },
+        {
+          "line": 114,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": " ("
+        },
+        {
+          "line": 114,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "). Visual resemblance does not establish malicious intent."
+        },
+        {
+          "line": 119,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Original & readable"
+        },
+        {
+          "line": 119,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Original"
+        },
+        {
+          "line": 119,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Original text (unverified)"
+        },
+        {
+          "line": 119,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Readable hostname"
+        },
+        {
+          "line": 122,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Character preserved unchanged."
+        },
+        {
+          "line": 123,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Removed while the browser read the URL."
+        },
+        {
+          "line": 124,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "mapped"
+        },
+        {
+          "line": 124,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Changed by the hostname character-mapping rules."
+        },
+        {
+          "line": 125,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "ignored"
+        },
+        {
+          "line": 125,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Removed during hostname processing."
+        },
+        {
+          "line": 126,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "disallowed"
+        },
+        {
+          "line": 126,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "This character is not allowed by the bundled IDNA rules. The actual hostname shows your browser's result."
+        },
+        {
+          "line": 127,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "deviation"
+        },
+        {
+          "line": 127,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Normally preserved by current hostname rules. Older compatibility rules may replace it."
+        },
+        {
+          "line": 128,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "mapped"
+        },
+        {
+          "line": 128,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "ignored"
+        },
+        {
+          "line": 128,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "disallowed"
+        },
+        {
+          "line": 128,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Changed during hostname normalization."
+        },
+        {
+          "line": 129,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "The normalization result is unverified. "
+        },
+        {
+          "line": 129,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Character preserved unchanged."
+        },
+        {
+          "line": 129,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "The character rule would normally preserve it."
+        },
+        {
+          "line": 145,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "exact"
+        },
+        {
+          "line": 145,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "The normalized hostnames match exactly."
+        },
+        {
+          "line": 145,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "subdomains"
+        },
+        {
+          "line": 145,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "The inspected hostname is a subdomain of this hostname, not an exact match."
+        },
+        {
+          "line": 145,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "embedded"
+        },
+        {
+          "line": 145,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "This name appears inside a different, longer hostname. It does not make that hostname a subdomain of this one."
+        },
+        {
+          "line": 145,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Different hostnames with a potential visual resemblance."
+        },
+        {
+          "line": 145,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "spelling"
+        },
+        {
+          "line": 145,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "spelling"
+        },
+        {
+          "line": 145,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Different hostnames with similar spelling. This is separate from visual resemblance."
+        },
+        {
+          "line": 145,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "The hostnames differ."
+        },
+        {
+          "line": 146,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": " Visual comparison is unavailable."
+        },
+        {
+          "line": 149,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Visual comparison unavailable"
+        },
+        {
+          "line": 149,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "The inspector could compare hostname identity, but could not complete the visual check."
+        },
+        {
+          "line": 150,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "UTS #39"
+        },
+        {
+          "line": 150,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Unicode visual comparison"
+        },
+        {
+          "line": 150,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Unicode lookalike data (UTS #39) was used to compare the readable hostnames."
+        },
+        {
+          "line": 151,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "supplemental ASCII visual heuristic"
+        },
+        {
+          "line": 151,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "ASCII visual comparison"
+        },
+        {
+          "line": 151,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Font-dependent ASCII alternatives were used to compare the original spellings."
+        },
+        {
+          "line": 152,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Hostname identity comparison"
+        },
+        {
+          "line": 152,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Hostnames were compared after browser normalization, ignoring case and one final root dot."
+        },
+        {
+          "line": 152,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "spelling"
+        },
+        {
+          "line": 152,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Spelling comparison"
+        },
+        {
+          "line": 152,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "The readable hostnames were compared for spelling differences."
+        },
+        {
+          "line": 152,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Hostname comparison"
+        },
+        {
+          "line": 152,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "The readable hostnames were compared for supported visual and spelling similarities."
+        },
+        {
+          "line": 154,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "The inspector couldn't check for visual resemblance to "
+        },
+        {
+          "line": 154,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "saved reference"
+        },
+        {
+          "line": 154,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": ". A visual resemblance may still exist."
+        },
+        {
+          "line": 155,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "No URL supplied"
+        },
+        {
+          "line": 155,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "too-long"
+        },
+        {
+          "line": 155,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "URL exceeds the inspection limit"
+        },
+        {
+          "line": 155,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "URL format"
+        },
+        {
+          "line": 155,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "URL could not be read"
+        },
+        {
+          "line": 155,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Hidden or formatting characters"
+        },
+        {
+          "line": 155,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Invalid percent encoding"
+        },
+        {
+          "line": 155,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Spaces or control characters removed"
+        },
+        {
+          "line": 155,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Encoded hostname could not be validated"
+        },
+        {
+          "line": 155,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Original hostname uncertain"
+        },
+        {
+          "line": 155,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "normalized-ascii"
+        },
+        {
+          "line": 155,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Original characters mapped to ASCII"
+        },
+        {
+          "line": 155,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "non-ascii"
+        },
+        {
+          "line": 155,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Internationalized hostname"
+        },
+        {
+          "line": 155,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Hostname spelling changed"
+        },
+        {
+          "line": 155,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Sign-in text before @"
+        },
+        {
+          "line": 155,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Unencrypted HTTP"
+        },
+        {
+          "line": 155,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Non-default port"
+        },
+        {
+          "line": 155,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "explicit-port"
+        },
+        {
+          "line": 155,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Explicit port omitted by the browser"
+        },
+        {
+          "line": 155,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Backslashes affect hostname boundaries"
+        },
+        {
+          "line": 155,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Hostname format needs review"
+        },
+        {
+          "line": 155,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Writing systems mixed within a hostname section"
+        },
+        {
+          "line": 155,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Writing systems across hostname sections"
+        },
+        {
+          "line": 155,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "character-confusables"
+        },
+        {
+          "line": 155,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Unicode lookalike mappings"
+        },
+        {
+          "line": 155,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "ascii-ambiguity"
+        },
+        {
+          "line": 155,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "ASCII visual ambiguity"
+        },
+        {
+          "line": 155,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "bidi-limit"
+        },
+        {
+          "line": 155,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Right-to-left visual comparison unavailable"
+        },
+        {
+          "line": 155,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "expected-error"
+        },
+        {
+          "line": 155,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Expected hostname could not be checked"
+        },
+        {
+          "line": 155,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Exact hostname match"
+        },
+        {
+          "line": 155,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Hostname mismatch"
+        },
+        {
+          "line": 155,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Potential visual impersonation"
+        },
+        {
+          "line": 155,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Similar spelling"
+        },
+        {
+          "line": 155,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "comparison-limit"
+        },
+        {
+          "line": 155,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Visual comparison unavailable"
+        },
+        {
+          "line": 155,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Subdomain of the expected hostname"
+        },
+        {
+          "line": 155,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "deceptive-subdomain"
+        },
+        {
+          "line": 155,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Expected name inside a different hostname"
+        },
+        {
+          "line": 155,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "no-anomalies"
+        },
+        {
+          "line": 155,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "No unusual hostname characters"
+        },
+        {
+          "line": 155,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Website not verified"
+        },
+        {
+          "line": 157,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "too-long"
+        },
+        {
+          "line": 157,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "scheme"
+        },
+        {
+          "line": 157,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "parse"
+        },
+        {
+          "line": 157,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "punycode"
+        },
+        {
+          "line": 157,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "attribution"
+        },
+        {
+          "line": 157,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "bidi-limit"
+        },
+        {
+          "line": 157,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "expected-error"
+        },
+        {
+          "line": 157,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "comparison-limit"
+        },
+        {
+          "line": 157,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "exact"
+        },
+        {
+          "line": 157,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "mismatch"
+        },
+        {
+          "line": 157,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "impersonation"
+        },
+        {
+          "line": 157,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "spelling"
+        },
+        {
+          "line": 157,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "subdomain"
+        },
+        {
+          "line": 157,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "deceptive-subdomain"
+        },
+        {
+          "line": 158,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "alert"
+        },
+        {
+          "line": 158,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Warning"
+        },
+        {
+          "line": 158,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "warn"
+        },
+        {
+          "line": 158,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Caution"
+        },
+        {
+          "line": 158,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Information"
+        },
+        {
+          "line": 159,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Additional analysis finding"
+        },
+        {
+          "line": 159,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "unverified"
+        },
+        {
+          "line": 159,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Verification limit"
+        },
+        {
+          "line": 159,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Processing limit"
+        },
+        {
+          "line": 159,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Comparison"
+        },
+        {
+          "line": 159,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Observation"
+        },
+        {
+          "line": 162,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Paste a URL to begin."
+        },
+        {
+          "line": 162,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "too-long"
+        },
+        {
+          "line": 162,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "This URL exceeds the inspection limit. Shorten it and try again; the complete original remains in the input field."
+        },
+        {
+          "line": 162,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "url"
+        },
+        {
+          "line": 162,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Your browser couldn't read this URL. Check the hostname, brackets and port before trying again."
+        },
+        {
+          "line": 162,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Hidden or formatting characters occur in the submitted text. Their code points are retained in the technical evidence; they may occur outside the hostname."
+        },
+        {
+          "line": 162,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Some percent-encoded text is incomplete or invalid. Review the original URL; this can affect how it is read."
+        },
+        {
+          "line": 162,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Your browser removed spaces or control characters while reading the URL. The original URL is preserved."
+        },
+        {
+          "line": 162,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "The encoded hostname couldn't be validated. Its ASCII form remains available; the readable form could not be established."
+        },
+        {
+          "line": 162,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "The original hostname could not be identified with certainty. Review the parsed actual hostname and original URL."
+        },
+        {
+          "line": 162,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "normalized-ascii"
+        },
+        {
+          "line": 162,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Hostname processing mapped the original characters to ASCII. This transformation alone does not establish a different destination."
+        },
+        {
+          "line": 162,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "non-ascii"
+        },
+        {
+          "line": 162,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Unicode characters remain in the readable hostname. Internationalized names can be legitimate."
+        },
+        {
+          "line": 162,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "The original spelling and readable hostname differ. Both forms are retained in the technical evidence."
+        },
+        {
+          "line": 162,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "The text before @ belongs to the sign-in section of the URL. It is not the destination hostname."
+        },
+        {
+          "line": 162,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "This link uses HTTP, which does not encrypt traffic to the website."
+        },
+        {
+          "line": 162,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "The URL specifies port "
+        },
+        {
+          "line": 162,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": ". Check that this is expected."
+        },
+        {
+          "line": 162,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "explicit-port"
+        },
+        {
+          "line": 162,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "The input explicitly supplied port syntax "
+        },
+        {
+          "line": 162,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": ". The browser left out the default or empty port."
+        },
+        {
+          "line": 162,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "The browser treats backslashes as forward slashes in HTTP(S) URLs. This can change where the hostname ends."
+        },
+        {
+          "line": 162,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "More than one writing system occurs within "
+        },
+        {
+          "line": 162,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "hostname section"
+        },
+        {
+          "line": 162,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": ". This can be legitimate; review the spelling."
+        },
+        {
+          "line": 162,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Different writing systems appear across hostname sections. This can be legitimate."
+        },
+        {
+          "line": 162,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "character-confusables"
+        },
+        {
+          "line": 162,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Some characters have Unicode lookalike mappings. Character Details retains the mapping data."
+        },
+        {
+          "line": 162,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "ascii-ambiguity"
+        },
+        {
+          "line": 162,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "bidi-limit"
+        },
+        {
+          "line": 162,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Complete right-to-left visual comparisons aren't supported. Exact hostname comparisons remain available."
+        },
+        {
+          "line": 162,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "expected-error"
+        },
+        {
+          "line": 162,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "The hostnames match after normalization. This does not compare the rest of the URL."
+        },
+        {
+          "line": 162,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Expected "
+        },
+        {
+          "line": 162,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "; actual "
+        },
+        {
+          "line": 162,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "."
+        },
+        {
+          "line": 162,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "The hostnames differ but may look alike. The technical evidence retains the comparison method and any supported substitutions."
+        },
+        {
+          "line": 162,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "The hostnames have similar spelling. This is separate from a Unicode or font-based visual resemblance."
+        },
+        {
+          "line": 162,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "comparison-limit"
+        },
+        {
+          "line": 162,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Visual resemblance could not be checked. A hostname mismatch here does not rule out a lookalike."
+        },
+        {
+          "line": 162,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "The actual hostname is a subdomain of "
+        },
+        {
+          "line": 162,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": ", not an exact match."
+        },
+        {
+          "line": 162,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "deceptive-subdomain"
+        },
+        {
+          "line": 162,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "The expected hostname appears inside a longer, different hostname. That occurrence does not make it a subdomain of the expected hostname."
+        },
+        {
+          "line": 162,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "no-anomalies"
+        },
+        {
+          "line": 162,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "No non-ASCII or hidden hostname characters were identified. ASCII lookalikes can still exist."
+        },
+        {
+          "line": 162,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "The website has not been visited or checked for ownership, reputation, content or redirects."
+        },
+        {
+          "line": 163,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "dns"
+        },
+        {
+          "line": 163,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "The hostname exceeds the 253-byte DNS length limit."
         },
         {
-          "line": 134,
+          "line": 163,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "A hostname section is empty. Check the dots."
         },
         {
-          "line": 134,
+          "line": 163,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "One hostname section exceeds the 63-byte DNS limit."
         },
         {
-          "line": 134,
+          "line": 163,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "A hostname section starts or ends with a hyphen."
         },
         {
-          "line": 134,
+          "line": 163,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "The hostname contains characters outside standard DNS letter, digit and hyphen rules."
         },
         {
-          "line": 135,
+          "line": 164,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "An additional finding is available in the technical evidence."
         },
         {
-          "line": 138,
+          "line": 167,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "Your saved references changed elsewhere. Edits in this tab have not replaced them. Export a backup before reviewing a replacement."
         },
         {
-          "line": 138,
+          "line": 167,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "Saved data needs review. It has not been replaced; changes stay in this tab. See Storage & hostname help."
         },
         {
-          "line": 139,
+          "line": 168,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "Saving failed. Changes stay in this tab; the saved copy was not replaced. Export a backup before closing."
         },
         {
-          "line": 140,
+          "line": 169,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "browser"
         },
         {
-          "line": 140,
+          "line": 169,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "Storage unavailable. References stay in this tab only; export a backup before closing."
         },
         {
-          "line": 141,
+          "line": 170,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "Reference schema migrated"
         },
         {
-          "line": 141,
+          "line": 170,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "Changes saved in this browser."
+          "text": "Saved in this browser"
         },
         {
-          "line": 141,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "standalone"
-        },
-        {
-          "line": 141,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": " Lasting storage for local files isn't guaranteed; keep a backup."
-        },
-        {
-          "line": 142,
+          "line": 171,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "Saved"
         },
         {
-          "line": 142,
+          "line": 171,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "Previously saved references loaded."
         },
         {
-          "line": 142,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "standalone"
-        },
-        {
-          "line": 142,
-          "kind": "JavaScript literal candidate (includes code/data)",
-          "text": " Local-file storage may not last; keep a backup."
-        },
-        {
-          "line": 142,
+          "line": 171,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "This browser can read reference storage. Saving hasn't been checked yet."
         },
         {
-          "line": 145,
+          "line": 174,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "Import Preview — "
         },
         {
-          "line": 145,
+          "line": 174,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "replace"
         },
         {
-          "line": 145,
+          "line": 174,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "Replace"
         },
         {
-          "line": 145,
+          "line": 174,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "Merge"
         },
         {
-          "line": 145,
+          "line": 174,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "new reference"
         },
         {
-          "line": 145,
+          "line": 174,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": " will be added."
         },
         {
-          "line": 145,
+          "line": 174,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "No new references will be added."
         },
         {
-          "line": 145,
+          "line": 174,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "existing reference"
         },
         {
-          "line": 145,
+          "line": 174,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": " will be removed."
         },
         {
-          "line": 145,
+          "line": 174,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "No existing references will be removed."
         },
         {
-          "line": 145,
+          "line": 174,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "References after import: "
         },
         {
-          "line": 145,
+          "line": 174,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "No changes have been made yet."
         },
         {
-          "line": 145,
+          "line": 174,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "Duplicate or already saved entries: "
         },
         {
-          "line": 145,
+          "line": 174,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "."
         }
       ]
     },
     "src/ui.js": {
-      "sha256": "096c2454f5afc480608c49d5e036e1cf9a2778504ee814d97accf9a8031ef93f",
+      "sha256": "6d1af9cba5ebb31e3b69884b113009e2a110078e93763ba527c58cdff1138781",
       "items": [
         {
           "line": 1,
@@ -2891,6 +2966,16 @@
           "line": 60,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "reference"
+        },
+        {
+          "line": 60,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "import"
+        },
+        {
+          "line": 60,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "referenceInput"
         },
         {
           "line": 60,
@@ -5330,11 +5415,6 @@
         {
           "line": 204,
           "kind": "JavaScript literal candidate (includes code/data)",
-          "text": "storageDetail"
-        },
-        {
-          "line": 204,
-          "kind": "JavaScript literal candidate (includes code/data)",
           "text": "protectedStorageHelp"
         },
         {
@@ -5366,6 +5446,16 @@
           "line": 204,
           "kind": "JavaScript literal candidate (includes code/data)",
           "text": "browser"
+        },
+        {
+          "line": 204,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "Reference schema migrated"
+        },
+        {
+          "line": 204,
+          "kind": "JavaScript literal candidate (includes code/data)",
+          "text": "success"
         },
         {
           "line": 204,
@@ -10080,7 +10170,7 @@
       ]
     },
     "src/v3.css": {
-      "sha256": "a87753bc94801d89fe18bb6b0ab948d8ce2392a4c3d3a049e30d0579a0415845",
+      "sha256": "e6af28e2a8e3d29d5159a78c99a783796a17e444492f58ffa1d5995996637e4b",
       "items": [
         {
           "line": 4,
@@ -10109,6 +10199,11 @@
         },
         {
           "line": 29,
+          "kind": "CSS generated content",
+          "text": "\"\""
+        },
+        {
+          "line": 41,
           "kind": "CSS generated content",
           "text": "\"\""
         }

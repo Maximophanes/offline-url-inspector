@@ -29,8 +29,8 @@
   },
   "failures": [],
   "assertions": {
-    "executed": 5799,
-    "passed": 5799,
+    "executed": 5803,
+    "passed": 5803,
     "failed": 0
   },
   "diagnosticCodesExercised": [

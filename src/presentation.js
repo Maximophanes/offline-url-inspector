@@ -4,10 +4,13 @@ const Presentation = (() => {
   const count=(n,singular,plural=singular+'s')=>n+' '+(n===1?singular:plural);
   const visible=value=>Inspector.visible(String(value??''));
   const asciiIntroduction='Some characters in this hostname have similar-looking alternatives in certain fonts. These observations alone do not establish impersonation.';
-  function validation(message,context='hostname'){
+  function validation(message,context='hostname',input){
     const text=String(message||'');
     const entry=/^Entry (\d+): ([\s\S]*)$/.exec(text);
-    if(entry)return 'Reference '+entry[1]+': '+validation(entry[2],'hostname');
+    if(entry){
+      let value;try{const data=JSON.parse(input);value=(data.schemaVersion===0?data.domains:data.references)?.[Number(entry[1])-1];}catch{}
+      return 'Reference '+entry[1]+': '+validation(entry[2],'reference',value);
+    }
     if(/already (?:in Reference Domains|exists)/.test(text))return 'This hostname is already saved.';
     if(/Reference JSON exceeds/.test(text))return 'This backup is too large. The maximum size is 128 KiB.';
     if(/not valid JSON/.test(text))return "This file isn't valid JSON. Choose a backup exported by URL Inspector.";
@@ -22,7 +25,12 @@ const Presentation = (() => {
     if(/Clearing all references requires/.test(text))return 'Confirm Clear References before removing the list.';
     if(/Replacing references requires/.test(text))return 'Confirm Replace References before applying this backup.';
     if(/Choose Merge or Replace/.test(text))return 'Choose Merge or Replace, then review the preview.';
-    if(/Each reference must be|Expected hostname is too long/.test(text))return 'Enter a hostname using no more than 2,048 characters.';
+    if(/Each reference must be/.test(text)){
+      if(typeof input!=='string')return 'Enter a hostname as text, such as example.com.';
+      if(!input.trim())return 'Enter a hostname, such as example.com.';
+      return 'The hostname exceeds the 2,048-character limit.';
+    }
+    if(/Expected hostname is too long/.test(text))return 'Enter a hostname using no more than 2,048 characters.';
     if(/A hostname is required/.test(text))return 'Enter a hostname, such as example.com.';
     if(/Enter only a hostname/.test(text))return 'Enter a hostname without sign-in details, a port, path, query or fragment. A final slash is allowed.';
     if(/Expected hostname has invalid DNS/.test(text))return 'This hostname has an invalid section or is too long. Check its spelling and dots.';
@@ -32,6 +40,27 @@ const Presentation = (() => {
     if(/Punycode|IDNA/i.test(text))return 'This encoded hostname could not be validated. Check the xn-- spelling or use its original Unicode spelling.';
     return context==='import'?"This backup couldn't be imported. Review the file and try again.":'This hostname could not be read. Check its spelling, spaces and brackets.';
   }
+  function referenceErrorHasDetails(message){
+    const text=String(message||'').replace(/^Entry \d+: /,'');
+    // Match only complete fixed messages; any additional technical context stays accessible.
+    return ![
+      'Each reference must be a nonempty hostname (at most 2,048 input characters).',
+      'A hostname is required.',
+      'That normalized hostname is already in Reference Domains.',
+      'That normalized hostname already exists.',
+      'Enter only a hostname, without credentials, port, path, query, or fragment (a trailing root slash is allowed).',
+      'Reference file is not valid JSON.',
+      'This is not an Offline URL Inspector reference backup.',
+      'Unsupported reference schema. Existing data has been preserved.',
+      'Unexpected fields in reference data. Import only the documented backup format.',
+      'Reference lists must contain at most '+ReferenceDomains.MAX_ENTRIES+' entries.',
+      'The reference list is limited to '+ReferenceDomains.MAX_ENTRIES+' entries.',
+      'Reference JSON exceeds the 128 KiB limit.',
+      'That reference no longer exists.',
+      'Invalid URL'
+    ].includes(text);
+  }
+
   function inputFailure(r){
     const m=r.messages.find(m=>['empty','too-long','scheme','parse'].includes(m.code));
     if(!m)return {title:'Inspection could not be completed',detail:'No result is available. Check the input and try again.'};
@@ -138,11 +167,11 @@ const Presentation = (() => {
     if(state.blocked)return /another tab or app/.test(state.status)?'Your saved references changed elsewhere. Edits in this tab have not replaced them. Export a backup before reviewing a replacement.':'Saved data needs review. It has not been replaced; changes stay in this tab. See Storage & hostname help.';
     if(writeFailed)return "Saving failed. Changes stay in this tab; the saved copy was not replaced. Export a backup before closing.";
     if(state.mode!=='browser')return 'Storage unavailable. References stay in this tab only; export a backup before closing.';
-    if(state.revision>0||state.status.startsWith('Reference schema migrated'))return 'Changes saved in this browser.'+(edition==='standalone'?" Lasting storage for local files isn't guaranteed; keep a backup.":'');
-    return state.status.startsWith('Saved')?'Previously saved references loaded.'+(edition==='standalone'?' Local-file storage may not last; keep a backup.':''):"This browser can read reference storage. Saving hasn't been checked yet.";
+    if(state.revision>0||state.status.startsWith('Reference schema migrated'))return 'Saved in this browser';
+    return state.status.startsWith('Saved')?'Previously saved references loaded.':"This browser can read reference storage. Saving hasn't been checked yet.";
   }
   function importSummary(plan){
     return {title:'Import Preview — '+(plan.mode==='replace'?'Replace':'Merge'),lines:[plan.added.length?count(plan.added.length,'new reference')+' will be added.':'No new references will be added.',plan.removed.length?count(plan.removed.length,'existing reference')+' will be removed.':'No existing references will be removed.','References after import: '+plan.final.length,'No changes have been made yet.'],duplicates:plan.duplicates?'Duplicate or already saved entries: '+plan.duplicates+'.':''};
   }
-  return Object.freeze({count,asciiIntroduction,validation,inputFailure,summarize,supporting,explain,characterEvidence,characterNormalization,unicodeDifference,asciiContext,comparisonResult,comparisonMethod,unavailableReferences,diagnostic,diagnosticText,diagnosticCodes:Object.keys(diagnosticTitles),storageStatus,importSummary});
+  return Object.freeze({count,asciiIntroduction,validation,referenceErrorHasDetails,inputFailure,summarize,supporting,explain,characterEvidence,characterNormalization,unicodeDifference,asciiContext,comparisonResult,comparisonMethod,unavailableReferences,diagnostic,diagnosticText,diagnosticCodes:Object.keys(diagnosticTitles),storageStatus,importSummary});
 })();

@@ -1,5 +1,14 @@
 # Version 3.1.2 test results
 
+## Current focused Reference Domains follow-up
+
+From committed checkpoint `9b017bd6a145fe664e26cf421f24db134c3fa24e`, **704 focused/regression/HTTP checks and 16,421 assertions passed, zero failures**. The new reference-interface suite contributes 19 checks / 124 assertions. Current results: `tests/reference-targeted-results.json`. The complete Unicode conformance suite was **not** rerun. Source pins preserve the validation/store engine, core, worker, data and all 139 original analysis results; presentation changes are limited to the reference validation/storage copy blocks and details helper.
+
+The agent rendered and inspected 33 desktop/mobile screenshots covering the requested reference states. Actual hosted operations use a fresh loopback origin and synthetic hosts; export and rare storage failures use explicit in-memory fixtures. See [Reference Domains review](REFERENCE_DOMAINS_REVIEW.md) and `tests/reference-browser-preview.json`. Native Firefox, screen readers, file:// persistence and actual disk download delivery were not verified by this pass.
+
+## Previous committed interface checkpoint — full-suite record
+
+
 Run date: 2026-10-16. **109,600 checks passed; 128,867 assertions passed; zero failures.** The complete available regression/Unicode suite ran once after application changes and rendered review settled. All commands passed on that final run. Counts are dominated by official Unicode fixtures, not independent browser scenarios. Aggregate: `tests/summary-results.json`.
 
 | Suite | Passed checks | Passed assertions | Failures |
