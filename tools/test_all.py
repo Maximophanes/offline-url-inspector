@@ -35,8 +35,9 @@ try:
         except Exception: pass
         time.sleep(.05)
     if not ready: raise RuntimeError('Loopback test server did not become ready.')
-    for task in ['test:references','test:dom','test:refinement','test:polish','test:clarity','test:editorial','test:interface','test:reference-interface','test:technical','test:baseline-dom','test:worker','test:hosted','test:differential','test:idna','test:http','test:unicode']:
+    for task in ['test:audit-corrections','test:embedded','test:references','test:dom','test:refinement','test:polish','test:clarity','test:editorial','test:interface','test:reference-interface','test:technical','test:baseline-dom','test:worker','test:hosted','test:differential','test:idna','test:http','test:unicode']:
         commands.append({'command':task,'passed':run(['deno','task',task])})
+    commands.append({'command':'release verifier regression','passed':run([sys.executable,'-B','tests/release-verifier.py'])})
     icu=Path('/opt/homebrew/opt/icu4c/lib/libicuuc.78.dylib')
     if icu.exists():
         commands.append({'command':'independent ICU diagnostic','passed':run([sys.executable,'tools/review_idna_icu.py','--library',str(icu),'--suffix','78'])})
@@ -48,7 +49,7 @@ finally:
     server.terminate()
     try: server.wait(timeout=5)
     except subprocess.TimeoutExpired: server.kill();server.wait()
-files=['unit-results.json','dom-results.json','references-results.json','dom-v3-results.json','refinement-results.json','polish-results.json','clarity-results.json','editorial-results.json','interface-results.json','reference-interface-results.json','technical-results.json','service-worker-results.json','hosted-bootstrap-results.json','differential-results.json','idna-review-results.json','idna-icu-results.json','http-results.json']
+files=['audit-corrections-results.json','release-verifier-results.json','embedded-results.json','unit-results.json','dom-results.json','references-results.json','dom-v3-results.json','refinement-results.json','polish-results.json','clarity-results.json','editorial-results.json','interface-results.json','reference-interface-results.json','technical-results.json','service-worker-results.json','hosted-bootstrap-results.json','differential-results.json','idna-review-results.json','idna-icu-results.json','http-results.json']
 if args.with_firefox: files.extend(['firefox-standalone-results.json','firefox-hosted-results.json'])
 reports=[]
 for filename in files:
@@ -57,7 +58,7 @@ for filename in files:
     r=json.loads(p.read_text());reports.append({'report':filename,'suite':r['suite'],'tests':r['total'],'assertions':r['assertions'],'status':r.get('status','executed')})
 total={k:sum(r['tests'][k] for r in reports) for k in ['executed','passed','failed']}
 assertions={k:sum(r['assertions'][k] for r in reports) for k in ['executed','passed','failed']}
-summary={'applicationVersion':'3.1.2','tests':total,'assertions':assertions,'commands':commands,'suites':reports,'firefox':('Requested: both Firefox harnesses passed; see current real-browser reports.' if all(c['passed'] for c in commands if c['command'].startswith('test:firefox-')) else 'Requested: Firefox execution failed or could not start; see current real-browser reports and command errors.') if args.with_firefox else 'Not requested: use --with-firefox with a running local WebDriver endpoint. Driver availability was not checked.','scope':'Unit/official conformance, simulated DOM and worker lifecycle, actual loopback HTTP. Simulations are not actual Firefox/GitHub Pages deployment.'}
+summary={'applicationVersion':'3.2.0','tests':total,'assertions':assertions,'commands':commands,'suites':reports,'firefox':('Requested: both Firefox harnesses passed; see current real-browser reports.' if all(c['passed'] for c in commands if c['command'].startswith('test:firefox-')) else 'Requested: Firefox execution failed or could not start; see current real-browser reports and command errors.') if args.with_firefox else 'Not requested: use --with-firefox with a running local WebDriver endpoint. Driver availability was not checked.','scope':'Unit/official conformance, simulated DOM and worker lifecycle, actual loopback HTTP. Simulations are not actual Firefox/GitHub Pages deployment.'}
 (ROOT/'tests/summary-results.json').write_text(json.dumps(summary,indent=2)+'\n')
 print(json.dumps({'tests':total,'assertions':assertions,'firefox':summary['firefox']},indent=2))
 if total['failed'] or assertions['failed'] or any(not c['passed'] for c in commands): raise SystemExit(1)

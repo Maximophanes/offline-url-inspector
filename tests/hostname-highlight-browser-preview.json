@@ -1,0 +1,397 @@
+{
+  "applicationVersion": "3.2.0",
+  "release": "3.2.0-cf634806f70b4b3c",
+  "date": "2026-10-21",
+  "scope": "Actual hosted in-app browser, separate from simulated DOM and native Firefox/VoiceOver.",
+  "cases": [
+    {
+      "name": "A",
+      "passed": true,
+      "observed": {
+        "highlighted": [
+          "other.test"
+        ],
+        "inert": true,
+        "main": "PRIMARY FINDING\nExact hostname match\n\nThe hostname matches your expected hostname. This match does not compare the scheme, port, path or query.\n\nAnother web address found\n\nThis link also contains a web address for other.test, a different hostname from example.test.\n\nThe link alone doesn’t show whether the website will redirect you there.\n\nView embedded-address details",
+        "noOverflow": true,
+        "primary": "Exact hostname match",
+        "state": "complete",
+        "tone": "information",
+        "width": 1280
+      }
+    },
+    {
+      "name": "B",
+      "passed": true,
+      "observed": {
+        "highlighted": [
+          "attacker.test"
+        ],
+        "inert": true,
+        "main": "PRIMARY FINDING\nExact hostname match\n\nThe hostname matches your expected hostname. This match does not compare the scheme, port, path or query.\n\nEmbedded address needs review\n\nThis link also contains a web address for attacker.test, a different hostname from example.test.\n\nThe text before @ is not the website’s hostname.\n\nThe link alone doesn’t show whether the website will redirect you there.\n\nView embedded-address details",
+        "noOverflow": true,
+        "primary": "Exact hostname match",
+        "state": "complete",
+        "tone": "caution",
+        "width": 1280
+      }
+    },
+    {
+      "name": "multiple",
+      "passed": true,
+      "observed": {
+        "highlighted": [
+          "host0.test",
+          "host1.test",
+          "host2.test"
+        ],
+        "inert": true,
+        "main": "PRIMARY FINDING\nExact hostname match\n\nThe hostname matches your expected hostname. This match does not compare the scheme, port, path or query.\n\nOther web addresses found\n\nThis link also contains web addresses for host0.test, host1.test, host2.test and 1 more hostname. These differ from example.test.\n\nThe link alone doesn’t show whether the website will redirect you there.\n\nView embedded-address details",
+        "noOverflow": true,
+        "primary": "Exact hostname match",
+        "state": "complete",
+        "tone": "information",
+        "width": 1280
+      }
+    },
+    {
+      "name": "repeated",
+      "passed": true,
+      "observed": {
+        "highlighted": [
+          "other.test"
+        ],
+        "inert": true,
+        "main": "PRIMARY FINDING\nExact hostname match\n\nThe hostname matches your expected hostname. This match does not compare the scheme, port, path or query.\n\nAnother web address found\n\nThis link also contains a web address for other.test, a different hostname from example.test.\n\nThe link alone doesn’t show whether the website will redirect you there.\n\nView embedded-address details",
+        "noOverflow": true,
+        "primary": "Exact hostname match",
+        "state": "complete",
+        "tone": "information",
+        "width": 1280
+      }
+    },
+    {
+      "name": "uncertain",
+      "passed": true,
+      "observed": {
+        "highlighted": [],
+        "inert": true,
+        "main": "PRIMARY FINDING\nExact hostname match\n\nThe hostname matches your expected hostname. This match does not compare the scheme, port, path or query.\n\nPossible web address found\n\nA possible web address was found, but its boundaries are uncertain.\n\nSome embedded-address checks are incomplete. Query: A possible web address has uncertain boundaries.\n\nThe link alone doesn’t show whether the website will redirect you there.\n\nView embedded-address details",
+        "noOverflow": true,
+        "primary": "Exact hostname match",
+        "state": "partial",
+        "tone": "caution",
+        "width": 1280
+      }
+    },
+    {
+      "name": "relative",
+      "passed": true,
+      "observed": {
+        "highlighted": [],
+        "inert": true,
+        "main": "PRIMARY FINDING\nExact hostname match\n\nThe hostname matches your expected hostname. This match does not compare the scheme, port, path or query.",
+        "noOverflow": true,
+        "primary": "Exact hostname match",
+        "state": "complete",
+        "tone": "information",
+        "width": 1280
+      }
+    },
+    {
+      "name": "same-host-userinfo",
+      "passed": true,
+      "observed": {
+        "highlighted": [
+          "example.test"
+        ],
+        "inert": true,
+        "main": "PRIMARY FINDING\nExact hostname match\n\nThe hostname matches your expected hostname. This match does not compare the scheme, port, path or query.\n\nEmbedded address needs review\n\nThe text before @ is not the website’s hostname. An address with that structure uses the hostname example.test.\n\nThe link alone doesn’t show whether the website will redirect you there.\n\nView embedded-address details",
+        "noOverflow": true,
+        "primary": "Exact hostname match",
+        "state": "complete",
+        "tone": "caution",
+        "width": 1280
+      }
+    },
+    {
+      "name": "embedded-expected",
+      "passed": true,
+      "observed": {
+        "highlighted": [
+          "web.test"
+        ],
+        "inert": true,
+        "main": "PRIMARY FINDING\nHostname mismatch\n\nThe actual hostname differs from web.test.\n\nAnother web address found\n\nThis link also contains a web address for web.test, a different hostname from example.test.\n\nThe link alone doesn’t show whether the website will redirect you there.\n\nView embedded-address details",
+        "noOverflow": true,
+        "primary": "Hostname mismatch",
+        "state": "complete",
+        "tone": "information",
+        "width": 1280
+      }
+    },
+    {
+      "name": "long-host",
+      "passed": true,
+      "observed": {
+        "highlighted": [
+          "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb.cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc.test"
+        ],
+        "inert": true,
+        "main": "PRIMARY FINDING\nExact hostname match\n\nThe hostname matches your expected hostname. This match does not compare the scheme, port, path or query.\n\nAnother web address found\n\nThis link also contains a web address for aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb.cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc.test, a different hostname from example.test.\n\nThe link alone doesn’t show whether the website will redirect you there.\n\nView embedded-address details",
+        "noOverflow": true,
+        "primary": "Exact hostname match",
+        "state": "complete",
+        "tone": "information",
+        "width": 1280
+      }
+    },
+    {
+      "name": "visual",
+      "passed": true,
+      "observed": {
+        "highlighted": [
+          "vveb.test",
+          "vveb.test"
+        ],
+        "inert": true,
+        "main": "PRIMARY FINDING\nNo unusual hostname characters identified\n\nNo internationalized or hidden characters were found in the hostname. Check its spelling and context before opening the link.\n\nEmbedded hostname may look similar\n\nThis link also contains a web address for vveb.test, a different hostname from web.test.\n\nvveb.test may look like web.test (the link’s hostname).\n\nVisual resemblance doesn’t establish malicious intent.\n\nThe link alone doesn’t show whether the website will redirect you there.\n\nView embedded-address details",
+        "noOverflow": true,
+        "primary": "No unusual hostname characters identified",
+        "state": "complete",
+        "tone": "warning",
+        "width": 1280
+      }
+    },
+    {
+      "name": "unavailable-visual",
+      "passed": true,
+      "observed": {
+        "highlighted": [
+          "xn--mgbh0fb.test"
+        ],
+        "inert": true,
+        "main": "PRIMARY FINDING\nExact hostname match\n\nThe hostname matches your expected hostname. This match does not compare the scheme, port, path or query.\n\nAnother web address found\n\nThis link also contains a web address for xn--mgbh0fb.test, a different hostname from example.test.\n\nQuery: Visual resemblance couldn’t be checked for one or more embedded hostnames. This doesn’t rule out a lookalike.\n\nThe link alone doesn’t show whether the website will redirect you there.\n\nView embedded-address details",
+        "noOverflow": true,
+        "primary": "Exact hostname match",
+        "state": "unsupported",
+        "tone": "information",
+        "width": 1280
+      }
+    },
+    {
+      "name": "A",
+      "passed": true,
+      "observed": {
+        "highlighted": [
+          "other.test"
+        ],
+        "inert": true,
+        "main": "PRIMARY FINDING\nExact hostname match\n\nThe hostname matches your expected hostname. This match does not compare the scheme, port, path or query.\n\nAnother web address found\n\nThis link also contains a web address for other.test, a different hostname from example.test.\n\nThe link alone doesn’t show whether the website will redirect you there.\n\nView embedded-address details",
+        "noOverflow": true,
+        "primary": "Exact hostname match",
+        "state": "complete",
+        "tone": "information",
+        "width": 390
+      }
+    },
+    {
+      "name": "B",
+      "passed": true,
+      "observed": {
+        "highlighted": [
+          "attacker.test"
+        ],
+        "inert": true,
+        "main": "PRIMARY FINDING\nExact hostname match\n\nThe hostname matches your expected hostname. This match does not compare the scheme, port, path or query.\n\nEmbedded address needs review\n\nThis link also contains a web address for attacker.test, a different hostname from example.test.\n\nThe text before @ is not the website’s hostname.\n\nThe link alone doesn’t show whether the website will redirect you there.\n\nView embedded-address details",
+        "noOverflow": true,
+        "primary": "Exact hostname match",
+        "state": "complete",
+        "tone": "caution",
+        "width": 390
+      }
+    },
+    {
+      "name": "multiple",
+      "passed": true,
+      "observed": {
+        "highlighted": [
+          "host0.test",
+          "host1.test",
+          "host2.test"
+        ],
+        "inert": true,
+        "main": "PRIMARY FINDING\nExact hostname match\n\nThe hostname matches your expected hostname. This match does not compare the scheme, port, path or query.\n\nOther web addresses found\n\nThis link also contains web addresses for host0.test, host1.test, host2.test and 1 more hostname. These differ from example.test.\n\nThe link alone doesn’t show whether the website will redirect you there.\n\nView embedded-address details",
+        "noOverflow": true,
+        "primary": "Exact hostname match",
+        "state": "complete",
+        "tone": "information",
+        "width": 390
+      }
+    },
+    {
+      "name": "repeated",
+      "passed": true,
+      "observed": {
+        "highlighted": [
+          "other.test"
+        ],
+        "inert": true,
+        "main": "PRIMARY FINDING\nExact hostname match\n\nThe hostname matches your expected hostname. This match does not compare the scheme, port, path or query.\n\nAnother web address found\n\nThis link also contains a web address for other.test, a different hostname from example.test.\n\nThe link alone doesn’t show whether the website will redirect you there.\n\nView embedded-address details",
+        "noOverflow": true,
+        "primary": "Exact hostname match",
+        "state": "complete",
+        "tone": "information",
+        "width": 390
+      }
+    },
+    {
+      "name": "uncertain",
+      "passed": true,
+      "observed": {
+        "highlighted": [],
+        "inert": true,
+        "main": "PRIMARY FINDING\nExact hostname match\n\nThe hostname matches your expected hostname. This match does not compare the scheme, port, path or query.\n\nPossible web address found\n\nA possible web address was found, but its boundaries are uncertain.\n\nSome embedded-address checks are incomplete. Query: A possible web address has uncertain boundaries.\n\nThe link alone doesn’t show whether the website will redirect you there.\n\nView embedded-address details",
+        "noOverflow": true,
+        "primary": "Exact hostname match",
+        "state": "partial",
+        "tone": "caution",
+        "width": 390
+      }
+    },
+    {
+      "name": "relative",
+      "passed": true,
+      "observed": {
+        "highlighted": [],
+        "inert": true,
+        "main": "PRIMARY FINDING\nExact hostname match\n\nThe hostname matches your expected hostname. This match does not compare the scheme, port, path or query.",
+        "noOverflow": true,
+        "primary": "Exact hostname match",
+        "state": "complete",
+        "tone": "information",
+        "width": 390
+      }
+    },
+    {
+      "name": "same-host-userinfo",
+      "passed": true,
+      "observed": {
+        "highlighted": [
+          "example.test"
+        ],
+        "inert": true,
+        "main": "PRIMARY FINDING\nExact hostname match\n\nThe hostname matches your expected hostname. This match does not compare the scheme, port, path or query.\n\nEmbedded address needs review\n\nThe text before @ is not the website’s hostname. An address with that structure uses the hostname example.test.\n\nThe link alone doesn’t show whether the website will redirect you there.\n\nView embedded-address details",
+        "noOverflow": true,
+        "primary": "Exact hostname match",
+        "state": "complete",
+        "tone": "caution",
+        "width": 390
+      }
+    },
+    {
+      "name": "embedded-expected",
+      "passed": true,
+      "observed": {
+        "highlighted": [
+          "web.test"
+        ],
+        "inert": true,
+        "main": "PRIMARY FINDING\nHostname mismatch\n\nThe actual hostname differs from web.test.\n\nAnother web address found\n\nThis link also contains a web address for web.test, a different hostname from example.test.\n\nThe link alone doesn’t show whether the website will redirect you there.\n\nView embedded-address details",
+        "noOverflow": true,
+        "primary": "Hostname mismatch",
+        "state": "complete",
+        "tone": "information",
+        "width": 390
+      }
+    },
+    {
+      "name": "long-host",
+      "passed": true,
+      "observed": {
+        "highlighted": [
+          "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb.cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc.test"
+        ],
+        "inert": true,
+        "main": "PRIMARY FINDING\nExact hostname match\n\nThe hostname matches your expected hostname. This match does not compare the scheme, port, path or query.\n\nAnother web address found\n\nThis link also contains a web address for aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb.cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc.test, a different hostname from example.test.\n\nThe link alone doesn’t show whether the website will redirect you there.\n\nView embedded-address details",
+        "noOverflow": true,
+        "primary": "Exact hostname match",
+        "state": "complete",
+        "tone": "information",
+        "width": 390
+      }
+    },
+    {
+      "name": "visual",
+      "passed": true,
+      "observed": {
+        "highlighted": [
+          "vveb.test",
+          "vveb.test"
+        ],
+        "inert": true,
+        "main": "PRIMARY FINDING\nNo unusual hostname characters identified\n\nNo internationalized or hidden characters were found in the hostname. Check its spelling and context before opening the link.\n\nEmbedded hostname may look similar\n\nThis link also contains a web address for vveb.test, a different hostname from web.test.\n\nvveb.test may look like web.test (the link’s hostname).\n\nVisual resemblance doesn’t establish malicious intent.\n\nThe link alone doesn’t show whether the website will redirect you there.\n\nView embedded-address details",
+        "noOverflow": true,
+        "primary": "No unusual hostname characters identified",
+        "state": "complete",
+        "tone": "warning",
+        "width": 390
+      }
+    },
+    {
+      "name": "unavailable-visual",
+      "passed": true,
+      "observed": {
+        "highlighted": [
+          "xn--mgbh0fb.test"
+        ],
+        "inert": true,
+        "main": "PRIMARY FINDING\nExact hostname match\n\nThe hostname matches your expected hostname. This match does not compare the scheme, port, path or query.\n\nAnother web address found\n\nThis link also contains a web address for xn--mgbh0fb.test, a different hostname from example.test.\n\nQuery: Visual resemblance couldn’t be checked for one or more embedded hostnames. This doesn’t rule out a lookalike.\n\nThe link alone doesn’t show whether the website will redirect you there.\n\nView embedded-address details",
+        "noOverflow": true,
+        "primary": "Exact hostname match",
+        "state": "unsupported",
+        "tone": "information",
+        "width": 390
+      }
+    }
+  ],
+  "screenshots": [
+    "preview/v3.2.0-highlight-a-1280.png",
+    "preview/v3.2.0-highlight-b-1280.png",
+    "preview/v3.2.0-highlight-b-390.png"
+  ],
+  "privacyBefore": {
+    "hidden": true,
+    "hosts": [
+      "attacker.test"
+    ]
+  },
+  "keyboardFocus": "Embedded URLs & Redirect Clues",
+  "revealed": true,
+  "cleared": true,
+  "reset": {
+    "highlights": 0,
+    "noticeHidden": true,
+    "reveals": 0
+  },
+  "longWrap": {
+    "fragments": 6,
+    "noOverflow": true,
+    "width": 390,
+    "withinViewport": true
+  },
+  "style": {
+    "background": "rgb(33, 22, 45)",
+    "color": "rgb(216, 181, 245)",
+    "font": "Menlo, Monaco, Consolas, \"Liberation Mono\", monospace",
+    "interactive": false,
+    "weight": "600"
+  },
+  "bundle": {
+    "scriptHash": "hIQwlVjbREXT9Pyc4WHAyb9ez3TctZVMt0Y3fPBGKOY=",
+    "styleHash": "a4Kpje3KMbiXJR2zX/rJLJ/AOo5jF1H6QAjUL0PqToQ="
+  },
+  "nativeFirefox": false,
+  "nativeVoiceOver": false,
+  "consoleMessages": []
+}

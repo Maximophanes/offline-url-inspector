@@ -1,0 +1,44 @@
+{
+  "startingCommit": "90649ff263a2d938010079dcf6b3fe1cb84724f3",
+  "purpose": "Exact authorized source deltas restored only for historical source pins. Existing output and fixture pins are unchanged.",
+  "files": {
+    "src/core.js": {
+      "baselineSHA256": "b72aed56d0a1a65856611c8c3c3569436d383c5acc151386b364649cdbf5cf42",
+      "replacements": [
+        {
+          "current": "    // Scan the authority token once; overlapping hostname matches can backtrack quadratically.\n    const hostPortMatch=/^([^\\s/:?#]+):\\d*(?:[/?#]|$)/.exec(text);\n    const hostPort=!!hostPortMatch&&(/^localhost$/i.test(hostPortMatch[1])||hostPortMatch[1].slice(1,-1).includes('.'));\n",
+          "baseline": "    const hostPort=/^(?:localhost|[^\\s/:?#]+\\.[^\\s/:?#]+):\\d*(?:[/?#]|$)/i.test(text);\n"
+        }
+      ]
+    },
+    "src/embedded.js": {
+      "baselineSHA256": "559087c3bf043755c98b8e687676767784e58f80a89e385f9701279db8c42c27",
+      "replacements": [
+        {
+          "current": "  function components(raw,url,prep){\n    const text=prep.text,match=/^https?:\\/\\//i.exec(text);\n",
+          "baseline": "  function components(raw,url){\n    const prep=Inspector.prepare(raw),text=prep.text,match=/^https?:\\/\\//i.exec(text);\n"
+        },
+        {
+          "current": "    try{const prep=Inspector.prepare(top.raw);initial=new URL(prep.text);if(time())rootParts(components(top.raw,initial,prep));}catch{return unavailable();}\n",
+          "baseline": "    try{initial=new URL(Inspector.prepare(top.raw).text);rootParts(components(top.raw,initial));}catch{return unavailable();}\n"
+        },
+        {
+          "current": "        const parts=original.reliable?components(value,url,prep):['path','query','fragment'].map(component=>({component,original:'',normalized:component==='path'?url.pathname:component==='query'?url.search.slice(1):url.hash.slice(1)}));\n",
+          "baseline": "        const parts=original.reliable?components(value,url):['path','query','fragment'].map(component=>({component,original:'',normalized:component==='path'?url.pathname:component==='query'?url.search.slice(1):url.hash.slice(1)}));\n"
+        },
+        {
+          "current": "        }\n        // Query interpretation must not suppress the remaining whole-value decoding state.\n        transform(node);\n",
+          "baseline": "        }else transform(node);\n"
+        },
+        {
+          "current": "    }\n    function encodedFragmentAddress(node){\n      // A literal separator can belong to an encoded whole URL. Probe only its\n      // bounded prefix; actual recovery still uses the strict, budgeted value path.\n      if(/^https?:\\/\\//i.test(node.text))return false;\n      const separator=node.text.search(/[=&]/);if(separator<0)return false;\n      let prefix=node.text.slice(0,separator);if(prefix.length>LIMITS.value)return false;\n      for(let layer=node.layers;prefix.includes('%')&&layer<LIMITS.percentLayers;layer++){\n        try{prefix=decodeURIComponent(prefix);}catch{limit('partial','decoding',node);return false;}\n        if(/^https?:\\/\\//i.test(prefix))return true;\n      }\n      // Recognizable address syntax still requiring decoding must expose its limit.\n      return /^https?%/i.test(prefix);\n",
+          "baseline": ""
+        },
+        {
+          "current": "        if(encodedFragmentAddress(node))enqueue({...node,kind:'value',sourceValue:node.text,form:false});\n",
+          "baseline": ""
+        }
+      ]
+    }
+  }
+}

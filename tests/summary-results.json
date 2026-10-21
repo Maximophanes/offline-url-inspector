@@ -1,16 +1,24 @@
 {
-  "applicationVersion": "3.1.2",
+  "applicationVersion": "3.2.0",
   "tests": {
-    "executed": 109636,
-    "passed": 109636,
+    "executed": 109827,
+    "passed": 109827,
     "failed": 0
   },
   "assertions": {
-    "executed": 129347,
-    "passed": 129347,
+    "executed": 130743,
+    "passed": 130743,
     "failed": 0
   },
   "commands": [
+    {
+      "command": "test:audit-corrections",
+      "passed": true
+    },
+    {
+      "command": "test:embedded",
+      "passed": true
+    },
     {
       "command": "test:references",
       "passed": true
@@ -76,11 +84,60 @@
       "passed": true
     },
     {
+      "command": "release verifier regression",
+      "passed": true
+    },
+    {
       "command": "independent ICU diagnostic",
       "passed": true
     }
   ],
   "suites": [
+    {
+      "report": "audit-corrections-results.json",
+      "suite": "V3.2.0 approved audit corrections",
+      "tests": {
+        "executed": 27,
+        "passed": 27,
+        "failed": 0
+      },
+      "assertions": {
+        "executed": 841,
+        "passed": 841,
+        "failed": 0
+      },
+      "status": "executed"
+    },
+    {
+      "report": "release-verifier-results.json",
+      "suite": "V3.2.0 release verifier positive and negative cases",
+      "tests": {
+        "executed": 18,
+        "passed": 18,
+        "failed": 0
+      },
+      "assertions": {
+        "executed": 18,
+        "passed": 18,
+        "failed": 0
+      },
+      "status": "executed"
+    },
+    {
+      "report": "embedded-results.json",
+      "suite": "V3.2.0 embedded URL discovery, evidence, limits and privacy",
+      "tests": {
+        "executed": 146,
+        "passed": 146,
+        "failed": 0
+      },
+      "assertions": {
+        "executed": 533,
+        "passed": 533,
+        "failed": 0
+      },
+      "status": "executed"
+    },
     {
       "report": "unit-results.json",
       "suite": "unit and official Unicode fixtures",
@@ -195,8 +252,8 @@
         "failed": 0
       },
       "assertions": {
-        "executed": 5816,
-        "passed": 5816,
+        "executed": 5820,
+        "passed": 5820,
         "failed": 0
       },
       "status": "executed"

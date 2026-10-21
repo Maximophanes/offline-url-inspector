@@ -1,0 +1,201 @@
+{
+  "applicationVersion": "3.2.0",
+  "release": "3.2.0-d7d14671be5e4b26",
+  "edition": "hosted",
+  "browser": "Codex in-app browser",
+  "origin": "http://127.0.0.1:52743/offline-url-inspector/",
+  "identity": {
+    "scriptHash": "7/53PWZaXzpgTAfcKM3V1pN+nEfYpX5KTV//agbWDQU=",
+    "styleHash": "WYoPpCKMbe/GOLuwWwNULsJJSBlfZX2/Qr+FyZpRTnY=",
+    "matchesCandidate": true
+  },
+  "scenarios": [
+    {
+      "name": "encoded-query-exact",
+      "passed": true,
+      "observed": {
+        "hosts": [
+          "other.test"
+        ],
+        "notice": "Additional URL data contains an address on another hostname. No redirect was verified.",
+        "overflow": false,
+        "primary": "Exact hostname match",
+        "status": "Complete within supported scope"
+      }
+    },
+    {
+      "name": "fragment-route",
+      "passed": true,
+      "observed": {
+        "hosts": [
+          "Relative reference · base unresolved",
+          "other.test"
+        ],
+        "notice": "Additional URL data contains an address on another hostname. No redirect was verified.",
+        "overflow": false,
+        "primary": "Exact hostname match",
+        "status": "Complete within supported scope"
+      }
+    },
+    {
+      "name": "path",
+      "passed": true,
+      "observed": {
+        "hosts": [
+          "other.test"
+        ],
+        "notice": "Additional URL data contains an address on another hostname. No redirect was verified.",
+        "overflow": false,
+        "primary": "Exact hostname match",
+        "status": "Complete within supported scope"
+      }
+    },
+    {
+      "name": "benign",
+      "passed": true,
+      "observed": {
+        "hosts": [],
+        "notice": "",
+        "overflow": false,
+        "primary": "Exact hostname match",
+        "status": "Complete within supported scope"
+      }
+    },
+    {
+      "name": "opaque",
+      "passed": true,
+      "observed": {
+        "hosts": [],
+        "notice": "Some URL data has an unknown or unsupported interpretation. No redirect was verified.",
+        "overflow": false,
+        "primary": "Exact hostname match",
+        "status": "Unknown or unsupported interpretation"
+      }
+    },
+    {
+      "name": "partial-depth",
+      "passed": true,
+      "observed": {
+        "hosts": [],
+        "notice": "Embedded analysis is partial; some data or comparisons were not fully examined. No redirect was verified.",
+        "overflow": false,
+        "primary": "Exact hostname match",
+        "status": "Partial analysis"
+      }
+    },
+    {
+      "name": "partial-large-value",
+      "passed": true,
+      "observed": {
+        "hosts": [],
+        "notice": "Embedded analysis is partial; some data or comparisons were not fully examined. No redirect was verified.",
+        "overflow": false,
+        "primary": "Exact hostname match",
+        "status": "Partial analysis"
+      }
+    },
+    {
+      "name": "conflicting-values",
+      "passed": true,
+      "observed": {
+        "hosts": [
+          "first.test",
+          "second.test"
+        ],
+        "notice": "Additional URL data contains an address on another hostname. Different candidate values occur under a repeated parameter name; application selection is unknown. No redirect was verified.",
+        "overflow": false,
+        "primary": "Exact hostname match",
+        "status": "Complete within supported scope"
+      }
+    },
+    {
+      "name": "unicode-reference",
+      "passed": true,
+      "observed": {
+        "hosts": [
+          "xn--mazon-3ve.test"
+        ],
+        "notice": "An embedded hostname may resemble an expected or saved hostname. No redirect was verified.",
+        "overflow": false,
+        "primary": "Exact hostname match",
+        "status": "Complete within supported scope"
+      }
+    },
+    {
+      "name": "ascii-reference",
+      "passed": true,
+      "observed": {
+        "hosts": [
+          "vveb.test"
+        ],
+        "notice": "An embedded hostname may resemble an expected or saved hostname. No redirect was verified.",
+        "overflow": false,
+        "primary": "Exact hostname match",
+        "status": "Complete within supported scope"
+      }
+    }
+  ],
+  "disclosure": {
+    "concealedBeforeReveal": true,
+    "keyboardReveal": true,
+    "keyboardFocus": "Reveal full evidence · may contain private data",
+    "clearedAfterClose": true,
+    "noOverflow": true
+  },
+  "longValue": {
+    "noPageOverflow": true,
+    "status": "Complete within supported scope",
+    "valuesWrap": true
+  },
+  "pagination": {
+    "counts": [
+      5,
+      10,
+      12
+    ],
+    "focusedTag": "H3",
+    "focusedText": "host10.test",
+    "progress": "12 candidates identified."
+  },
+  "reinspection": {
+    "candidates": 0,
+    "noticeHidden": true,
+    "oldSecretAbsent": true,
+    "openReveals": 0
+  },
+  "offlineReload": {
+    "hosts": [
+      "offline-candidate.test"
+    ],
+    "offline": "Offline ready",
+    "primary": "Exact hostname match",
+    "references": "2 saved",
+    "status": "Complete within supported scope",
+    "title": "URL Inspector · Version 3.2.0"
+  },
+  "offlineNewTab": {
+    "offline": "Offline ready",
+    "references": "2 saved",
+    "title": "URL Inspector · Version 3.2.0"
+  },
+  "update": "Actual reviewed application update and reload, with two synthetic references retained.",
+  "consoleMessagesObserved": [],
+  "viewport": {
+    "measuredWidth": 1280,
+    "requestedNarrowWidth": 390,
+    "narrowOverrideEffective": false,
+    "narrowRenderingVerified": false
+  },
+  "screenshots": [
+    "preview/v3.2.0-embedded-desktop.jpg",
+    "preview/v3.2.0-embedded-offline.jpg"
+  ],
+  "limitations": [
+    "Native Firefox access denied: Computer Use permissions are not granted.",
+    "In-app browser URL policy blocks file://, so native standalone file behavior was not verified.",
+    "The viewport API did not change the measured 1280px layout; mobile rendering remains unverified.",
+    "No screen-reader, native zoom or full network-disconnection test.",
+    "Server-stopped cache tests are actual in-app observations; destination-network and persistence guards are tested separately in simulated DOM.",
+    "Browser timing/memory APIs were unavailable in the read-only browser inspection scope."
+  ]
+}

@@ -1,3 +1,29 @@
+# Current audit-corrected candidate — security preservation
+
+Candidate **3.2.0-a67e4b13dd5fa5cd**. The newly executed full suite passes **109,827 checks / 130,743 assertions**, including 27 correction checks / 841 assertions and 18 verifier cases. The original 146 embedded checks / 533 assertions also pass. See [AUDIT_CORRECTIONS.md](AUDIT_CORRECTIONS.md) for implemented changes, exact source-boundary preservation, before/after timing and outstanding native-browser checks.
+
+The records below are historical checkpoints. Their claims of byte-identical core/extractor source and browser passes belong to their stated earlier candidate. This correction changes only the authorized decoding control flow and preprocessing implementation; original result fixtures remain pinned. No new native Firefox, VoiceOver or browser-rendering pass is claimed.
+
+## Historical pre-correction records
+
+# Current targeted hostname highlight/@ preservation
+
+Candidate **3.2.0-cf634806f70b4b3c** changes only supplemental presentation source and scoped CSS. Highlighted hostnames use explicit reliable-token annotations and inert text nodes, with no links, event handlers, roles or focus stops. Raw userinfo remains concealed until explicit evidence reveal; no credential assumption is made. The template, main UI wiring, extraction/decoding/comparison algorithms, reference storage, Unicode, worker/offline behavior, CSP policy and dependency lockfile are unchanged from the preceding candidate.
+
+Newly executed tests: 146 embedded checks / 533 assertions; 109,782 full-suite checks / 129,884 assertions, zero failures. Actual hosted in-app 1280/390 px rendering/privacy/keyboard checks are separate from native Firefox/VoiceOver. Current evidence and remaining targeted manual review: [HOSTNAME_HIGHLIGHT_REVIEW.md](HOSTNAME_HIGHLIGHT_REVIEW.md).
+
+## Previous editorial preservation snapshot
+
+# Version 3.2.0 refined candidate — security preservation
+
+The approved refinement changes presentation only. The embedded analyzer is byte-identical to the pre-refinement candidate. Released core/reference/presentation/hosted/worker sources, Unicode data, base CSS, dependency lockfile, workflows and baseline fixtures retain their protected identities. No extraction/decoding limits, comparison algorithm, storage schema, CSP policy, network/navigation capability or worker behavior changes. Generated worker identity follows the normal new HTML hash.
+
+Full private values and parameter names remain inert, lazy evidence and are removed on close/reinspection. Closing the containing disclosures also clears revealed supplemental bodies. Significant findings name hostnames without exposing full URLs. Target attribution uses existing metadata; comparison unavailability and partial/unsupported causes remain explicit. No destination links or execution sinks were added.
+
+Final regression/conformance/ICU/HTTP suite passes **109,761 checks / 129,797 assertions**; all original object/diagnostic pins remain intact. Actual hosted in-app 390/1280 px rendering, privacy/focus and server-stopped cached startup were observed, with browser script/style identities bound to the manifest. This does not establish native Firefox, refined standalone file policies, VoiceOver, physical-mobile, native-zoom or full disconnected-network behavior. See [current review](EMBEDDED_EDITORIAL_REVIEW.md) and its actual-versus-simulated evidence boundaries.
+
+## Historical v3.1.2 preservation review
+
 # Version 3.1.2 security preservation review
 
 Review date: 2026-10-16. Core analysis (`src/core.js`), reference normalization/comparison/storage/import/export (`src/references.js`), and Unicode JSON are byte-identical to the Version 3.1.1 baseline. The base theme retains its appearance after explicitly approved unused-rule removals. Functional pins, complete differential/conformance tests and focused storage/lifecycle/rendering checks pass. This is an internal preservation review, not independent certification.

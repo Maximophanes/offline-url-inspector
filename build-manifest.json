@@ -1,17 +1,17 @@
 {
   "standalone": {
-    "sha256": "6291d65163efa0c68a7872f73e04451e45e72ef17e0839fbe48dd4ca1d6bea03",
-    "bytes": 2291734,
-    "scriptHash": "ejMd3Px63U0KrzCoICXSt5yXJGiO8kqemitHWsK0H7o=",
-    "styleHash": "AdHN1ozC4OC5J6IznqSe79MzX4eHhST00liNKSdITUk="
+    "sha256": "3ab7c6cd8e9e5ad286cd8e3032b4fdd66e31ae8d305c032a253c76919ff0b91f",
+    "bytes": 2345099,
+    "scriptHash": "huH0wd9S62owWkQQbVW/gqAPPqorwzbHSZ3v04Rfpec=",
+    "styleHash": "a4Kpje3KMbiXJR2zX/rJLJ/AOo5jF1H6QAjUL0PqToQ="
   },
   "hosted": {
-    "sha256": "4b60415e57b7876af7243ad81c0354775a23007ba106bfd76d2333edd0283cbc",
-    "bytes": 2303794,
-    "scriptHash": "imMuH0+Ntwsegj2VFLGZHiek9RL/+kaXt3Bl9QjlPv4=",
-    "styleHash": "AdHN1ozC4OC5J6IznqSe79MzX4eHhST00liNKSdITUk="
+    "sha256": "a67e4b13dd5fa5cd5c2ad69062565ba599d3de7c5c1a593bd87cd183328f2bb5",
+    "bytes": 2357159,
+    "scriptHash": "xeS2mRc9tugUfay6jsOMY5eUAnub/q1Kf1ZzDPB/tco=",
+    "styleHash": "a4Kpje3KMbiXJR2zX/rJLJ/AOo5jF1H6QAjUL0PqToQ="
   },
-  "release": "3.1.2-4b60415e57b7876a",
+  "release": "3.2.0-a67e4b13dd5fa5cd",
   "unicodeVersion": "18.0.0",
   "unicodeDataSHA256": "806135e914efe7978ca23124b2ad4472b5643adbb766dc1ab799b3ca1c7a5dc1"
 }

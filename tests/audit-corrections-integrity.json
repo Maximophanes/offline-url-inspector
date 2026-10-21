@@ -1,0 +1,60 @@
+{
+  "applicationVersion": "3.2.0",
+  "release": "3.2.0-a67e4b13dd5fa5cd",
+  "startingAndCurrentHEAD": "90649ff263a2d938010079dcf6b3fe1cb84724f3",
+  "stableBaseline": "d9aed1dc333bb51d2126fa79059a839292b36615",
+  "deterministicRepeatBuilds": 2,
+  "generatedSHA256": {
+    "standalone/Offline_URL_Inspector.html": "3ab7c6cd8e9e5ad286cd8e3032b4fdd66e31ae8d305c032a253c76919ff0b91f",
+    "site/index.html": "a67e4b13dd5fa5cd5c2ad69062565ba599d3de7c5c1a593bd87cd183328f2bb5",
+    "site/sw.js": "398930a0619f7155963690c9f52141aa2cf75874ccfe2a23563a2f366d696e02",
+    "site/.nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build-manifest.json": "de805332a41127778f3d37f49c1378c9ca7a41760041db55292c26afcfad8ded"
+  },
+  "sourceAndEvidenceSHA256": {
+    "src/core.js": "6d7d8a253c175caec0296cbfe71d3cec17b3afdf8aaef72385cabc6902f2a2aa",
+    "src/embedded.js": "b9cfdcfddbe39b7c36de8e1ad7039e7a10a60016201108b16ba006271fc6b153",
+    "tests/audit-correction-source-boundaries.json": "0abb1bb207be1844e22d12b6c9d9877696bc9560bb505a9dfd05913a32b730be",
+    "tests/audit-corrections-results.json": "0bd4cf884b80329e21d81d79faa5eb29a6880deb63113940ccacf56f3a0232e4",
+    "tests/embedded-results.json": "64ce9de9ceb1abb47c78f9200dda91ce70114615b002a9e51f25084cbad76de0",
+    "tests/release-verifier-results.json": "56a9df0aab58813a996930aeee18bc0ff540c6347b4235993cf690fcb1294361",
+    "tests/summary-results.json": "9167b8b83d6b2b6c0c4cd8dce8feeae831748818ed9d6fc394816ed941da4f4b",
+    "tests/embedded-benchmark.json": "c9f868ca685295c9f6591d2b408564ffadaf0062c3ee97b166b22f1d7348720f",
+    "tests/differential-results.json": "606ad484dda6f8388aa499ed50545aab52526533e942b02234d3c6d495d1ecaa",
+    "tests/release-verifier.py": "8471107c070dda9ca8c1fecc262b83bb39ad8f1f548b806bf89b81c336b618a8"
+  },
+  "protectedBaselineFilesIdentical": [
+    "src/references.js",
+    "src/presentation.js",
+    "src/hosted.js",
+    "src/sw.js",
+    "src/base.css",
+    "src/v3.css",
+    "data/unicode-data.json",
+    "data/LICENSE.txt",
+    "deno.lock",
+    ".github/workflows/deploy-pages.yml",
+    "tests/cases.json",
+    "tests/ascii-cases.json"
+  ],
+  "reviewedSourceChanges": {
+    "src/core.js": {
+      "baselineSHA256": "b72aed56d0a1a65856611c8c3c3569436d383c5acc151386b364649cdbf5cf42",
+      "currentSHA256": "6d7d8a253c175caec0296cbfe71d3cec17b3afdf8aaef72385cabc6902f2a2aa"
+    }
+  },
+  "sourceBundleCSPManifestWorkerVerified": true,
+  "scope": "Executed final build repetition and source/artifact/CSP/manifest/worker checks; evidence files bound by SHA-256. Final full checksum verification is separate in release-checks.json. No native Firefox or in-app browser execution.",
+  "postAuditSnapshotFixtureCorrection": {
+    "scope": "Test fixture and evidence/documentation correction only; production implementation and generated identities unchanged.",
+    "historicalSnapshot": "Pinned startingCommit from correction metadata; 13 unchanged protected files.",
+    "correctedCommittedSnapshot": "Complete corrected fixture, clean future Git identity/status/inventory projected; 12 unchanged protected files plus approved core exception. No commit created.",
+    "focusedCases": 18,
+    "fullSuiteChecks": 109827,
+    "fullSuiteAssertions": 130743,
+    "missingAndInconsistentMetadataRejected": true,
+    "productionVerifierSHA256": "bc9def1d5c9c4bbc18a9867327ff01caeb088f0b721e08c2254ab9944774513b",
+    "freshDeterministicRepeatBuilds": 2,
+    "nativeFirefoxExecuted": false
+  }
+}

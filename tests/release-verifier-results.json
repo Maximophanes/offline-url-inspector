@@ -1,0 +1,31 @@
+{
+  "suite": "V3.2.0 release verifier positive and negative cases",
+  "groups": {
+    "verification": {
+      "executed": 18,
+      "passed": 18,
+      "failed": 0
+    }
+  },
+  "failures": [],
+  "assertions": {
+    "executed": 18,
+    "passed": 18,
+    "failed": 0
+  },
+  "total": {
+    "executed": 18,
+    "passed": 18,
+    "failed": 0
+  },
+  "snapshotCoverage": {
+    "historicalCommit": "90649ff263a2d938010079dcf6b3fe1cb84724f3",
+    "historicalUnchangedProtectedFiles": 13,
+    "correctedUnchangedProtectedFiles": 12,
+    "correctedReviewedSourceChanges": [
+      "src/core.js"
+    ],
+    "correctedCommitSimulation": "Clean projected Git metadata and copied corrected files; no commit created; full checksum checking enabled."
+  },
+  "scope": "Actual verifier execution; negative mutations occur only in a disposable directory. Historical files come from a pinned real Git revision and exercise source/artifact checks without checksum inventory. Corrected local and simulated clean-commit snapshots include full checksum verification. Git metadata alone is projected for snapshot identity; protected-source checks are unchanged. No repository commits, branches, or files are tampered with."
+}

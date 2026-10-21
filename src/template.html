@@ -50,7 +50,9 @@
 <div class="line"><button id="applyImport" type="button">Apply reviewed import</button><button id="cancelImport" class="ghost" type="button">Cancel</button></div>
 </section></div></details>
 <section class="card results-card hidden" id="results" aria-label="Inspection results">
-<div id="primary" class="primary" role="status" aria-live="polite" aria-atomic="true"><div class="eyebrow">Primary finding</div><h2 id="primaryTitle"></h2><p id="primaryDetail"></p></div>
+<div id="primary" class="primary" role="status" aria-live="polite" aria-atomic="true"><div class="eyebrow">Primary finding</div><h2 id="primaryTitle"></h2><p id="primaryDetail"></p>
+<section id="embeddedNotice" class="embedded-summary hidden" aria-labelledby="embeddedTitle"><h3 id="embeddedTitle"></h3><div id="embeddedSummary"></div><p id="embeddedCoverage" class="hidden"></p><p id="embeddedRedirect" class="hidden">The link alone doesn’t show whether the website will redirect you there.</p><button id="embeddedView" type="button" class="ghost small" aria-controls="embeddedDetails">View embedded-address details</button></section>
+</div>
 <div class="hostname-grid">
 <div><div class="label"><span>Actual Hostname</span> <span class="label-detail">(ASCII / Punycode)</span></div><div id="ascii" class="host"></div></div>
 <div><div class="label"><span>Readable Hostname</span> <span class="label-detail">(Unicode)</span></div><div class="host" id="coloredHost"></div></div>
@@ -85,6 +87,17 @@
 <div class="row"><div class="key">Fragment</div><div id="fragment" class="value mono"></div></div>
 </div></details>
 <details class="disclosure category" id="referencesDetails"><summary>Reference Comparisons</summary><div id="referenceCandidates" class="category-body small"></div></details>
+<details class="disclosure category" id="embeddedDetails"><summary>Embedded URLs &amp; Redirect Clues</summary><div class="category-body small">
+<p id="embeddedStatus"></p><p id="embeddedCount"></p>
+<p>Addresses found in the link’s text. Their use by the website is unknown; no redirect was verified.</p>
+<ul id="embeddedLimitations"></ul><div id="embeddedCandidates"></div>
+<details class="disclosure observation" id="embeddedCoverageDetails"><summary>Supported formats &amp; limits</summary><div class="category-body small">
+<p>These checks look for HTTP and HTTPS addresses in paths, query values and fragments, with up to two layers of URL decoding. Relative addresses are recorded without assuming a base URL; addresses without a scheme remain unresolved.</p>
+<p>Base64, Base64URL, JSON, encrypted and proprietary formats are not decoded. Server responses and webpage scripts are not examined. Finding no supported address does not rule out hidden destinations.</p>
+<p>Entries can represent repeated occurrences or different interpretations of one value. Distinct hostnames do not establish ownership or final destinations. Encoding and a different hostname are not inherently suspicious.</p>
+<ul id="embeddedLimitDetails"></ul>
+</div></details>
+</div></details>
 <details class="disclosure category" id="diagnosticDetails"><summary>Full Diagnostic Log</summary><div class="category-body"><p class="small">Detailed analysis findings. Multiple observations may relate to the same underlying issue.</p><div id="messages" class="diagnostic-list"></div><details id="rawDiagnostics" class="disclosure observation raw-diagnostics"><summary>Raw Diagnostic Records</summary><div id="rawRecords" class="raw-record-list" tabindex="0" role="region" aria-label="Complete original diagnostic records"></div></details></div></details>
 </div></details></section>
 <details class="disclosure supporting-panel" id="understanding"><summary>Understanding Your Results</summary><div class="panel-body">

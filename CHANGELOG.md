@@ -1,3 +1,34 @@
+# Version 3.2.0 — approved audit corrections
+
+Corrected local candidate: **3.2.0-a67e4b13dd5fa5cd**. See [AUDIT_CORRECTIONS.md](AUDIT_CORRECTIONS.md).
+
+- Preserve eligible encoded whole-fragment and relative-reference decoding interpretations under existing limits; retain component boundaries and expose incomplete coverage.
+- Verify committed candidate identity separately from stable baseline; preserve protected-source, bundle/CSP/manifest/worker and complete checksum-inventory checks.
+- Replace the backtracking hostname/port predicate with equivalent linear recognition, reuse preprocessing, and check initialization elapsed time.
+- Add 27 targeted correction checks and 18 verifier cases; all 109,827 full-suite checks / 130,743 assertions pass. Preserve original fixtures, privacy, design, dependencies and offline/reference behavior.
+- Pin the historical verifier fixture to its recorded original revision; separately test a clean corrected-commit projection with complete metadata, plus missing/inconsistent metadata rejection.
+- Leave changes local and uncommitted; PR #2 remains Draft. Native Firefox verification and a narrow independent re-audit remain separate.
+
+## Historical initial Version 3.2.0 candidate
+
+# Version 3.2.0 — targeted highlight/@ local candidate
+
+- Highlight reliable recovered hostnames only in consequential main supplemental findings, using inert monospaced lilac text and the established dark-purple tokens. Preserve bounded lists and distinguish comparison targets/uncertain references.
+- Replace embedded “sign-in text” copy with “The text before @ is not the website’s hostname.” Preserve concealed userinfo, existing evidence, severity and all underlying analysis.
+- Add bounded local path/query/fragment discovery, descriptive provenance and independent hostname comparisons, preserving the released initial-hostname engine and conclusions.
+- Correct supplemental attribution for initial, Expected Hostname, saved-reference and combined comparison sources.
+- Present significant hostname-first supplemental findings beside the initial finding, in its existing polite result announcement region. Different-host evidence remains informational; no redirect or whole-link safety verdict is made.
+- Simplify new copy and ordinary Technical Details. Keep complete recorded values, parameter names, transformations, methods and parsing distinctions behind explicit private reveal.
+- Preserve complete/partial/unsupported/unavailable meanings with cause-specific explanations; move comprehensive format/limit help on demand.
+- Distinguish entry types, source occurrences and distinct hostnames. Fix singular pagination and final-page focus for entries and saved comparisons; clear private evidence on outer close/reinspection.
+- Preserve extraction/decoding limits, comparison algorithms, storage, worker behavior, CSP, Unicode, dependencies, base theme and existing diagnostics.
+- Final newly executed suite: **109,782 checks / 129,884 assertions**, zero failures. Embedded suite: **146 checks / 533 assertions**, including the prior 41 refinement checks and 21 new targeted checks. Actual in-app 22-case 390/1280 px highlight/privacy checks are separate from user-reported preceding Firefox passes and the newest native manual review.
+- Keep all work local, unstaged and uncommitted on the existing branch. No push, merge, PR or publication.
+
+See [current targeted review](HOSTNAME_HIGHLIGHT_REVIEW.md), [preceding editorial review](EMBEDDED_EDITORIAL_REVIEW.md) and [original implementation snapshot](EMBEDDED_URL_REVIEW.md).
+
+## Historical v3.1.2 changelog
+
 # Version 3.1.2
 
 Focused Technical Details follow-up: balanced character-count spacing; removed redundant raw comparison disclosure while retaining internal metadata and contextual methods/warnings; conditional Hostname extraction details for uncertain/failed attribution. All 139 original inspection/reference-comparison results remain identical. Only targeted tests were rerun. See [review](TECHNICAL_DETAILS_REVIEW.md).

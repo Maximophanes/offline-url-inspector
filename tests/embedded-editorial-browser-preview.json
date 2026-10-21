@@ -1,0 +1,383 @@
+{
+  "applicationVersion": "3.2.0",
+  "release": "3.2.0-8cd78162d6718454",
+  "date": "2026-10-21",
+  "scope": "Actual hosted in-app browser interactions; not native Firefox or screen-reader verification.",
+  "scenarios": [
+    {
+      "name": "exact-offhost",
+      "observed": {
+        "count": "1 embedded web address found.",
+        "hosts": [
+          "other.test"
+        ],
+        "notice": "Another web address found\n\nThis link also contains a web address for other.test, a different hostname from example.test.\n\nThe link alone doesn’t show whether the website will redirect you there.\n\nView embedded-address details",
+        "pageOverflow": false,
+        "primary": "Exact hostname match",
+        "state": "complete",
+        "status": "Checks finished for supported formats.",
+        "viewportWidth": 390
+      },
+      "passed": true
+    },
+    {
+      "name": "initial-only-resemblance",
+      "observed": {
+        "count": "1 embedded web address found.",
+        "hosts": [
+          "vveb.test"
+        ],
+        "notice": "Embedded hostname may look similar\n\nThis link also contains a web address for vveb.test, a different hostname from web.test.\n\nvveb.test may look like web.test (the link’s hostname).\n\nVisual resemblance doesn’t establish malicious intent.\n\nThe link alone doesn’t show whether the website will redirect you there.\n\nView embedded-address details",
+        "pageOverflow": false,
+        "primary": "No unusual hostname characters identified",
+        "state": "complete",
+        "status": "Checks finished for supported formats.",
+        "viewportWidth": 390
+      },
+      "passed": true
+    },
+    {
+      "name": "expected-resemblance",
+      "observed": {
+        "count": "1 embedded web address found.",
+        "hosts": [
+          "vveb.test"
+        ],
+        "notice": "Embedded hostname may look similar\n\nThis link also contains a web address for vveb.test, a different hostname from example.test.\n\nvveb.test may look like web.test (your expected hostname).\n\nVisual resemblance doesn’t establish malicious intent.\n\nThe link alone doesn’t show whether the website will redirect you there.\n\nView embedded-address details",
+        "pageOverflow": false,
+        "primary": "Hostname mismatch",
+        "state": "complete",
+        "status": "Checks finished for supported formats.",
+        "viewportWidth": 390
+      },
+      "passed": true
+    },
+    {
+      "name": "mismatch-embedded-expected",
+      "observed": {
+        "count": "1 embedded web address found.",
+        "hosts": [
+          "web.test"
+        ],
+        "notice": "Another web address found\n\nThis link also contains a web address for web.test, a different hostname from example.test.\n\nThe link alone doesn’t show whether the website will redirect you there.\n\nView embedded-address details",
+        "pageOverflow": false,
+        "primary": "Hostname mismatch",
+        "state": "complete",
+        "status": "Checks finished for supported formats.",
+        "viewportWidth": 390
+      },
+      "passed": true
+    },
+    {
+      "name": "same-host",
+      "observed": {
+        "count": "1 embedded web address found.",
+        "hosts": [
+          "example.test"
+        ],
+        "notice": "",
+        "pageOverflow": false,
+        "primary": "Exact hostname match",
+        "state": "complete",
+        "status": "Checks finished for supported formats.",
+        "viewportWidth": 390
+      },
+      "passed": true
+    },
+    {
+      "name": "multiple-hosts",
+      "observed": {
+        "count": "2 embedded web address entries. Web address entries represent 2 source occurrences and 2 distinct hostnames.",
+        "hosts": [
+          "first.test",
+          "second.test"
+        ],
+        "notice": "Other web addresses found\n\nThis link also contains web addresses for first.test and second.test. These differ from example.test.\n\nThe link alone doesn’t show whether the website will redirect you there.\n\nView embedded-address details",
+        "pageOverflow": false,
+        "primary": "Exact hostname match",
+        "state": "complete",
+        "status": "Checks finished for supported formats.",
+        "viewportWidth": 390
+      },
+      "passed": true
+    },
+    {
+      "name": "benign-query",
+      "observed": {
+        "count": "",
+        "hosts": [],
+        "notice": "",
+        "pageOverflow": false,
+        "primary": "Exact hostname match",
+        "state": "complete",
+        "status": "Checks finished for supported formats.",
+        "viewportWidth": 390
+      },
+      "passed": true
+    },
+    {
+      "name": "ordinary-anchor",
+      "observed": {
+        "count": "",
+        "hosts": [],
+        "notice": "",
+        "pageOverflow": false,
+        "primary": "Exact hostname match",
+        "state": "complete",
+        "status": "Checks finished for supported formats.",
+        "viewportWidth": 390
+      },
+      "passed": true
+    },
+    {
+      "name": "oauth",
+      "observed": {
+        "count": "1 embedded web address found.",
+        "hosts": [
+          "client.test"
+        ],
+        "notice": "Another web address found\n\nThis link also contains a web address for client.test, a different hostname from example.test.\n\nThe link alone doesn’t show whether the website will redirect you there.\n\nView embedded-address details",
+        "pageOverflow": false,
+        "primary": "Exact hostname match",
+        "state": "complete",
+        "status": "Checks finished for supported formats.",
+        "viewportWidth": 390
+      },
+      "passed": true
+    },
+    {
+      "name": "opaque",
+      "observed": {
+        "count": "",
+        "hosts": [],
+        "notice": "Some embedded data couldn’t be interpreted\n\nFragment: Some data has no demonstrated address meaning; its use is unknown.\n\nView embedded-address details",
+        "pageOverflow": false,
+        "primary": "Exact hostname match",
+        "state": "unsupported",
+        "status": "Some embedded data couldn’t be interpreted.",
+        "viewportWidth": 390
+      },
+      "passed": true
+    },
+    {
+      "name": "partial-and-unsupported",
+      "observed": {
+        "count": "",
+        "hosts": [],
+        "notice": "Embedded-address checks incomplete\n\nQuery: Some URL-encoded text couldn’t be read reliably. Fragment: Some data has no demonstrated address meaning; its use is unknown.\n\nView embedded-address details",
+        "pageOverflow": false,
+        "primary": "Exact hostname match",
+        "state": "partial",
+        "status": "Some embedded-address checks are incomplete.",
+        "viewportWidth": 390
+      },
+      "passed": true
+    },
+    {
+      "name": "unavailable-visual",
+      "observed": {
+        "count": "1 embedded web address found.",
+        "hosts": [
+          "xn--mgbh0fb.test"
+        ],
+        "notice": "Another web address found\n\nThis link also contains a web address for xn--mgbh0fb.test, a different hostname from example.test.\n\nQuery: Visual resemblance couldn’t be checked for one or more embedded hostnames. This doesn’t rule out a lookalike.\n\nThe link alone doesn’t show whether the website will redirect you there.\n\nView embedded-address details",
+        "pageOverflow": false,
+        "primary": "Exact hostname match",
+        "state": "unsupported",
+        "status": "Some embedded comparisons aren’t available.",
+        "viewportWidth": 390
+      },
+      "passed": true
+    },
+    {
+      "name": "invalid",
+      "observed": {
+        "count": "",
+        "hosts": [],
+        "notice": "Embedded-address checks unavailable\n\nThese checks need a readable URL with a reliably identified original hostname.\n\nView embedded-address details",
+        "pageOverflow": false,
+        "primary": "Unable to read this URL",
+        "state": "unavailable",
+        "status": "Embedded-address checks unavailable.",
+        "viewportWidth": 390
+      },
+      "passed": true
+    },
+    {
+      "name": "saved-resemblance",
+      "observed": {
+        "count": "1 embedded web address found.",
+        "hosts": [
+          "xn--mazon-3ve.com"
+        ],
+        "notice": "Embedded hostname may look similar\n\nThis link also contains a web address for xn--mazon-3ve.com, a different hostname from example.test.\n\nxn--mazon-3ve.com may look like amazon.com (a saved reference domain).\n\nVisual resemblance doesn’t establish malicious intent.\n\nThe link alone doesn’t show whether the website will redirect you there.\n\nView embedded-address details",
+        "pageOverflow": false,
+        "primary": "No unusual hostname characters identified",
+        "state": "complete",
+        "status": "Checks finished for supported formats.",
+        "viewportWidth": 390
+      },
+      "passed": true
+    },
+    {
+      "name": "combined-sources",
+      "observed": {
+        "count": "1 embedded web address found.",
+        "hosts": [
+          "xn--mazon-3ve.com"
+        ],
+        "notice": "Embedded hostname may look similar\n\nThis link also contains a web address for xn--mazon-3ve.com, a different hostname from amazon.com.\n\nxn--mazon-3ve.com may look like amazon.com (the link’s hostname, your expected hostname and a saved reference domain).\n\nVisual resemblance doesn’t establish malicious intent.\n\nThe link alone doesn’t show whether the website will redirect you there.\n\nView embedded-address details",
+        "pageOverflow": false,
+        "primary": "Exact hostname match",
+        "state": "complete",
+        "status": "Checks finished for supported formats.",
+        "viewportWidth": 390
+      },
+      "passed": true
+    },
+    {
+      "name": "resource-limited",
+      "observed": {
+        "count": "32 embedded web address entries. Web address entries represent 32 source occurrences and 32 distinct hostnames. Showing 5 of 32 entries.",
+        "hosts": [
+          "host0.test",
+          "host1.test",
+          "host2.test",
+          "host3.test",
+          "host4.test"
+        ],
+        "notice": "Other web addresses found\n\nThis link also contains web addresses for host0.test, host1.test, host2.test and 29 more hostnames. These differ from example.test.\n\nSome embedded-address checks are incomplete. Query: The address-entry limit was reached; further entries weren’t recorded. Query: The hostname-check limit was reached; some hostnames weren’t fully checked. More limitations are listed in Technical Details.\n\nThe link alone doesn’t show whether the website will redirect you there.\n\nView embedded-address details",
+        "pageOverflow": false,
+        "primary": "Exact hostname match",
+        "state": "partial",
+        "status": "Some embedded-address checks are incomplete.",
+        "viewportWidth": 390
+      },
+      "passed": true
+    },
+    {
+      "name": "mixed-types",
+      "observed": {
+        "count": "1 embedded web address entry; 1 relative reference; 1 address without a scheme; 1 possible web address; 1 other-scheme entry.",
+        "hosts": [
+          "other.test",
+          "Relative address; no base URL assumed",
+          "Address without a scheme; scheme unresolved",
+          "Possible web address; boundaries uncertain",
+          "Recognized scheme: mailto:"
+        ],
+        "notice": "Another web address found\n\nThis link also contains a web address for other.test, a different hostname from example.test.\n\nA possible web address was found, but its boundaries are uncertain.\n\nSome embedded-address checks are incomplete. Query: A possible web address has uncertain boundaries. Query: An address using another scheme wasn’t interpreted.\n\nThe link alone doesn’t show whether the website will redirect you there.\n\nView embedded-address details",
+        "pageOverflow": false,
+        "primary": "Exact hostname match",
+        "state": "partial",
+        "status": "Some embedded-address checks are incomplete.",
+        "viewportWidth": 390
+      },
+      "passed": true
+    },
+    {
+      "name": "repeated-address",
+      "observed": {
+        "count": "2 embedded web address entries. Web address entries represent 2 source occurrences and 1 distinct hostname.",
+        "hosts": [
+          "other.test",
+          "other.test"
+        ],
+        "notice": "Another web address found\n\nThis link also contains a web address for other.test, a different hostname from example.test.\n\nThe link alone doesn’t show whether the website will redirect you there.\n\nView embedded-address details",
+        "pageOverflow": false,
+        "primary": "Exact hostname match",
+        "state": "complete",
+        "status": "Checks finished for supported formats.",
+        "viewportWidth": 390
+      },
+      "passed": true
+    }
+  ],
+  "privateBeforeReveal": {
+    "noOverflow": true,
+    "parameterAbsent": true,
+    "secretAbsent": true,
+    "width": 390
+  },
+  "privateAfterReveal": {
+    "focus": "Reveal full values and evidence for address entry 1 · may contain private data",
+    "noNavigationTargets": true,
+    "noOverflow": true,
+    "secretPresent": true
+  },
+  "privateAfterClose": {
+    "emptyBody": true,
+    "secretAbsent": true
+  },
+  "entryPaginationBefore": {
+    "button": "Show 1 more entry",
+    "count": 5
+  },
+  "entryPaginationAfter": {
+    "count": 6,
+    "focus": "host5.test",
+    "moreButtons": 0,
+    "progress": "6 embedded web address entries. Web address entries represent 6 source occurrences and 6 distinct hostnames.",
+    "tag": "H3"
+  },
+  "comparisonPaginationBefore": {
+    "button": "Show 1 more comparison",
+    "rows": 10
+  },
+  "comparisonPaginationAfter": {
+    "focus": "Saved referencer13.root.test · Parent of the comparison hostname",
+    "focusedClass": "row embedded-comparison",
+    "moreButtons": 0,
+    "rows": 11
+  },
+  "referencesRestored": true,
+  "reinspection": {
+    "coverageClosed": true,
+    "entries": 0,
+    "noticeHidden": true,
+    "openReveals": 0
+  },
+  "multiHostGrammar": "This link also contains web addresses for host0.test, host1.test, host2.test and 1 more hostname. These differ from example.test.",
+  "desktop": {
+    "noOverflow": true,
+    "ordinaryRecord": "other.test\nFound in\nQuery · parameter 1\nLink and expected hostname\nDifferent from example.test.\nReveal full values and evidence · may contain private data",
+    "primary": "PRIMARY FINDING\nExact hostname match\n\nThe hostname matches your expected hostname. This match does not compare the scheme, port, path or query.\n\nAnother web address found\n\nThis link also contains a web address for other.test, a different hostname from example.test.\n\nThe link alone doesn’t show whether the website will redirect you there.\n\nView embedded-address details",
+    "width": 1280
+  },
+  "bundle": {
+    "scriptHash": "Ad5bwnOAh9nW2TmEJmH6ymBUT9Cdjlh7/ShpNI+b2TI=",
+    "styleHash": "hGk9vduw6Yvo2aMkeyTZHep5UsxNqDpgefF/8y8G0xM="
+  },
+  "announcements": {
+    "noNestedLiveRegions": true,
+    "oneResultLiveRegion": true,
+    "orderedTitles": [
+      "Exact hostname match",
+      "Another web address found"
+    ],
+    "privateEvidenceOutsideLiveRegion": true
+  },
+  "viewportResetRequested": true,
+  "cachedStartup": {
+    "companion": "Another web address found",
+    "host": "other.test",
+    "offline": "Offline ready",
+    "primary": "Exact hostname match",
+    "referenceCount": "1 saved",
+    "serverStopped": true,
+    "scriptHash": "Ad5bwnOAh9nW2TmEJmH6ymBUT9Cdjlh7/ShpNI+b2TI="
+  },
+  "consoleMessages": [],
+  "screenshots": [
+    "preview/v3.2.0-editorial-desktop.png",
+    "preview/v3.2.0-editorial-narrow.png",
+    "preview/v3.2.0-editorial-narrow-details.png",
+    "preview/v3.2.0-editorial-results.png"
+  ],
+  "limitations": [
+    "Native Firefox Computer Use permissions are not granted.",
+    "No native VoiceOver, native browser zoom, OS reduced-motion, or refined standalone file-policy test was performed.",
+    "Browser network tracing was unavailable; destination-network/navigation sinks were checked in guarded simulated DOM and by source inspection.",
+    "Server-stopped cached startup is not full internet disconnection."
+  ]
+}

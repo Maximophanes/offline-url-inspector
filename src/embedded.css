@@ -1,0 +1,14 @@
+/* Supplementary findings retain Blackberry & Amethyst and native disclosures. */
+.primary .embedded-summary{margin-top:22px;padding-top:19px;border-top:1px solid var(--line-soft);overflow-wrap:anywhere}
+.primary .embedded-summary h3{font-size:19px;line-height:1.4;letter-spacing:-.01em;margin:0 0 9px;color:var(--ink)}
+.primary .embedded-summary p{margin:7px 0 0;font-size:14px;line-height:1.7}
+#embeddedSummary .embedded-recovered-host{font-family:var(--mono);font-weight:600;color:var(--hover);background:var(--panel-raised);padding:.1em .3em;border-radius:3px;box-decoration-break:clone;-webkit-box-decoration-break:clone;white-space:normal;overflow-wrap:anywhere;word-break:break-word;direction:ltr;unicode-bidi:isolate}
+.primary .embedded-summary[data-tone="caution"] h3,.primary .embedded-summary[data-tone="warning"] h3,#embeddedCoverage[data-state="partial"],#embeddedCoverage[data-state="unavailable"]{color:var(--orange)}
+#embeddedView{margin-top:13px}#embeddedStatus{font-weight:500;margin:0 0 8px}#embeddedStatus[data-state="partial"],#embeddedStatus[data-state="unavailable"]{color:var(--orange)}
+#embeddedCount{color:var(--ink)}.embedded-record{padding:17px 0;border-top:1px solid var(--line-soft);min-width:0}
+.embedded-host{font:600 15px/1.65 var(--mono);margin:0 0 10px;overflow-wrap:anywhere;unicode-bidi:isolate;direction:ltr}
+.embedded-host:focus-visible,.embedded-comparison:focus-visible{outline:2px solid var(--hover);outline-offset:3px}
+.embedded-record .row{font-size:13px}.embedded-record .value{white-space:pre-wrap;overflow-wrap:anywhere;unicode-bidi:isolate;direction:ltr}
+.embedded-reveal{margin-top:12px}.embedded-reveal>summary{overflow-wrap:anywhere}.embedded-reveal .value{font-size:12px}
+#embeddedLimitations,#embeddedLimitDetails{padding-left:21px;overflow-wrap:anywhere}#embeddedLimitations:empty,#embeddedLimitDetails:empty{display:none}
+@media(max-width:620px){.primary .embedded-summary h3{font-size:18px}.primary .embedded-summary{margin-top:19px;padding-top:16px}#embeddedView{max-width:100%;white-space:normal;text-align:left}}
