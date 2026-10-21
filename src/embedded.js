@@ -19,8 +19,8 @@ const EmbeddedURLs = (() => {
   const unavailable=()=>({status:'unavailable',candidates:[],limitations:[{kind:'unavailable',code:'top-level',component:null}],observations:[],components:[],stats:{nodes:0,text:0,candidates:0,hostnames:0,comparisons:0},limits:LIMITS});
   // Called only for accepted HTTP(S) input. This locates components, not a host.
   // Map through Inspector's existing preprocessing indices; never invent offsets.
-  function components(raw,url){
-    const prep=Inspector.prepare(raw),text=prep.text,match=/^https?:\/\//i.exec(text);
+  function components(raw,url,prep){
+    const text=prep.text,match=/^https?:\/\//i.exec(text);
     let end=match[0].length;while(end<text.length&&!'/\\?#'.includes(text[end]))end++;
     let hash=text.indexOf('#',end);if(hash<0)hash=text.length;
     let query=text.indexOf('?',end);if(query<0||query>hash)query=hash;
@@ -57,7 +57,7 @@ const EmbeddedURLs = (() => {
       }
     }
     let initial;
-    try{initial=new URL(Inspector.prepare(top.raw).text);rootParts(components(top.raw,initial));}catch{return unavailable();}
+    try{const prep=Inspector.prepare(top.raw);initial=new URL(prep.text);if(time())rootParts(components(top.raw,initial,prep));}catch{return unavailable();}
     function transform(node,form=false){
       if(!node.text.includes('%')&&!(form&&node.text.includes('+')))return;
       if(node.layers>=LIMITS.percentLayers){limit('partial','percent-depth',node);return;}
@@ -90,7 +90,7 @@ const EmbeddedURLs = (() => {
       const key=node.layers+':'+node.depth,states=expanded.get(value)||new Set();
       if(!states.has(key)){
         states.add(key);expanded.set(value,states);
-        const parts=original.reliable?components(value,url):['path','query','fragment'].map(component=>({component,original:'',normalized:component==='path'?url.pathname:component==='query'?url.search.slice(1):url.hash.slice(1)}));
+        const parts=original.reliable?components(value,url,prep):['path','query','fragment'].map(component=>({component,original:'',normalized:component==='path'?url.pathname:component==='query'?url.search.slice(1):url.hash.slice(1)}));
         const nonempty=parts.filter(p=>p.component!=='path'||p.original&&p.original!=='/'||p.normalized&&p.normalized!=='/');
         if(nonempty.some(p=>p.original||p.normalized))rootParts(nonempty,candidate,{steps:node.steps,layers:node.layers,depth:node.depth+1});
       }
@@ -127,7 +127,9 @@ const EmbeddedURLs = (() => {
         const reference=add(node,text,'relative'),question=text.indexOf('?'),hash=text.indexOf('#');
         if(question>=0&&(hash<0||question<hash)){
           enqueue({...node,kind:'container',mode:'query',text:text.slice(question+1,hash<0?text.length:hash),cursor:0,occurrence:0,parent:reference?.id||node.parent,depth:node.depth+1,inferredContainer:true,location:node.location+' · relative-reference parameters',form:false});
-        }else transform(node);
+        }
+        // Query interpretation must not suppress the remaining whole-value decoding state.
+        transform(node);
         return;
       }
       // Interpret an entire parameter-like string as a subordinate container.
@@ -142,6 +144,19 @@ const EmbeddedURLs = (() => {
         if(node.hint&&node.parameter||/^(?:data|payload|state|qs|policy|signature)$/i.test(node.parameter?.decoded||''))limit('unsupported','opaque',node);
         else if(node.steps.length&&result.observations.length<32)result.observations.push({component:node.component,location:node.location,type:'encoded-data',evidence:'fact'});
       }
+    }
+    function encodedFragmentAddress(node){
+      // A literal separator can belong to an encoded whole URL. Probe only its
+      // bounded prefix; actual recovery still uses the strict, budgeted value path.
+      if(/^https?:\/\//i.test(node.text))return false;
+      const separator=node.text.search(/[=&]/);if(separator<0)return false;
+      let prefix=node.text.slice(0,separator);if(prefix.length>LIMITS.value)return false;
+      for(let layer=node.layers;prefix.includes('%')&&layer<LIMITS.percentLayers;layer++){
+        try{prefix=decodeURIComponent(prefix);}catch{limit('partial','decoding',node);return false;}
+        if(/^https?:\/\//i.test(prefix))return true;
+      }
+      // Recognizable address syntax still requiring decoding must expose its limit.
+      return /^https?%/i.test(prefix);
     }
     function container(node){
       // Incremental expansion yields to the other two components after each item.
@@ -158,6 +173,7 @@ const EmbeddedURLs = (() => {
       }
       if(node.mode==='fragment'&&!node.routeScanned){
         node.routeScanned=true;
+        if(encodedFragmentAddress(node))enqueue({...node,kind:'value',sourceValue:node.text,form:false});
         if(/^\//.test(node.text)&&!/^\/\//.test(node.text)){
           const q=node.text.indexOf('?');
           if(q>=0){enqueue({...node,kind:'value',text:node.text.slice(0,q),location:node.location+' · route',form:false});node.text=node.text.slice(q+1);node.location+=' · route parameters';node.inferredContainer=true;}

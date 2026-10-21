@@ -1,3 +1,5 @@
+> Historical pre-correction highlight snapshot: `3.2.0-cf634806f70b4b3c`. The current corrected candidate `3.2.0-a67e4b13dd5fa5cd`, updated identities and new validation are in [AUDIT_CORRECTIONS.md](AUDIT_CORRECTIONS.md). Presentation source and styles remain unchanged.
+
 # Version 3.2.0 — targeted hostname highlight and @ clarity
 
 Date: 2026-10-21. Candidate: **3.2.0-cf634806f70b4b3c**. Starting candidate: `3.2.0-8cd78162d6718454`.

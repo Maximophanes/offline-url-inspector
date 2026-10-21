@@ -23,7 +23,7 @@ export class MemoryStorage {
 // Restore explicitly reviewed presentation deletions/prose for historical source pins.
 // Matching the old full-file hash proves all other source bytes remain unchanged.
 export function functionalSource(path){
- let source=read(path);
+ let source=auditBaselineSource(path);
  if(path==='src/base.css'){
   const reviewed=[
    ['.supporting{padding-left:21px;margin:12px 0 0}', '.supporting,.relevant{padding-left:21px;margin:12px 0 0}'],
@@ -46,4 +46,14 @@ export function functionalSource(path){
  const pattern=/(?<=return new Response\()'(?:\\.|[^'\\])*'(?=,\{status:503)/g,matches=[...source.matchAll(pattern)];
  if(matches.length!==1)throw Error('Expected exactly one scoped 503 recovery message');
  return source.replace(pattern,JSON.parse(read('tests/editorial-baseline.json')).workerRecoveryLiteral);
+}
+// Restore only the exact audited edits, then retain the original whole-file pins.
+export function auditBaselineSource(path){
+ let source=read(path);const change=JSON.parse(read('tests/audit-correction-source-boundaries.json')).files[path];
+ if(!change)return source;
+ for(const pair of [...change.replacements].reverse()){
+  if(!pair.current||source.split(pair.current).length!==2)throw Error('Audited source boundary changed: '+path);
+  source=source.replace(pair.current,pair.baseline);
+ }
+ return source;
 }

@@ -1,3 +1,11 @@
+# Current audit-corrected candidate — security preservation
+
+Candidate **3.2.0-a67e4b13dd5fa5cd**. The newly executed full suite passes **109,827 checks / 130,743 assertions**, including 27 correction checks / 841 assertions and 18 verifier cases. The original 146 embedded checks / 533 assertions also pass. See [AUDIT_CORRECTIONS.md](AUDIT_CORRECTIONS.md) for implemented changes, exact source-boundary preservation, before/after timing and outstanding native-browser checks.
+
+The records below are historical checkpoints. Their claims of byte-identical core/extractor source and browser passes belong to their stated earlier candidate. This correction changes only the authorized decoding control flow and preprocessing implementation; original result fixtures remain pinned. No new native Firefox, VoiceOver or browser-rendering pass is claimed.
+
+## Historical pre-correction records
+
 # Current targeted hostname highlight/@ preservation
 
 Candidate **3.2.0-cf634806f70b4b3c** changes only supplemental presentation source and scoped CSS. Highlighted hostnames use explicit reliable-token annotations and inert text nodes, with no links, event handlers, roles or focus stops. Raw userinfo remains concealed until explicit evidence reveal; no credential assumption is made. The template, main UI wiring, extraction/decoding/comparison algorithms, reference storage, Unicode, worker/offline behavior, CSP policy and dependency lockfile are unchanged from the preceding candidate.

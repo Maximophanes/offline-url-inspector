@@ -1,0 +1,37 @@
+{
+  "suite": "V3.2.0 approved audit corrections",
+  "groups": {
+    "recovered evidence and visible notices": {
+      "executed": 10,
+      "passed": 10,
+      "failed": 0
+    },
+    "boundaries and honest coverage": {
+      "executed": 13,
+      "passed": 13,
+      "failed": 0
+    },
+    "concealment and unchanged data boundaries": {
+      "executed": 1,
+      "passed": 1,
+      "failed": 0
+    },
+    "preprocessing equivalence and initialization budget": {
+      "executed": 3,
+      "passed": 3,
+      "failed": 0
+    }
+  },
+  "failures": [],
+  "assertions": {
+    "executed": 841,
+    "passed": 841,
+    "failed": 0
+  },
+  "total": {
+    "executed": 27,
+    "passed": 27,
+    "failed": 0
+  },
+  "scope": "Synthetic reserved-domain model and guarded Happy DOM regressions. No native Firefox, live redirect, or browser timing verification."
+}

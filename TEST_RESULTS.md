@@ -1,3 +1,11 @@
+# Current audit-corrected candidate — test results
+
+Candidate **3.2.0-a67e4b13dd5fa5cd**. The newly executed full suite passes **109,827 checks / 130,743 assertions**, including 27 correction checks / 841 assertions and 18 verifier cases. The original 146 embedded checks / 533 assertions also pass. See [AUDIT_CORRECTIONS.md](AUDIT_CORRECTIONS.md) for implemented changes, exact source-boundary preservation, before/after timing and outstanding native-browser checks.
+
+The records below are historical checkpoints. Their claims of byte-identical core/extractor source and browser passes belong to their stated earlier candidate. This correction changes only the authorized decoding control flow and preprocessing implementation; original result fixtures remain pinned. No new native Firefox, VoiceOver or browser-rendering pass is claimed.
+
+## Historical pre-correction records
+
 # Version 3.2.0 targeted highlight/@ candidate results
 
 Newly executed targeted suite: **146 checks / 533 assertions passed**, zero failures, including 21 new hostname-highlight/@ tests. Newly executed final full suite: **109,782 checks / 129,884 assertions passed**, zero failures. The targeted run preceded the full build/copy/regression/conformance/ICU/HTTP run. All original fixture and complete inspection/diagnostic pins remain intact; no baseline expectations were replaced.

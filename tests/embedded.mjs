@@ -1,4 +1,4 @@
-import {read,html,suite,MemoryStorage} from './harness.mjs';
+import {read,html,suite,MemoryStorage,auditBaselineSource} from './harness.mjs';
 import {mount} from './dom-support.mjs';
 import {createHash} from 'node:crypto';
 const t=suite('V3.2.0 embedded URL discovery, evidence, limits and privacy','embedded-results.json'),{test,assert,equal}=t;
@@ -164,7 +164,7 @@ await test('pure analyzer and renderer have no I/O, execution or navigation sink
 await test('standalone and hosted contain identical supplemental modules with strict CSP',()=>{for(const edition of ['standalone','hosted']){for(const file of ['embedded.js','embedded-ui.js'])assert(html(edition).includes(read('src/'+file)));assert(html(edition).includes("connect-src 'none'"));assert(!html(edition).includes("'unsafe-eval'"));}assert(html().includes("worker-src 'none'"));});
 await test('existing hostname engine, reference system and worker sources retain baseline identities',()=>{
  const pins=JSON.parse(read('tests/technical-baseline.json')).sourceFiles;
- for(const path of ['src/core.js','src/references.js','src/presentation.js','src/hosted.js','src/sw.js','data/unicode-data.json','deno.lock','.github/workflows/deploy-pages.yml'])equal(createHash('sha256').update(read(path)).digest('hex'),pins[path]);
+ for(const path of ['src/core.js','src/references.js','src/presentation.js','src/hosted.js','src/sw.js','data/unicode-data.json','deno.lock','.github/workflows/deploy-pages.yml'])equal(createHash('sha256').update(auditBaselineSource(path)).digest('hex'),pins[path]);
 });
 t.group('approved editorial refinement');
 const b=mount(),UI=b.w.testEmbeddedUI,get=b.$;
@@ -259,8 +259,8 @@ await test('hostname validation cautions remain visible before forensic evidence
 await test('literal plus and form-style processing remain distinguishable in evidence',async()=>{
  present(outer+'/?next=https://other.test/a+b');const reveals=await get('embeddedCandidates').querySelectorAll('.embedded-reveal');for(const reveal of reveals)reveal.open=true;await pause();const text=get('embeddedCandidates').textContent;assert(text.includes('https://other.test/a+b'));assert(text.includes('Form-style percent decoding (+ treated as space)'));assert(text.includes('Possible address; boundaries uncertain.'));
 });
-await test('the approved pass changes neither extraction nor established core fixtures',()=>{
- equal(createHash('sha256').update(read('src/embedded.js')).digest('hex'),'559087c3bf043755c98b8e687676767784e58f80a89e385f9701279db8c42c27');
+await test('extraction changes only within the audited corrections and original fixtures remain pinned',()=>{
+ equal(createHash('sha256').update(auditBaselineSource('src/embedded.js')).digest('hex'),'559087c3bf043755c98b8e687676767784e58f80a89e385f9701279db8c42c27');
  for(const path of ['tests/cases.json','tests/ascii-cases.json'])equal(createHash('sha256').update(read(path)).digest('hex'),JSON.parse(read('tests/editorial-baseline.json')).fixtureSHA256[path]);
 });
 t.group('targeted hostname highlight and @ clarity');

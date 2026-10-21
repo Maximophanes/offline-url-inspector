@@ -1,8 +1,8 @@
 'use strict';
 // This worker knows exactly one application asset. Submitted URLs are never
 // accepted as fetch targets, cache keys, message parameters, or navigation URLs.
-const RELEASE='3.2.0-cf634806f70b4b3c';
-const EXPECTED_HASH='cf634806f70b4b3c1bc3b9487b1ee959b498194dac3ac1f485e302e1a9591213';
+const RELEASE='3.2.0-a67e4b13dd5fa5cd';
+const EXPECTED_HASH='a67e4b13dd5fa5cd5c2ad69062565ba599d3de7c5c1a593bd87cd183328f2bb5';
 const PROJECT_PATH='/offline-url-inspector/';
 const SCOPE=new URL(self.registration.scope);
 const INDEX_URL=new URL('index.html',SCOPE).href;

@@ -23,69 +23,69 @@
     {
       "name": "ordinary",
       "inputCodeUnits": 45,
-      "p50Milliseconds": 0.024,
-      "p95Milliseconds": 0.044,
-      "maxMilliseconds": 0.085,
+      "p50Milliseconds": 0.022,
+      "p95Milliseconds": 0.047,
+      "maxMilliseconds": 0.064,
       "statuses": {
         "complete": 50
       },
       "limitationCodes": [],
       "maxDerivedCodeUnits": 34,
       "maxNodes": 5,
-      "heapUsedDeltaBytes": 654872,
-      "rssDeltaBytes": 2310144
+      "heapUsedDeltaBytes": 1029784,
+      "rssDeltaBytes": 1523712
     },
     {
       "name": "encoded-query-and-fragment",
       "inputCodeUnits": 88,
-      "p50Milliseconds": 0.223,
-      "p95Milliseconds": 0.68,
-      "maxMilliseconds": 2.914,
+      "p50Milliseconds": 0.225,
+      "p95Milliseconds": 0.489,
+      "maxMilliseconds": 2.452,
       "statuses": {
         "complete": 50
       },
       "limitationCodes": [],
       "maxDerivedCodeUnits": 248,
       "maxNodes": 9,
-      "heapUsedDeltaBytes": 3851488,
-      "rssDeltaBytes": 13811712
+      "heapUsedDeltaBytes": 2583728,
+      "rssDeltaBytes": 14254080
     },
     {
       "name": "nested",
       "inputCodeUnits": 95,
-      "p50Milliseconds": 0.173,
-      "p95Milliseconds": 0.233,
-      "maxMilliseconds": 0.281,
+      "p50Milliseconds": 0.163,
+      "p95Milliseconds": 0.3,
+      "maxMilliseconds": 0.321,
       "statuses": {
         "complete": 50
       },
       "limitationCodes": [],
       "maxDerivedCodeUnits": 400,
       "maxNodes": 7,
-      "heapUsedDeltaBytes": 6560992,
-      "rssDeltaBytes": 720896
+      "heapUsedDeltaBytes": -2692632,
+      "rssDeltaBytes": 540672
     },
     {
       "name": "two-layers",
       "inputCodeUnits": 57,
-      "p50Milliseconds": 0.077,
-      "p95Milliseconds": 0.096,
-      "maxMilliseconds": 0.185,
+      "p50Milliseconds": 0.076,
+      "p95Milliseconds": 0.128,
+      "maxMilliseconds": 0.349,
       "statuses": {
         "complete": 50
       },
       "limitationCodes": [],
       "maxDerivedCodeUnits": 145,
       "maxNodes": 5,
-      "heapUsedDeltaBytes": -1153032,
-      "rssDeltaBytes": 393216
+      "heapUsedDeltaBytes": -1585656,
+      "rssDeltaBytes": 327680
     },
     {
       "name": "malformed",
       "inputCodeUnits": 54,
-      "p50Milliseconds": 0.02,
-      "p95Milliseconds": 0.028,
-      "maxMilliseconds": 0.052,
+      "p50Milliseconds": 0.018,
+      "p95Milliseconds": 0.023,
+      "maxMilliseconds": 0.029,
       "statuses": {
         "partial": 50
       },
@@ -94,15 +94,15 @@
       ],
       "maxDerivedCodeUnits": 60,
       "maxNodes": 3,
-      "heapUsedDeltaBytes": 1335272,
-      "rssDeltaBytes": 131072
+      "heapUsedDeltaBytes": 1013888,
+      "rssDeltaBytes": 32768
     },
     {
       "name": "large-value",
       "inputCodeUnits": 24046,
-      "p50Milliseconds": 1.38,
-      "p95Milliseconds": 1.878,
-      "maxMilliseconds": 1.975,
+      "p50Milliseconds": 0.749,
+      "p95Milliseconds": 1.628,
+      "maxMilliseconds": 2.101,
       "statuses": {
         "partial": 50
       },
@@ -111,15 +111,15 @@
       ],
       "maxDerivedCodeUnits": 48044,
       "maxNodes": 3,
-      "heapUsedDeltaBytes": 6187896,
-      "rssDeltaBytes": 19496960
+      "heapUsedDeltaBytes": 15944320,
+      "rssDeltaBytes": 21889024
     },
     {
       "name": "many-parameters",
       "inputCodeUnits": 14944,
-      "p50Milliseconds": 1.13,
-      "p95Milliseconds": 1.47,
-      "maxMilliseconds": 1.531,
+      "p50Milliseconds": 0.733,
+      "p95Milliseconds": 0.927,
+      "maxMilliseconds": 0.984,
       "statuses": {
         "partial": 50
       },
@@ -129,15 +129,15 @@
       ],
       "maxDerivedCodeUnits": 15136,
       "maxNodes": 128,
-      "heapUsedDeltaBytes": -3692952,
-      "rssDeltaBytes": 131072
+      "heapUsedDeltaBytes": -9616048,
+      "rssDeltaBytes": 163840
     },
     {
       "name": "candidate-saturation",
       "inputCodeUnits": 1051,
-      "p50Milliseconds": 1.1,
-      "p95Milliseconds": 1.402,
-      "maxMilliseconds": 1.486,
+      "p50Milliseconds": 1.019,
+      "p95Milliseconds": 1.269,
+      "maxMilliseconds": 1.454,
       "statuses": {
         "partial": 50
       },
@@ -148,15 +148,15 @@
       ],
       "maxDerivedCodeUnits": 2856,
       "maxNodes": 52,
-      "heapUsedDeltaBytes": 11770536,
-      "rssDeltaBytes": 2768896
+      "heapUsedDeltaBytes": 3169016,
+      "rssDeltaBytes": 802816
     },
     {
       "name": "comparison-saturation",
       "inputCodeUnits": 337,
-      "p50Milliseconds": 6.071,
-      "p95Milliseconds": 6.721,
-      "maxMilliseconds": 8.009,
+      "p50Milliseconds": 5.916,
+      "p95Milliseconds": 6.543,
+      "maxMilliseconds": 9.192,
       "statuses": {
         "partial": 50
       },
@@ -165,30 +165,30 @@
       ],
       "maxDerivedCodeUnits": 1070,
       "maxNodes": 18,
-      "heapUsedDeltaBytes": 789664,
-      "rssDeltaBytes": 40304640
+      "heapUsedDeltaBytes": -2630232,
+      "rssDeltaBytes": 39518208
     },
     {
       "name": "unicode-and-invisibles",
       "inputCodeUnits": 99,
-      "p50Milliseconds": 0.196,
-      "p95Milliseconds": 0.306,
-      "maxMilliseconds": 0.451,
+      "p50Milliseconds": 0.185,
+      "p95Milliseconds": 0.243,
+      "maxMilliseconds": 0.417,
       "statuses": {
         "complete": 50
       },
       "limitationCodes": [],
       "maxDerivedCodeUnits": 304,
       "maxNodes": 12,
-      "heapUsedDeltaBytes": 19794088,
+      "heapUsedDeltaBytes": 19018912,
       "rssDeltaBytes": 32768
     },
     {
       "name": "maximum-accepted-input",
       "inputCodeUnits": 32768,
-      "p50Milliseconds": 1.758,
-      "p95Milliseconds": 2.077,
-      "maxMilliseconds": 2.284,
+      "p50Milliseconds": 0.915,
+      "p95Milliseconds": 1.183,
+      "maxMilliseconds": 1.346,
       "statuses": {
         "partial": 50
       },
@@ -197,8 +197,277 @@
       ],
       "maxDerivedCodeUnits": 65491,
       "maxNodes": 3,
-      "heapUsedDeltaBytes": 4781400,
-      "rssDeltaBytes": 704512
+      "heapUsedDeltaBytes": 22479080,
+      "rssDeltaBytes": 4128768
     }
-  ]
+  ],
+  "preprocessing": {
+    "iterations": 3,
+    "scope": "Before/after exact source implementations, including top-level parsing and supplemental initialization. Cooperative time checks are not hard guarantees. No native Firefox or DOM timing.",
+    "workloads": [
+      {
+        "inputCodeUnits": 1029,
+        "before": [
+          {
+            "inspectionMilliseconds": 5.013,
+            "supplementalMilliseconds": 4.194,
+            "combinedMilliseconds": 9.207,
+            "status": "complete",
+            "limitationCodes": []
+          },
+          {
+            "inspectionMilliseconds": 2.55,
+            "supplementalMilliseconds": 2.738,
+            "combinedMilliseconds": 5.288,
+            "status": "complete",
+            "limitationCodes": []
+          },
+          {
+            "inspectionMilliseconds": 2.471,
+            "supplementalMilliseconds": 3.09,
+            "combinedMilliseconds": 5.561,
+            "status": "complete",
+            "limitationCodes": []
+          }
+        ],
+        "after": [
+          {
+            "inspectionMilliseconds": 1.808,
+            "supplementalMilliseconds": 0.632,
+            "combinedMilliseconds": 2.441,
+            "status": "complete",
+            "limitationCodes": []
+          },
+          {
+            "inspectionMilliseconds": 1.821,
+            "supplementalMilliseconds": 0.648,
+            "combinedMilliseconds": 2.469,
+            "status": "complete",
+            "limitationCodes": []
+          },
+          {
+            "inspectionMilliseconds": 1.285,
+            "supplementalMilliseconds": 0.592,
+            "combinedMilliseconds": 1.877,
+            "status": "complete",
+            "limitationCodes": []
+          }
+        ]
+      },
+      {
+        "inputCodeUnits": 4029,
+        "before": [
+          {
+            "inspectionMilliseconds": 18.306,
+            "supplementalMilliseconds": 29.109,
+            "combinedMilliseconds": 47.415,
+            "status": "complete",
+            "limitationCodes": []
+          },
+          {
+            "inspectionMilliseconds": 17.942,
+            "supplementalMilliseconds": 29.422,
+            "combinedMilliseconds": 47.364,
+            "status": "complete",
+            "limitationCodes": []
+          },
+          {
+            "inspectionMilliseconds": 20.342,
+            "supplementalMilliseconds": 27.756,
+            "combinedMilliseconds": 48.098,
+            "status": "complete",
+            "limitationCodes": []
+          }
+        ],
+        "after": [
+          {
+            "inspectionMilliseconds": 5.291,
+            "supplementalMilliseconds": 2.179,
+            "combinedMilliseconds": 7.47,
+            "status": "complete",
+            "limitationCodes": []
+          },
+          {
+            "inspectionMilliseconds": 5.038,
+            "supplementalMilliseconds": 2.367,
+            "combinedMilliseconds": 7.405,
+            "status": "complete",
+            "limitationCodes": []
+          },
+          {
+            "inspectionMilliseconds": 4.724,
+            "supplementalMilliseconds": 2.133,
+            "combinedMilliseconds": 6.857,
+            "status": "complete",
+            "limitationCodes": []
+          }
+        ]
+      },
+      {
+        "inputCodeUnits": 8029,
+        "before": [
+          {
+            "inspectionMilliseconds": 60.189,
+            "supplementalMilliseconds": 101.568,
+            "combinedMilliseconds": 161.757,
+            "status": "partial",
+            "limitationCodes": [
+              "time"
+            ]
+          },
+          {
+            "inspectionMilliseconds": 60.186,
+            "supplementalMilliseconds": 105.176,
+            "combinedMilliseconds": 165.362,
+            "status": "partial",
+            "limitationCodes": [
+              "time"
+            ]
+          },
+          {
+            "inspectionMilliseconds": 60.858,
+            "supplementalMilliseconds": 105.81,
+            "combinedMilliseconds": 166.669,
+            "status": "partial",
+            "limitationCodes": [
+              "time"
+            ]
+          }
+        ],
+        "after": [
+          {
+            "inspectionMilliseconds": 9.844,
+            "supplementalMilliseconds": 4.605,
+            "combinedMilliseconds": 14.449,
+            "status": "complete",
+            "limitationCodes": []
+          },
+          {
+            "inspectionMilliseconds": 9.333,
+            "supplementalMilliseconds": 4.668,
+            "combinedMilliseconds": 14.001,
+            "status": "complete",
+            "limitationCodes": []
+          },
+          {
+            "inspectionMilliseconds": 9.697,
+            "supplementalMilliseconds": 4.026,
+            "combinedMilliseconds": 13.723,
+            "status": "complete",
+            "limitationCodes": []
+          }
+        ]
+      },
+      {
+        "inputCodeUnits": 16029,
+        "before": [
+          {
+            "inspectionMilliseconds": 223.226,
+            "supplementalMilliseconds": 411.322,
+            "combinedMilliseconds": 634.549,
+            "status": "partial",
+            "limitationCodes": [
+              "time"
+            ]
+          },
+          {
+            "inspectionMilliseconds": 225.327,
+            "supplementalMilliseconds": 405.144,
+            "combinedMilliseconds": 630.471,
+            "status": "partial",
+            "limitationCodes": [
+              "time"
+            ]
+          },
+          {
+            "inspectionMilliseconds": 221.076,
+            "supplementalMilliseconds": 404.59,
+            "combinedMilliseconds": 625.666,
+            "status": "partial",
+            "limitationCodes": [
+              "time"
+            ]
+          }
+        ],
+        "after": [
+          {
+            "inspectionMilliseconds": 18.583,
+            "supplementalMilliseconds": 8.413,
+            "combinedMilliseconds": 26.997,
+            "status": "complete",
+            "limitationCodes": []
+          },
+          {
+            "inspectionMilliseconds": 18.015,
+            "supplementalMilliseconds": 8.995,
+            "combinedMilliseconds": 27.01,
+            "status": "complete",
+            "limitationCodes": []
+          },
+          {
+            "inspectionMilliseconds": 17.964,
+            "supplementalMilliseconds": 8.573,
+            "combinedMilliseconds": 26.537,
+            "status": "complete",
+            "limitationCodes": []
+          }
+        ]
+      },
+      {
+        "inputCodeUnits": 32729,
+        "before": [
+          {
+            "inspectionMilliseconds": 880.009,
+            "supplementalMilliseconds": 1687.972,
+            "combinedMilliseconds": 2567.981,
+            "status": "partial",
+            "limitationCodes": [
+              "time"
+            ]
+          },
+          {
+            "inspectionMilliseconds": 880.146,
+            "supplementalMilliseconds": 1688.312,
+            "combinedMilliseconds": 2568.458,
+            "status": "partial",
+            "limitationCodes": [
+              "time"
+            ]
+          },
+          {
+            "inspectionMilliseconds": 879.461,
+            "supplementalMilliseconds": 1684.672,
+            "combinedMilliseconds": 2564.133,
+            "status": "partial",
+            "limitationCodes": [
+              "time"
+            ]
+          }
+        ],
+        "after": [
+          {
+            "inspectionMilliseconds": 39.534,
+            "supplementalMilliseconds": 21.791,
+            "combinedMilliseconds": 61.325,
+            "status": "complete",
+            "limitationCodes": []
+          },
+          {
+            "inspectionMilliseconds": 37.274,
+            "supplementalMilliseconds": 18.909,
+            "combinedMilliseconds": 56.183,
+            "status": "complete",
+            "limitationCodes": []
+          },
+          {
+            "inspectionMilliseconds": 38.008,
+            "supplementalMilliseconds": 18.916,
+            "combinedMilliseconds": 56.924,
+            "status": "complete",
+            "limitationCodes": []
+          }
+        ]
+      }
+    ]
+  }
 }

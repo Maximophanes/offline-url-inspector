@@ -1,5 +1,5 @@
 // Synthetic in-process benchmark; heap deltas include GC and are not heap caps.
-import {read,html,root} from './harness.mjs';
+import {read,html,root,auditBaselineSource} from './harness.mjs';
 import {writeFileSync} from 'node:fs';
 import {resolve} from 'node:path';
 const data=html().match(/id="unicode-data">([\s\S]*?)<\/script>/)[1];
@@ -29,6 +29,24 @@ for(const [name,url,references]of scenarios){
  }
  const after=Deno.memoryUsage();durations.sort((a,b)=>a-b);const round=n=>Math.round(n*1000)/1000;
  report.scenarios.push({name,inputCodeUnits:url.length,p50Milliseconds:round(durations[24]),p95Milliseconds:round(durations[47]),maxMilliseconds:round(durations[49]),statuses,limitationCodes:[...codes],maxDerivedCodeUnits:maxText,maxNodes,heapUsedDeltaBytes:after.heapUsed-before.heapUsed,rssDeltaBytes:after.rss-before.rss});
+}
+// Compare the exact pre-correction code with this candidate, including inspection
+// and supplemental initialization. These timings do not include DOM rendering.
+const legacy=new Function('document',auditBaselineSource('src/core.js')+'\n'+auditBaselineSource('src/embedded.js')+'\nreturn {Inspector,EmbeddedURLs};')({getElementById:()=>({textContent:data})});
+report.preprocessing={iterations:3,scope:'Before/after exact source implementations, including top-level parsing and supplemental initialization. Cooperative time checks are not hard guarantees. No native Firefox or DOM timing.',workloads:[]};
+for(const size of [1000,4000,8000,16000,32700]){
+ const input='a.'.repeat(size/2)+'test/?next=https://other.test',entry={inputCodeUnits:input.length};
+ for(const [label,engine]of [['before',legacy],['after',{Inspector:I,EmbeddedURLs:E}]]){
+  const observations=[];
+  for(let iteration=0;iteration<report.preprocessing.iterations;iteration++){
+   const begin=performance.now(),top=engine.Inspector.inspect(input),parsed=performance.now(),result=engine.EmbeddedURLs.analyze(top),finished=performance.now();
+   if(!top.ok)throw Error('Dotted-host benchmark input was rejected');
+   if(label==='after'&&!result.candidates.some(c=>c.hostname==='other.test'))throw Error('Optimized dotted-host workload lost its embedded evidence');
+   observations.push({inspectionMilliseconds:+(parsed-begin).toFixed(3),supplementalMilliseconds:+(finished-parsed).toFixed(3),combinedMilliseconds:+(finished-begin).toFixed(3),status:result.status,limitationCodes:result.limitations.map(l=>l.code)});
+  }
+  entry[label]=observations;
+ }
+ report.preprocessing.workloads.push(entry);
 }
 writeFileSync(resolve(root,'tests/embedded-benchmark.json'),JSON.stringify(report,null,2)+'\n');
 console.log(JSON.stringify(report,null,2));

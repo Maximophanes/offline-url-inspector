@@ -1,11 +1,11 @@
-import {read,modules,suite,html} from './harness.mjs';
+import {read,modules,suite,html,auditBaselineSource} from './harness.mjs';
 import {createHash} from 'node:crypto';
 const t=suite('Approved V2.1 core and Unicode preservation','differential-results.json'),{test,equal,assert}=t;
 const data=html().match(/id="unicode-data">([\s\S]*?)<\/script>/)[1],current=modules().Inspector;
 const baseline=new Function('document',read('tests/baseline-v2_1-core.js')+';return Inspector;')({getElementById:()=>({textContent:data})});
 const cases=[...JSON.parse(read('tests/cases.json')),...JSON.parse(read('tests/ascii-cases.json'))];
 for(const c of cases)await test(c.name,()=>equal(current.inspect(c.url,c.expected||''),baseline.inspect(c.url,c.expected||'')));
-await test('all preexisting core algorithm bodies unchanged',()=>{const strip=s=>s.slice(0,s.lastIndexOf('  return Object.freeze(')).replace('  // V3 exposes existing pure comparisons for local references; algorithms unchanged.\n','');equal(strip(read('src/core.js')),strip(read('tests/baseline-v2_1-core.js')));});
+await test('all preexisting core bodies preserved outside the exact preprocessing correction',()=>{const strip=s=>s.slice(0,s.lastIndexOf('  return Object.freeze(')).replace('  // V3 exposes existing pure comparisons for local references; algorithms unchanged.\n','');equal(strip(auditBaselineSource('src/core.js')),strip(read('tests/baseline-v2_1-core.js')));});
 await test('Unicode JSON byte-identical to approved V2.1',()=>{const provenance=JSON.parse(read('tests/baseline-provenance.json'));equal(createHash('sha256').update(data).digest('hex'),provenance.unicodeDataSHA256);});
 await test('both editions share analysis and reference modules',()=>{for(const edition of ['standalone','hosted'])for(const file of ['core.js','references.js','presentation.js'])assert(html(edition).includes(read('src/'+file)));});
 await test('generated stylesheet includes the shared current CSS source',()=>{assert(html().match(/<style>([\s\S]*?)<\/style>/)[1].startsWith(read('src/base.css')));});

@@ -35,8 +35,9 @@ try:
         except Exception: pass
         time.sleep(.05)
     if not ready: raise RuntimeError('Loopback test server did not become ready.')
-    for task in ['test:embedded','test:references','test:dom','test:refinement','test:polish','test:clarity','test:editorial','test:interface','test:reference-interface','test:technical','test:baseline-dom','test:worker','test:hosted','test:differential','test:idna','test:http','test:unicode']:
+    for task in ['test:audit-corrections','test:embedded','test:references','test:dom','test:refinement','test:polish','test:clarity','test:editorial','test:interface','test:reference-interface','test:technical','test:baseline-dom','test:worker','test:hosted','test:differential','test:idna','test:http','test:unicode']:
         commands.append({'command':task,'passed':run(['deno','task',task])})
+    commands.append({'command':'release verifier regression','passed':run([sys.executable,'-B','tests/release-verifier.py'])})
     icu=Path('/opt/homebrew/opt/icu4c/lib/libicuuc.78.dylib')
     if icu.exists():
         commands.append({'command':'independent ICU diagnostic','passed':run([sys.executable,'tools/review_idna_icu.py','--library',str(icu),'--suffix','78'])})
@@ -48,7 +49,7 @@ finally:
     server.terminate()
     try: server.wait(timeout=5)
     except subprocess.TimeoutExpired: server.kill();server.wait()
-files=['embedded-results.json','unit-results.json','dom-results.json','references-results.json','dom-v3-results.json','refinement-results.json','polish-results.json','clarity-results.json','editorial-results.json','interface-results.json','reference-interface-results.json','technical-results.json','service-worker-results.json','hosted-bootstrap-results.json','differential-results.json','idna-review-results.json','idna-icu-results.json','http-results.json']
+files=['audit-corrections-results.json','release-verifier-results.json','embedded-results.json','unit-results.json','dom-results.json','references-results.json','dom-v3-results.json','refinement-results.json','polish-results.json','clarity-results.json','editorial-results.json','interface-results.json','reference-interface-results.json','technical-results.json','service-worker-results.json','hosted-bootstrap-results.json','differential-results.json','idna-review-results.json','idna-icu-results.json','http-results.json']
 if args.with_firefox: files.extend(['firefox-standalone-results.json','firefox-hosted-results.json'])
 reports=[]
 for filename in files:

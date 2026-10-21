@@ -1,4 +1,4 @@
-> Historical editorial checkpoint: `3.2.0-8cd78162d6718454`. The current targeted hostname-highlight/@ candidate and newly executed evidence are documented in [HOSTNAME_HIGHLIGHT_REVIEW.md](HOSTNAME_HIGHLIGHT_REVIEW.md). Earlier counts, hashes and browser/manual limits below describe that preceding checkpoint.
+> Historical editorial checkpoint: `3.2.0-8cd78162d6718454`. The subsequent hostname-highlight/@ snapshot is documented in [HOSTNAME_HIGHLIGHT_REVIEW.md](HOSTNAME_HIGHLIGHT_REVIEW.md); the current audit-corrected candidate is in [AUDIT_CORRECTIONS.md](AUDIT_CORRECTIONS.md). Earlier counts, hashes and browser/manual limits below describe that preceding checkpoint.
 
 # Version 3.2.0 — approved editorial and UX refinement
 

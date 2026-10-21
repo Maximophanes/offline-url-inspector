@@ -2,10 +2,11 @@
   "applicationVersion": "3.2.0",
   "baseline": "d9aed1dc333bb51d2126fa79059a839292b36615",
   "branch": "dev/v3.2.0-embedded-url-analysis",
-  "head": "d9aed1dc333bb51d2126fa79059a839292b36615",
-  "release": "3.2.0-cf634806f70b4b3c",
+  "head": "90649ff263a2d938010079dcf6b3fe1cb84724f3",
+  "candidateCommit": "90649ff263a2d938010079dcf6b3fe1cb84724f3",
+  "workingTreeHasChanges": true,
+  "release": "3.2.0-a67e4b13dd5fa5cd",
   "protectedFilesIdentical": [
-    "src/core.js",
     "src/references.js",
     "src/presentation.js",
     "src/hosted.js",
@@ -19,14 +20,21 @@
     "tests/cases.json",
     "tests/ascii-cases.json"
   ],
+  "reviewedSourceChanges": {
+    "src/core.js": {
+      "baselineSHA256": "b72aed56d0a1a65856611c8c3c3569436d383c5acc151386b364649cdbf5cf42",
+      "currentSHA256": "6d7d8a253c175caec0296cbfe71d3cec17b3afdf8aaef72385cabc6902f2a2aa"
+    }
+  },
+  "checksumsVerified": 272,
   "artifacts": {
     "standalone/Offline_URL_Inspector.html": {
-      "sha256": "cd724e098efd18c6187d954e5b451d2516faa404447c0d38b976e990020662a4",
-      "bytes": 2343875
+      "sha256": "3ab7c6cd8e9e5ad286cd8e3032b4fdd66e31ae8d305c032a253c76919ff0b91f",
+      "bytes": 2345099
     },
     "site/index.html": {
-      "sha256": "cf634806f70b4b3c1bc3b9487b1ee959b498194dac3ac1f485e302e1a9591213",
-      "bytes": 2355935
+      "sha256": "a67e4b13dd5fa5cd5c2ad69062565ba599d3de7c5c1a593bd87cd183328f2bb5",
+      "bytes": 2357159
     }
   },
   "workerBehaviorUnchanged": true,

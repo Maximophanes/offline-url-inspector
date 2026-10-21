@@ -1,14 +1,14 @@
 # Offline URL Inspector · Version 3.2.0 local candidate
 
-Current candidate **3.2.0-cf634806f70b4b3c** adds the approved targeted hostname highlight and embedded-URL @ explanation to the successful two-part results. Reliable recovered hostnames stand out as inert monospaced lilac text on subtle dark purple; comparison targets and uncertain references are not indiscriminately highlighted.
+Current corrected candidate: **3.2.0-a67e4b13dd5fa5cd**. The three approved audit corrections recover encoded whole fragments and remaining relative-reference interpretations, support committed candidates in the release verifier, and remove pathological/redundant preprocessing. Native URL authority, original results, privacy boundaries and the established presentation remain preserved.
 
-The embedded caution now says **“The text before @ is not the website’s hostname.”** It names the actual embedded hostname without exposing raw userinfo or assuming credentials. No redirect or whole-link safety verdict is produced. Existing Technical Details, private evidence, counts, severity, parser/extractor/comparison algorithms, storage, worker/offline logic and CSP policy are preserved.
+Newly executed: **109,827 full-suite checks / 130,743 assertions**, zero failures; **27 correction checks / 841 assertions**, **146 embedded checks / 533 assertions**, and **18 verifier cases**. The largest dotted-host benchmark's combined median changed from about 2,568 ms to 57 ms in Deno, including initialization. This is not native Firefox timing or a hard deadline guarantee.
 
-Work remains unstaged and uncommitted on `dev/v3.2.0-embedded-url-analysis`; main and the published v3.1.2 release are untouched. No deferred decoder, dataset, storage or network feature was added.
+The post-audit snapshot-fixture follow-up changes tests and evidence only; production bytes and the candidate identity are unchanged. See [the correction handoff and exact scope](AUDIT_CORRECTIONS.md). Earlier browser observations remain bound to their older candidate hashes; corrected-candidate native Firefox/manual checks remain required. The highlight/@ presentation itself is unchanged; its historical evidence is in [the highlight report](HOSTNAME_HIGHLIGHT_REVIEW.md).
 
-Newly executed validation: **146 embedded checks / 533 assertions**, including 21 new targeted checks; **109,782 full-suite checks / 129,884 assertions**, zero failures. Actual in-app browser validation passed 22 cases at measured 1280/390 px widths, including A/B, long-host wrapping, privacy, keyboard and reset. No new native Firefox or VoiceOver pass is claimed. The user reports the preceding candidate's representative, seven additional and encoded-@ Firefox scenarios passed manual review.
+Changes remain local, unstaged and uncommitted on `dev/v3.2.0-embedded-url-analysis` over HEAD `90649ff263a2d938010079dcf6b3fe1cb84724f3`. Main and Draft PR #2 are unchanged. Nothing was pushed, merged, published or deployed.
 
-See the [targeted handoff](HOSTNAME_HIGHLIGHT_REVIEW.md), [current tests](TEST_RESULTS.md) and [preceding editorial snapshot](EMBEDDED_EDITORIAL_REVIEW.md). The existing Python build regenerates both editions and CSP/build identities. `python3 -B tools/verify_release.py` verifies the settled source/artifacts/checksums.
+`python3 -B tools/verify_release.py` verifies the settled working candidate. `--candidate <commit-or-ref>` additionally binds the expected checked-out commit. Builds/checksums must be refreshed after authorized changes before final verification.
 
 ## Historical Version 3.1.2 documentation
 

@@ -1,6 +1,6 @@
-# Current refined candidate
+# Current corrected candidate
 
-The targeted hostname highlight/@ refinement is now **3.2.0-cf634806f70b4b3c**. See [HOSTNAME_HIGHLIGHT_REVIEW.md](HOSTNAME_HIGHLIGHT_REVIEW.md) for current presentation, newly executed evidence and manual review. The preceding editorial snapshot is in [EMBEDDED_EDITORIAL_REVIEW.md](EMBEDDED_EDITORIAL_REVIEW.md). Extraction and comparison algorithms are unchanged. Main remains untouched and all candidate work remains uncommitted.
+Current local candidate: **3.2.0-a67e4b13dd5fa5cd**. The authorized decoding-dispatch, release-verifier and preprocessing corrections are documented in [AUDIT_CORRECTIONS.md](AUDIT_CORRECTIONS.md). They preserve original outputs and the highlight/@ presentation. Source and generated identities changed; earlier browser evidence remains historical. Main and Draft PR #2 are unchanged; corrections are local, unstaged and uncommitted.
 
 ## Historical original implementation snapshot
 

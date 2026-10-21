@@ -5,7 +5,7 @@ import {createHash} from 'node:crypto';
 const t=suite('V3.1.2 focused Technical Details presentation','technical-results.json'),{test,assert,equal}=t;
 const {Inspector:I,ReferenceDomains:R,Presentation:P}=modules(),a=mount(),{$,w,inspect}=a;
 const hash=s=>createHash('sha256').update(s).digest('hex'),baseline=JSON.parse(read('tests/technical-baseline.json'));
-await test('source pins survive only the approved unused base-CSS removal',()=>{for(const [file,expected]of Object.entries(baseline.sourceFiles))equal(hash(file==='src/base.css'?functionalSource(file):read(file)),expected);});
+await test('source pins survive only the approved CSS removal and exact preprocessing correction',()=>{for(const [file,expected]of Object.entries(baseline.sourceFiles))equal(hash(['src/base.css','src/core.js'].includes(file)?functionalSource(file):read(file)),expected);});
 await test('139 complete original inspections and reference comparison metadata match the checkpoint',()=>{
  const fixtures=[...JSON.parse(read('tests/cases.json')),...JSON.parse(read('tests/ascii-cases.json'))];
  const rows=fixtures.map(c=>{const result=I.inspect(c.url,c.expected||'');return {name:c.name,result,references:R.compare(result,['amazon.com','example.com','ae.invalid'])};});

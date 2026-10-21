@@ -1,3 +1,16 @@
+# Version 3.2.0 — approved audit corrections
+
+Corrected local candidate: **3.2.0-a67e4b13dd5fa5cd**. See [AUDIT_CORRECTIONS.md](AUDIT_CORRECTIONS.md).
+
+- Preserve eligible encoded whole-fragment and relative-reference decoding interpretations under existing limits; retain component boundaries and expose incomplete coverage.
+- Verify committed candidate identity separately from stable baseline; preserve protected-source, bundle/CSP/manifest/worker and complete checksum-inventory checks.
+- Replace the backtracking hostname/port predicate with equivalent linear recognition, reuse preprocessing, and check initialization elapsed time.
+- Add 27 targeted correction checks and 18 verifier cases; all 109,827 full-suite checks / 130,743 assertions pass. Preserve original fixtures, privacy, design, dependencies and offline/reference behavior.
+- Pin the historical verifier fixture to its recorded original revision; separately test a clean corrected-commit projection with complete metadata, plus missing/inconsistent metadata rejection.
+- Leave changes local and uncommitted; PR #2 remains Draft. Native Firefox verification and a narrow independent re-audit remain separate.
+
+## Historical initial Version 3.2.0 candidate
+
 # Version 3.2.0 — targeted highlight/@ local candidate
 
 - Highlight reliable recovered hostnames only in consequential main supplemental findings, using inert monospaced lilac text and the established dark-purple tokens. Preserve bounded lists and distinguish comparison targets/uncertain references.

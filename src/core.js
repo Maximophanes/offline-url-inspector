@@ -142,7 +142,9 @@ const Inspector = (() => {
     const p=preprocess(raw);let text=p.text,assumed=false,prefix=0;
     if(text&&invisible([...text][0]))throw Error('Leading Unicode whitespace or format characters obscure the URL boundary. Remove them explicitly before inspecting the address.');
     const m=/^([a-z][a-z\d+.-]*):/i.exec(text);
-    const hostPort=/^(?:localhost|[^\s/:?#]+\.[^\s/:?#]+):\d*(?:[/?#]|$)/i.test(text);
+    // Scan the authority token once; overlapping hostname matches can backtrack quadratically.
+    const hostPortMatch=/^([^\s/:?#]+):\d*(?:[/?#]|$)/.exec(text);
+    const hostPort=!!hostPortMatch&&(/^localhost$/i.test(hostPortMatch[1])||hostPortMatch[1].slice(1,-1).includes('.'));
     if(m&&!hostPort){
       if(!/^https?$/i.test(m[1]))throw Error('Unsupported scheme. Only HTTP and HTTPS URLs are inspected.');
       if(!/^https?:\/\//i.test(text))throw Error('HTTP/HTTPS input must include :// so the original authority is unambiguous.');
