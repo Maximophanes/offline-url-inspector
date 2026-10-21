@@ -1,16 +1,20 @@
 {
-  "applicationVersion": "3.1.2",
+  "applicationVersion": "3.2.0",
   "tests": {
-    "executed": 109636,
-    "passed": 109636,
+    "executed": 109782,
+    "passed": 109782,
     "failed": 0
   },
   "assertions": {
-    "executed": 129347,
-    "passed": 129347,
+    "executed": 129884,
+    "passed": 129884,
     "failed": 0
   },
   "commands": [
+    {
+      "command": "test:embedded",
+      "passed": true
+    },
     {
       "command": "test:references",
       "passed": true
@@ -81,6 +85,21 @@
     }
   ],
   "suites": [
+    {
+      "report": "embedded-results.json",
+      "suite": "V3.2.0 embedded URL discovery, evidence, limits and privacy",
+      "tests": {
+        "executed": 146,
+        "passed": 146,
+        "failed": 0
+      },
+      "assertions": {
+        "executed": 533,
+        "passed": 533,
+        "failed": 0
+      },
+      "status": "executed"
+    },
     {
       "report": "unit-results.json",
       "suite": "unit and official Unicode fixtures",
@@ -195,8 +214,8 @@
         "failed": 0
       },
       "assertions": {
-        "executed": 5816,
-        "passed": 5816,
+        "executed": 5820,
+        "passed": 5820,
         "failed": 0
       },
       "status": "executed"

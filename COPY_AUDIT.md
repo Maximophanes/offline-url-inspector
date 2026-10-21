@@ -198,3 +198,41 @@ The application changes settled before one complete available regression/Unicode
 The rendered product review found and corrected stale preparation feedback after completed installation and singular imported-hostname guidance. Screenshots and explicit actual-versus-simulated limits are in `tests/editorial-browser-preview.json`. Current plain-language guidance has no intentionally deferred message family. Native Firefox/accessibility/file-policy/full-disconnection checks remain pending rather than claimed passed.
 
 Technical interpretation was checked against the primary Unicode reports: [UTS #46](https://www.unicode.org/reports/tr46/) and the app's pinned [UTS #39 revision 34](https://www.unicode.org/reports/tr39/tr39-34.html). This did not regenerate or expand any mapping table.
+
+## Version 3.2.0 supplemental embedded evidence
+
+`src/embedded.js` adds scoped coverage states and data provenance without changing original core diagnostics. `src/embedded-ui.js` supplies neutral hostname-first evidence, partial/unavailable notices, explicit unknown interpretation, qualified redirect-name hints, repeated-value ambiguity, and user-controlled private-value disclosures. The new section in `src/template.html` and scoped `src/embedded.css` preserve the established theme and native controls. Original `src/presentation.js` is unchanged. Full values and parameter names are not materialized until reveal and are removed on close/reinspection. A separate notice remains visible beside exact initial-hostname matches. No redirect, maliciousness, ownership or whole-link safety claim is made. Inventory and new tests cover these families alongside all unchanged original diagnostics.
+
+
+## Approved v3.2.0 editorial and UX refinement — 2026-10-21
+
+Authoritative implementation/evidence: [EMBEDDED_EDITORIAL_REVIEW.md](EMBEDDED_EDITORIAL_REVIEW.md). Existing v3.1.2 primary titles, hostname terminology, core diagnostic prose/metadata and permanent editorial standard are preserved. The scoped original candidate description above is extended by these decisions.
+
+| Message family | Decision and evidence boundary |
+|---|---|
+| Main supplemental summary | Clear heading, actual recovered hostname and initial-host relationship. Actual visual target/source replaces the inaccurate generic expected/saved claim. All comparison sources remain distinct; same-target sources can share a sentence. |
+| Main hierarchy/announcements | Retain `primary` status semantics and original conclusion; place the companion after it inside that one polite atomic region. Evidence remains outside. DOM/AX ordering is observed; actual VoiceOver timing is pending. |
+| Coverage | Keep all four model states. Quiet scoped completion; noticeable partial reasons; neutral unsupported data; specific unavailable comparisons; retain simultaneous causes. Never infer an encoding or treat unavailable as negative. |
+| All limit/error families | Plain explanation beside the affected findings; exact technical reason/limit in Supported formats & limits. Invalid top-level attribution and unexpected processing failure remain distinct. |
+| Empty states | Qualified supported-format/data-checked negatives, never proof that hidden destinations do not exist. |
+| Counts | Actual record types; complete HTTP(S) entry count is not a generic candidate count. Multiple absolute entries separately count source occurrences and canonical recovered hostnames, never final destinations. |
+| Source/type/evidence | Found-in location and meaningful qualifications first. Precise classifications, fact/inference, parent entry and recorded source representation remain deeper. Parameter names stay private. |
+| Comparisons | Plain actual-target relationships ordinarily; identical initial/expected semantics may combine, while both evidence records remain. Methods, exact-only distinctions and extra saved records remain accessible. Unavailable checks stay visible. |
+| Conditional cautions | Userinfo, hidden/control characters, backslashes, uncertain attribution, unreadable hostnames and DNS-validation cautions stay relevant and visible. Original diagnostics remain unchanged in evidence. |
+| Transformations | Ordered strict/form-style decoding, `+` handling, layers and original/browser-normalized representations remain in explicit evidence; no debug row for routine processing. |
+| Redirect-name / nested-data inference | Qualified deeper clues; data lineage does not become a redirect chain. Scheme/port fields move deeper, with meaningful differences retained ordinarily. |
+| Reveal/privacy | Clear private-data warning and entry-specific accessible name. Inert lazy text; clear on private/outer close and reinspection. Original input/raw URL remain available; no claim of secret erasure. |
+| Pagination | Zero/one/many grammar, bounded 5-entry/10-comparison actions, progress only while incomplete, stable focus or focus to the first new item on the final page. |
+| Help | On-demand comprehensive limits include Base64URL, JSON, proprietary data, unresolved relative references and unobserved server/page behavior. No decoder coverage expansion. |
+| Documentation/testing | Current versus original candidate history separated. 125 embedded checks / 446 assertions, with 41 new refinement checks; final full suite 109,761 checks / 129,797 assertions. Actual in-app evidence is separate from simulations and pending native Firefox/VoiceOver gates. |
+
+Inventory at that editorial checkpoint: 2,661 literal/text candidates across 12 copy-supplying source files. Counts include code/data tokens and are a traceability supplement, not an editorial quality score. `src/embedded.css` contains styling only, with no generated user-facing text; its identity is checked with the build CSS and checksum inventory.
+
+
+## Targeted hostname highlight and embedded @ wording — 2026-10-21
+
+Only `src/embedded-ui.js` and `src/embedded.css` change application presentation in this pass. Explicit recovered-hostname token ranges produce inert, non-focusable spans in consequential supplemental explanations. Reliable absolute HTTP(S) hostname attribution is required; comparison-target words and uncertain/relative data are not highlighted by string replacement. Existing bounded lists, severity, counts, comparison metadata, Technical Details and private evidence are preserved.
+
+Main and record-level embedded caution: **The text before @ is not the website’s hostname.** The reliable hostname is highlighted where already named, avoiding repetition. If an @ address's reliable hostname was not named (including same-host cases), the existing caution paragraph identifies it with its structural context. Raw userinfo is not exposed or characterized as a confirmed username/password/credential. Original initial-hostname diagnostics and parsing are unchanged.
+
+The highlight uses the existing mono, hover-lilac and raised-panel tokens, weight 600, subtle background and wrapping; it has no hover state, link, button behavior or extra keyboard stop. Existing accessible text and live-region order are retained. Current inventory: **2,670** literal/text candidates across 12 sources. Targeted suite: 146 checks / 533 assertions, including 21 new tests. Full suite: 109,782 checks / 129,884 assertions. Actual in-app 22-case 1280/390 px evidence and manual Firefox handoff are in [HOSTNAME_HIGHLIGHT_REVIEW.md](HOSTNAME_HIGHLIGHT_REVIEW.md).

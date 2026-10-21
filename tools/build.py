@@ -9,7 +9,7 @@ import json
 import pathlib
 
 ROOT=pathlib.Path(__file__).resolve().parents[1]
-VERSION='3.1.2'
+VERSION='3.2.0'
 def sha(data): return hashlib.sha256(data).hexdigest()
 def build():
     data=(ROOT/'data/unicode-data.json').read_bytes()
@@ -18,9 +18,9 @@ def build():
     if manifest['version']!='18.0.0' or json.loads(data)['version']!='18.0.0': raise ValueError('Unexpected Unicode version')
     for f in manifest['files']:
         if sha((ROOT/'data'/f['name']).read_bytes())!=f['sha256']: raise ValueError('Unicode source checksum mismatch: '+f['name'])
-    css=(ROOT/'src/base.css').read_text()+'\n'+(ROOT/'src/v3.css').read_text()
+    css='\n'.join((ROOT/'src'/name).read_text() for name in ['base.css','v3.css','embedded.css'])
     css_hash=base64.b64encode(hashlib.sha256(css.encode()).digest()).decode()
-    shared='\n'.join((ROOT/'src'/name).read_text() for name in ['core.js','references.js','presentation.js','ui.js'])
+    shared='\n'.join((ROOT/'src'/name).read_text() for name in ['core.js','references.js','presentation.js','embedded.js','embedded-ui.js','ui.js'])
     shared=shared.replace('@@LICENSE@@',json.dumps((ROOT/'data/LICENSE.txt').read_text(),ensure_ascii=True))
     template=(ROOT/'src/template.html').read_text()
     results={}

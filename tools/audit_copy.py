@@ -15,7 +15,7 @@ import re
 import tokenize
 
 ROOT=Path(__file__).resolve().parents[1]
-SOURCES=['src/template.html','src/presentation.js','src/ui.js','src/references.js','src/core.js','src/hosted.js','src/sw.js','tools/build.py','src/base.css','src/v3.css']
+SOURCES=['src/template.html','src/presentation.js','src/ui.js','src/references.js','src/core.js','src/embedded.js','src/embedded-ui.js','src/hosted.js','src/sw.js','tools/build.py','src/base.css','src/v3.css']
 class MarkupCopy(HTMLParser):
     def __init__(self): super().__init__(); self.items=[]
     def handle_data(self,data):
@@ -52,7 +52,7 @@ def collect():
     data={}
     for name in ['data/LICENSE.txt','data/unicode-data.json']:
         data[name]={'sha256':hashlib.sha256((ROOT/name).read_bytes()).hexdigest(),'disposition':'Preserved technical/legal dataset; not rewritten as prose.'}
-    return {'applicationVersion':'3.1.2','review':'COPY_AUDIT.md','standard':'EDITORIAL_STYLE_GUIDE.md','scope':'All runtime-copy source files, HTML attributes, CSS generated content and build substitutions. Candidates include non-copy tokens; the family matrix records editorial decisions.','sources':result,'dataBoundaries':data}
+    return {'applicationVersion':'3.2.0','review':'COPY_AUDIT.md','standard':'EDITORIAL_STYLE_GUIDE.md','scope':'All runtime-copy source files, HTML attributes, CSS generated content and build substitutions. Candidates include non-copy tokens; the family matrix records editorial decisions.','sources':result,'dataBoundaries':data}
 def main():
     parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--check',action='store_true');args=parser.parse_args()
     path=ROOT/'tests/copy-inventory.json';inventory=collect()

@@ -1,0 +1,204 @@
+{
+  "applicationVersion": "3.2.0",
+  "runtime": {
+    "deno": "2.9.7",
+    "v8": "15.0.245.2-rusty",
+    "typescript": "6.0.3"
+  },
+  "scope": "Native Deno/V8 synchronous analyzer with its production timer; synthetic reserved domains. Excludes DOM rendering. Memory observations include uncollected allocations and runtime overhead.",
+  "limits": {
+    "value": 8192,
+    "depth": 3,
+    "percentLayers": 2,
+    "parameters": 128,
+    "nodes": 128,
+    "text": 131072,
+    "candidates": 32,
+    "hostnames": 16,
+    "comparisons": 256,
+    "milliseconds": 100
+  },
+  "iterations": 50,
+  "scenarios": [
+    {
+      "name": "ordinary",
+      "inputCodeUnits": 45,
+      "p50Milliseconds": 0.024,
+      "p95Milliseconds": 0.044,
+      "maxMilliseconds": 0.085,
+      "statuses": {
+        "complete": 50
+      },
+      "limitationCodes": [],
+      "maxDerivedCodeUnits": 34,
+      "maxNodes": 5,
+      "heapUsedDeltaBytes": 654872,
+      "rssDeltaBytes": 2310144
+    },
+    {
+      "name": "encoded-query-and-fragment",
+      "inputCodeUnits": 88,
+      "p50Milliseconds": 0.223,
+      "p95Milliseconds": 0.68,
+      "maxMilliseconds": 2.914,
+      "statuses": {
+        "complete": 50
+      },
+      "limitationCodes": [],
+      "maxDerivedCodeUnits": 248,
+      "maxNodes": 9,
+      "heapUsedDeltaBytes": 3851488,
+      "rssDeltaBytes": 13811712
+    },
+    {
+      "name": "nested",
+      "inputCodeUnits": 95,
+      "p50Milliseconds": 0.173,
+      "p95Milliseconds": 0.233,
+      "maxMilliseconds": 0.281,
+      "statuses": {
+        "complete": 50
+      },
+      "limitationCodes": [],
+      "maxDerivedCodeUnits": 400,
+      "maxNodes": 7,
+      "heapUsedDeltaBytes": 6560992,
+      "rssDeltaBytes": 720896
+    },
+    {
+      "name": "two-layers",
+      "inputCodeUnits": 57,
+      "p50Milliseconds": 0.077,
+      "p95Milliseconds": 0.096,
+      "maxMilliseconds": 0.185,
+      "statuses": {
+        "complete": 50
+      },
+      "limitationCodes": [],
+      "maxDerivedCodeUnits": 145,
+      "maxNodes": 5,
+      "heapUsedDeltaBytes": -1153032,
+      "rssDeltaBytes": 393216
+    },
+    {
+      "name": "malformed",
+      "inputCodeUnits": 54,
+      "p50Milliseconds": 0.02,
+      "p95Milliseconds": 0.028,
+      "maxMilliseconds": 0.052,
+      "statuses": {
+        "partial": 50
+      },
+      "limitationCodes": [
+        "decoding"
+      ],
+      "maxDerivedCodeUnits": 60,
+      "maxNodes": 3,
+      "heapUsedDeltaBytes": 1335272,
+      "rssDeltaBytes": 131072
+    },
+    {
+      "name": "large-value",
+      "inputCodeUnits": 24046,
+      "p50Milliseconds": 1.38,
+      "p95Milliseconds": 1.878,
+      "maxMilliseconds": 1.975,
+      "statuses": {
+        "partial": 50
+      },
+      "limitationCodes": [
+        "value-size"
+      ],
+      "maxDerivedCodeUnits": 48044,
+      "maxNodes": 3,
+      "heapUsedDeltaBytes": 6187896,
+      "rssDeltaBytes": 19496960
+    },
+    {
+      "name": "many-parameters",
+      "inputCodeUnits": 14944,
+      "p50Milliseconds": 1.13,
+      "p95Milliseconds": 1.47,
+      "maxMilliseconds": 1.531,
+      "statuses": {
+        "partial": 50
+      },
+      "limitationCodes": [
+        "nodes",
+        "parameters"
+      ],
+      "maxDerivedCodeUnits": 15136,
+      "maxNodes": 128,
+      "heapUsedDeltaBytes": -3692952,
+      "rssDeltaBytes": 131072
+    },
+    {
+      "name": "candidate-saturation",
+      "inputCodeUnits": 1051,
+      "p50Milliseconds": 1.1,
+      "p95Milliseconds": 1.402,
+      "maxMilliseconds": 1.486,
+      "statuses": {
+        "partial": 50
+      },
+      "limitationCodes": [
+        "candidates",
+        "hostnames",
+        "host-analysis"
+      ],
+      "maxDerivedCodeUnits": 2856,
+      "maxNodes": 52,
+      "heapUsedDeltaBytes": 11770536,
+      "rssDeltaBytes": 2768896
+    },
+    {
+      "name": "comparison-saturation",
+      "inputCodeUnits": 337,
+      "p50Milliseconds": 6.071,
+      "p95Milliseconds": 6.721,
+      "maxMilliseconds": 8.009,
+      "statuses": {
+        "partial": 50
+      },
+      "limitationCodes": [
+        "comparisons"
+      ],
+      "maxDerivedCodeUnits": 1070,
+      "maxNodes": 18,
+      "heapUsedDeltaBytes": 789664,
+      "rssDeltaBytes": 40304640
+    },
+    {
+      "name": "unicode-and-invisibles",
+      "inputCodeUnits": 99,
+      "p50Milliseconds": 0.196,
+      "p95Milliseconds": 0.306,
+      "maxMilliseconds": 0.451,
+      "statuses": {
+        "complete": 50
+      },
+      "limitationCodes": [],
+      "maxDerivedCodeUnits": 304,
+      "maxNodes": 12,
+      "heapUsedDeltaBytes": 19794088,
+      "rssDeltaBytes": 32768
+    },
+    {
+      "name": "maximum-accepted-input",
+      "inputCodeUnits": 32768,
+      "p50Milliseconds": 1.758,
+      "p95Milliseconds": 2.077,
+      "maxMilliseconds": 2.284,
+      "statuses": {
+        "partial": 50
+      },
+      "limitationCodes": [
+        "value-size"
+      ],
+      "maxDerivedCodeUnits": 65491,
+      "maxNodes": 3,
+      "heapUsedDeltaBytes": 4781400,
+      "rssDeltaBytes": 704512
+    }
+  ]
+}

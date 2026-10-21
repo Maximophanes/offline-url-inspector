@@ -1,3 +1,19 @@
+# Offline URL Inspector · Version 3.2.0 local candidate
+
+Current candidate **3.2.0-cf634806f70b4b3c** adds the approved targeted hostname highlight and embedded-URL @ explanation to the successful two-part results. Reliable recovered hostnames stand out as inert monospaced lilac text on subtle dark purple; comparison targets and uncertain references are not indiscriminately highlighted.
+
+The embedded caution now says **“The text before @ is not the website’s hostname.”** It names the actual embedded hostname without exposing raw userinfo or assuming credentials. No redirect or whole-link safety verdict is produced. Existing Technical Details, private evidence, counts, severity, parser/extractor/comparison algorithms, storage, worker/offline logic and CSP policy are preserved.
+
+Work remains unstaged and uncommitted on `dev/v3.2.0-embedded-url-analysis`; main and the published v3.1.2 release are untouched. No deferred decoder, dataset, storage or network feature was added.
+
+Newly executed validation: **146 embedded checks / 533 assertions**, including 21 new targeted checks; **109,782 full-suite checks / 129,884 assertions**, zero failures. Actual in-app browser validation passed 22 cases at measured 1280/390 px widths, including A/B, long-host wrapping, privacy, keyboard and reset. No new native Firefox or VoiceOver pass is claimed. The user reports the preceding candidate's representative, seven additional and encoded-@ Firefox scenarios passed manual review.
+
+See the [targeted handoff](HOSTNAME_HIGHLIGHT_REVIEW.md), [current tests](TEST_RESULTS.md) and [preceding editorial snapshot](EMBEDDED_EDITORIAL_REVIEW.md). The existing Python build regenerates both editions and CSP/build identities. `python3 -B tools/verify_release.py` verifies the settled source/artifacts/checksums.
+
+## Historical Version 3.1.2 documentation
+
+The text below records the preceding development/review history. Its statements about then-uncommitted v3.1.2 development are historical; the verified stable baseline was subsequently merged at `d9aed1dc333bb51d2126fa79059a839292b36615`.
+
 # Offline URL Inspector · Version 3.1.2
 
 A complete editorial and interface refinement of the existing 3.1.2 development work, built on the user-verified 3.1.1 baseline. Findings explain the observation before the implementation. Ordinary Unicode stays neutral, genuine warnings retain their severity, and complete original evidence remains available. Blackberry & Amethyst, the Georgia title and its approved animation are preserved.

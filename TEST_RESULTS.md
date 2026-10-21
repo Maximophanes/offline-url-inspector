@@ -1,3 +1,13 @@
+# Version 3.2.0 targeted highlight/@ candidate results
+
+Newly executed targeted suite: **146 checks / 533 assertions passed**, zero failures, including 21 new hostname-highlight/@ tests. Newly executed final full suite: **109,782 checks / 129,884 assertions passed**, zero failures. The targeted run preceded the full build/copy/regression/conformance/ICU/HTTP run. All original fixture and complete inspection/diagnostic pins remain intact; no baseline expectations were replaced.
+
+Current records: `tests/embedded-results.json`, `tests/summary-results.json`, and `tests/hostname-highlight-browser-preview.json`. The latter records 22 actual hosted in-app checks at measured 1280/390 px, both supplied examples, long-host fragments within the viewport, inert markup, keyboard/private reveal/close/reset, and final script/style hashes for **3.2.0-cf634806f70b4b3c**. No native Firefox, VoiceOver or physical mobile pass is claimed for this newest build.
+
+The user reports successful manual Firefox review of the preceding candidate's representative tests, seven additional scenarios and the encoded @ case. That report is not extended to the newest styling. Earlier browser records and benchmarks remain historical; see [the targeted handoff](HOSTNAME_HIGHLIGHT_REVIEW.md) and [preceding editorial report](EMBEDDED_EDITORIAL_REVIEW.md).
+
+## Historical v3.1.2 results
+
 # Version 3.1.2 test results
 
 ## Current approved obsolete-code cleanup

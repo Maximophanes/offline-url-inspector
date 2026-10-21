@@ -1,0 +1,57 @@
+{
+  "suite": "V3.2.0 embedded URL discovery, evidence, limits and privacy",
+  "groups": {
+    "supported discovery with independent expected hostnames": {
+      "executed": 14,
+      "passed": 14,
+      "failed": 0
+    },
+    "outer boundaries, representations and relative references": {
+      "executed": 14,
+      "passed": 14,
+      "failed": 0
+    },
+    "hostname reuse and scoped evidence": {
+      "executed": 8,
+      "passed": 8,
+      "failed": 0
+    },
+    "benign negatives and explicitly unsupported interpretations": {
+      "executed": 15,
+      "passed": 15,
+      "failed": 0
+    },
+    "malformed, adversarial and deterministic resource boundaries": {
+      "executed": 19,
+      "passed": 19,
+      "failed": 0
+    },
+    "DOM, exact-match visibility, disclosure and privacy": {
+      "executed": 14,
+      "passed": 14,
+      "failed": 0
+    },
+    "approved editorial refinement": {
+      "executed": 41,
+      "passed": 41,
+      "failed": 0
+    },
+    "targeted hostname highlight and @ clarity": {
+      "executed": 21,
+      "passed": 21,
+      "failed": 0
+    }
+  },
+  "failures": [],
+  "assertions": {
+    "executed": 533,
+    "passed": 533,
+    "failed": 0
+  },
+  "total": {
+    "executed": 146,
+    "passed": 146,
+    "failed": 0
+  },
+  "scope": "Unit and simulated DOM; synthetic reserved domains only. No actual browser or runtime redirect verification."
+}

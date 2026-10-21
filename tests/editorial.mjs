@@ -18,7 +18,7 @@ await test('all pre-editorial analysis objects including raw diagnostics are ide
 await test('all security engine/data pins survive the scoped recovery-prose exception',()=>{
  for(const [file,expected]of Object.entries(JSON.parse(read('tests/polish-baseline.json')).functionalFiles))equal(hash(functionalSource(file)),expected);
  const worker=read('src/sw.js');assert(worker.includes('status:503'));assert(worker.includes('unregister only the worker scoped to /offline-url-inspector/'));assert(worker.includes('other projects may share that data'));
- assert(/VERSION\s*=\s*['"]3\.1\.2['"]/.test(read('tools/build.py')));for(const edition of ['standalone','hosted'])assert(html(edition).includes('Version 3.1.2'));
+ assert(/VERSION\s*=\s*['"]3\.2\.0['"]/.test(read('tools/build.py')));for(const edition of ['standalone','hosted'])assert(html(edition).includes('Version 3.2.0'));
 });
 await test('every emitted diagnostic code has an explanation and an audit entry',()=>{
  const codes=[...new Set([...read('src/core.js').matchAll(/note\('([^']+)'/g)].map(m=>m[1]))].sort();
