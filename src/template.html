@@ -16,21 +16,20 @@
 <p class="field-help" id="linkHelp">Paste a copied link from a browser, email, message, or other source.</p>
 <textarea id="link" aria-describedby="linkHelp inspectionError" spellcheck="false" autocapitalize="off" autocomplete="off" placeholder="https://example.com/path"></textarea>
 <p id="inspectionError" class="small field-error hidden"></p>
-<div class="field"><label class="label" for="expected">Expected hostname <span class="optional">(optional)</span></label><p class="field-help" id="expectedHelp">Compare the URL against a specific hostname. This takes priority over your saved reference domains, which may still be checked separately.</p><input id="expected" aria-describedby="expectedHelp expectedError" spellcheck="false" autocomplete="off" autocapitalize="off" placeholder="example.com"><p id="expectedError" class="small field-error hidden"></p></div>
-<div class="line actions"><button id="inspect" type="button">Inspect without opening</button><button class="ghost" id="demoUnicode" type="button">Unicode lookalike</button><button class="ghost" id="demoAscii" type="button">ASCII lookalike</button></div>
+<div class="field"><label class="label" for="expected">Expected hostname <span class="optional">(optional)</span></label><p class="field-help" id="expectedHelp">Optional: enter the hostname you expected. Automatic lookalike checks run even when this field is empty.</p><input id="expected" aria-describedby="expectedHelp expectedError" spellcheck="false" autocomplete="off" autocapitalize="off" placeholder="example.com"><p id="expectedError" class="small field-error hidden"></p></div>
+<div class="inspection-actions"><div class="line actions"><button id="inspect" type="button">Inspect without opening</button><button class="ghost" id="demoUnicode" type="button">Unicode lookalike</button><button class="ghost" id="demoAscii" type="button">ASCII lookalike</button></div><span id="offlineStatus" class="edition-status" role="status" aria-label="Application offline access">@@EDITION_STATUS@@</span></div>
 <div class="interaction-meta"><span id="shortcutHint" class="shortcut">⌘ + Return to inspect</span></div>
 <div class="offline-controls">
 <div class="offline-toolbar">
 <div id="updatePanel" class="update-panel @@HOSTED_ONLY@@"><div class="line cache-actions"><button id="checkCache" class="ghost small" type="button" disabled>Check for Updates</button><button id="applyUpdate" class="ghost small hidden" type="button" aria-label="Apply update and reload the app">Apply Update</button></div></div>
-<span id="offlineStatus" class="edition-status" role="status" aria-label="Application offline access">@@EDITION_STATUS@@</span>
 <div id="updateStatus" class="small update-feedback @@HOSTED_ONLY@@" role="status" aria-live="polite" aria-atomic="true" data-state=""><span class="update-indicator" aria-hidden="true"></span><div class="update-message"><span id="updateSummary"></span><p id="updateExplanation" class="hidden"></p></div></div>
 </div>
 <details id="offlineHelp" class="disclosure status-help @@HOSTED_ONLY@@"><summary>Offline access details</summary><div class="panel-body small" id="offlineDetail"><p>Checking whether a verified offline copy is available. Readiness has not yet been confirmed.</p></div></details>
 </div>
 </section>
-<details class="card disclosure major" id="referencePanel"><summary><span>Reference Domains</span><span class="count" id="referenceCount">0 saved</span></summary>
+<details class="card disclosure major" id="referencePanel"><summary><span>Your Reference Domains <span class="optional">(Optional)</span></span><span class="count" id="referenceCount">0 saved</span></summary>
 <div class="panel-body">
-<div class="reference-intro"><p class="reference-description">Save hostnames to compare with URLs you inspect. A match doesn't verify that a website is safe.</p>
+<div class="reference-intro"><p class="reference-description">Automatic lookalike checks already use a built-in offline list of popular domains; you don't need to save any references. Save sites important to you or missing from that list. The list isn't comprehensive, and neither comparison verifies safety.</p>
 <p id="storageStatus" class="small"></p></div><details class="disclosure reference-help"><summary>Storage &amp; hostname help</summary><div class="panel-body small"><div class="label">Browser Storage</div><p>@@STORAGE_HELP@@</p><p id="protectedStorageHelp" class="hidden"></p><div class="label readable-label">Hostname Comparisons</div><p>Single-label names, such as intranet, are commonly used on private networks. These names and IP addresses are compared only for exact matches. Reference domains are never added automatically.</p></div></details>
 <label class="label" for="referenceInput" id="referenceLabel">Add a reference hostname</label>
 <div class="line"><input id="referenceInput" class="grow" maxlength="2048" aria-describedby="referenceError" spellcheck="false" autocomplete="off" autocapitalize="off" placeholder="example.com"><button id="saveReference" type="button">Add</button><button id="cancelEdit" type="button" class="ghost hidden">Cancel edit</button></div>
@@ -50,62 +49,53 @@
 <div class="line"><button id="applyImport" type="button">Apply reviewed import</button><button id="cancelImport" class="ghost" type="button">Cancel</button></div>
 </section></div></details>
 <section class="card results-card hidden" id="results" aria-label="Inspection results">
-<div id="primary" class="primary" role="status" aria-live="polite" aria-atomic="true"><div class="eyebrow">Primary finding</div><h2 id="primaryTitle"></h2><p id="primaryDetail"></p>
-<section id="embeddedNotice" class="embedded-summary hidden" aria-labelledby="embeddedTitle"><h3 id="embeddedTitle"></h3><div id="embeddedSummary"></div><p id="embeddedCoverage" class="hidden"></p><p id="embeddedRedirect" class="hidden">The link alone doesn’t show whether the website will redirect you there.</p><button id="embeddedView" type="button" class="ghost small" aria-controls="embeddedDetails">View embedded-address details</button></section>
-</div>
-<div class="hostname-grid">
-<div><div class="label"><span>Actual Hostname</span> <span class="label-detail">(ASCII / Punycode)</span></div><div id="ascii" class="host"></div></div>
-<div><div class="label"><span>Readable Hostname</span> <span class="label-detail">(Unicode)</span></div><div class="host" id="coloredHost"></div></div>
-</div>
-<p class="small hostname-help">Punycode encodes internationalized hostnames using ASCII, the basic Latin character set. Unicode provides characters from many writing systems. These can be different representations of the same hostname.</p>
-<div class="comparison-rows">
-<div class="row"><div class="key">Expected hostname</div><div id="compare" class="value mono"></div></div>
-<div class="row"><div class="key">Comparison result</div><div id="comparisonResult" class="value"></div></div>
-<div class="row"><div class="key">Reference comparison</div><div id="referenceComparison" class="value"></div></div>
-</div>
-<ul id="supporting" class="supporting"></ul>
-<details id="advanced" class="disclosure technical major"><summary><span>Technical Details</span><span class="summary-aside">Evidence &amp; diagnostics</span></summary><div class="panel-body">
+<div class="result-identity"><div id="actualHostnameLabel" class="label">Actual hostname</div><div id="ascii" class="host"></div><div id="readableHostnameGroup" class="hidden"><div id="readableHostnameLabel" class="label">Readable hostname (Unicode)</div><div id="readableHostname" class="host" aria-describedby="readableHostnameCue"></div><p id="readableHostnameCue" class="small"></p></div></div>
+<p id="resultsProgress" class="small hidden" role="status">Checking this address…</p>
+<div id="primary" class="primary hidden" role="group" aria-labelledby="primaryScope primaryTitle primaryHost primaryMatch" aria-describedby="primaryDetail"><div id="primaryScope" class="label"></div><h2 id="primaryTitle"></h2><span id="primaryHost" class="screen-reader-only"></span><p id="primaryMatch" class="mono hidden"></p><div id="primaryDetail"></div><p id="primaryContext" class="small hidden"></p></div>
+<section id="otherFindingsSection" class="hidden" aria-labelledby="otherFindingsTitle"><h3 id="otherFindingsTitle" class="label">Other findings</h3><ul id="otherFindings" class="concise-findings"></ul></section>
+<section id="embeddedSummarySection" class="hidden" aria-labelledby="embeddedSummaryTitle"><h3 id="embeddedSummaryTitle" class="label">Also inside this URL</h3><ul id="embeddedHostSummary" class="concise-findings"></ul><p id="embeddedUncertainty" class="small">These addresses were found in the text; their use by the website is unknown.</p></section>
+<p id="inspectionCoverage" class="small hidden"></p>
+<p id="automaticAnnouncement" class="screen-reader-only" role="status" aria-live="polite" aria-atomic="true"></p>
+<details id="advanced" class="disclosure technical major"><summary><span>Technical Details</span></summary><div class="panel-body">
+<div id="inspectionEvidence" class="small"></div>
+<section id="automaticDetails" class="hidden" aria-labelledby="automaticEvidenceTitle"><h3 id="automaticEvidenceTitle" class="label">Name comparisons <span id="automaticCount" class="label-detail"></span></h3><div id="automaticRecords"></div></section>
+<section id="embeddedGroupsDetails" class="hidden" aria-labelledby="embeddedEvidenceTitle"><h3 id="embeddedEvidenceTitle" class="label">Addresses inside this URL</h3><div id="embeddedGroups" class="small"></div></section>
+</div></details>
+<details id="diagnostics" class="disclosure observation"><summary>Advanced diagnostics · may contain private URL values</summary><div class="category-body">
+<details id="comparisonDiagnostics" class="disclosure category"><summary>Comparison evidence &amp; limits</summary><div class="category-body small"><div id="referenceCandidates"></div><div id="comparisonDiagnosticRecords"></div></div></details>
 <details class="disclosure category" id="originalDetails"><summary>Input &amp; Normalization</summary><div class="category-body">
-<div class="row"><div class="key">Original Hostname</div><div class="value mono" id="original"></div></div>
-<div class="row"><div class="key"><span>Decoded Hostname</span> <span class="label-detail">(percent encoding)</span></div><div id="decodedOriginal" class="value mono"></div></div>
-<div class="row"><div class="key"><span>Actual Hostname</span> <span class="label-detail">(ASCII / Punycode)</span></div><div id="normalized" class="value mono"></div></div>
-<div class="row"><div class="key"><span>Readable Hostname</span> <span class="label-detail">(Unicode)</span></div><div id="unicode" class="value mono"></div></div>
-<div class="row"><div class="key">Original URL</div><div id="raw" class="value mono"></div></div>
-<p id="attributionNotice" class="small warn hidden"></p><details class="disclosure observation hidden" id="attributionEvidence"><summary>Hostname extraction details</summary><div class="category-body"><p id="attributionReason" class="small"></p><pre id="attributionRaw" class="mono small"></pre></div></details>
+<div class="row"><div class="key">Original hostname spelling</div><div class="value mono" id="original"></div></div>
+<div class="row"><div class="key">Decoded hostname</div><div id="decodedOriginal" class="value mono"></div></div>
+<div class="row"><div class="key">Readable hostname</div><div id="unicode" class="value mono"></div></div>
+<p id="attributionNotice" class="small warn hidden"></p><details class="disclosure observation hidden" id="attributionEvidence"><summary>Hostname extraction details</summary><div class="category-body"><p id="attributionReason" class="small"></p></div></details>
 </div></details>
 <details class="disclosure category" id="characterDetails"><summary>Character Details</summary><div class="category-body">
 <div id="originalCharacterGroup"><div class="label" id="originalCharacterLabel">Hostname character evidence</div><div id="originalChars" class="character-list"></div></div>
 <div id="readableCharacterGroup"><div class="label readable-label">Additional readable characters</div><div id="chars" class="character-list"></div></div>
-<details id="asciiDetails" class="disclosure observation"><summary id="asciiSummary">ASCII lookalike observations</summary><div id="asciiObservations" class="category-body small"></div></details>
 </div></details>
 <details class="disclosure category" id="componentsDetails"><summary>URL Components</summary><div class="category-body">
-<div class="row"><div class="key">Hostname Writing Systems</div><div id="scripts" class="value"></div></div>
 <div class="row"><div class="key">Scheme</div><div id="scheme" class="value mono"></div></div>
-<div class="row"><div class="key">Port</div><div id="port" class="value mono"></div></div>
+<div class="row"><div class="key">Explicit port</div><div id="port" class="value mono"></div></div>
 <div class="row"><div class="key">Path</div><div id="path" class="value mono"></div></div>
 <div class="row"><div class="key">Query parameters</div><div id="query" class="value mono"></div></div>
 <div class="row"><div class="key">Fragment</div><div id="fragment" class="value mono"></div></div>
 </div></details>
-<details class="disclosure category" id="referencesDetails"><summary>Reference Comparisons</summary><div id="referenceCandidates" class="category-body small"></div></details>
-<details class="disclosure category" id="embeddedDetails"><summary>Embedded URLs &amp; Redirect Clues</summary><div class="category-body small">
+<details class="disclosure category" id="embeddedDetails"><summary>Exact address occurrences · may contain private values</summary><div class="category-body small">
 <p id="embeddedStatus"></p><p id="embeddedCount"></p>
-<p>Addresses found in the link’s text. Their use by the website is unknown; no redirect was verified.</p>
-<ul id="embeddedLimitations"></ul><div id="embeddedCandidates"></div>
-<details class="disclosure observation" id="embeddedCoverageDetails"><summary>Supported formats &amp; limits</summary><div class="category-body small">
-<p>These checks look for HTTP and HTTPS addresses in paths, query values and fragments, with up to two layers of URL decoding. Relative addresses are recorded without assuming a base URL; addresses without a scheme remain unresolved.</p>
-<p>Base64, Base64URL, JSON, encrypted and proprietary formats are not decoded. Server responses and webpage scripts are not examined. Finding no supported address does not rule out hidden destinations.</p>
-<p>Entries can represent repeated occurrences or different interpretations of one value. Distinct hostnames do not establish ownership or final destinations. Encoding and a different hostname are not inherently suspicious.</p>
-<ul id="embeddedLimitDetails"></ul>
+<p>Addresses found in the link’s text; their use by the website is unknown.</p>
+<ul id="embeddedLimitations"></ul><div id="embeddedCandidates"></div><ul id="embeddedLimitDetails"></ul>
 </div></details>
-</div></details>
-<details class="disclosure category" id="diagnosticDetails"><summary>Full Diagnostic Log</summary><div class="category-body"><p class="small">Detailed analysis findings. Multiple observations may relate to the same underlying issue.</p><div id="messages" class="diagnostic-list"></div><details id="rawDiagnostics" class="disclosure observation raw-diagnostics"><summary>Raw Diagnostic Records</summary><div id="rawRecords" class="raw-record-list" tabindex="0" role="region" aria-label="Complete original diagnostic records"></div></details></div></details>
-</div></details></section>
+<details id="rawDiagnostics" class="disclosure category raw-diagnostics"><summary>Raw Diagnostic Records</summary><div class="category-body">
+<div id="rawRecords" class="raw-record-list" tabindex="0" role="region" aria-label="Complete original diagnostic records"></div>
+<details id="asciiDetails" class="disclosure observation"><summary id="asciiSummary">Exhaustive ASCII observations · not findings by themselves</summary><div id="asciiObservations" class="category-body small"></div></details>
+<details id="originalInputDisclosure" class="disclosure observation"><summary>Original submitted URL · may contain private values</summary><pre id="raw" class="category-body value mono small"></pre></details>
+</div></details></div></details>
+</section>
 <details class="disclosure supporting-panel" id="understanding"><summary>Understanding Your Results</summary><div class="panel-body">
-<p>The URL Inspector examines a link's hostname, characters, and structure without visiting its destination. It can identify deceptive spellings, unusual characters, suspicious URL syntax, and similarities to expected or saved reference hostnames.</p>
-<p>A matching hostname does not guarantee a safe website. The inspector cannot verify who operates a website, assess its reputation, examine its contents, or follow redirects.</p>
-<p>Internationalized domain names and visually similar characters are not inherently suspicious. Findings indicate possible similarities or unusual structures, not proof of malicious intent.</p>
-<details class="disclosure observation" id="technicalLimitations"><summary>Technical Limitations</summary><div class="category-body small"><p>The inspector identifies subdomains from hostname structure. It does not use a Public Suffix List to determine which part of a name can be registered, or who owns it. Complete right-to-left visual comparisons are unsupported, and internationalized-domain processing may differ between browsers. The inspector is not a comprehensive phishing detector.</p><p>A character's mapping rule does not always describe the result of processing a complete hostname: characters can combine or change order. Original and readable evidence remain in Technical Details. No hostname comparison can rule out a compromised website.</p></div></details>
-<details class="disclosure observation" id="hostnameTerms"><summary>Hostname terms</summary><dl class="category-body small"><dt>Normalization</dt><dd>Converting a hostname to the form used for comparison or by the browser. The original spelling is preserved separately.</dd><dt>IDNA</dt><dd>Rules for processing internationalized domain names, including character mappings and encoded hostnames.</dd><dt>UTS #39 and confusable mappings</dt><dd>Unicode's visual-comparison standard and its character mappings. These are comparison data, not destination hostnames or proof of intent.</dd><dt>DNS labels and registrable domains</dt><dd>Labels are the sections between dots. A registrable domain is a name that can be registered under a public suffix; the inspector does not determine that registration or ownership.</dd></dl></details>
+<p>Checks run offline without opening the destination. Eligible hostnames are compared with a bundled list of popular domains. Expected Hostname and your saved references add comparisons you choose.</p>
+<p>Resemblance is not proof of malicious intent. No match, or a match with a popular domain, does not verify safety.</p>
+<details class="disclosure observation" id="technicalLimitations"><summary>Technical Limitations</summary><div class="category-body small"><details class="disclosure observation" id="embeddedFormats"><summary>Embedded address formats &amp; limits</summary><div class="category-body small"><p>Checks look for HTTP and HTTPS addresses in paths, query values and fragments, with up to two layers of URL decoding and bounded nested analysis. Relative addresses are recorded without assuming a base URL; addresses without a scheme remain unresolved.</p><p>Base64, Base64URL, JSON, JWT, encrypted and proprietary formats are not decoded. Server responses and webpage scripts are not examined. Finding no supported address does not rule out hidden destinations. Repeated entries and alternative interpretations do not establish unique final destinations.</p></div></details><p>The built-in Majestic popular-domain list is not comprehensive. Unicode, ASCII, spelling and structural comparisons have different eligibility limits. Results distinguish completed checks, unsupported comparisons, interrupted checks and unavailable data.</p><p>A pinned offline Public Suffix List (PSL), with ICANN and PRIVATE rules, identifies suffix and registrable-domain boundaries for automatic comparisons, including private hosting boundaries. These rules do not establish ownership, registration status, availability or legitimacy. Expected Hostname and personal references retain their separate full-hostname comparison rules.</p><p>The inspector cannot establish who operates a website, check reputation, inspect remote contents or follow redirects. Addresses inside a URL are text evidence; no redirect is verified.</p><p>Full right-to-left (RTL) and bidirectional (bidi) visual comparisons remain unsupported. Exact comparisons remain available. Internationalized-domain processing can differ between browsers. Character mappings can combine or reorder when applied to a complete hostname; technical evidence preserves the original spelling and supported comparison methods.</p></div></details>
+<details class="disclosure observation" id="hostnameTerms"><summary>Hostname terms</summary><dl class="category-body small"><dt>Normalization</dt><dd>Converting a hostname to the form used for comparison or by the browser. The original spelling is preserved separately.</dd><dt>IDNA</dt><dd>Rules for processing internationalized domain names, including character mappings and encoded hostnames.</dd><dt>UTS #39 and confusable mappings</dt><dd>Unicode's visual-comparison standard and its character mappings. These are comparison data, not destination hostnames or proof of intent.</dd><dt>Public Suffix List and registrable domains</dt><dd>The offline PSL lists suffix rules, including ICANN and PRIVATE hosting rules. It identifies website-name boundaries, not whether a domain is registered or who owns it. Labels are the sections between dots.</dd></dl></details>
 </div></details>
 <footer>
 <div class="footer-meta"><span>Version @@VERSION@@ · Unicode 18.0.0</span><span>@@EDITION_FOOTER@@</span></div>
@@ -113,7 +103,7 @@
 <p>Inspection runs locally without requesting the inspected destination. The app does not save inspected URLs, expected-host text, credentials or tokens. It does not read the clipboard automatically. Your browser or operating system may retain form/session data independently of the app.</p>
 <p>Only your Reference Domains list is saved by the app. Browser cleanup, private sessions or storage restrictions can remove or prevent it. Exported JSON backups let you restore the list elsewhere.</p><p>@@EDITION_PRIVACY@@</p>
 </div></details>
-<details class="disclosure legal" id="unicodeDetails"><summary>Unicode Data &amp; Licenses</summary><div class="panel-body"><p>Unicode security data 18.0.0 · © 1991–2026 Unicode, Inc. · Unicode License V3.</p><p class="small">The pinned Unicode 18.0.0 data is preserved from the approved Version 2.1 dataset. It includes character names, writing systems, normalization and bidirectional properties, IDNA mappings and visual-comparison data. Exact source URLs and checksums are embedded with the data.</p><details class="disclosure observation"><summary>Technical dataset information</summary><p class="category-body small">UTS #39 revision 34, left-to-right fast path. Sources under https://www.unicode.org/Public/18.0.0/ include security/confusables.txt, Unicode Character Database tables and idna/IdnaMappingTable.txt. Comparison skeletons are internal comparison keys, never destination URLs. Complete right-to-left visual comparison is unsupported.</p></details><pre id="license" class="license"></pre></div></details>
+<details class="disclosure legal" id="unicodeDetails"><summary>Data sources &amp; licenses</summary><div class="panel-body"><p>Unicode security data 18.0.0 · © 1991–2026 Unicode, Inc. · Unicode License V3.</p><p class="small">The pinned Unicode 18.0.0 data is preserved from the approved Version 2.1 dataset. It includes character names, writing systems, normalization and bidirectional properties, IDNA mappings and visual-comparison data. Exact source URLs and checksums are embedded with the data.</p><details class="disclosure observation"><summary>Technical dataset information</summary><p class="category-body small">UTS #39 revision 34, left-to-right fast path. Sources under https://www.unicode.org/Public/18.0.0/ include security/confusables.txt, Unicode Character Database tables and idna/IdnaMappingTable.txt. Comparison skeletons are internal comparison keys, never destination URLs. Complete right-to-left visual comparison is unsupported.</p></details><details id="referenceDataAbout" class="disclosure observation"><summary>Popular-domain references &amp; suffix rules</summary><div id="referenceDataAboutBody" class="category-body small"></div></details><details id="referenceDataTechnical" class="disclosure observation"><summary>Advanced source identities</summary><div id="referenceDataTechnicalBody" class="category-body small"></div></details><details class="disclosure observation"><summary>Unicode license text</summary><pre id="license" class="license category-body"></pre></details></div></details>
 </footer>
 </main>
 <dialog id="confirmDialog" class="confirm-dialog" aria-labelledby="confirmTitle" aria-describedby="confirmMessage">

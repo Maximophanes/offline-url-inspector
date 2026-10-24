@@ -2,6 +2,8 @@
 
 This is the permanent copy standard for Offline URL Inspector, established in Version 3.1.2. Follow it when adding or changing application text. Update `COPY_AUDIT.md`, the copy inventory and representative state tests when a message family changes.
 
+For current local Stage 6 work, [the final copy review](STAGE6_FINAL_COPY_REVIEW.md) and `tests/final-copy-inventory.json` extend the historical audits without overwriting their assertions or inventories. Follow **Systematic Result & Messaging Validation** in [AGENTS.md](AGENTS.md); `deno task test:acceptance` checks current generated messages, and the current regression runner preserves exact historical-interface coverage. Use concise verified script/character explanations in ordinary warnings; retain exact code points and sequence evidence in Technical Details. Pair claims require independent character evidence. Associate readable Unicode with a visible textual character cue. Describe userinfo as text outside the actual hostname, without inferring a sign-in operation. Consolidate equivalent hostname-identity mechanisms into understandable thoughts, preserving scope, proof sources and occurrences; independent HTTP transport concerns retain their own caution treatment. Explain structural placement as a different domain relationship, keeping exact PSL boundaries in Technical Details. Recommend an action appropriate to the actual caution evidence: HTTP-only advice concerns sensitive submissions without HTTPS, identity cautions concern the actual hostname, and mixed advice consolidates both once. Establish visible scope at the primary or consecutive-group level without reordering findings; keep each finding's accessible name independently scoped and attributed. A valid nondefault port alone is informational; raw engine severity records remain available. Provide readable technical evidence without serialized engineering state.
+
 ## Audience and voice
 
 Write for intelligent people who may not know Unicode or cybersecurity terminology. Explain the finding first, its significance second, and an available next step when one is needed. Use concise, professional, conversational English. Preserve wording that already works. Do not make every field sound like a specification, diagnostic console or test report.
@@ -31,7 +33,7 @@ An exact **hostname** match compares hostname identity only. It does not compare
 | Decoded Hostname / (percent encoding) | The hostname after percent decoding and the browser preprocessing already modeled by the scanner. It is not a decoded complete URL or a Punycode decoding claim. |
 | Readable Hostname / (Unicode) | The validated readable representation. Do not fabricate it if Punycode/IDNA validation fails. |
 | Actual Hostname / (ASCII / Punycode) | The browser parser's hostname representation. Punycode is an encoding, not a danger category. |
-| Expected hostname | The user's explicit comparison target; it takes priority. |
+| Expected hostname | The user's explicit comparison target. Keep its source distinct; an exact match cannot suppress independent stronger evidence. |
 | Saved reference domain | A deliberately saved comparison target, checked separately where applicable; not a trust database. |
 | Exact match | Hostname identity after the existing normalization rules, not URL equivalence. |
 | Subdomain | A relationship identified from hostname sections and dot boundaries; not ownership or registrable-domain inference. |
@@ -50,7 +52,7 @@ Preserve diagnostic code, level, category, trigger, order, comparison classifica
 
 Use a concise title and the actual severity in each collapsed log entry. An expanded entry gives a short plain-language explanation. Put original prose, codes and processing details in one collapsed Raw Diagnostic Records section at the bottom of the log. Keep useful structured evidence with its finding. Do not turn the log into a second primary findings panel.
 
-Keep comparison-method explanations contextual, retain original comparison metadata internally, and avoid redundant generic raw-comparison panels. Show extraction JSON only when attribution is uncertain or fails, with an ordinary-language limitation and reason. Keep comparison and extraction objects out of Raw Diagnostic Records.
+Keep comparison-method explanations contextual, retain original comparison metadata internally, and avoid redundant generic raw-comparison panels. Explain uncertain or failed extraction through readable limitations and reasons; do not render serialized extraction state. Keep comparison and extraction objects out of Raw Diagnostic Records.
 
 Preserve multi-character mappings. Present UTS #39 mapping sequences once, using actual glyphs/code points; names and raw records can sit deeper. A character's IDNA rule need not describe the normalization of an entire sequence. Mark unverified outcomes rather than asserting preservation. Keep official Unicode names verbatim.
 
@@ -78,6 +80,8 @@ General guidance says browser profiles or isolated sessions, not a Firefox-speci
 
 ## Visual semantics and accessibility
 
+Priority changes order and relative emphasis, never the caution identity of an independent security finding. Use one strongest primary result; all secondary security cautions retain explicit caution labels and the shared compact caution style. Keep informational suggestions and ordinary technical limitations visually distinct, and do not impose a display cap on cautions. Preserve raw diagnostic severity and deliberate evidence access.
+
 | State | Visible treatment |
 |---|---|
 | Ordinary Unicode / informational evidence | Neutral plum/lilac; names and code points remain available. |
@@ -88,7 +92,7 @@ General guidance says browser profiles or isolated sessions, not a Firefox-speci
 | Successful reference operation | Success label and distinct treatment inside reference management, not a URL safety label. |
 | Failed form/backup operation | Error label near its control; saved-data state remains explicit. |
 
-Announce the primary result, rather than the entire diagnostic subtree. Keep independent cache and update statuses, and update text only when it changes. Associate field errors using descriptions/invalid state without moving focus unexpectedly. Preserve native disclosures, focus rings, keyboard shortcuts and modal semantics. Allow normal disclosure expansion while keeping the top offline controls in their own row. Reserve space for short update feedback; do not add a loading overlay or alter the approved title animation.
+Announce the primary result, rather than the entire diagnostic subtree. Keep independent cache and update statuses, and update text only when it changes. Associate field errors using descriptions/invalid state without moving focus unexpectedly. Preserve native disclosures, focus rings, keyboard shortcuts, modal semantics and the approved inspection-action/status layout. Reserve space for short update feedback; do not add a loading overlay or alter the approved title animation.
 
 Audit long hostnames, narrow layouts, 200% zoom, reduced motion and screen-reader behavior. Distinguish source/DOM assertions from actual browser evidence; report real Firefox and accessibility limits honestly.
 

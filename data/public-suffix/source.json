@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "sourceURL": "https://publicsuffix.org/list/public_suffix_list.dat",
+  "version": "2026-10-20_08-40-56_UTC",
+  "upstreamCommit": "5dd321ffe02039e2431382a095cf80e27ff5eb94",
+  "upstreamGitBlobSHA1": "30b18ab3c21f96dd1c4a7b4adb9b16ed9e2b30aa",
+  "bytes": 338010,
+  "sha256": "8228e4bdac6024c058a1e67859157e468a2613b826b53de0e5cae298e1b70755",
+  "rules": {
+    "ICANN": 6949,
+    "PRIVATE": 3447,
+    "wildcards": 311,
+    "exceptions": 8
+  },
+  "fixtures": {
+    "file": "test_psl.txt",
+    "sourceURL": "https://raw.githubusercontent.com/publicsuffix/list/5dd321ffe02039e2431382a095cf80e27ff5eb94/tests/test_psl.txt",
+    "sha256": "8f50ad958916d6a8f79fba2363501475571acce752757f9126fe9d2f17dd920d",
+    "license": "CC0-1.0"
+  },
+  "license": {
+    "spdx": "MPL-2.0",
+    "file": "LICENSE.txt",
+    "sha256": "3f3d9e0024b1921b067d6f7f88deb4a60cbe7a78e76c64e3f1d7fc3b779b9d04",
+    "noticeFile": "NOTICE.txt",
+    "noticeSHA256": "c0f3dbca54f6a4823c6b00b755194a60966534f282731674ee5a0a52066d7c84"
+  }
+}

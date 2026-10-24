@@ -1,0 +1,21 @@
+{
+  "attribution": "Majestic, The Majestic Million. Extracted original ranks/hostnames for calibration; no endorsement or benign/malicious labels. See data/popular-domains/NOTICE.txt.",
+  "bytes": 293810,
+  "columns": [
+    "GlobalRank",
+    "Domain"
+  ],
+  "firstRank": 10001,
+  "kind": "lookalike-calibration-input",
+  "lastRank": 25000,
+  "license": "CC-BY-3.0",
+  "licenseURL": "https://creativecommons.org/licenses/by/3.0/",
+  "originalSourceSHA256": "a5bafba77ae3586dac6ad563a3f374c2f18baca9297b9c7e5137022f0356ea8a",
+  "provider": "majestic",
+  "rows": 15000,
+  "schemaVersion": 1,
+  "selection": "First 10000 distinct eligible registrable domains after normalization, excluding every automatic reference; increasing original rank. Remaining source rows are not corpus members.",
+  "sha256": "820cbba9de28e3030d792847709fd217324a1ab74f15f6ad4b6bf45527dc1e2b",
+  "sourceRetrievedAtUTC": "2026-10-22T02:43:51.752169+00:00",
+  "sourceURL": "https://majestic.com/reports/majestic-million"
+}

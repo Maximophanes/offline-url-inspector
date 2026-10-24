@@ -13,6 +13,11 @@ const EmbeddedUI = (() => {
     'value-size':['A value was too long to check and was skipped.','The value exceeded 8,192 UTF-16 code units. It was not truncated into an address.'],
     parameters:['Too many parameters or path segments were present to check them all.','The 128-entry parameter or segment limit for a component was reached.'],
     candidates:['The address-entry limit was reached; further entries weren’t recorded.','The 32-candidate occurrence limit was reached.'],
+    occurrences:['The occurrence limit was reached; further appearances weren’t recorded.','The 32-occurrence graph limit was reached; recorded counts are incomplete.'],
+    'occurrences-per-value':['Repeated address evidence reached its limit; some appearances weren’t recorded.','At most 8 occurrences of one recovered value/type are recorded, preserving capacity for different addresses.'],
+    relationships:['Some nested parent relationships couldn’t be recorded.','The bounded parent-child relationship limit was reached; occurrence coverage is incomplete.'],
+    expansions:['Some nested occurrences couldn’t be expanded.','The 64 occurrence/interpretation expansion limit was reached; deeper occurrence coverage is incomplete.'],
+    provenance:['Some alternative interpretation evidence couldn’t be recorded.','The 6-variant evidence limit for an occurrence was reached; provenance coverage is incomplete.'],
     hostnames:['The hostname-check limit was reached; some hostnames weren’t fully checked.','The 16-hostname analysis limit was reached.'],
     comparisons:['Some visual or spelling comparisons reached their processing limit.','The 256-pair visual/spelling comparison limit was reached. Exact and structural checks are separate.'],
     decoding:['Some URL-encoded text couldn’t be read reliably.','Strict percent decoding failed on malformed escapes or invalid UTF-8. The value was not repaired.'],
@@ -99,7 +104,8 @@ const EmbeddedUI = (() => {
   }
   function countsText(result){
     const totals=Object.fromEntries(Object.keys(types).map(type=>[type,result.candidates.filter(c=>c.type===type).length]));
-    if(result.candidates.length===1&&totals.absolute===1)return '1 embedded web address found.';
+    const incomplete=result.occurrenceCoverage==='partial'?' Occurrence coverage is incomplete; counts describe recorded evidence.':'';
+    if(result.candidates.length===1&&totals.absolute===1)return '1 embedded web address found.'+incomplete;
     const parts=[];
     if(totals.absolute)parts.push(count(totals.absolute,'embedded web address entry','embedded web address entries'));
     if(totals.relative)parts.push(count(totals.relative,'relative reference'));
@@ -109,8 +115,8 @@ const EmbeddedUI = (() => {
     if(!parts.length)return '';
     let text=parts.join('; ')+'.';
     const absolute=result.candidates.filter(c=>c.type==='absolute');
-    if(absolute.length>1){const locations=new Set(absolute.map(c=>JSON.stringify([c.component,c.parent,c.location]))).size,hosts=new Set(absolute.map(c=>canonical(c.hostname))).size;text+=' Web address entries represent '+count(locations,'source occurrence')+' and '+count(hosts,'distinct hostname')+'.';}
-    return text;
+    if(absolute.length>1){const locations=new Set(absolute.map(c=>c.occurrenceId??JSON.stringify([c.component,c.parent,c.location,c.matchPosition||null]))).size,hosts=new Set(absolute.map(c=>canonical(c.hostname))).size;text+=' Web address entries represent '+count(locations,'source occurrence')+' and '+count(hosts,'distinct hostname')+'. '+count(new Set(absolute.map(c=>c.value)).size,'distinct recovered web address value')+'.';}
+    return text+incomplete;
   }
   function relationshipText(comparison){
     const hostname=safe(comparison.hostname);
@@ -167,6 +173,7 @@ const EmbeddedUI = (() => {
     row(parent,'Address entry',candidate.id);row(parent,'Classification',classifications[candidate.type]);
     row(parent,'Evidence',candidate.evidence==='fact'?'Extracted from the supplied URL text.':'Possible address; boundaries uncertain.');
     row(parent,'Source location',candidate.location);
+    if(candidate.occurrenceId)row(parent,'Source occurrence',candidate.occurrenceId);
     if(candidate.parent)row(parent,'Found inside','Address entry '+candidate.parent+'. This is a data relationship, not a verified redirect sequence.');
     if(candidate.parameter){row(parent,'Parameter name',candidate.parameter.original,true);if(candidate.parameter.decoded!==candidate.parameter.original)row(parent,'Decoded parameter name',candidate.parameter.decoded,true);row(parent,'Parameter occurrence',candidate.occurrence);row(parent,'Equals separator',candidate.hasEquals?'Present':'Absent');}
     if(candidate.sourceValue===candidate.value)row(parent,'Source and recovered value',candidate.value,true);
@@ -174,6 +181,7 @@ const EmbeddedUI = (() => {
     if(candidate.normalized&&candidate.normalized!==candidate.value)row(parent,'Browser-normalized URL',candidate.normalized,true);
     for(const p of candidate.provenance){
       row(parent,'Source representation',p.representation==='submitted'?'From the pasted link':'From the browser-normalized link');
+      if(p.sourcePosition)row(parent,'Source value position',p.sourcePosition.start+'–'+p.sourcePosition.end+' (end excluded, UTF-16 units) · '+({component:'within this source component','interpreted-parent-value':'within the interpreted parent value','derived-container':'within derived parameter text'}[p.sourcePosition.basis]||p.sourcePosition.basis));
       row(parent,'Decoding steps',p.steps.length?p.steps.map(s=>(s.kind==='form-percent'?'Form-style percent decoding (+ treated as space)':'Strict percent decoding')+', layer '+s.layer).join(' → '):'No additional URL decoding');
     }
     if(candidate.inferredContainer)row(parent,'Application data','Interpreted as nested parameters; application behavior is unknown.');
@@ -182,7 +190,7 @@ const EmbeddedUI = (() => {
     if(candidate.effectivePort)row(parent,'Effective port',candidate.effectivePort);
     if(candidate.hostname){
       if(candidate.original&&!candidate.original.reliable)row(parent,'Original hostname','Could not be identified with certainty; the displayed hostname is browser-normalized.');
-      comparisons(parent,candidate);
+
       const warnings=candidate.analysis?.diagnostics.filter(m=>['punycode','dns','bidi-limit','normalization','normalized-ascii','non-ascii','mixed','character-confusables'].includes(m.code))||[];
       for(const warning of warnings)parent.appendChild(el('p',safe(warning.text),'small'+(warning.level==='alert'||warning.level==='warn'?' warn':'')));
     }
@@ -190,8 +198,7 @@ const EmbeddedUI = (() => {
   function record(candidate){
     const article=el('article','','embedded-record');article.dataset.candidate=String(candidate.id);
     const heading=el('h3',candidate.hostname?safe(candidate.hostname):candidate.type==='unsupported-scheme'?'Recognized scheme: '+safe(candidate.scheme):types[candidate.type],'embedded-host');heading.id='embedded-entry-'+candidate.id;heading.tabIndex=-1;article.setAttribute('aria-labelledby',heading.id);article.appendChild(heading);
-    row(article,'Found in',locationText(candidate.location));
-    if(candidate.parent)row(article,'Found inside','Address entry '+candidate.parent+'; this does not establish a redirect sequence.');
+    row(article,'Found in',locationText(candidate.component));
     if(candidate.conflicting)article.appendChild(el('p','This parameter contains different addresses in separate occurrences. Which value the website uses is unknown.','small warn'));
     if(candidate.hostname){
       if(candidate.schemePortDiffers)row(article,'Scheme or port','Differs from the link’s URL. Hostname equality is a separate check.');
@@ -212,9 +219,10 @@ const EmbeddedUI = (() => {
   }
   function render(result){
     const section=document.getElementById('embeddedDetails'),status=document.getElementById('embeddedStatus'),list=document.getElementById('embeddedCandidates'),limitations=document.getElementById('embeddedLimitations'),details=document.getElementById('embeddedLimitDetails'),notice=document.getElementById('embeddedNotice');
-    section.open=false;document.getElementById('embeddedCoverageDetails').open=false;list.replaceChildren();limitations.replaceChildren();details.replaceChildren();
+    section.open=false;list.replaceChildren();limitations.replaceChildren();details.replaceChildren();
     status.textContent=labels[result.status];status.dataset.state=result.status;
     if(result.status==='unsupported')status.textContent=result.limitations.some(l=>l.kind==='unsupported'&&l.code!=='visual')?'Some embedded data couldn’t be interpreted.':'Some embedded comparisons aren’t available.';
+    if(notice){
     const finding=summary(result),title=document.getElementById('embeddedTitle'),body=document.getElementById('embeddedSummary'),coverage=document.getElementById('embeddedCoverage');
     // Avoid rewriting the live summary when the same inspection is rendered again.
     if(title.textContent!==finding.title)title.textContent=finding.title;
@@ -233,7 +241,8 @@ const EmbeddedUI = (() => {
     coverage.classList.toggle('hidden',!finding.coverage);coverage.dataset.state=result.status;
     document.getElementById('embeddedRedirect').classList.toggle('hidden',!finding.redirect);
     notice.dataset.tone=finding.tone;notice.classList.toggle('hidden',!finding.title);
-    if(!result.candidates.length)list.appendChild(el('p',result.status==='unavailable'?'Embedded-address checks couldn’t be completed.':result.status==='partial'?'No embedded web addresses found in the data checked.':'No embedded web addresses found in the supported formats.','small'));
+    }
+
     const heading=countsText(result),counter=document.getElementById('embeddedCount'),more=el('button','','ghost small');more.type='button';let position=0;
     const next=()=>{
       const focused=document.activeElement===more;let first;
@@ -244,18 +253,18 @@ const EmbeddedUI = (() => {
       else if(focused)first?.querySelector('h3')?.focus({preventScroll:true});
     };
     more.addEventListener('click',next);next();
-    for(const item of limitationLines(result))limitations.appendChild(el('li',item.text));
+
     for(const item of result.limitations)details.appendChild(el('li',(item.component?item.component+' · ':'')+item.code+': '+reasons[item.code][1]));
     if(result.components.some(c=>c.normalizedDiffers))details.appendChild(el('li','The pasted and browser-normalized components differ. Each source representation is labeled in expanded evidence. The original input remains in Input & Normalization.'));
   }
-  function update(top,references){
+  function update(top,references,{defer=false}={}){
     let result;try{result=EmbeddedURLs.analyze(top,{references});}catch{result=EmbeddedURLs.unavailable();result.limitations=[{kind:'unavailable',code:'processing'}];}
-    render(result);return result;
+    if(!defer)render(result);return result;
   }
-  document.getElementById('embeddedView').addEventListener('click',()=>{
+  document.getElementById('embeddedView')?.addEventListener('click',()=>{
     document.getElementById('advanced').open=true;const section=document.getElementById('embeddedDetails');section.open=true;section.querySelector('summary').focus();
   });
-  for(const id of ['advanced','embeddedDetails'])document.getElementById(id).addEventListener('toggle',event=>{
+  for(const id of ['advanced','diagnostics','embeddedDetails'])document.getElementById(id)?.addEventListener('toggle',event=>{
     if(event.target!==event.currentTarget||event.currentTarget.open)return;
     for(const reveal of document.querySelectorAll('.embedded-reveal')){reveal.open=false;reveal.querySelector('.category-body').replaceChildren();}
   });

@@ -1,0 +1,15 @@
+Majestic Million reference-source subset
+
+Source: Majestic, The Majestic Million
+https://majestic.com/reports/majestic-million
+Download: https://downloads.majestic.com/majestic_million.csv
+License: Creative Commons Attribution 3.0 Unported (CC-BY-3.0)
+https://creativecommons.org/licenses/by/3.0/
+https://creativecommons.org/licenses/by/3.0/legalcode
+
+Changes by Offline URL Inspector: select GlobalRank <= 10000; retain
+GlobalRank and original Domain fields; normalize and deduplicate in separately
+generated records. The rank measures referring-subnet popularity, not visits,
+ownership, legitimacy, reputation or safety. No Majestic endorsement is implied.
+The exact full CSV checksum and extraction/reproduction information are in
+source.json and REFERENCE_DATA.md. No full-million runtime list is bundled.

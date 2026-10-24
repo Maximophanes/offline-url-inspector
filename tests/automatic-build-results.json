@@ -1,0 +1,84 @@
+{
+  "suite": "Stage 6 development build integrity",
+  "checks": [
+    {
+      "name": "refuse unsafe or historically mislabeled build []",
+      "passed": true
+    },
+    {
+      "name": "refuse unsafe or historically mislabeled build ['--automatic-ui-preview']",
+      "passed": true
+    },
+    {
+      "name": "refuse unsafe or historically mislabeled build ['--automatic-ui-preview', '--output-root', '<repository>/site/stage6']",
+      "passed": true
+    },
+    {
+      "name": "refuse unsafe or historically mislabeled build ['--comparison-preview', '--output-root', '/private/tmp/oui-stage6-build-ei_agnht/one']",
+      "passed": true
+    },
+    {
+      "name": "isolated build one",
+      "passed": true
+    },
+    {
+      "name": "isolated build two",
+      "passed": true
+    },
+    {
+      "name": "repeat complete development bundle bytes agree",
+      "passed": true
+    },
+    {
+      "name": "current UI, data, notices, CSP and worker bind the complete bundle",
+      "passed": true
+    },
+    {
+      "name": "targeted current generated UI and lifecycle checks",
+      "passed": true
+    },
+    {
+      "name": "public stable artifacts remain exact",
+      "passed": true
+    }
+  ],
+  "failures": [],
+  "developmentManifest": {
+    "standalone": {
+      "sha256": "f6b5a7df8ed039b35651b4b3c864588dabf1b0841ccd2cefecc8db75077ef1af",
+      "bytes": 3435006,
+      "scriptHash": "/3xqR7T9koi4Dm9LkgeztVvAhtaPU96546i1IaGJIgk=",
+      "styleHash": "uAYAgpVgdTtDv3ftQTOya3L3AS3NbfPzcYAsE1+6nFw="
+    },
+    "hosted": {
+      "sha256": "bb356cf1cf1489c028dff5b1282fd6f194d512d374e9591e861f4fe4e6ed7b14",
+      "bytes": 3447066,
+      "scriptHash": "T5ABM0813fmtK25G01p8gxkgvb2KoqPEJMMgVxhrtbQ=",
+      "styleHash": "uAYAgpVgdTtDv3ftQTOya3L3AS3NbfPzcYAsE1+6nFw="
+    },
+    "release": "3.3.0-stage6-bb356cf1cf1489c0",
+    "unicodeVersion": "18.0.0",
+    "unicodeDataSHA256": "806135e914efe7978ca23124b2ad4472b5643adbb766dc1ab799b3ca1c7a5dc1",
+    "developmentOnly": true,
+    "automaticMatchingAvailable": true,
+    "referenceFoundationSHA256": "24971b3e95142d1e751d0ab8eb283de6b073545553995957927c963e9c1fd5dc",
+    "referenceProvider": "majestic",
+    "occurrenceProvenanceVersion": 2,
+    "embeddedSourcesSHA256": {
+      "src/embedded.js": "66df9cd907c29a342d3e856a56cdeae542ae518126f1829d0c500c3ba620a63c",
+      "src/embedded-ui.js": "d1afa96fa6e1d280c4c6f52cc5b6cc1330043ffd25a9449e914c3b690919e6ca"
+    },
+    "automaticUIAvailable": true,
+    "comparisonSchemaVersion": 1,
+    "initialization": "scheduled-local-text",
+    "lookalikeIndexSHA256": "7cd6bec6f74549177c508468b8f061618d1f90916664621d28df5f1dbb5dc526",
+    "comparisonSourceSHA256": "a6749b2b73c25b90199d0fcca83d69169e77094f04e4f9dbeb60053c12a1a846",
+    "automaticUISourceSHA256": "7c45eff3e431ad466493679469fe72267b7ec2c12b9def7ee6d20a6d1f4d93ee"
+  },
+  "total": {
+    "executed": 10,
+    "passed": 10,
+    "failed": 0
+  },
+  "scope": "Only disposable Stage 6 builds. Historical/default builds refuse changed presentation rather than mislabel it. No release verifier or deployment workflow changes."
+}

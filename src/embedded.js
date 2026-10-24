@@ -2,7 +2,7 @@
 // Supplemental text analysis only. No DOM, storage, navigation or I/O capabilities.
 // The existing Inspector owns top-level parsing and all hostname algorithms.
 const EmbeddedURLs = (() => {
-  const LIMITS=Object.freeze({value:8192,depth:3,percentLayers:2,parameters:128,nodes:128,text:131072,candidates:32,hostnames:16,comparisons:256,milliseconds:100});
+  const LIMITS=Object.freeze({value:8192,depth:3,percentLayers:2,parameters:128,nodes:128,text:131072,candidates:32,occurrences:32,relationships:32,expansions:64,perValueOccurrences:8,provenance:6,hostnames:16,comparisons:256,milliseconds:100});
   const HINTS=new Set(['url','next','redirect','redirect_url','redirect_uri','return','returnurl','return_to','continue','target','destination','dest','goto','to','callback','relaystate']);
   const canonical=host=>host.replace(/\.$/,'').toLowerCase();
   const special=host=>host.startsWith('[')||/^(?:\d+\.){3}\d+$/.test(host)||!host.includes('.');
@@ -16,7 +16,7 @@ const EmbeddedURLs = (() => {
     }
     return 'different';
   }
-  const unavailable=()=>({status:'unavailable',candidates:[],limitations:[{kind:'unavailable',code:'top-level',component:null}],observations:[],components:[],stats:{nodes:0,text:0,candidates:0,hostnames:0,comparisons:0},limits:LIMITS});
+  const unavailable=()=>({status:'unavailable',provenanceVersion:2,occurrenceCoverage:'unavailable',candidates:[],occurrences:[],analyses:[],limitations:[{kind:'unavailable',code:'top-level',component:null}],observations:[],components:[],stats:{nodes:0,text:0,candidates:0,occurrences:0,relationships:0,expansions:0,urlParses:0,parseCacheHits:0,uniqueAddresses:0,hostnames:0,comparisons:0},limits:LIMITS});
   // Called only for accepted HTTP(S) input. This locates components, not a host.
   // Map through Inspector's existing preprocessing indices; never invent offsets.
   function components(raw,url,prep){
@@ -31,11 +31,12 @@ const EmbeddedURLs = (() => {
   }
   function analyze(top,{references=[],clock=()=>performance.now()}={}){
     if(!top?.ok||!top.original?.reliable||typeof top.raw!=='string'||top.raw.length>Inspector.MAX_INPUT)return unavailable();
-    const result={status:'complete',candidates:[],limitations:[],observations:[],parameters:[],components:[],stats:{nodes:0,text:0,candidates:0,hostnames:0,comparisons:0,parameters:{path:0,query:0,fragment:0}},limits:LIMITS};
-    const started=clock(),queues={path:[],query:[],fragment:[]},limited=new Set(),seenCandidates=new Map(),expanded=new Map(),hostCache=new Map(),comparisonCache=new Map();
+    const result={status:'complete',provenanceVersion:2,occurrenceCoverage:'complete',candidates:[],occurrences:[],analyses:[],limitations:[],observations:[],parameters:[],components:[],stats:{nodes:0,text:0,candidates:0,occurrences:0,relationships:0,expansions:0,urlParses:0,parseCacheHits:0,uniqueAddresses:0,hostnames:0,comparisons:0,parameters:{path:0,query:0,fragment:0}},limits:LIMITS};
+    const started=clock(),queues={path:[],query:[],fragment:[]},limited=new Set(),seenCandidates=new Map(),sourceSites=new Map(),parseCache=new Map(),expanded=new Set(),valueOccurrences=new Map(),hostCache=new Map(),comparisonCache=new Map();
     let stopped=false,partial=false,unsupported=false;
     function limit(kind,code,node={}){
       if(kind==='partial')partial=true;if(kind==='unsupported')unsupported=true;
+      if(kind==='partial'&&!['hostnames','comparisons','hostname-decoding','host-analysis','expected','reference','references'].includes(code))result.occurrenceCoverage='partial';
       const key=[kind,code,node.component].join('|');if(limited.has(key))return;limited.add(key);
       // Limit metadata too; one record per reason/component is sufficient after saturation.
       if(result.limitations.length<48)result.limitations.push({kind,code,component:node.component||null,location:node.location||null});
@@ -53,7 +54,7 @@ const EmbeddedURLs = (() => {
         if(!parent)result.components.push({component:part.component,hasDelimiter:part.hasDelimiter,normalizedDiffers:part.original!==part.normalized,preprocessed:part.preprocessed});
         const versions=[['submitted',part.original]];
         if(part.original!==part.normalized)versions.push(['browser-normalized',part.normalized]);
-        for(const [representation,text]of versions)if(text)enqueue({...inherited,steps:[...inherited.steps],component:part.component,representation,location:parent?'Nested URL '+parent.id+' · '+part.component:part.component,parent:parent?.id||null,text,hint:part.component==='path'&&/\/(?:go|out|redirect)(?:\/|$)/i.test(text),kind:'container',mode:part.component,cursor:0,occurrence:0,pathScanned:false,routeScanned:false});
+        for(const [representation,text]of versions)if(text)enqueue({...inherited,steps:[...inherited.steps],component:part.component,representation,location:parent?'Nested URL '+parent.id+' · '+part.component:part.component,parent:parent?.id||null,text,sourcePosition:{start:0,end:text.length,basis:'component'},offset:0,positionBasis:'component',hint:part.component==='path'&&/\/(?:go|out|redirect)(?:\/|$)/i.test(text),kind:'container',mode:part.component,cursor:0,occurrence:0,pathScanned:false,routeScanned:false});
       }
     }
     let initial;
@@ -65,34 +66,63 @@ const EmbeddedURLs = (() => {
       let decoded;
       try{decoded=decodeURIComponent(form?node.text.replaceAll('+',' '):node.text);}catch{limit('partial','decoding',node);return;}
       if(decoded===node.text||node.states?.includes(decoded))return;
-      enqueue({...node,text:decoded,steps:[...node.steps,{kind:form?'form-percent':'percent',layer:node.layers+1}],layers:node.layers+1,depth:node.depth+1,form:false,states:[...(node.states||[]),node.text]});
+      enqueue({...node,sourceValue:node.sourceValue??node.text,text:decoded,steps:[...node.steps,{kind:form?'form-percent':'percent',layer:node.layers+1}],layers:node.layers+1,depth:node.depth+1,form:false,states:[...(node.states||[]),node.text]});
     }
     function add(node,value,type,extra={}){
-      const key=[node.component,node.parent,node.location,type].join('|'),bucket=seenCandidates.get(key)||[],old=bucket.find(c=>c.value===value);
-      const provenance={representation:node.representation,steps:node.steps};
-      if(old){if(!old.provenance.some(p=>JSON.stringify(p)===JSON.stringify(provenance))&&old.provenance.length<6)old.provenance.push(provenance);return old;}
+      const key=JSON.stringify([node.component,node.parent,node.location,type,node.matchPosition||null]),bucket=seenCandidates.get(key)||[],old=bucket.find(c=>c.value===value);
+      const provenance={representation:node.representation,steps:node.steps,parentAnalysis:node.parentAnalysis||null,relativeSteps:node.steps.slice(node.parentStepCount||0),sourcePosition:node.sourcePosition||null,matchPosition:node.matchPosition||null,interpretation:{mode:node.mode,layers:node.layers,depth:node.depth,form:!!node.form,pathWhole:!!node.pathWhole,inferredContainer:!!node.inferredContainer}};
+      if(old){if(!old.provenance.some(p=>JSON.stringify(p)===JSON.stringify(provenance))){if(old.provenance.length<LIMITS.provenance)old.provenance.push(provenance);else limit('partial','provenance',node);}return old;}
+      const valueKey=JSON.stringify([type,value]),valueCount=valueOccurrences.get(valueKey)||0;
+      if(valueCount>=LIMITS.perValueOccurrences){limit('partial','occurrences-per-value',node);return null;}
+      const parentOccurrence=node.parent?result.candidates[node.parent-1]?.occurrenceId:null;
+      if(node.parent&&!parentOccurrence){limit('partial','relationships',node);return null;}
+      const siteKey=JSON.stringify([parentOccurrence,node.component,node.representation,node.positionBasis,node.location.replace(/^Nested URL \d+ · /,''),node.matchPosition||null]);
+      let site=sourceSites.get(siteKey);
+      if(!site&&result.stats.occurrences>=LIMITS.occurrences){limit('partial','occurrences',node);if(result.candidates.length>=LIMITS.candidates)limit('partial','candidates',node);return null;}
       if(result.candidates.length>=LIMITS.candidates){limit('partial','candidates',node);return null;}
+      if(!site&&parentOccurrence&&result.stats.relationships>=LIMITS.relationships){limit('partial','relationships',node);return null;}
       const charge=value.length+(extra.normalized?.length||0);
       if(result.stats.text+charge>LIMITS.text){limit('partial','text',node);return null;}result.stats.text+=charge;
-      const candidate={id:result.candidates.length+1,type,evidence:type==='url-like'?'inference':'fact',component:node.component,location:node.location,representation:node.representation,parent:node.parent,parameter:node.parameter||null,occurrence:node.occurrence||null,hasEquals:node.hasEquals??null,hint:!!node.hint,inferredContainer:!!node.inferredContainer,value,sourceValue:node.sourceValue??node.text,provenance:[provenance],steps:node.steps,layers:node.layers,comparisons:[],warnings:[],...extra};
-      result.candidates.push(candidate);bucket.push(candidate);seenCandidates.set(key,bucket);result.stats.candidates++;return candidate;
+      const candidate={id:result.candidates.length+1,type,evidence:type==='url-like'?'inference':'fact',component:node.component,location:node.location,representation:node.representation,parent:node.parent,parameter:node.parameter||null,occurrence:node.occurrence||null,sourcePosition:node.sourcePosition||null,matchPosition:node.matchPosition||null,hasEquals:node.hasEquals??null,hint:!!node.hint,inferredContainer:!!node.inferredContainer,value,sourceValue:node.sourceValue??node.text,provenance:[provenance],steps:node.steps,layers:node.layers,comparisons:[],warnings:[],...extra};
+      if(!site){site={id:result.occurrences.length+1,parent:parentOccurrence,component:node.component,representation:node.representation,entries:[]};sourceSites.set(siteKey,site);result.occurrences.push(site);result.stats.occurrences++;if(parentOccurrence)result.stats.relationships++;}
+      candidate.occurrenceId=site.id;site.entries.push(candidate.id);
+      result.candidates.push(candidate);bucket.push(candidate);seenCandidates.set(key,bucket);valueOccurrences.set(valueKey,valueCount+1);result.stats.candidates++;return candidate;
     }
     function absolute(node,value){
-      let url;try{url=new URL(value);}catch{limit('partial','invalid-url',node);return null;}
-      if(!['http:','https:'].includes(url.protocol)||!url.hostname)return null;
-      const prep=Inspector.prepare(value),original=Inspector.originalHost(value,prep,url);
+      // Parent identity is deliberately absent. Equal text shares work only when
+      // representation, mode and remaining interpretation allowances also agree.
+      const interpretation=[value,node.representation,node.mode,!!node.form,!!node.pathWhole,!!node.inferredContainer,node.layers,node.depth],key=JSON.stringify(interpretation);
+      let parsed=parseCache.get(key);
+      if(parsed)result.stats.parseCacheHits++;
+      else{
+        if(parseCache.size>=LIMITS.nodes){limit('partial','nodes',node);return null;}
+        if(result.stats.text+key.length>LIMITS.text){limit('partial','text',node);return null;}result.stats.text+=key.length;
+        let url;try{result.stats.urlParses++;url=new URL(value);}catch{parseCache.set(key,{invalid:true});limit('partial','invalid-url',node);return null;}
+        if(!['http:','https:'].includes(url.protocol)||!url.hostname)return null;
+        const prep=Inspector.prepare(value),original=Inspector.originalHost(value,prep,url);
+        const parts=original.reliable?components(value,url,prep):['path','query','fragment'].map(component=>({component,original:'',normalized:component==='path'?url.pathname:component==='query'?url.search.slice(1):url.hash.slice(1)}));
+        const charge=parts.reduce((sum,p)=>sum+p.original.length+p.normalized.length,0);
+        if(result.stats.text+charge>LIMITS.text){limit('partial','text',node);return null;}result.stats.text+=charge;
+        parsed={url,original,parts:parts.filter(p=>p.component!=='path'||p.original&&p.original!=='/'||p.normalized&&p.normalized!=='/'),warnings:[]};
+        if(original.hadUserinfo||url.username||url.password)parsed.warnings.push('userinfo');
+        if([...value].some(ch=>Inspector.info(ch).invisible))parsed.warnings.push('invisible');
+        if(value.includes('\\'))parsed.warnings.push('backslash');
+        parseCache.set(key,parsed);
+      }
+      if(parsed.invalid){limit('partial','invalid-url',node);return null;}
+      const {url,original}=parsed;
       const candidate=add(node,value,'absolute',{hostname:url.hostname,scheme:url.protocol,effectivePort:url.port||(url.protocol==='https:'?'443':'80'),normalized:url.href,original,hasUserinfo:!!(original.hadUserinfo||url.username||url.password),initialRelationship:relationship(url.hostname,top.ascii),schemePortDiffers:url.protocol!==top.scheme||(url.port||(url.protocol==='https:'?'443':'80'))!==(top.port||(top.scheme==='https:'?'443':'80'))});
       if(!candidate)return null;
       if(!original.reliable)limit('partial','attribution',node);
-      if(candidate.hasUserinfo)candidate.warnings.push('userinfo');
-      if([...value].some(ch=>Inspector.info(ch).invisible))candidate.warnings.push('invisible');
-      if(value.includes('\\'))candidate.warnings.push('backslash');
-      const key=node.layers+':'+node.depth,states=expanded.get(value)||new Set();
-      if(!states.has(key)){
-        states.add(key);expanded.set(value,states);
-        const parts=original.reliable?components(value,url,prep):['path','query','fragment'].map(component=>({component,original:'',normalized:component==='path'?url.pathname:component==='query'?url.search.slice(1):url.hash.slice(1)}));
-        const nonempty=parts.filter(p=>p.component!=='path'||p.original&&p.original!=='/'||p.normalized&&p.normalized!=='/');
-        if(nonempty.some(p=>p.original||p.normalized))rootParts(nonempty,candidate,{steps:node.steps,layers:node.layers,depth:node.depth+1});
+      candidate.warnings=[...parsed.warnings];
+      if(!parsed.id){parsed.id=result.analyses.length+1;result.analyses.push({id:parsed.id,mode:node.mode,representation:node.representation,form:!!node.form,pathWhole:!!node.pathWhole,inferredContainer:!!node.inferredContainer,remainingPercentLayers:LIMITS.percentLayers-node.layers,remainingDepth:LIMITS.depth-node.depth});}
+      candidate.sharedAnalyses??=[];
+      if(!candidate.sharedAnalyses.includes(parsed.id)){if(candidate.sharedAnalyses.length>=LIMITS.provenance){limit('partial','provenance',node);return candidate;}candidate.sharedAnalyses.push(parsed.id);}
+      const expansionKey=candidate.id+':'+parsed.id;
+      if(!expanded.has(expansionKey)){
+        if(result.stats.expansions>=LIMITS.expansions){limit('partial','expansions',node);return candidate;}
+        expanded.add(expansionKey);result.stats.expansions++;
+        if(parsed.parts.some(p=>p.original||p.normalized))rootParts(parsed.parts,candidate,{steps:node.steps,layers:node.layers,depth:node.depth+1,parentAnalysis:parsed.id,parentStepCount:node.steps.length});
       }
       return candidate;
     }
@@ -102,10 +132,10 @@ const EmbeddedURLs = (() => {
       const match=matches.exec(node.text);if(!match)return false;
       const rest=node.text.slice(match.index);
       if(node.pathWhole&&match.index>0&&node.text[match.index-1]==='/'&&!unsafeBoundary(rest)){
-        absolute({...node,location:node.location+' · URL suffix'},rest);return true;
+        absolute({...node,location:node.location+' · URL suffix',sourcePosition:{start:(node.offset||0)+match.index,end:(node.offset||0)+node.text.length,basis:node.positionBasis||'component'}},rest);return true;
       }
       let end=match.index;while(end<node.text.length&&!/[\s<>"'`]/u.test(node.text[end]))end++;
-      add(node,node.text.slice(match.index,end),'url-like');limit('partial','boundaries',node);
+      add({...node,matchPosition:{start:match.index,end,basis:'interpreted-value'}},node.text.slice(match.index,end),'url-like');limit('partial','boundaries',node);
       // One match per turn: a single query value cannot fill the occurrence
       // budget before the path/fragment queues have had a chance to run.
       if(result.candidates.length<LIMITS.candidates)queues[node.component].push({...node,kind:'scan',scanCursor:match.index+match[0].length});
@@ -125,8 +155,8 @@ const EmbeddedURLs = (() => {
       const relative=/^(?:\/(?!\/)|\.\.?\/|[?#])/.test(text)&&!node.pathWhole&&!unsafeBoundary(text);
       if(relative){
         const reference=add(node,text,'relative'),question=text.indexOf('?'),hash=text.indexOf('#');
-        if(question>=0&&(hash<0||question<hash)){
-          enqueue({...node,kind:'container',mode:'query',text:text.slice(question+1,hash<0?text.length:hash),cursor:0,occurrence:0,parent:reference?.id||node.parent,depth:node.depth+1,inferredContainer:true,location:node.location+' · relative-reference parameters',form:false});
+        if(reference&&question>=0&&(hash<0||question<hash)){
+          enqueue({...node,kind:'container',mode:'query',text:text.slice(question+1,hash<0?text.length:hash),offset:question+1,positionBasis:'interpreted-parent-value',cursor:0,occurrence:0,parent:reference.id,parentAnalysis:null,parentStepCount:node.steps.length,depth:node.depth+1,inferredContainer:true,location:node.location+' · relative-reference parameters',form:false});
         }
         // Query interpretation must not suppress the remaining whole-value decoding state.
         transform(node);
@@ -135,7 +165,7 @@ const EmbeddedURLs = (() => {
       // Interpret an entire parameter-like string as a subordinate container.
       // Its delimiters never change the actual outer URL or parent parameter list.
       if(!node.pathWhole&&/^[^\s=&?#]+=[\s\S]*&/.test(text)&&!node.inferredContainer){
-        enqueue({...node,kind:'container',mode:'query',cursor:0,occurrence:0,depth:node.depth+1,inferredContainer:true,location:node.location+' · nested parameters',form:false});return;
+        enqueue({...node,kind:'container',mode:'query',offset:0,positionBasis:'derived-container',cursor:0,occurrence:0,depth:node.depth+1,inferredContainer:true,location:node.location+' · nested parameters',form:false});return;
       }
       const found=scan(node);
       // The full path scan handles literal URL suffixes; segments handle encoding.
@@ -168,7 +198,7 @@ const EmbeddedURLs = (() => {
         node.cursor=end+1;
         if(result.stats.parameters[node.component]>=LIMITS.parameters){limit('partial','parameters',node);return;}result.stats.parameters[node.component]++;
         const occurrence=++node.occurrence;
-        enqueue({...node,kind:'value',text:node.text.slice(begin,end),sourceValue:node.text.slice(begin,end),pathWhole:false,hint:node.hint||/^(?:go|out|redirect)$/i.test(node.text.slice(begin,end)),location:node.location+' · segment '+occurrence});
+        enqueue({...node,kind:'value',text:node.text.slice(begin,end),sourceValue:node.text.slice(begin,end),sourcePosition:{start:(node.offset||0)+begin,end:(node.offset||0)+end,basis:node.positionBasis},pathWhole:false,hint:node.hint||/^(?:go|out|redirect)$/i.test(node.text.slice(begin,end)),location:node.location+' · segment '+occurrence});
         if(node.cursor<node.text.length)queues[node.component].push(node);return;
       }
       if(node.mode==='fragment'&&!node.routeScanned){
@@ -176,7 +206,7 @@ const EmbeddedURLs = (() => {
         if(encodedFragmentAddress(node))enqueue({...node,kind:'value',sourceValue:node.text,form:false});
         if(/^\//.test(node.text)&&!/^\/\//.test(node.text)){
           const q=node.text.indexOf('?');
-          if(q>=0){enqueue({...node,kind:'value',text:node.text.slice(0,q),location:node.location+' · route',form:false});node.text=node.text.slice(q+1);node.location+=' · route parameters';node.inferredContainer=true;}
+          if(q>=0){enqueue({...node,kind:'value',text:node.text.slice(0,q),sourcePosition:{start:node.offset||0,end:(node.offset||0)+q,basis:node.positionBasis},location:node.location+' · route',form:false});node.text=node.text.slice(q+1);node.offset=(node.offset||0)+q+1;node.location+=' · route parameters';node.inferredContainer=true;}
         }
         if(!node.text.includes('=')&&!node.text.includes('&')){enqueue({...node,kind:'value',form:false});return;}
       }
@@ -191,8 +221,9 @@ const EmbeddedURLs = (() => {
       // A naked address (e.g. #https://host/?a=b) is a whole fragment value,
       // rather than a made-up parameter whose name is the address prefix.
       if(node.occurrence===1&&/^https?:\/\//i.test(node.text)){enqueue({...node,kind:'value',text:node.text,form:false});return;}
-      if(result.parameters.length<LIMITS.nodes)result.parameters.push({component:node.component,parent:node.parent,representation:node.representation,location:node.location,occurrence,parameter,hasEquals:equals>=0,emptyValue:!text});
-      enqueue({...node,kind:'value',text,sourceValue:text,parameter,hasEquals:equals>=0,hint,occurrence,form:true,location:node.location+' · parameter '+occurrence});
+      const sourcePosition={start:(node.offset||0)+begin+(equals<0?entry.length:equals+1),end:(node.offset||0)+end,basis:node.positionBasis};
+      if(result.parameters.length<LIMITS.nodes)result.parameters.push({component:node.component,parent:node.parent,representation:node.representation,location:node.location,occurrence,parameter,sourcePosition,hasEquals:equals>=0,emptyValue:!text});
+      enqueue({...node,kind:'value',text,sourceValue:text,sourcePosition,parameter,hasEquals:equals>=0,hint,occurrence,form:true,location:node.location+' · parameter '+occurrence});
       if(node.cursor<=node.text.length)queues[node.component].push(node);
     }
     while(!stopped&&Object.values(queues).some(q=>q.length)){
@@ -202,6 +233,7 @@ const EmbeddedURLs = (() => {
       }
     }
     const absolutes=result.candidates.filter(c=>c.type==='absolute'),unique=[];
+    result.stats.uniqueAddresses=new Set(absolutes.map(c=>c.value)).size;
     for(const c of absolutes){
       if(!time())break;
       // Preserve case/Unicode authority variants, while avoiding repeated path work.

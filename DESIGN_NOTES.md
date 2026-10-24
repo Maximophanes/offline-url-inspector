@@ -1,3 +1,23 @@
+# Current Stage 6 design principles
+
+[AGENTS.md](AGENTS.md) is the concise standing development guidance; [AUTOMATIC_FINDINGS.md](AUTOMATIC_FINDINGS.md) defines the current results hierarchy. Preserve the single combined Blackberry & Amethyst palette. The status pill now sits at the right of the inspection-action row; updates remain below. Completed negatives are quiet and qualified, while unsupported eligibility is distinct from interrupted analysis. Useful technical summaries and advanced diagnostics have separate direct disclosures. Help covers offline popular-domain comparisons and the pinned ICANN/PRIVATE PSL.
+
+The [Stage 6 reference and messaging review](STAGE6_MESSAGING_REVIEW.md) records the later saved-reference priority correction and diagnostic consolidation. Independent collapsed disclosure defaults were already working and remain preserved. The named systematic validation requirement lives in AGENTS.md.
+
+The [subsequent manual-acceptance review](STAGE6_ACCEPTANCE_REVIEW.md) records the previous source attribution, verified Unicode identities, dual hostname labels, scoped coverage and removal of serialized state displays. Palette, typography, native disclosure defaults and decoding boundaries remain preserved.
+
+The [focused acceptance follow-up](STAGE6_FOLLOWUP_REVIEW.md) records the preceding concise character explanations, text cues beside readable Unicode, syntax-only userinfo wording and one ordinary embedded finding per hostname. Existing style rules and native disclosure defaults remain unchanged.
+
+The [warning hierarchy and spacing review](STAGE6_PROMINENCE_REVIEW.md) records current universal secondary caution styling, uncapped security warnings, distinct information/limitations and the 22px/20px Unicode representation gap. The approved single combined Blackberry & Amethyst palette remains unchanged; there are no separate themes or switch.
+
+The [consolidated stress review](STAGE6_STRESS_REVIEW.md) records the current versioned tenant-edge structural correction and layperson refinement: one hostname finding with separate mechanism thoughts, one generic advice location, readable recovered Unicode, direct @ hostname explanations, and proportional port information. Existing palette and spacing remain preserved.
+
+The later [HTTP/structure review](STAGE6_HTTP_STRUCTURE_REVIEW.md) preserves that matching policy and refines presentation: independent HTTP cautions retain the existing compact secondary caution style beside stronger identity findings. Ordinary structural copy explains the different-domain relationship; exact PSL boundaries remain technical. No CSS, palette, spacing or disclosure changes are introduced.
+
+The [final copy review](STAGE6_FINAL_COPY_REVIEW.md) records the narrow acceptance refinements: advice follows the caution evidence, short headings use a primary/consecutive-group scope label, and individual accessible names retain scope and hostname. Existing warning priority, palette, interactions and disclosure behavior remain; no new panel is added.
+
+The versioned notes below describe historical interfaces and verification, including the earlier offline-status placement. They do not override current guidance or claim current browser acceptance.
+
 # Version 3.1.2 complete editorial and interface refinement
 
 The Blackberry & Amethyst appearance is preserved. The Georgia title, full ten-second animation, gradients and reduced-motion rules remain byte-identical; approved obsolete-code cleanup removes only unused base-CSS rules. No new title/page/pill animation was introduced.

@@ -1,0 +1,46 @@
+// Independent scenario inventory shared by DOM and native-browser validation.
+const enc=encodeURIComponent,inside=(host,values)=>'https://'+host+'/?'+values.map((v,i)=>'p'+i+'='+enc(v)).join('&');
+export const suppliedA='https://google.com@attacker.test/login';
+export const suppliedB='https://example.net/?first=https%3A%2F%2Fgoogle.com%40attacker.test%2Flogin&second=https%3A%2F%2Frnicrosoft.com%2Flogin';
+export const weakTogether=suppliedB+'&weak='+enc('https://googel.com/');
+export const scenarios=[
+ {id:'original-userinfo',url:suppliedA,primary:'Check the actual website name',kind:'caution'},
+ {id:'embedded-userinfo-and-visual',url:suppliedB,primary:'Possible lookalike inside this URL',kind:'caution',secondary:['An address inside this URL needs review']},
+ {id:'two-warnings-and-weak',url:weakTogether,primary:'Possible lookalike inside this URL',kind:'caution',secondary:['An address inside this URL needs review'],information:['Similar spelling']},
+ {id:'two-visual-lookalikes',url:inside('rnicrosoft.com',['https://arnazon.com/']),primary:'Possible lookalike website',kind:'caution',secondary:['Possible lookalike inside this URL']},
+ {id:'unicode-and-ascii-lookalikes',url:inside('аpplе.com',['https://rnicrosoft.com/']),primary:'Possible lookalike website',kind:'caution',secondary:['Possible lookalike inside this URL']},
+ {id:'manual-and-builtin-visual',url:'https://ՠicrosoft.com/',expected:'rnicrosoft.com',primary:'Possible lookalike website',kind:'caution',secondary:['Possible lookalike website']},
+ {id:'original-userinfo-and-structure',url:'https://USER_PRIVATE:PASS_PRIVATE@google.com.attacker.com/',primary:'Check the actual website name',kind:'caution',secondary:['Misleading hostname structure']},
+ {id:'original-visual-userinfo-backslash',url:'https://USER_PRIVATE:PASS_PRIVATE@rnicrosoft.com\\@attacker.test/',primary:'Possible lookalike website',kind:'caution',secondary:['Check the actual website name','This address has an ambiguous structure']},
+ {id:'original-hidden-character',url:'https://rnicrosoft.com/\u200B',primary:'Possible lookalike website',kind:'caution',secondary:['Hidden characters need review']},
+ {id:'invalid-encoded-host-and-positive',url:inside('xn--_-9fa.com',['https://rnicrosoft.com/']),primary:'The hostname needs review',kind:'caution',secondary:['Possible lookalike inside this URL']},
+ {id:'original-structural-and-visual',url:inside('google.com.attacker.com',['https://rnicrosoft.com/']),primary:'Misleading hostname structure',kind:'caution',secondary:['Possible lookalike inside this URL']},
+ {id:'embedded-structural',url:inside('rnicrosoft.com',['https://google.com.attacker.com/']),primary:'Possible lookalike website',kind:'caution',secondary:['Misleading website name inside this URL']},
+ {id:'expected-structural',url:inside('acme.test.attacker.com',['https://rnicrosoft.com/']),expected:'acme.test',primary:'Misleading hostname structure',kind:'caution',secondary:['Possible lookalike inside this URL']},
+ {id:'saved-structural',url:inside('acme.test.attacker.com',['https://rnicrosoft.com/']),saved:['acme.test'],primary:'Misleading hostname structure',kind:'caution',secondary:['Possible lookalike inside this URL']},
+ {id:'expected-mismatch',url:'https://rnicrosoft.com/',expected:'google.com',primary:'Possible lookalike website',kind:'caution',secondary:['Different from your expected hostname']},
+ {id:'invalid-optional-expected',url:'https://rnicrosoft.com/',expected:'USER_PRIVATE@bad',primary:'Possible lookalike website',kind:'caution',information:['Expected hostname was not checked']},
+ {id:'http-port-and-weak',url:weakTogether.replace('https://example.net/','http://example.net:8080/'),primary:'Possible lookalike inside this URL',kind:'caution',secondary:['An address inside this URL needs review'],information:['Similar spelling'],extraCautions:['This link uses unencrypted HTTP','This link specifies port 8080']},
+ {id:'five-secondary-cautions',url:inside('rnicrosoft.com',['a','b','c','d','e'].map(s=>'https://USER_PRIVATE@'+s+'.test/')),primary:'Possible lookalike website',kind:'caution',cautions:5},
+ {id:'same-embedded-host-multiple-proof-types',url:inside('arnazon.com',['https://USER_PRIVATE:PASS_PRIVATE@rnicrosoft.com/','https://rnicrosoft.com/other']),primary:'Possible lookalike website',kind:'caution',secondary:['Possible lookalike inside this URL']},
+ {id:'partial-extraction-and-positives',url:inside('rnicrosoft.com',[...Array(20).fill('https://google.com/'),'https://USER_PRIVATE@arnazon.com/']),primary:'Possible lookalike website',kind:'caution',secondary:['Possible lookalike inside this URL']},
+ {id:'unsupported-only',url:'https://unlisted.test/',primary:'Automatic comparisons unavailable',kind:'neutral'},
+ {id:'weak-only',url:'https://googel.com/',primary:'Similar spelling',kind:'information'},
+ {id:'http-only',url:'http://example.net/',primary:'This link uses unencrypted HTTP',kind:'caution'},
+ {id:'completed-negative',url:'https://example.net/',primary:'No lookalike warnings found',kind:'neutral'},
+ {id:'original-port-only',url:'https://example.net:8080/',primary:'This link specifies port 8080',kind:'caution'},
+ {id:'malformed-original-encoding',url:'https://rnicrosoft.com/?value=%ZZ',primary:'Possible lookalike website',kind:'caution',secondary:['Some URL encoding needs review']},
+ {id:'embedded-http-port-encoding',url:inside('rnicrosoft.com',['http://example.net:8080/?value=%ZZ']),primary:'Possible lookalike website',kind:'caution',secondary:['An address inside this URL needs review'],detailIncludes:['unencrypted HTTP','port 8080','invalid percent encoding']},
+ {id:'embedded-invalid-hostname',url:inside('rnicrosoft.com',['https://-bad.com/']),primary:'Possible lookalike website',kind:'caution',secondary:['An address inside this URL needs review'],detailIncludes:['validation review']},
+ {id:'http-and-invalid-optional-expected',url:'http://example.net/',expected:'USER_PRIVATE@bad',primary:'This link uses unencrypted HTTP',kind:'caution',information:['Expected hostname was not checked']},
+ {id:'same-host-multiple-port-variants',url:inside('rnicrosoft.com',['https://example.net:443/','https://example.net:9090/','http://example.net:80/']),primary:'Possible lookalike website',kind:'caution',secondary:['An address inside this URL needs review'],detailIncludes:['unencrypted HTTP','port 9090'],detailExcludes:['port 443','port 80']},
+ {id:'original-and-embedded-http',url:'http://example.net/?next='+enc('http://other.net:8080/'),primary:'This link uses unencrypted HTTP',kind:'caution',secondary:['An address inside this URL needs review']},
+ {id:'original-and-embedded-port',url:'https://example.net:8080/?next='+enc('https://other.net:9090/'),primary:'This link specifies port 8080',kind:'caution',secondary:['An address inside this URL needs review']},
+ {id:'routine-whitespace-normalization',url:' https://example.net/ ',primary:'No lookalike warnings found',kind:'neutral'},
+ {id:'invalid-input',url:'',primary:'Enter a URL to inspect',kind:'error'},
+ {id:'expected-exact',url:'https://example.net/',expected:'example.net',primary:'Matches your expected hostname',kind:'neutral'},
+ {id:'saved-exact-unsupported',url:'https://acme.test/',saved:['acme.test'],primary:'Matches your saved reference',kind:'neutral'},
+ {id:'saved-subdomain-unsupported',url:'https://sub.acme.test/',saved:['acme.test'],primary:'Subdomain of your saved reference',kind:'neutral'},
+ {id:'saved-visual-unsupported',url:'https://rnicrosoft.example/',saved:['microsoft.example'],primary:'Possible lookalike website',kind:'caution'},
+ {id:'saved-exact-and-stronger-warning',url:suppliedB,saved:['example.net'],expected:'example.net',primary:'Possible lookalike inside this URL',kind:'caution',secondary:['An address inside this URL needs review']}
+];

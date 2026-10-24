@@ -1,0 +1,19 @@
+Offline URL Inspector: derived automatic-reference index, development only
+
+Reference domains and ranks: Majestic, The Majestic Million.
+https://majestic.com/reports/majestic-million
+Creative Commons Attribution 3.0 Unported (CC-BY-3.0).
+https://creativecommons.org/licenses/by/3.0/legalcode
+Changes: derive immutable comparison keys and spelling-deletion buckets from
+the approved normalized rank selection. No Majestic endorsement is implied.
+Ranking is referring-subnet popularity, not visits, ownership, trust or safety.
+Full source identity, attribution and reproduction: data/popular-domains/
+and LOOKALIKES.md. Calibration inputs are separate development/test material.
+
+Normalization and skeleton keys use the project's pinned Unicode data;
+preserve data/LICENSE.txt and UNICODE_DATA.md when distributing derived assets.
+Domain boundaries use the pinned Public Suffix List; preserve its source,
+MPL-2.0 notices and source/modification availability in data/public-suffix/.
+The application source is independently authored. No whole-application
+relicensing or legal clearance is asserted. Final single-file packaging and
+source availability still need the documented release-stage review.

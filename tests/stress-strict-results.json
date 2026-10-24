@@ -1,0 +1,1052 @@
+{
+  "suite": "Stage 6 structural policy v2 strict Deno 2.9.7 reproduction",
+  "runtimeVersion": "deno 2.9.7 (stable, release, aarch64-apple-darwin)\nv8 15.0.245.2-rusty\ntypescript 6.0.3\n",
+  "archiveSHA256": "5cd46d6268f6f78f5d88bdc7159d20bd44cdaa4b3303474839f87ec6fe7ae25c",
+  "binarySHA256": "b73737579d5a84c160e3316487594783fa5c15f4e13252a6a07050b755317f1a",
+  "commands": [
+    {
+      "name": "strict-foundation",
+      "command": [
+        "/private/tmp/oui-stage6-stress-e8gbw7e8/runtime/deno",
+        "run",
+        "--cached-only",
+        "--no-prompt",
+        "--allow-read=.",
+        "--allow-write=tests",
+        "tests/reference-foundation.mjs"
+      ],
+      "exitCode": 0,
+      "report": {
+        "suite": "v3.3.0 Stage 2 offline reference and PSL foundation",
+        "groups": {
+          "official upstream fixtures": {
+            "executed": 79,
+            "passed": 79,
+            "failed": 0
+          },
+          "boundary semantics and normalization": {
+            "executed": 54,
+            "passed": 54,
+            "failed": 0
+          },
+          "normalized source tiers, deduplication and provenance": {
+            "executed": 11,
+            "passed": 11,
+            "failed": 0
+          },
+          "integrity, consistency and offline regeneration": {
+            "executed": 8,
+            "passed": 8,
+            "failed": 0
+          },
+          "dormant runtime loader and honest failure states": {
+            "executed": 10,
+            "passed": 10,
+            "failed": 0
+          }
+        },
+        "failures": [],
+        "assertions": {
+          "executed": 49099,
+          "passed": 49099,
+          "failed": 0
+        },
+        "total": {
+          "executed": 162,
+          "passed": 162,
+          "failed": 0
+        },
+        "runtime": {
+          "deno": "2.9.7",
+          "v8": "15.0.245.2-rusty",
+          "typescript": "6.0.3"
+        },
+        "officialFixtures": 78,
+        "manifestSHA256": "24971b3e95142d1e751d0ab8eb283de6b073545553995957927c963e9c1fd5dc",
+        "scope": "Offline Deno execution and data tests. No matcher, browser-memory measurement or actual Firefox run."
+      }
+    },
+    {
+      "name": "strict-current-policy",
+      "command": [
+        "/private/tmp/oui-stage6-stress-e8gbw7e8/runtime/deno",
+        "run",
+        "--cached-only",
+        "--no-prompt",
+        "--allow-read=.",
+        "--allow-write=tests",
+        "tests/stress-engine.mjs"
+      ],
+      "exitCode": 0,
+      "report": {
+        "suite": "Structural tenant-boundary correction, independent PSL controls and limits",
+        "groups": {
+          "independent pinned PSL and complete-label expectations": {
+            "executed": 15,
+            "passed": 15,
+            "failed": 0
+          },
+          "bounded generalization, legitimate names and unchanged visual behavior": {
+            "executed": 12,
+            "passed": 12,
+            "failed": 0
+          }
+        },
+        "failures": [],
+        "assertions": {
+          "executed": 19335,
+          "passed": 19335,
+          "failed": 0
+        },
+        "total": {
+          "executed": 27,
+          "passed": 27,
+          "failed": 0
+        },
+        "boundaryResults": [
+          {
+            "host": "google.com.github.io",
+            "expected": {
+              "suffix": "github.io",
+              "section": "PRIVATE",
+              "domain": "com.github.io",
+              "target": "google.com",
+              "positive": true
+            },
+            "boundary": {
+              "status": "ok",
+              "asciiHost": "google.com.github.io",
+              "unicodeHost": "google.com.github.io",
+              "trailingDot": false,
+              "normalizedInputChanged": false,
+              "publicSuffix": "github.io",
+              "registrableDomain": "com.github.io",
+              "unicodeRegistrableDomain": "com.github.io",
+              "subdomain": "google",
+              "rule": "github.io",
+              "section": "PRIVATE",
+              "knownSuffix": true,
+              "defaultRule": false,
+              "wildcard": false,
+              "exception": false,
+              "publicSuffixFQDN": "github.io",
+              "registrableDomainFQDN": "com.github.io"
+            },
+            "findings": [
+              {
+                "hostname": "google.com.github.io",
+                "registrableDomain": "com.github.io",
+                "reference": {
+                  "id": 3336,
+                  "domain": "google.com",
+                  "source": "Majestic Million",
+                  "globalRank": 1,
+                  "sourceRowCount": 20,
+                  "publicSuffix": "com",
+                  "section": "ICANN"
+                },
+                "evidence": [
+                  {
+                    "class": "structural",
+                    "comparisonScope": "complete-label-sequence-crossing-registrant-boundary",
+                    "mechanism": {
+                      "occurrences": [
+                        {
+                          "startLabel": 0,
+                          "endLabelExclusive": 2,
+                          "sequence": "google.com"
+                        }
+                      ],
+                      "actualRegistrableDomain": "com.github.io",
+                      "publicSuffix": "github.io",
+                      "section": "PRIVATE"
+                    }
+                  }
+                ],
+                "comparisonAvailability": "supported",
+                "suffixAgreement": false,
+                "priority": "placement-review"
+              }
+            ]
+          },
+          {
+            "host": "google.com.blogspot.com",
+            "expected": {
+              "suffix": "blogspot.com",
+              "section": "PRIVATE",
+              "domain": "com.blogspot.com",
+              "target": "google.com",
+              "positive": true
+            },
+            "boundary": {
+              "status": "ok",
+              "asciiHost": "google.com.blogspot.com",
+              "unicodeHost": "google.com.blogspot.com",
+              "trailingDot": false,
+              "normalizedInputChanged": false,
+              "publicSuffix": "blogspot.com",
+              "registrableDomain": "com.blogspot.com",
+              "unicodeRegistrableDomain": "com.blogspot.com",
+              "subdomain": "google",
+              "rule": "blogspot.com",
+              "section": "PRIVATE",
+              "knownSuffix": true,
+              "defaultRule": false,
+              "wildcard": false,
+              "exception": false,
+              "publicSuffixFQDN": "blogspot.com",
+              "registrableDomainFQDN": "com.blogspot.com"
+            },
+            "findings": [
+              {
+                "hostname": "google.com.blogspot.com",
+                "registrableDomain": "com.blogspot.com",
+                "reference": {
+                  "id": 3336,
+                  "domain": "google.com",
+                  "source": "Majestic Million",
+                  "globalRank": 1,
+                  "sourceRowCount": 20,
+                  "publicSuffix": "com",
+                  "section": "ICANN"
+                },
+                "evidence": [
+                  {
+                    "class": "structural",
+                    "comparisonScope": "complete-label-sequence-crossing-registrant-boundary",
+                    "mechanism": {
+                      "occurrences": [
+                        {
+                          "startLabel": 0,
+                          "endLabelExclusive": 2,
+                          "sequence": "google.com"
+                        }
+                      ],
+                      "actualRegistrableDomain": "com.blogspot.com",
+                      "publicSuffix": "blogspot.com",
+                      "section": "PRIVATE"
+                    }
+                  }
+                ],
+                "comparisonAvailability": "supported",
+                "suffixAgreement": false,
+                "priority": "placement-review"
+              }
+            ]
+          },
+          {
+            "host": "google.com.pages.dev",
+            "expected": {
+              "suffix": "pages.dev",
+              "section": "PRIVATE",
+              "domain": "com.pages.dev",
+              "target": "google.com",
+              "positive": true
+            },
+            "boundary": {
+              "status": "ok",
+              "asciiHost": "google.com.pages.dev",
+              "unicodeHost": "google.com.pages.dev",
+              "trailingDot": false,
+              "normalizedInputChanged": false,
+              "publicSuffix": "pages.dev",
+              "registrableDomain": "com.pages.dev",
+              "unicodeRegistrableDomain": "com.pages.dev",
+              "subdomain": "google",
+              "rule": "pages.dev",
+              "section": "PRIVATE",
+              "knownSuffix": true,
+              "defaultRule": false,
+              "wildcard": false,
+              "exception": false,
+              "publicSuffixFQDN": "pages.dev",
+              "registrableDomainFQDN": "com.pages.dev"
+            },
+            "findings": [
+              {
+                "hostname": "google.com.pages.dev",
+                "registrableDomain": "com.pages.dev",
+                "reference": {
+                  "id": 3336,
+                  "domain": "google.com",
+                  "source": "Majestic Million",
+                  "globalRank": 1,
+                  "sourceRowCount": 20,
+                  "publicSuffix": "com",
+                  "section": "ICANN"
+                },
+                "evidence": [
+                  {
+                    "class": "structural",
+                    "comparisonScope": "complete-label-sequence-crossing-registrant-boundary",
+                    "mechanism": {
+                      "occurrences": [
+                        {
+                          "startLabel": 0,
+                          "endLabelExclusive": 2,
+                          "sequence": "google.com"
+                        }
+                      ],
+                      "actualRegistrableDomain": "com.pages.dev",
+                      "publicSuffix": "pages.dev",
+                      "section": "PRIVATE"
+                    }
+                  }
+                ],
+                "comparisonAvailability": "supported",
+                "suffixAgreement": false,
+                "priority": "placement-review"
+              }
+            ]
+          },
+          {
+            "host": "google.com.s3.amazonaws.com",
+            "expected": {
+              "suffix": "s3.amazonaws.com",
+              "section": "PRIVATE",
+              "domain": "com.s3.amazonaws.com",
+              "target": "google.com",
+              "positive": true
+            },
+            "boundary": {
+              "status": "ok",
+              "asciiHost": "google.com.s3.amazonaws.com",
+              "unicodeHost": "google.com.s3.amazonaws.com",
+              "trailingDot": false,
+              "normalizedInputChanged": false,
+              "publicSuffix": "s3.amazonaws.com",
+              "registrableDomain": "com.s3.amazonaws.com",
+              "unicodeRegistrableDomain": "com.s3.amazonaws.com",
+              "subdomain": "google",
+              "rule": "s3.amazonaws.com",
+              "section": "PRIVATE",
+              "knownSuffix": true,
+              "defaultRule": false,
+              "wildcard": false,
+              "exception": false,
+              "publicSuffixFQDN": "s3.amazonaws.com",
+              "registrableDomainFQDN": "com.s3.amazonaws.com"
+            },
+            "findings": [
+              {
+                "hostname": "google.com.s3.amazonaws.com",
+                "registrableDomain": "com.s3.amazonaws.com",
+                "reference": {
+                  "id": 3336,
+                  "domain": "google.com",
+                  "source": "Majestic Million",
+                  "globalRank": 1,
+                  "sourceRowCount": 20,
+                  "publicSuffix": "com",
+                  "section": "ICANN"
+                },
+                "evidence": [
+                  {
+                    "class": "structural",
+                    "comparisonScope": "complete-label-sequence-crossing-registrant-boundary",
+                    "mechanism": {
+                      "occurrences": [
+                        {
+                          "startLabel": 0,
+                          "endLabelExclusive": 2,
+                          "sequence": "google.com"
+                        }
+                      ],
+                      "actualRegistrableDomain": "com.s3.amazonaws.com",
+                      "publicSuffix": "s3.amazonaws.com",
+                      "section": "PRIVATE"
+                    }
+                  }
+                ],
+                "comparisonAvailability": "supported",
+                "suffixAgreement": false,
+                "priority": "placement-review"
+              }
+            ]
+          },
+          {
+            "host": "google.co.uk.github.io",
+            "expected": {
+              "suffix": "github.io",
+              "section": "PRIVATE",
+              "domain": "uk.github.io",
+              "target": "google.co.uk",
+              "positive": true
+            },
+            "boundary": {
+              "status": "ok",
+              "asciiHost": "google.co.uk.github.io",
+              "unicodeHost": "google.co.uk.github.io",
+              "trailingDot": false,
+              "normalizedInputChanged": false,
+              "publicSuffix": "github.io",
+              "registrableDomain": "uk.github.io",
+              "unicodeRegistrableDomain": "uk.github.io",
+              "subdomain": "google.co",
+              "rule": "github.io",
+              "section": "PRIVATE",
+              "knownSuffix": true,
+              "defaultRule": false,
+              "wildcard": false,
+              "exception": false,
+              "publicSuffixFQDN": "github.io",
+              "registrableDomainFQDN": "uk.github.io"
+            },
+            "findings": [
+              {
+                "hostname": "google.co.uk.github.io",
+                "registrableDomain": "uk.github.io",
+                "reference": {
+                  "id": 3329,
+                  "domain": "google.co.uk",
+                  "source": "Majestic Million",
+                  "globalRank": 366,
+                  "sourceRowCount": 2,
+                  "publicSuffix": "co.uk",
+                  "section": "ICANN"
+                },
+                "evidence": [
+                  {
+                    "class": "structural",
+                    "comparisonScope": "complete-label-sequence-crossing-registrant-boundary",
+                    "mechanism": {
+                      "occurrences": [
+                        {
+                          "startLabel": 0,
+                          "endLabelExclusive": 3,
+                          "sequence": "google.co.uk"
+                        }
+                      ],
+                      "actualRegistrableDomain": "uk.github.io",
+                      "publicSuffix": "github.io",
+                      "section": "PRIVATE"
+                    }
+                  }
+                ],
+                "comparisonAvailability": "supported",
+                "suffixAgreement": false,
+                "priority": "placement-review"
+              }
+            ]
+          },
+          {
+            "host": "amazon.co.uk.pages.dev",
+            "expected": {
+              "suffix": "pages.dev",
+              "section": "PRIVATE",
+              "domain": "uk.pages.dev",
+              "target": "amazon.co.uk",
+              "positive": true
+            },
+            "boundary": {
+              "status": "ok",
+              "asciiHost": "amazon.co.uk.pages.dev",
+              "unicodeHost": "amazon.co.uk.pages.dev",
+              "trailingDot": false,
+              "normalizedInputChanged": false,
+              "publicSuffix": "pages.dev",
+              "registrableDomain": "uk.pages.dev",
+              "unicodeRegistrableDomain": "uk.pages.dev",
+              "subdomain": "amazon.co",
+              "rule": "pages.dev",
+              "section": "PRIVATE",
+              "knownSuffix": true,
+              "defaultRule": false,
+              "wildcard": false,
+              "exception": false,
+              "publicSuffixFQDN": "pages.dev",
+              "registrableDomainFQDN": "uk.pages.dev"
+            },
+            "findings": [
+              {
+                "hostname": "amazon.co.uk.pages.dev",
+                "registrableDomain": "uk.pages.dev",
+                "reference": {
+                  "id": 397,
+                  "domain": "amazon.co.uk",
+                  "source": "Majestic Million",
+                  "globalRank": 235,
+                  "sourceRowCount": 1,
+                  "publicSuffix": "co.uk",
+                  "section": "ICANN"
+                },
+                "evidence": [
+                  {
+                    "class": "structural",
+                    "comparisonScope": "complete-label-sequence-crossing-registrant-boundary",
+                    "mechanism": {
+                      "occurrences": [
+                        {
+                          "startLabel": 0,
+                          "endLabelExclusive": 3,
+                          "sequence": "amazon.co.uk"
+                        }
+                      ],
+                      "actualRegistrableDomain": "uk.pages.dev",
+                      "publicSuffix": "pages.dev",
+                      "section": "PRIVATE"
+                    }
+                  }
+                ],
+                "comparisonAvailability": "supported",
+                "suffixAgreement": false,
+                "priority": "placement-review"
+              }
+            ]
+          },
+          {
+            "host": "google.com.example.net",
+            "expected": {
+              "suffix": "net",
+              "section": "ICANN",
+              "domain": "example.net",
+              "target": "google.com",
+              "positive": true
+            },
+            "boundary": {
+              "status": "ok",
+              "asciiHost": "google.com.example.net",
+              "unicodeHost": "google.com.example.net",
+              "trailingDot": false,
+              "normalizedInputChanged": false,
+              "publicSuffix": "net",
+              "registrableDomain": "example.net",
+              "unicodeRegistrableDomain": "example.net",
+              "subdomain": "google.com",
+              "rule": "net",
+              "section": "ICANN",
+              "knownSuffix": true,
+              "defaultRule": false,
+              "wildcard": false,
+              "exception": false,
+              "publicSuffixFQDN": "net",
+              "registrableDomainFQDN": "example.net"
+            },
+            "findings": [
+              {
+                "hostname": "google.com.example.net",
+                "registrableDomain": "example.net",
+                "reference": {
+                  "id": 3336,
+                  "domain": "google.com",
+                  "source": "Majestic Million",
+                  "globalRank": 1,
+                  "sourceRowCount": 20,
+                  "publicSuffix": "com",
+                  "section": "ICANN"
+                },
+                "evidence": [
+                  {
+                    "class": "structural",
+                    "comparisonScope": "complete-label-sequence-outside-registrable-domain",
+                    "mechanism": {
+                      "occurrences": [
+                        {
+                          "startLabel": 0,
+                          "endLabelExclusive": 2,
+                          "sequence": "google.com"
+                        }
+                      ],
+                      "actualRegistrableDomain": "example.net",
+                      "publicSuffix": "net",
+                      "section": "ICANN"
+                    }
+                  }
+                ],
+                "comparisonAvailability": "supported",
+                "suffixAgreement": false,
+                "priority": "placement-review"
+              }
+            ]
+          },
+          {
+            "host": "google.com.com",
+            "expected": {
+              "suffix": "com",
+              "section": "ICANN",
+              "domain": "com.com",
+              "target": "google.com",
+              "positive": true
+            },
+            "boundary": {
+              "status": "ok",
+              "asciiHost": "google.com.com",
+              "unicodeHost": "google.com.com",
+              "trailingDot": false,
+              "normalizedInputChanged": false,
+              "publicSuffix": "com",
+              "registrableDomain": "com.com",
+              "unicodeRegistrableDomain": "com.com",
+              "subdomain": "google",
+              "rule": "com",
+              "section": "ICANN",
+              "knownSuffix": true,
+              "defaultRule": false,
+              "wildcard": false,
+              "exception": false,
+              "publicSuffixFQDN": "com",
+              "registrableDomainFQDN": "com.com"
+            },
+            "findings": [
+              {
+                "hostname": "google.com.com",
+                "registrableDomain": "com.com",
+                "reference": {
+                  "id": 3336,
+                  "domain": "google.com",
+                  "source": "Majestic Million",
+                  "globalRank": 1,
+                  "sourceRowCount": 20,
+                  "publicSuffix": "com",
+                  "section": "ICANN"
+                },
+                "evidence": [
+                  {
+                    "class": "structural",
+                    "comparisonScope": "complete-label-sequence-crossing-registrant-boundary",
+                    "mechanism": {
+                      "occurrences": [
+                        {
+                          "startLabel": 0,
+                          "endLabelExclusive": 2,
+                          "sequence": "google.com"
+                        }
+                      ],
+                      "actualRegistrableDomain": "com.com",
+                      "publicSuffix": "com",
+                      "section": "ICANN"
+                    }
+                  }
+                ],
+                "comparisonAvailability": "supported",
+                "suffixAgreement": true,
+                "priority": "placement-review"
+              }
+            ]
+          },
+          {
+            "host": "google.com.tenant.github.io",
+            "expected": {
+              "suffix": "github.io",
+              "section": "PRIVATE",
+              "domain": "tenant.github.io",
+              "target": "google.com",
+              "positive": true
+            },
+            "boundary": {
+              "status": "ok",
+              "asciiHost": "google.com.tenant.github.io",
+              "unicodeHost": "google.com.tenant.github.io",
+              "trailingDot": false,
+              "normalizedInputChanged": false,
+              "publicSuffix": "github.io",
+              "registrableDomain": "tenant.github.io",
+              "unicodeRegistrableDomain": "tenant.github.io",
+              "subdomain": "google.com",
+              "rule": "github.io",
+              "section": "PRIVATE",
+              "knownSuffix": true,
+              "defaultRule": false,
+              "wildcard": false,
+              "exception": false,
+              "publicSuffixFQDN": "github.io",
+              "registrableDomainFQDN": "tenant.github.io"
+            },
+            "findings": [
+              {
+                "hostname": "google.com.tenant.github.io",
+                "registrableDomain": "tenant.github.io",
+                "reference": {
+                  "id": 3336,
+                  "domain": "google.com",
+                  "source": "Majestic Million",
+                  "globalRank": 1,
+                  "sourceRowCount": 20,
+                  "publicSuffix": "com",
+                  "section": "ICANN"
+                },
+                "evidence": [
+                  {
+                    "class": "structural",
+                    "comparisonScope": "complete-label-sequence-outside-registrable-domain",
+                    "mechanism": {
+                      "occurrences": [
+                        {
+                          "startLabel": 0,
+                          "endLabelExclusive": 2,
+                          "sequence": "google.com"
+                        }
+                      ],
+                      "actualRegistrableDomain": "tenant.github.io",
+                      "publicSuffix": "github.io",
+                      "section": "PRIVATE"
+                    }
+                  }
+                ],
+                "comparisonAvailability": "supported",
+                "suffixAgreement": false,
+                "priority": "placement-review"
+              }
+            ]
+          },
+          {
+            "host": "accounts.google.com",
+            "expected": {
+              "suffix": "com",
+              "section": "ICANN",
+              "domain": "google.com",
+              "target": "google.com",
+              "positive": false
+            },
+            "boundary": {
+              "status": "ok",
+              "asciiHost": "accounts.google.com",
+              "unicodeHost": "accounts.google.com",
+              "trailingDot": false,
+              "normalizedInputChanged": false,
+              "publicSuffix": "com",
+              "registrableDomain": "google.com",
+              "unicodeRegistrableDomain": "google.com",
+              "subdomain": "accounts",
+              "rule": "com",
+              "section": "ICANN",
+              "knownSuffix": true,
+              "defaultRule": false,
+              "wildcard": false,
+              "exception": false,
+              "publicSuffixFQDN": "com",
+              "registrableDomainFQDN": "google.com"
+            },
+            "findings": []
+          },
+          {
+            "host": "accounts.google.co.uk",
+            "expected": {
+              "suffix": "co.uk",
+              "section": "ICANN",
+              "domain": "google.co.uk",
+              "target": "google.co.uk",
+              "positive": false
+            },
+            "boundary": {
+              "status": "ok",
+              "asciiHost": "accounts.google.co.uk",
+              "unicodeHost": "accounts.google.co.uk",
+              "trailingDot": false,
+              "normalizedInputChanged": false,
+              "publicSuffix": "co.uk",
+              "registrableDomain": "google.co.uk",
+              "unicodeRegistrableDomain": "google.co.uk",
+              "subdomain": "accounts",
+              "rule": "co.uk",
+              "section": "ICANN",
+              "knownSuffix": true,
+              "defaultRule": false,
+              "wildcard": false,
+              "exception": false,
+              "publicSuffixFQDN": "co.uk",
+              "registrableDomainFQDN": "google.co.uk"
+            },
+            "findings": []
+          },
+          {
+            "host": "notgoogle.com.github.io",
+            "expected": {
+              "suffix": "github.io",
+              "section": "PRIVATE",
+              "domain": "com.github.io",
+              "target": "google.com",
+              "positive": false
+            },
+            "boundary": {
+              "status": "ok",
+              "asciiHost": "notgoogle.com.github.io",
+              "unicodeHost": "notgoogle.com.github.io",
+              "trailingDot": false,
+              "normalizedInputChanged": false,
+              "publicSuffix": "github.io",
+              "registrableDomain": "com.github.io",
+              "unicodeRegistrableDomain": "com.github.io",
+              "subdomain": "notgoogle",
+              "rule": "github.io",
+              "section": "PRIVATE",
+              "knownSuffix": true,
+              "defaultRule": false,
+              "wildcard": false,
+              "exception": false,
+              "publicSuffixFQDN": "github.io",
+              "registrableDomainFQDN": "com.github.io"
+            },
+            "findings": []
+          },
+          {
+            "host": "google.comgithub.io",
+            "expected": {
+              "suffix": "io",
+              "section": "ICANN",
+              "domain": "comgithub.io",
+              "target": "google.com",
+              "positive": false
+            },
+            "boundary": {
+              "status": "ok",
+              "asciiHost": "google.comgithub.io",
+              "unicodeHost": "google.comgithub.io",
+              "trailingDot": false,
+              "normalizedInputChanged": false,
+              "publicSuffix": "io",
+              "registrableDomain": "comgithub.io",
+              "unicodeRegistrableDomain": "comgithub.io",
+              "subdomain": "google",
+              "rule": "io",
+              "section": "ICANN",
+              "knownSuffix": true,
+              "defaultRule": false,
+              "wildcard": false,
+              "exception": false,
+              "publicSuffixFQDN": "io",
+              "registrableDomainFQDN": "comgithub.io"
+            },
+            "findings": []
+          },
+          {
+            "host": "google.com.github.io.evil.net",
+            "expected": {
+              "suffix": "net",
+              "section": "ICANN",
+              "domain": "evil.net",
+              "target": "google.com",
+              "positive": true
+            },
+            "boundary": {
+              "status": "ok",
+              "asciiHost": "google.com.github.io.evil.net",
+              "unicodeHost": "google.com.github.io.evil.net",
+              "trailingDot": false,
+              "normalizedInputChanged": false,
+              "publicSuffix": "net",
+              "registrableDomain": "evil.net",
+              "unicodeRegistrableDomain": "evil.net",
+              "subdomain": "google.com.github.io",
+              "rule": "net",
+              "section": "ICANN",
+              "knownSuffix": true,
+              "defaultRule": false,
+              "wildcard": false,
+              "exception": false,
+              "publicSuffixFQDN": "net",
+              "registrableDomainFQDN": "evil.net"
+            },
+            "findings": [
+              {
+                "hostname": "google.com.github.io.evil.net",
+                "registrableDomain": "evil.net",
+                "reference": {
+                  "id": 3336,
+                  "domain": "google.com",
+                  "source": "Majestic Million",
+                  "globalRank": 1,
+                  "sourceRowCount": 20,
+                  "publicSuffix": "com",
+                  "section": "ICANN"
+                },
+                "evidence": [
+                  {
+                    "class": "structural",
+                    "comparisonScope": "complete-label-sequence-outside-registrable-domain",
+                    "mechanism": {
+                      "occurrences": [
+                        {
+                          "startLabel": 0,
+                          "endLabelExclusive": 2,
+                          "sequence": "google.com"
+                        }
+                      ],
+                      "actualRegistrableDomain": "evil.net",
+                      "publicSuffix": "net",
+                      "section": "ICANN"
+                    }
+                  }
+                ],
+                "comparisonAvailability": "supported",
+                "suffixAgreement": false,
+                "priority": "placement-review"
+              }
+            ]
+          },
+          {
+            "host": "bp.blogspot.com.bp.blogspot.com",
+            "expected": {
+              "suffix": "blogspot.com",
+              "section": "PRIVATE",
+              "domain": "bp.blogspot.com",
+              "target": "bp.blogspot.com",
+              "positive": false
+            },
+            "boundary": {
+              "status": "ok",
+              "asciiHost": "bp.blogspot.com.bp.blogspot.com",
+              "unicodeHost": "bp.blogspot.com.bp.blogspot.com",
+              "trailingDot": false,
+              "normalizedInputChanged": false,
+              "publicSuffix": "blogspot.com",
+              "registrableDomain": "bp.blogspot.com",
+              "unicodeRegistrableDomain": "bp.blogspot.com",
+              "subdomain": "bp.blogspot.com",
+              "rule": "blogspot.com",
+              "section": "PRIVATE",
+              "knownSuffix": true,
+              "defaultRule": false,
+              "wildcard": false,
+              "exception": false,
+              "publicSuffixFQDN": "blogspot.com",
+              "registrableDomainFQDN": "bp.blogspot.com"
+            },
+            "findings": []
+          }
+        ],
+        "policy": "v2 adds only complete label sequences starting before the registrable domain and ending before its public suffix; no PSL/input dataset refresh, substrings or added resource budgets."
+      }
+    },
+    {
+      "name": "strict-index-check",
+      "command": [
+        "/private/tmp/oui-stage6-stress-e8gbw7e8/runtime/deno",
+        "run",
+        "--cached-only",
+        "--no-prompt",
+        "--allow-read=.",
+        "tools/generate_lookalike_index.mjs",
+        "--check"
+      ],
+      "exitCode": 0
+    },
+    {
+      "name": "strict-generation-1",
+      "command": [
+        "/private/tmp/oui-stage6-stress-e8gbw7e8/runtime/deno",
+        "run",
+        "--cached-only",
+        "--no-prompt",
+        "--allow-read=.",
+        "--allow-write=/private/tmp/oui-stage6-stress-e8gbw7e8/generated",
+        "tools/generate_lookalike_index.mjs",
+        "--write",
+        "--output-root",
+        "/private/tmp/oui-stage6-stress-e8gbw7e8/generated/1"
+      ],
+      "exitCode": 0
+    },
+    {
+      "name": "strict-generation-2",
+      "command": [
+        "/private/tmp/oui-stage6-stress-e8gbw7e8/runtime/deno",
+        "run",
+        "--cached-only",
+        "--no-prompt",
+        "--allow-read=.",
+        "--allow-write=/private/tmp/oui-stage6-stress-e8gbw7e8/generated",
+        "tools/generate_lookalike_index.mjs",
+        "--write",
+        "--output-root",
+        "/private/tmp/oui-stage6-stress-e8gbw7e8/generated/2"
+      ],
+      "exitCode": 0
+    },
+    {
+      "name": "strict-original-v1-all-assertions",
+      "command": [
+        "/private/tmp/oui-stage6-stress-e8gbw7e8/runtime/deno",
+        "run",
+        "--cached-only",
+        "--no-prompt",
+        "--allow-read=.",
+        "--allow-write=tests",
+        "tests/lookalikes.mjs"
+      ],
+      "exitCode": 0,
+      "report": {
+        "suite": "v3.3.0 Stage 3 automatic lookalike engine",
+        "groups": {
+          "source/index identity and exact neutral membership": {
+            "executed": 11,
+            "passed": 11,
+            "failed": 0
+          },
+          "independent fixed mutation expectations": {
+            "executed": 66,
+            "passed": 66,
+            "failed": 0
+          },
+          "evidence, ranking and boundary controls": {
+            "executed": 11,
+            "passed": 11,
+            "failed": 0
+          },
+          "resource limits and cooperative coverage": {
+            "executed": 12,
+            "passed": 12,
+            "failed": 0
+          },
+          "index integrity and incompatibility": {
+            "executed": 17,
+            "passed": 17,
+            "failed": 0
+          },
+          "privacy and existing behavior": {
+            "executed": 2,
+            "passed": 2,
+            "failed": 0
+          }
+        },
+        "failures": [],
+        "assertions": {
+          "executed": 38859,
+          "passed": 38859,
+          "failed": 0
+        },
+        "total": {
+          "executed": 119,
+          "passed": 119,
+          "failed": 0
+        },
+        "runtime": {
+          "deno": "2.9.7",
+          "v8": "15.0.245.2-rusty",
+          "typescript": "6.0.3"
+        },
+        "indexSHA256": "7cd6bec6f74549177c508468b8f061618d1f90916664621d28df5f1dbb5dc526",
+        "synthetic": {
+          "positive": 40,
+          "negative": 16,
+          "explicitStatus": 10,
+          "byClass": {
+            "unicode-visual": 15,
+            "ascii-visual": 13,
+            "spelling": 6,
+            "structural": 6
+          }
+        },
+        "indexStats": {
+          "references": 9570,
+          "unicodeKeys": 9570,
+          "asciiKeys": 9561,
+          "spellingKeys": 5102,
+          "unsupportedVisualReferences": 0,
+          "maxUnicodeBucket": 1,
+          "maxASCIIBucket": 2
+        },
+        "scope": "Offline Deno engine execution; no UI integration, native Firefox or real-world phishing accuracy claim."
+      }
+    }
+  ],
+  "failures": [],
+  "twoGenerationsMatchCurrentBytes": true,
+  "AllReferenceKeysBucketsAndBoundedLookupContentsUnchanged": true,
+  "total": {
+    "executedCommands": 6,
+    "passedCommands": 6,
+    "failedCommands": 0
+  },
+  "scope": "Current independent structural/PSL policy tests and generation; all original matcher assertions, including the intentionally changed v1 exclusion, run unchanged against exact v1 inputs. No installed runtime changes or source refresh."
+}

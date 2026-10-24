@@ -1,3 +1,19 @@
+# Final v3.3.0 deployment safeguards
+
+The published application remains v3.2.0. Final-version build preparation is local and does not authorize deployment. This workflow revision has not run on GitHub; no repository setting was changed. PR #3 remains Draft. The old contract below is historical.
+
+The workflow has only a manual `workflow_dispatch` trigger; pushing either the development branch or main does not deploy. Dispatch must run on `main`, explicitly authorize deployment, and supply the exact checked-out commit and accepted final source-input digest. It builds with `--final-release` into a fresh outside-checkout `final` directory and verifies with `--release-root`, explicitly rejecting RC metadata. It checks source/artifact correspondence and strict Deno 2.9.7 data reproduction, then runs mandatory core, storage, provenance, comparison, current presentation/import/privacy/accessibility, worker, update, promotion rejection and historical regressions. Failure prevents artifact upload and the dependent deployment job. It uploads only that run's newly built `final/site` three-file hosted directory. The old root `site/` is never a deployment input. No other run's artifact is selected.
+
+Verification has only `contents: read`; checkout does not persist credentials. Only the dependent `github-pages` environment deployment job receives `pages: write` and `id-token: write`. The concurrency group prevents simultaneous Pages deployments. The receipt records the dispatch commit, input digest, final manifest/checksums, gate, promotion and historical results. Exact final-build acceptance and explicit publication/deployment approval remain required even though `releaseCandidate` is false; `publicationAuthorized` remains false in every generated package.
+
+Required user configuration after independent audit: retain Pages' Actions publishing source; protect `main`; require appropriate review/status checks; configure the `github-pages` environment for the authorized branch and required reviewers (including preventing self-approval where supported). A dispatch checkbox/digest proves what was requested, **not that a human audit or legal approval occurred**. Environment approval is an external control. Local tests cannot establish GitHub-hosted enforcement. Action release tags were resolved through the official GitHub repositories and pinned to immutable commits in this workflow; independent review of those actions remains required. The Linux Deno archive is pinned to the checksum published with the official 2.9.7 release, verified before extraction/execution. `ubuntu-latest` is a moving build environment; archive determinism must be reproduced on the actual runner and accepted before promotion. No actions, settings or live deployment were invoked here.
+
+Reference source materials/notices are available offline inside each HTML. Preserve the complete final bundle for download/audit distribution. Do not publish only a worker or mix releases. See [FINAL_RELEASE.md](FINAL_RELEASE.md), [distribution rights](DISTRIBUTION_RIGHTS.md) and [the historical Stage 7 handoff](STAGE7_RELEASE_HARDENING.md).
+
+[GitHub documents](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages) the build/deploy dependency, Pages token permissions and environment requirements. [Environment protections](https://docs.github.com/en/actions/how-tos/deploy/configure-and-manage-deployments/manage-environments) require repository-side configuration and may depend on plan/visibility.
+
+## Historical deployment contract
+
 # Existing GitHub Pages deployment contract
 
 Repository: `Maximophanes/offline-url-inspector`. The user reports Version 3.1.1 is published at `https://maximophanes.github.io/offline-url-inspector/`. This task leaves Version 3.1.2 uncommitted on `dev/v3.1.2` for review. It does not publish, push, merge, create releases/PRs, change settings or modify `main`.
