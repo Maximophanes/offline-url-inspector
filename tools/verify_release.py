@@ -89,14 +89,16 @@ def verify(root=ROOT,repository=ROOT,candidate='HEAD',check_checksums=True):
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--candidate-root',type=Path,help='Verify an outside-repository v3.3.0 RC instead of the historical v3.2.0 candidate')
+    mode=parser.add_mutually_exclusive_group()
+    mode.add_argument('--candidate-root',type=Path,help='Verify an outside-repository v3.3.0 RC instead of the historical v3.2.0 candidate')
+    mode.add_argument('--release-root',type=Path,help='Verify an outside-repository final v3.3.0 build; reject RC identity, no publication authorization')
     parser.add_argument('--refresh-checksums',action='store_true')
     parser.add_argument('--candidate',default='HEAD',help='Expected checked-out commit/ref; local corrections are reported separately')
     args=parser.parse_args()
-    if args.candidate_root:
-        if args.refresh_checksums or args.candidate!='HEAD':parser.error('RC verification cannot refresh historical checksums or assert a working-tree commit identity')
+    if args.candidate_root or args.release_root:
+        if args.refresh_checksums or args.candidate!='HEAD':parser.error('Outside build verification cannot refresh historical checksums or assert a working-tree commit identity')
         from release_candidate import verify as verify_candidate
-        print(json.dumps(verify_candidate(ROOT,args.candidate_root),indent=2));return
+        print(json.dumps(verify_candidate(ROOT,args.release_root or args.candidate_root,final_release=bool(args.release_root)),indent=2));return
     report=verify(candidate=args.candidate,check_checksums=not args.refresh_checksums)
     if args.refresh_checksums:
         names=sorted(inventory_names())

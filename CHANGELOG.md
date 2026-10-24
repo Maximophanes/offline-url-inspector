@@ -1,3 +1,12 @@
+# Version 3.3.0 — final-version preparation
+
+- Build a fresh final `3.3.0` identity explicitly with `--final-release`; preserve the separate `3.3.0-rc.1` path and strict final/RC verification expectations.
+- Rebuild both editions, offline notices, CSP, worker identity and complete source/checksum bundle. Preserve runtime source, datasets, matching, reference storage and update behavior from the accepted RC.
+- Make the manual workflow build and verify final bytes, with unchanged main/commit/digest/authorization/environment gates, full historical checkout and promotion rejection tests.
+- Record exact identities and verification in [FINAL_VERSION_PROMOTION.md](FINAL_VERSION_PROMOTION.md). Preparation remains local; merge, release and deployment require separate approval.
+
+The following entries are historical release/development records.
+
 # Version 3.2.0 — approved audit corrections
 
 Corrected local candidate: **3.2.0-a67e4b13dd5fa5cd**. See [AUDIT_CORRECTIONS.md](AUDIT_CORRECTIONS.md).

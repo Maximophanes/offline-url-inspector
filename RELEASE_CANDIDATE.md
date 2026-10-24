@@ -1,6 +1,6 @@
 # Local v3.3.0 release candidate
 
-Stable published release remains v3.2.0. Stage 6 is accepted for development. Stage 7 prepares **3.3.0-rc.1**, targeting v3.3.0; Stage 8, commits, publication and deployment need separate authorization.
+Stable published release remains v3.2.0. This document retains the explicit **3.3.0-rc.1** build and verification path. The independently verified RC at commit `f41c5e391619bb73176168045e9c7aaef93410dc` is the starting point for separately authorized [final v3.3.0 build preparation](FINAL_RELEASE.md). Stage 8 and subsequent candidate checks have completed; final preparation does not authorize publication or deployment. Do not use these RC commands as the final-release workflow.
 
 ```sh
 python3 -B tools/build.py --release-candidate --output-root /private/tmp/oui-330-rc1

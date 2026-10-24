@@ -17,17 +17,19 @@ PRE_PRESENTATION={'src/ui.js':'eae2d60f3e39b9cbdd7896e8e127720c88ee04e8e5ac57c5a
 def sha(data): return hashlib.sha256(data).hexdigest()
 def embedded_json(value):
     return json.dumps(value,ensure_ascii=True,separators=(',',':')).replace('<','\\u003c').replace('>','\\u003e').replace('&','\\u0026')
-def build(*,reference_foundation=False,provenance_preview=False,comparison_preview=False,automatic_ui_preview=False,release_candidate=False,output_root=ROOT):
-    if release_candidate:automatic_ui_preview=True
+def build(*,reference_foundation=False,provenance_preview=False,comparison_preview=False,automatic_ui_preview=False,release_candidate=False,final_release=False,output_root=ROOT):
+    if release_candidate and final_release:raise ValueError('Choose either release-candidate or final-release identity')
+    if release_candidate or final_release:automatic_ui_preview=True
     if automatic_ui_preview:comparison_preview=True
     if comparison_preview:reference_foundation=True;provenance_preview=True
     output_root=pathlib.Path(output_root).resolve()
-    if release_candidate and output_root.exists() and any(output_root.iterdir()):raise ValueError('Release candidate requires a fresh empty output directory')
+    if (release_candidate or final_release) and output_root.exists() and any(output_root.iterdir()):raise ValueError('Release build requires a fresh empty output directory')
     if (reference_foundation or provenance_preview) and (output_root==ROOT or ROOT in output_root.parents):raise ValueError('Development previews require an output root outside the repository')
     if not provenance_preview and any(sha((ROOT/name).read_bytes())!=pin for name,pin in STABLE_EMBEDDED.items()):raise ValueError('Embedded provenance sources differ from v3.2.0; use --provenance-preview with an outside output root')
     if not automatic_ui_preview and any(sha((ROOT/name).read_bytes())!=pin for name,pin in PRE_PRESENTATION.items()):raise ValueError('Presentation sources differ from Stage 5; use --automatic-ui-preview with an outside output root')
     foundation,reference_assets=validate_reference_assets(ROOT)
-    version='3.3.0-rc.1' if release_candidate else '3.3.0-stage6' if automatic_ui_preview else '3.3.0-stage5' if comparison_preview else '3.3.0-stage4' if provenance_preview else '3.3.0-stage2' if reference_foundation else VERSION
+    from release_candidate import VERSION as RC_VERSION,FINAL_VERSION
+    version=FINAL_VERSION if final_release else RC_VERSION if release_candidate else '3.3.0-stage6' if automatic_ui_preview else '3.3.0-stage5' if comparison_preview else '3.3.0-stage4' if provenance_preview else '3.3.0-stage2' if reference_foundation else VERSION
     data=(ROOT/'data/unicode-data.json').read_bytes()
     if sha(data)!=(ROOT/'data/unicode-data.sha256').read_text().strip(): raise ValueError('Bundled Unicode data changed; review/re-pin deliberately.')
     manifest=json.loads((ROOT/'data/manifest.json').read_text())
@@ -54,9 +56,9 @@ def build(*,reference_foundation=False,provenance_preview=False,comparison_previ
     template=(ROOT/'src/template.html').read_text()
     if reference_foundation:
         licenses=license_bundle(ROOT)
-        if release_candidate:
+        if release_candidate or final_release:
             from release_candidate import candidate_licenses
-            licenses=candidate_licenses(ROOT)
+            licenses=candidate_licenses(ROOT,final_release=final_release)
         blocks=[('reference-manifest',embedded_json(foundation)),('public-suffix-data',reference_assets['data/public-suffix/compiled.json']),('popular-domain-data',reference_assets['data/popular-domains/records.json']),('reference-licenses',embedded_json(licenses))]
         if comparison_preview:
             # The matcher hashes the exact foundation manifest text, including LF.
@@ -91,9 +93,9 @@ def build(*,reference_foundation=False,provenance_preview=False,comparison_previ
     if provenance_preview:results.update({'developmentOnly':True,'automaticMatchingAvailable':False,'occurrenceProvenanceVersion':2,'embeddedSourcesSHA256':{name:sha((ROOT/name).read_bytes()) for name in STABLE_EMBEDDED}})
     if comparison_preview:results.update({'automaticMatchingAvailable':True,'automaticUIAvailable':False,'comparisonSchemaVersion':1,'initialization':'explicit-local-text','lookalikeIndexSHA256':sha(index),'comparisonSourceSHA256':sha((ROOT/'src/comparisons.js').read_bytes())})
     if automatic_ui_preview:results.update({'automaticUIAvailable':True,'initialization':'scheduled-local-text','automaticUISourceSHA256':sha((ROOT/'src/automatic-ui.js').read_bytes()),'primaryFindingPolicySHA256':sha((ROOT/'src/results-presentation.js').read_bytes())})
-    if release_candidate:
+    if release_candidate or final_release:
         from release_candidate import finish
-        finish(ROOT,output_root,results)
+        finish(ROOT,output_root,results,final_release=final_release)
     (output_root/'build-manifest.json').write_text(json.dumps(results,indent=2)+'\n')
     print(json.dumps(results,indent=2))
 if __name__=='__main__':
@@ -102,6 +104,8 @@ if __name__=='__main__':
     parser.add_argument('--provenance-preview',action='store_true',help='Build Stage 4 occurrence provenance as development-only; requires an outside output root')
     parser.add_argument('--comparison-preview',action='store_true',help='Build Stage 5 comparison API and offline index, without new UI; requires an outside output root')
     parser.add_argument('--automatic-ui-preview',action='store_true',help='Build Stage 6 automatic findings UI; development-only, outside output root required')
-    parser.add_argument('--release-candidate',action='store_true',help='Build a local 3.3.0-rc.1 with complete integrity/source materials; outside output root required, no publication')
+    release_mode=parser.add_mutually_exclusive_group()
+    release_mode.add_argument('--release-candidate',action='store_true',help='Build a local 3.3.0-rc.1 with complete integrity/source materials; outside output root required, no publication')
+    release_mode.add_argument('--final-release',action='store_true',help='Build final-version 3.3.0 with complete integrity/source materials; outside output root required, no publication authorization')
     parser.add_argument('--output-root',type=pathlib.Path,default=ROOT)
-    args=parser.parse_args();build(reference_foundation=args.reference_foundation,provenance_preview=args.provenance_preview,comparison_preview=args.comparison_preview,automatic_ui_preview=args.automatic_ui_preview,release_candidate=args.release_candidate,output_root=args.output_root)
+    args=parser.parse_args();build(reference_foundation=args.reference_foundation,provenance_preview=args.provenance_preview,comparison_preview=args.comparison_preview,automatic_ui_preview=args.automatic_ui_preview,release_candidate=args.release_candidate,final_release=args.final_release,output_root=args.output_root)

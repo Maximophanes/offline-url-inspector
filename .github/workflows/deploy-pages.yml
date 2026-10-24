@@ -6,11 +6,11 @@ on:
   workflow_dispatch:
     inputs:
       candidate_commit:
-        description: Exact audited 40-character main commit
+        description: Exact reviewed final v3.3.0 40-character main commit
         required: true
         type: string
       source_inputs_sha256:
-        description: Accepted candidate input digest from its build manifest
+        description: Accepted final v3.3.0 source-input digest from its build manifest
         required: true
         type: string
       authorize_deployment:
@@ -35,6 +35,7 @@ jobs:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           persist-credentials: false
+          fetch-depth: 0 # Hash-bound historical regressions require the stable commit.
       - name: Bind dispatch to the checked-out immutable commit
         env:
           EXPECTED_COMMIT: ${{ inputs.candidate_commit }}
@@ -51,30 +52,33 @@ jobs:
           echo "$RUNNER_TEMP/deno-runtime" >> "$GITHUB_PATH"
       - name: Cache only locked development dependencies
         run: deno cache --frozen --lock=deno.lock tests/final-copy-results.mjs
-      - name: Build exact candidate and verify prerequisites
+      - name: Build exact final v3.3.0 and verify prerequisites
         env:
           EXPECTED_SOURCE: ${{ inputs.source_inputs_sha256 }}
         run: |
-          python3 -B tools/build.py --release-candidate --output-root "$RUNNER_TEMP/rc"
-          python3 -B tools/verify_release.py --candidate-root "$RUNNER_TEMP/rc"
-          python3 -B tools/release_gate.py --candidate-root "$RUNNER_TEMP/rc" --deno "$(command -v deno)" --report "$RUNNER_TEMP/release-gate.json"
-          python3 -c 'import json,os; m=json.load(open(os.environ["RUNNER_TEMP"]+"/rc/build-manifest.json")); assert m["sourceIdentity"]["inputsSHA256"]==os.environ["EXPECTED_SOURCE"], "Unreviewed source inputs"'
+          python3 -B tools/build.py --final-release --output-root "$RUNNER_TEMP/final"
+          python3 -B tools/verify_release.py --release-root "$RUNNER_TEMP/final"
+          python3 -B tools/release_gate.py --release-root "$RUNNER_TEMP/final" --deno "$(command -v deno)" --report "$RUNNER_TEMP/release-gate.json"
+          python3 -c 'import json,os; m=json.load(open(os.environ["RUNNER_TEMP"]+"/final/build-manifest.json")); assert m["releaseVersion"]=="3.3.0" and m["buildKind"]=="final" and m["releaseCandidate"] is False and m["publicationAuthorized"] is False, "Incorrect final build identity"; assert m["sourceIdentity"]["inputsSHA256"]==os.environ["EXPECTED_SOURCE"], "Unreviewed source inputs"'
+      - name: Reject invalid release identities and packaging
+        run: python3 -B tests/release-promotion.py --task-root "$RUNNER_TEMP/promotion-tests" --deno "$(command -v deno)"
       - name: Preserve historical regression contracts
-        run: python3 -B tests/ui-polish-regressions.py --candidate-root "$RUNNER_TEMP/rc" --deno "$(command -v deno)" --report "$RUNNER_TEMP/historical-results.json"
-      - name: Preserve candidate identity and verification receipt
+        run: python3 -B tests/release-promotion-regressions.py --release-root "$RUNNER_TEMP/final" --deno "$(command -v deno)" --report "$RUNNER_TEMP/historical-results.json"
+      - name: Preserve final identity and verification receipt
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
-          name: verified-candidate-${{ github.sha }}
+          name: verified-final-3.3.0-${{ github.sha }}
           path: |
-            ${{ runner.temp }}/rc/build-manifest.json
-            ${{ runner.temp }}/rc/SHA256SUMS
+            ${{ runner.temp }}/final/build-manifest.json
+            ${{ runner.temp }}/final/SHA256SUMS
             ${{ runner.temp }}/release-gate.json
+            ${{ runner.temp }}/promotion-tests/release-promotion.json
             ${{ runner.temp }}/historical-results.json
           if-no-files-found: error
       - name: Upload only the newly verified hosted edition
         uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4
         with:
-          path: ${{ runner.temp }}/rc/site
+          path: ${{ runner.temp }}/final/site
           include-hidden-files: true
   deploy:
     needs: verify
