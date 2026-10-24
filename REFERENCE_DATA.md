@@ -1,6 +1,6 @@
-# Current v3.3.0 candidate data policy
+# v3.3.0 reference data policy
 
-The approved foundation below is now used by the automatic matcher, orchestration and Stage 6 interface. Its immutable component manifest intentionally retains `foundation-only` schema metadata; the candidate build manifest separately declares active automatic matching/UI. Those fields are not a claim that the completed app is dormant. No snapshot, tier, pin, normalization or matching policy changed in Stage 7. The older build/default-verifier statements below describe their original foundation checkpoint. Current builds use [RELEASE_CANDIDATE.md](RELEASE_CANDIDATE.md); licensing and exact offline source packaging are assessed in [DISTRIBUTION_RIGHTS.md](DISTRIBUTION_RIGHTS.md). Runtime data remain bundled in both HTML files, with no online lookup or automatic refresh.
+The approved foundation below is now used by the automatic matcher, orchestration and Stage 6 interface. Its immutable component manifest intentionally retains `foundation-only` schema metadata; the final build manifest separately declares active automatic matching/UI. Those fields are not a claim that the completed app is dormant. No snapshot, tier, pin, normalization or matching policy changed in Stage 7. The older build/default-verifier statements below describe their original foundation checkpoint. Current builds use [FINAL_RELEASE.md](FINAL_RELEASE.md); licensing and exact offline source packaging are assessed in [DISTRIBUTION_RIGHTS.md](DISTRIBUTION_RIGHTS.md). Runtime data remain bundled in both HTML files, with no online lookup or automatic refresh.
 
 ## Preserved foundation implementation and provenance
 

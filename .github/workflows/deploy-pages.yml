@@ -6,15 +6,15 @@ on:
   workflow_dispatch:
     inputs:
       candidate_commit:
-        description: Exact reviewed final v3.3.0 40-character main commit
+        description: Exact reviewed 40-character main commit
         required: true
         type: string
       source_inputs_sha256:
-        description: Accepted final v3.3.0 source-input digest from its build manifest
+        description: Accepted source-input digest from the final build manifest
         required: true
         type: string
       authorize_deployment:
-        description: Stage 8 accepted and deployment explicitly authorized
+        description: Production deployment explicitly authorized
         required: true
         default: false
         type: boolean
@@ -32,10 +32,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-          fetch-depth: 0 # Hash-bound historical regressions require the stable commit.
       - name: Bind dispatch to the checked-out immutable commit
         env:
           EXPECTED_COMMIT: ${{ inputs.candidate_commit }}
@@ -52,7 +51,7 @@ jobs:
           echo "$RUNNER_TEMP/deno-runtime" >> "$GITHUB_PATH"
       - name: Cache only locked development dependencies
         run: deno cache --frozen --lock=deno.lock tests/final-copy-results.mjs
-      - name: Build exact final v3.3.0 and verify prerequisites
+      - name: Build the final release and verify prerequisites
         env:
           EXPECTED_SOURCE: ${{ inputs.source_inputs_sha256 }}
         run: |
@@ -60,26 +59,20 @@ jobs:
           python3 -B tools/verify_release.py --release-root "$RUNNER_TEMP/final"
           python3 -B tools/release_gate.py --release-root "$RUNNER_TEMP/final" --deno "$(command -v deno)" --report "$RUNNER_TEMP/release-gate.json"
           python3 -c 'import json,os; m=json.load(open(os.environ["RUNNER_TEMP"]+"/final/build-manifest.json")); assert m["releaseVersion"]=="3.3.0" and m["buildKind"]=="final" and m["releaseCandidate"] is False and m["publicationAuthorized"] is False, "Incorrect final build identity"; assert m["sourceIdentity"]["inputsSHA256"]==os.environ["EXPECTED_SOURCE"], "Unreviewed source inputs"'
-      - name: Reject invalid release identities and packaging
-        run: python3 -B tests/release-promotion.py --task-root "$RUNNER_TEMP/promotion-tests" --deno "$(command -v deno)"
-      - name: Preserve historical regression contracts
-        run: |
-          # Hash-bound historical harnesses retain their original macOS temp path.
-          sudo install -d -m1777 /private/tmp
-          python3 -B tests/release-promotion-regressions.py --release-root "$RUNNER_TEMP/final" --deno "$(command -v deno)" --report "$RUNNER_TEMP/historical-results.json"
+      - name: Check current packaging and deployment safeguards
+        run: python3 -B tests/current-release.py --release-root "$RUNNER_TEMP/final" --report "$RUNNER_TEMP/release-checks.json"
       - name: Preserve final identity and verification receipt
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
-          name: verified-final-3.3.0-${{ github.sha }}
+          name: verified-final-${{ github.sha }}
           path: |
             ${{ runner.temp }}/final/build-manifest.json
             ${{ runner.temp }}/final/SHA256SUMS
             ${{ runner.temp }}/release-gate.json
-            ${{ runner.temp }}/promotion-tests/release-promotion.json
-            ${{ runner.temp }}/historical-results.json
+            ${{ runner.temp }}/release-checks.json
           if-no-files-found: error
       - name: Upload only the newly verified hosted edition
-        uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
         with:
           path: ${{ runner.temp }}/final/site
           include-hidden-files: true
@@ -95,7 +88,7 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: main
           persist-credentials: false
@@ -103,4 +96,4 @@ jobs:
         run: test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
       - name: Deploy this run's verified artifact
         id: deployment
-        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1

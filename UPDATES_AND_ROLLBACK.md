@@ -1,28 +1,16 @@
-# Final v3.3.0 transition and rollback
+# Updates, storage compatibility and rollback
 
-Stable release is v3.2.0 at baseline `664cc58bf67a2127d0523adec9f1d80c6edd656e`. The final-version build preserves `src/sw.js`, `src/hosted.js` and `src/references.js` byte-for-byte from that baseline. New reference data and scripts are embedded in one complete HTML, so the worker's existing whole-document SHA-256 check binds code and data atomically. Final preparation changes only the substituted release/hash identity in the generated worker. It fetches only the exact fixed application document and never a pasted address.
+V3.3.0 is deployed. The matched v3.2.0 fallback remains at Git commit `664cc58bf67a2127d0523adec9f1d80c6edd656e` and in the committed `site/`, `standalone/`, `build-manifest.json` and `SHA256SUMS` files. The final deployed v3.3.0 hosted copy and its verification receipt are also retained privately in URL Insp. Archives.
 
-An unmatched, missing, interrupted or corrupt update cannot become a ready installed release. The verified old cache remains usable. Updates wait for the existing Apply Update control; inspected text/unapplied edits are cleared only after the existing deliberate reload confirmation. A failed apply does not migrate or erase reference data. Schema 1 and `offline-url-inspector:reference-domains` are unchanged. Keep exported backups; private sessions/file origins and shared github.io origin storage retain their existing limitations.
+V3.3.0 preserves the v3.2.0 service-worker, hosted lifecycle and Reference Domains storage sources. Code and data are embedded in one HTML whose whole-document SHA-256 is bound to the generated worker. Only the fixed application document is fetched; inspected destinations are never requested.
 
-After separately authorized deployment, rehearse the exact committed final build from a v3.2.0 controlled profile: cached online/offline startup, update discovery, delayed application, cancellation, partial/stale assets, failed cache writes, recovery, successful application, offline reload and storage preservation. Isolated worker tests and final/stable asset correspondence checks are evidence for bounded scenarios, not a live Pages guarantee or protection against future browser eviction. Live upgrade/rollback has not been performed during final preparation. An uncached offline profile cannot install. Network delivery before a worker controls a fresh profile is not authenticated by the worker; CSP/hashes are integrity checks within the trusted application, not publisher signatures.
+## Maintenance and deployment
 
-For a future authorized rollback, restore the **matched** baseline hosted HTML/worker and verify their original hashes; do not run the current v3.3.0 builder and call its output v3.2.0. Use a separately approved rollback workflow/version check, as the forward workflow deliberately accepts only the final v3.3.0 build. Old open tabs may remain under their current controller until the existing reviewed-update lifecycle completes; the worker retains one previous cache but does not provide an automatic browser rollback switch. Never clear all origin storage as a rollback step. If cache recovery requires unregistering, unregister only the exact project worker, preserve/export personal references first, and reopen online. Rehearse rollback and retained-cache ordering before release. Nothing was rolled back or deployed in this task.
+Preserve the application ID, project path, reference-storage key and schema. Use [current final-build instructions](FINAL_RELEASE.md), focused checks proportionate to the change and [explicit deployment authorization](DEPLOYMENT.md). A normal maintenance change does not require a release candidate, historical suite replay or new audit. Data updates require their own relevant review; see [UNICODE_DATA.md](UNICODE_DATA.md).
 
-## Historical lifecycle documentation
+Deploy only the complete matching HTML/worker set from the authorized build. A missing, interrupted or mismatched update must not replace the verified old cache. Preserve a durable prior set and export personal references before storage troubleshooting. A live update/rollback rehearsal is distinct from local worker simulations and must not be claimed without performing it.
 
-> Version 3.1.2 retains Version 3.1.1's storage key, schema 1 and reference engine. Worker logic is unchanged; only plaintext 503 recovery prose differs. No migration is needed. Startup now checks existing cache state first and uses bounded lifecycle/status waits; see OFFLINE_STARTUP_REVIEW.md. Work remains uncommitted on dev/v3.1.2, with no deployment performed.
-
-# Updates, storage compatibility, and rollback
-
-## Build a future release
-
-1. Keep the approved prior Git revision and matching deployed `site/` set. Export references from the browser before changing storage formats or troubleshooting site data.
-2. Work on the development branch in the existing source repository; keep published main unchanged until explicit approval. Preserve the fixed application ID, project path, and stable reference-storage key. Change `VERSION` in `tools/build.py` for the new app release; audit any worker/cache/schema changes.
-3. Edit `src/`, then run `python3 tools/verify_data.py` and `python3 tools/build.py`. Ordinary builds preserve the pinned Unicode JSON. Do not regenerate unchanged tables or edit generated CSP hashes. A Unicode update needs the additional review in [UNICODE_DATA.md](UNICODE_DATA.md).
-4. Run targeted checks while developing and `python3 tools/test_all.py` before delivery. Run the manual Firefox checklist for both editions, especially offline/updates. Keep actual browser evidence separate from simulations. Update release documentation/reports/checksums.
-5. After user review and approval, use the existing repository and Pages workflow to deploy the complete generated `site/index.html`, `site/sw.js`, and `.nojekyll` together. Preserve previous releases outside the deployed root for rollback.
-
-The worker embeds the complete HTML SHA-256 and a release cache ID of `version-<HTML hash prefix>`. Editing either generated asset independently breaks that pairing. A transient mismatch during deployment causes installation to fail rather than accepting a mixed release. The previously active worker/cache remains available; retry after the complete deployment reaches the origin.
+A rollback requires separate authorization: restore the matched baseline HTML/worker and their original hashes. Do not build current v3.3.0 sources and label their output v3.2.0. The forward workflow accepts final v3.3.0 only. Preserve reference storage; never clear all origin data as a rollback step. Old tabs may remain under their existing controller until the deliberate update lifecycle completes.
 
 ## What users see during an update
 

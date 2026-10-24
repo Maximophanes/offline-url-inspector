@@ -1,4 +1,8 @@
-# Version 3.1.2 final Firefox verification
+# Firefox verification checklist
+
+For maintenance, apply relevant checks to the current outside-checkout final artifacts from [FINAL_RELEASE.md](FINAL_RELEASE.md). The original setup and observations below are historical v3.1.2 evidence, not new v3.3.0 results. In particular, `tools/serve.py` serves the retained root v3.2.0 rollback assets; it is not a current-build preview. Use a disposable profile and preserve production references.
+
+## Historical v3.1.2 setup and observations
 
 The user reports the earlier 3.1.2 persistent cached-startup issue fixed. That report and the successful 3.1.1 baseline are separate from the final editorial build. **Agent-run final 3.1.2 Firefox assertions: zero.** Current read-only checks found Firefox 158.0 installed and no geckodriver on PATH. The recorded earlier native startup failure is historical, not a new test or passing result.
 
@@ -60,7 +64,7 @@ Final editorial Firefox, native zoom, screen-reader, OS reduced-motion, file-pol
 
 ## Final focused interface verification (pending native Firefox)
 
-The agent inspected the current in-app screenshots in [FINAL_INTERFACE_REVIEW.md](FINAL_INTERFACE_REVIEW.md). Native Firefox control failed because Computer Use permission was unavailable; no native pass is claimed.
+The agent inspected the current in-app screenshots in [FINAL_INTERFACE_REVIEW.md](https://github.com/Maximophanes/offline-url-inspector/blob/d4c7772d6fd928746e9c2ab5c8ac3f97818312f5/FINAL_INTERFACE_REVIEW.md). Native Firefox control failed because Computer Use permission was unavailable; no native pass is claimed.
 
 1. Run `python3 tools/serve.py` and open the printed loopback project URL in Firefox. Use the built-in Unicode example. At desktop width, confirm both main hostname labels are inline, while Input & Normalization descriptors use smaller second lines. Expand Character Details and verify mapping sequences remain contextual.
 2. Expand Full Diagnostic Log and its bottom Raw Diagnostic Records. Check original messages, codes, categories, severity and order; Tab into the record region and use Page Down, with a visible focus ring. Use the ASCII example and expand All ASCII Observations and locations.

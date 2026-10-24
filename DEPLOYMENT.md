@@ -1,46 +1,17 @@
-# Final v3.3.0 deployment safeguards
+# Authorized GitHub Pages deployment
 
-The published application remains v3.2.0. Final-version build preparation is local and does not authorize deployment. This workflow revision has not run on GitHub; no repository setting was changed. PR #3 remains Draft. The old contract below is historical.
+Offline URL Inspector v3.3.0 is deployed. Maintenance uses `main` and the existing `.github/workflows/deploy-pages.yml`. There is no automatic push deployment.
 
-The workflow has only a manual `workflow_dispatch` trigger; pushing either the development branch or main does not deploy. Dispatch must run on `main`, explicitly authorize deployment, and supply the exact checked-out commit and accepted final source-input digest. It builds with `--final-release` into a fresh outside-checkout `final` directory and verifies with `--release-root`, explicitly rejecting RC metadata. It checks source/artifact correspondence and strict Deno 2.9.7 data reproduction, then runs mandatory core, storage, provenance, comparison, current presentation/import/privacy/accessibility, worker, update, promotion rejection and historical regressions. Failure prevents artifact upload and the dependent deployment job. It uploads only that run's newly built `final/site` three-file hosted directory. The old root `site/` is never a deployment input. No other run's artifact is selected.
+Production deployment requires an explicit user decision, an exact reviewed 40-character commit on `main`, and its accepted final-build source-input digest. Dispatch also requires `authorize_deployment: true`. Preparing a build or passing checks does not grant authorization.
 
-Verification has only `contents: read`; checkout does not persist credentials. Only the dependent `github-pages` environment deployment job receives `pages: write` and `id-token: write`. The concurrency group prevents simultaneous Pages deployments. The receipt records the dispatch commit, input digest, final manifest/checksums, gate, promotion and historical results. Exact final-build acceptance and explicit publication/deployment approval remain required even though `releaseCandidate` is false; `publicationAuthorized` remains false in every generated package.
+The verification job checks dispatch/checkout identity, installs checksum-pinned official Deno 2.9.7, caches frozen development dependencies and builds `--final-release` into a fresh runner-temporary directory. It verifies source/artifact correspondence, current functional/data/worker prerequisites, final metadata and the accepted source digest, then runs focused package/workflow rejection checks. Historical stage reconstruction and RC promotion are not required. See [FINAL_RELEASE.md](FINAL_RELEASE.md).
 
-Required user configuration after independent audit: retain Pages' Actions publishing source; protect `main`; require appropriate review/status checks; configure the `github-pages` environment for the authorized branch and required reviewers (including preventing self-approval where supported). A dispatch checkbox/digest proves what was requested, **not that a human audit or legal approval occurred**. Environment approval is an external control. Local tests cannot establish GitHub-hosted enforcement. Action release tags were resolved through the official GitHub repositories and pinned to immutable commits in this workflow; independent review of those actions remains required. The Linux Deno archive is pinned to the checksum published with the official 2.9.7 release, verified before extraction/execution. `ubuntu-latest` is a moving build environment; archive determinism must be reproduced on the actual runner and accepted before promotion. No actions, settings or live deployment were invoked here.
+Only that run's newly verified `final/site` directory is uploaded. `include-hidden-files: true` preserves its empty `.nojekyll` file with the supported Pages uploader. The committed root `site/` remains the v3.2.0 rollback set and is never a forward-deployment input.
 
-Reference source materials/notices are available offline inside each HTML. Preserve the complete final bundle for download/audit distribution. Do not publish only a worker or mix releases. See [FINAL_RELEASE.md](FINAL_RELEASE.md), [distribution rights](DISTRIBUTION_RIGHTS.md) and [the historical Stage 7 handoff](STAGE7_RELEASE_HARDENING.md).
+Verification has `contents: read`; checkouts do not persist credentials. The dependent deployment job alone receives `pages: write` and `id-token: write`. It uses the existing `github-pages` environment, rechecks that `main` still equals the dispatched commit after any approval wait, and deploys the same run's artifact. The concurrency group prevents simultaneous Pages deployments. All actions use immutable official release commit pins.
 
-[GitHub documents](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages) the build/deploy dependency, Pages token permissions and environment requirements. [Environment protections](https://docs.github.com/en/actions/how-tos/deploy/configure-and-manage-deployments/manage-environments) require repository-side configuration and may depend on plan/visibility.
+Keep Pages configured to publish through Actions and retain the existing environment protections. A dispatch checkbox does not establish who approved a change; environment protection remains a repository-side control. Local structural checks do not verify GitHub settings or exercise deployment. GitHub documents [custom Pages workflows](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages) and [environment protections](https://docs.github.com/en/actions/how-tos/deploy/configure-and-manage-deployments/manage-environments).
 
-## Historical deployment contract
+The verification receipt retains the final build manifest, checksums, current gate results and focused package/workflow results. Actions artifacts expire; preserve a compact durable hosted recovery copy and its verification receipt for each deployment that needs recovery support.
 
-# Existing GitHub Pages deployment contract
-
-Repository: `Maximophanes/offline-url-inspector`. The user reports Version 3.1.1 is published at `https://maximophanes.github.io/offline-url-inspector/`. This task leaves Version 3.1.2 uncommitted on `dev/v3.1.2` for review. It does not publish, push, merge, create releases/PRs, change settings or modify `main`.
-
-The existing `.github/workflows/deploy-pages.yml` remains unchanged. It deploys the `site/` directory using GitHub Pages Actions on matching `main` pushes (paths `site/**` or the workflow), and offers `workflow_dispatch`. It includes hidden files in the artifact. Use the existing repository/workflow after the user approves the release; do not create a replacement repository or change Pages to a root branch deployment.
-
-## Local validation
-
-```sh
-python3 tools/build.py
-python3 tools/serve.py
-```
-
-Open `http://127.0.0.1:8765/offline-url-inspector/`. The server binds only to loopback, serves the fixed project assets and avoids logging submitted query strings. Stop it before `python3 tools/test_all.py`, which owns port 8765. The standalone file can be opened directly and needs no worker/server.
-
-## Fixed hosting contract
-
-| Item | Value |
-|---|---|
-| Project path and worker scope | `/offline-url-inspector/` |
-| Worker URL | `/offline-url-inspector/sw.js` |
-| Complete cached application | `/offline-url-inspector/index.html` only |
-| Deployment directory | `site/` (`index.html`, `sw.js`, `.nojekyll`) |
-| Independent offline fallback | `standalone/Offline_URL_Inspector.html` |
-
-Build both editions from shared sources. Deploy the matching generated HTML and worker together only after approval; the worker rejects an incomplete/mismatched release rather than accepting partial application bytes. Never hand-edit generated CSP hashes or broaden the worker scope. Keep an approved prior matched file set in version history for rollback.
-
-Hosted status verifies an existing exact-scope cache before reporting Offline ready. Containers/profiles can isolate registrations and storage; an uncached offline context cannot download the app. Clearing caches can remove availability. Reference storage uses schema 1 and the same key as Version 3.1.1; no migration is needed. Other projects on the same GitHub Pages origin can access origin storage regardless of project path.
-
-Only fixed application resources load/update; submitted destinations are never contacted. Exact inline CSP hashes, complete worker release hashes and real loopback HTTP checks passed. Actual Version 3.1.2 Firefox/live Pages checks remain pending until explicitly performed. Local server or in-app cache tests do not establish a live deployment. Use FIREFOX_CHECKLIST.md, SECURITY_REVIEW.md and UPDATES_AND_ROLLBACK.md.
+Publish a matching HTML/worker set. Preserve the complete source/notices bundle when distributing builds; each HTML also contains offline notices and the exact PSL source. Retain the fixed application path and worker scope `/offline-url-inspector/`. See [distribution rights](DISTRIBUTION_RIGHTS.md) and [updates and rollback](UPDATES_AND_ROLLBACK.md). Rollback requires separate authorization and a matched prior set; it is not a forward v3.3.0 build.

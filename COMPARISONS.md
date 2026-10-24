@@ -1,4 +1,4 @@
-Current candidate status: orchestration is initialized by the approved Stage 6 interface with bundled local text. Stage 7 packages the same analysis, optional references and Expected Hostname semantics in both editions. Earlier dormant-API statements below describe the original Stage 5 checkpoint. See [RELEASE_CANDIDATE.md](RELEASE_CANDIDATE.md).
+Current v3.3.0 status: orchestration is initialized by the approved Stage 6 interface with bundled local text. Stage 7 packages the same analysis, optional references and Expected Hostname semantics in both editions. Earlier dormant-API statements below describe the original Stage 5 checkpoint. See [FINAL_RELEASE.md](FINAL_RELEASE.md).
 
 # Unified comparison contract, schema 1
 
@@ -85,4 +85,4 @@ Current Deno is 2.9.8; reviewed generation is 2.9.7. Standard generation checks 
 
 Stage 6's `AutomaticUI` consumes the existing Stage 3 `analysis.automatic` results and the coordinator's source/relationship attachments. It does not infer new matches, change matching policy or use a built-in as explicit user intent. Exact details are in [AUTOMATIC_FINDINGS.md](AUTOMATIC_FINDINGS.md). The Stage 5 packaging section above records that stage's state; current source requires `--automatic-ui-preview` and outside-repository output. Exact Stage 5 bundles remain reproducible in the disposable regression copy.
 
-The runtime discrepancy described above was subsequently resolved under the original strict pins: [STAGE5_VALIDATION_RESOLUTION.md](STAGE5_VALIDATION_RESOLUTION.md). Stage 6 fresh strict execution is recorded separately in `tests/automatic-strict-runtime-results.json`.
+The runtime discrepancy described above was subsequently resolved under the original strict pins: [STAGE5_VALIDATION_RESOLUTION.md](https://github.com/Maximophanes/offline-url-inspector/blob/d4c7772d6fd928746e9c2ab5c8ac3f97818312f5/STAGE5_VALIDATION_RESOLUTION.md). Stage 6 fresh strict execution is recorded separately in `tests/automatic-strict-runtime-results.json`.

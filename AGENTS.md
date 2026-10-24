@@ -1,18 +1,17 @@
-# Development and design guidance
+# Maintenance guidance
 
-Read this file at the start of a task and after context compaction. Check the active branch, existing changes and the user's current stage boundaries before editing. Preserve completed work; keep changes local, unstaged and uncommitted unless the user authorizes otherwise. See [AUTOMATIC_FINDINGS.md](AUTOMATIC_FINDINGS.md) for the current presentation contract and [DESIGN_NOTES.md](DESIGN_NOTES.md) for visual history.
+Read these instructions after context compaction. Check the branch, working tree and requested scope; preserve existing work.
 
-- Let the strongest meaningful supported finding determine the main result. Priority controls order and relative emphasis; every independent security finding retains recognizable caution treatment when secondary. Keep neutral/informational findings and technical limitations distinct. A nondefault port alone is informational; unusual valid syntax is not automatically evidence of deception. A reassuring character observation must never obscure stronger evidence.
-- Use plain language first: what was found, why it matters and what to consider doing. Explain Unicode resemblance using verified character identities, scripts and code points, not ambiguous glyphs alone; do not guess missing metadata or one-to-one substitutions. Put methods and terminology in optional evidence.
-- Distinguish completed negative checks, unsupported eligibility, interrupted checks and unavailable data. Scope limitations to the analysis component actually affected; unsupported matching is not incomplete extraction. Unsupported methods must not overshadow meaningful successful comparisons from other methods. Resemblance is evidence, not an allegation of malicious intent.
-- Never infer safety from popularity, absence of lookalikes, ordinary ASCII or successful normalization.
-- Display information only when useful. Do not duplicate internal analysis across result sections: display actionable evidence once in the appropriate hierarchy. Omit empty reports, duplicate representations and routine successful statuses; preserve exhaustive records in deliberate advanced diagnostics with independent collapsed disclosures.
-- Keep ordinary results concise. Consolidate equivalent findings and repeated advice while preserving meaningful comparison sources, separate mechanisms and distinct proof methods. Offer relevant technical evidence on demand and a direct route to advanced diagnostics; avoid empty parent disclosures.
-- Preserve full engine evidence and provenance in unchanged result objects and readable technical evidence. Do not render serialized engineering state in the interactive inspection interface or add diagnostic exports without a demonstrated need. Keep hashes and legal documents outside per-URL findings; retain accessible source/license materials.
-- When functionality changes, review affected help, limitations, tooltips, glossary entries and user-facing descriptions. Replace contradictory legacy explanations.
-- **Systematic Result & Messaging Validation:** Any change affecting inspection results or comparisons requires examination of user-facing message combinations beyond user-reported cases. Inventory affected messages, test meaningful cross-feature states, assert priority and coverage semantics, and proactively identify contradictory, redundant, misleading or outdated copy. Treat message correctness as separately testable from engine correctness; preserve evidence and privacy while keeping ordinary results concise.
-- Preserve the approved single combined Blackberry & Amethyst palette, typography, native interactions and visual identity. There are no separate themes or theme switch. Avoid unrelated redesign or gamification.
-- Preserve offline operation, no inspected-destination requests, safe text rendering, deliberate sensitive-value reveals and reference-storage safeguards. Do not change schemas, datasets, pins or matching policy for presentation convenience.
-- Add UI complexity only for a clear user benefit. Validate meaningful layout changes in native Firefox, including responsive widths and real zoom. Distinguish that evidence from DOM tests; never claim screen-reader acceptance without performing it.
+Make the smallest clear, maintainable change. Avoid unrelated refactoring, new infrastructure, release candidates, repeated audits and new reports unless requested or justified by a concrete problem.
 
-Development previews belong outside the repository. Preserve strict Deno 2.9.7 reproduction and original historical assertions. Do not begin later stages, release or deploy without authorization.
+Preserve the approved single combined Blackberry & Amethyst design, typography, native interactions, accessibility and collapsed disclosures; there are no separate themes or theme switch. Follow [AUTOMATIC_FINDINGS.md](AUTOMATIC_FINDINGS.md): the strongest meaningful supported finding leads, and every independent security finding retains caution treatment. Distinguish unsupported eligibility and interrupted component checks; preserve comparison sources and verified evidence without serialized engineering state in ordinary results. Never infer safety from popularity or absent resemblance.
+
+Preserve offline operation, no inspected-destination requests, safe text rendering, sensitive-value controls, Reference Domains, storage compatibility and backup import/export. Preserve pinned data, provenance, licenses and Deno 2.9.7 reproduction.
+
+Test according to risk. Systematic Result & Messaging Validation means checking meaningful cross-feature priority, coverage and privacy combinations when results change. Use focused regressions for changed behavior and native Firefox for meaningful visual changes. Documentation-only work normally needs reference checks. Report unperformed verification honestly.
+
+Keep previews and temporary outputs outside the repository. Do not rewrite historical assertions merely to obtain passing results; historical suites are not mandatory maintenance gates.
+
+Stop when the requested change and relevant checks are complete. Report material limitations without opening additional stages.
+
+Keep changes local, unstaged and uncommitted. Obtain explicit authorization before commits, pushes, destructive changes or production deployments.
