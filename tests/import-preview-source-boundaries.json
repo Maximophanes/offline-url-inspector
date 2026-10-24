@@ -1,0 +1,15 @@
+{
+  "purpose": "Exact import-preview wording only; retain all original historical pins and assertions.",
+  "files": {
+    "src/ui.js": {
+      "previousSHA256": "972bc713b0a55b7d1a3b004951cc03bed076e3a94959b8235c0a144c2fc9a978",
+      "currentSHA256": "468eb401fd6a3391a60477fa2bb506634d4e9027080d5535febe8e4d60bc225f",
+      "replacements": [
+        {
+          "previous": " const internal=importPlan.final.filter(singleLabel);set('importSingleLabels',internal.length?Presentation.count(internal.length,'single-label hostname')+' in this preview: '+internal.join(', ')+'. '+(internal.length===1?'This name may identify a private-network service and can only be matched exactly.':'These names may identify private-network services and can only be matched exactly.'):'');$('importSingleLabels').classList.toggle('hidden',!internal.length);\n",
+          "current": " const internal=importPlan.final.filter(singleLabel);set('importSingleLabels',internal.length?'The resulting list contains '+Presentation.count(internal.length,'single-label hostname')+': '+internal.join(', ')+'. '+(internal.length===1?'This name may identify a local-network service and can only be matched exactly.':'These names may identify local-network services and can only be matched exactly.'):'');$('importSingleLabels').classList.toggle('hidden',!internal.length);\n"
+        }
+      ]
+    }
+  }
+}

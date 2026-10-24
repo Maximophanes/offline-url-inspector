@@ -9,6 +9,16 @@ with tempfile.TemporaryDirectory(prefix='oui-ui-polish-history-') as folder:
  with log.open('w') as stream:v=subprocess.run([str(a.deno),'run','--cached-only','--allow-read=.,'+str(a.candidate_root),'--allow-write=tests','--allow-env=WS_NO_BUFFER_UTIL,WS_NO_UTF_8_VALIDATE','tests/ui-polish-results.mjs','--development-root='+str(a.candidate_root)],cwd=dest,stdout=stream,stderr=subprocess.STDOUT)
  entry={'name':'current-candidate-ui-polish','exitCode':v.returncode,'report':json.loads((dest/'tests/ui-polish-results.json').read_text())};report['checks'].append(entry)
  if v.returncode:report['failures'].append(entry['name']);entry['error']=log.read_text()[-8000:]
+ log=a.report.with_suffix('.import.log')
+ with log.open('w') as stream:v=subprocess.run([str(a.deno),'run','--cached-only','--allow-read=.,'+str(a.candidate_root),'--allow-write=tests','--allow-env=WS_NO_BUFFER_UTIL,WS_NO_UTF_8_VALIDATE','tests/import-preview-results.mjs','--development-root='+str(a.candidate_root)],cwd=dest,stdout=stream,stderr=subprocess.STDOUT)
+ entry={'name':'current-candidate-import-preview','exitCode':v.returncode,'report':json.loads((dest/'tests/import-preview-results.json').read_text())};report['checks'].append(entry)
+ if v.returncode:report['failures'].append(entry['name']);entry['error']=log.read_text()[-8000:]
+ # Restore only the reviewed sentence in copied source; current checks above
+ # use the actual revised runtime. All original historical assertions stay intact.
+ for name,b in json.loads((ROOT/'tests/import-preview-source-boundaries.json').read_text())['files'].items():
+  source=(dest/name).read_text();assert sha(source.encode())==b['currentSHA256'],name
+  for pair in b['replacements']:assert source.count(pair['current'])==1;source=source.replace(pair['current'],pair['previous'])
+  assert sha(source.encode())==b['previousSHA256'],name;(dest/name).write_text(source)
  for name,b in json.loads((ROOT/'tests/ui-polish-source-boundaries.json').read_text())['files'].items():
   assert sha((dest/name).read_bytes())==b['currentSHA256'],name;prior=b['previousSource'].encode();assert sha(prior)==b['previousSHA256'],name;(dest/name).write_bytes(prior)
  baseline=subprocess.check_output(['git','show','664cc58bf67a2127d0523adec9f1d80c6edd656e:tools/build.py'],cwd=ROOT);(dest/'stable-builder-baseline.txt').write_bytes(baseline)
