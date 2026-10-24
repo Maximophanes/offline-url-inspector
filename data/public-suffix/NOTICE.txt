@@ -1,0 +1,18 @@
+Public Suffix List: MPL-2.0 covered data
+
+Official source: https://publicsuffix.org/list/public_suffix_list.dat
+Snapshot: 2026-10-20_08-40-56_UTC
+Upstream: https://github.com/publicsuffix/list/commit/5dd321ffe02039e2431382a095cf80e27ff5eb94
+License: Mozilla Public License 2.0; full text in LICENSE.txt.
+https://www.mozilla.org/MPL/2.0/
+
+The original source and its license notices are preserved in
+public_suffix_list.dat. Changes: compile normalized A-label rules into separate
+ICANN and PRIVATE arrays. Compiled data remains MPL-2.0 covered material.
+Exact source, modifications and reproduction instructions are available in
+data/public-suffix/ and REFERENCE_DATA.md of this application source tree.
+The new application modules are independently authored; this notice does not
+relicense the entire application. Single-file distribution treatment remains
+a documented proposal, not verified legal clearance.
+
+Official test_psl.txt fixtures retain their upstream CC0/public-domain notice.

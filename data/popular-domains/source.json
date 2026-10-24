@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "provider": "majestic",
+  "datasetId": "majestic-million-sha256-a5bafba77ae3586dac6ad563a3f374c2f18baca9297b9c7e5137022f0356ea8a",
+  "sourceURL": "https://majestic.com/reports/majestic-million",
+  "downloadURL": "https://downloads.majestic.com/majestic_million.csv",
+  "retrievedAtUTC": "2026-10-22T02:43:51.752169+00:00",
+  "upstreamRevision": null,
+  "original": {
+    "bytes": 79648765,
+    "sha256": "a5bafba77ae3586dac6ad563a3f374c2f18baca9297b9c7e5137022f0356ea8a",
+    "rows": 1000000,
+    "httpLastModified": "Wed, 21 Oct 2026 05:00:20 GMT",
+    "etag": "\"4bf57fd-65e529fb7a305\""
+  },
+  "landingPage": {
+    "sha256": "47ed2572ca8d3582f0982d9a294681942b2f28d18a8f2e16ee1d27f6df434803",
+    "publisherDateLabel": "22 Oct 2026",
+    "identityCaution": "Landing-page date is separate from CSV identity; CSV Last-Modified is 21 Oct 2026 05:00:20 GMT."
+  },
+  "subset": {
+    "file": "source.csv",
+    "columns": [
+      "GlobalRank",
+      "Domain"
+    ],
+    "rows": 10000,
+    "firstRank": 1,
+    "lastRank": 10000,
+    "bytes": 176483,
+    "sha256": "01ddd1c4da949fb9d8c4a12b3ae4ca2dce22f9f6048764693553a65664cf5f55",
+    "serialization": "UTF-8 CSV, LF, header, original Domain field, increasing GlobalRank"
+  },
+  "selection": {
+    "policyId": "majestic-global-10k-v1",
+    "referenceMaxRank": 10000,
+    "spellingMaxRank": 1000,
+    "evaluationMaxRanks": [
+      1000,
+      5000,
+      10000
+    ],
+    "rankCutoffsBeforeNormalization": true,
+    "topUpExcludedRows": false
+  },
+  "license": {
+    "spdx": "CC-BY-3.0",
+    "url": "https://creativecommons.org/licenses/by/3.0/",
+    "noticeFile": "NOTICE.txt",
+    "noticeSHA256": "10f1dc4a03db960588d5078658a41bafee3fff1b995f56c51f1077f30f9f06e5"
+  }
+}

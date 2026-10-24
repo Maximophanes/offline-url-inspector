@@ -1,3 +1,15 @@
+# v3.3.0 candidate transition and rollback
+
+Stable release is v3.2.0 at baseline `664cc58bf67a2127d0523adec9f1d80c6edd656e`. Stage 7 preserves `src/sw.js`, `src/hosted.js` and `src/references.js` byte-for-byte. New reference data and scripts are embedded in one complete HTML, so the worker's existing whole-document SHA-256 check binds code and data atomically. It fetches only the exact fixed application document and never a pasted address.
+
+An unmatched, missing, interrupted or corrupt update cannot become a ready installed release. The verified old cache remains usable. Updates wait for the existing Apply Update control; inspected text/unapplied edits are cleared only after the existing deliberate reload confirmation. A failed apply does not migrate or erase reference data. Schema 1 and `offline-url-inspector:reference-domains` are unchanged. Keep exported backups; private sessions/file origins and shared github.io origin storage retain their existing limitations.
+
+After separately authorized deployment, rehearse the exact committed candidate from a v3.2.0 controlled profile: cached online/offline startup, update discovery, delayed application, cancellation, partial/stale assets, failed cache writes, recovery, successful application, offline reload and storage preservation. Stage 7 isolated tests are evidence for those bounded scenarios, not a live Pages guarantee or protection against future browser eviction. An uncached offline profile cannot install. Network delivery before a worker controls a fresh profile is not authenticated by the worker; CSP/hashes are integrity checks within the trusted application, not publisher signatures.
+
+For a future authorized rollback, restore the **matched** baseline hosted HTML/worker and verify their original hashes; do not run the current v3.3.0 builder and call its output v3.2.0. Use a separately approved rollback workflow/version check, as the forward candidate workflow deliberately accepts only its current RC. Old open tabs may remain under their current controller until the existing reviewed-update lifecycle completes; the worker retains one previous cache but does not provide an automatic browser rollback switch. Never clear all origin storage as a rollback step. If cache recovery requires unregistering, unregister only the exact project worker, preserve/export personal references first, and reopen online. Rehearse rollback and retained-cache ordering before release. Nothing was rolled back or deployed in this task.
+
+## Historical lifecycle documentation
+
 > Version 3.1.2 retains Version 3.1.1's storage key, schema 1 and reference engine. Worker logic is unchanged; only plaintext 503 recovery prose differs. No migration is needed. Startup now checks existing cache state first and uses bounded lifecycle/status waits; see OFFLINE_STARTUP_REVIEW.md. Work remains uncommitted on dev/v3.1.2, with no deployment performed.
 
 # Updates, storage compatibility, and rollback

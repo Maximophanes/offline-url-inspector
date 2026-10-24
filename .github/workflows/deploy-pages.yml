@@ -1,43 +1,99 @@
-name: Deploy URL Inspector to GitHub Pages
+name: Verify and explicitly deploy URL Inspector
 
+# No automatic push deployment. Future dispatch requires an exact reviewed
+# commit on main, an accepted source digest and explicit authorization.
 on:
-  push:
-    branches: [main]
-    paths:
-      - "site/**"
-      - ".github/workflows/deploy-pages.yml"
   workflow_dispatch:
+    inputs:
+      candidate_commit:
+        description: Exact audited 40-character main commit
+        required: true
+        type: string
+      source_inputs_sha256:
+        description: Accepted candidate input digest from its build manifest
+        required: true
+        type: string
+      authorize_deployment:
+        description: Stage 8 accepted and deployment explicitly authorized
+        required: true
+        default: false
+        type: boolean
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
   group: pages
   cancel-in-progress: false
 
 jobs:
-  deploy:
+  verify:
+    if: github.ref == 'refs/heads/main' && inputs.authorize_deployment
     runs-on: ubuntu-latest
-
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Bind dispatch to the checked-out immutable commit
+        env:
+          EXPECTED_COMMIT: ${{ inputs.candidate_commit }}
+        run: |
+          test "$EXPECTED_COMMIT" = "$GITHUB_SHA"
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+      - name: Install isolated checksum-pinned official Deno 2.9.7
+        run: |
+          mkdir "$RUNNER_TEMP/deno-runtime"
+          curl --fail --location --max-time 120 --proto '=https' --tlsv1.2 https://github.com/denoland/deno/releases/download/v2.9.7/deno-x86_64-unknown-linux-gnu.zip -o "$RUNNER_TEMP/deno-runtime/deno.zip"
+          echo 'c6527f24f4b16031d3ae4fa9f658d5f11534c8d84ce7dc8502420280919c3490  '"$RUNNER_TEMP/deno-runtime/deno.zip" | sha256sum --check --strict
+          unzip -j "$RUNNER_TEMP/deno-runtime/deno.zip" deno -d "$RUNNER_TEMP/deno-runtime"
+          chmod 700 "$RUNNER_TEMP/deno-runtime/deno"
+          echo "$RUNNER_TEMP/deno-runtime" >> "$GITHUB_PATH"
+      - name: Cache only locked development dependencies
+        run: deno cache --frozen --lock=deno.lock tests/final-copy-results.mjs
+      - name: Build exact candidate and verify prerequisites
+        env:
+          EXPECTED_SOURCE: ${{ inputs.source_inputs_sha256 }}
+        run: |
+          python3 -B tools/build.py --release-candidate --output-root "$RUNNER_TEMP/rc"
+          python3 -B tools/verify_release.py --candidate-root "$RUNNER_TEMP/rc"
+          python3 -B tools/release_gate.py --candidate-root "$RUNNER_TEMP/rc" --deno "$(command -v deno)" --report "$RUNNER_TEMP/release-gate.json"
+          python3 -c 'import json,os; m=json.load(open(os.environ["RUNNER_TEMP"]+"/rc/build-manifest.json")); assert m["sourceIdentity"]["inputsSHA256"]==os.environ["EXPECTED_SOURCE"], "Unreviewed source inputs"'
+      - name: Preserve historical regression contracts
+        run: python3 -B tests/ui-polish-regressions.py --candidate-root "$RUNNER_TEMP/rc" --deno "$(command -v deno)" --report "$RUNNER_TEMP/historical-results.json"
+      - name: Preserve candidate identity and verification receipt
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: verified-candidate-${{ github.sha }}
+          path: |
+            ${{ runner.temp }}/rc/build-manifest.json
+            ${{ runner.temp }}/rc/SHA256SUMS
+            ${{ runner.temp }}/release-gate.json
+            ${{ runner.temp }}/historical-results.json
+          if-no-files-found: error
+      - name: Upload only the newly verified hosted edition
+        uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4
+        with:
+          path: ${{ runner.temp }}/rc/site
+          include-hidden-files: true
+  deploy:
+    needs: verify
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
-
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v5
-
-      - name: Upload website files
-        uses: actions/upload-pages-artifact@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
-          path: site
-          include-hidden-files: true
-
-      - name: Deploy to GitHub Pages
+          ref: main
+          persist-credentials: false
+      - name: Reject a run superseded while awaiting approval
+        run: test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+      - name: Deploy this run's verified artifact
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4

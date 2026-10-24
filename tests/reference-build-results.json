@@ -1,0 +1,146 @@
+{
+  "suite": "v3.3.0 Stage 2 bounded build and input integrity",
+  "tests": [
+    {
+      "name": "offline generation exactly verifies current approved assets",
+      "passed": true
+    },
+    {
+      "name": "repeat generation a",
+      "passed": true
+    },
+    {
+      "name": "repeat generation b",
+      "passed": true
+    },
+    {
+      "name": "two independent generation roots produce identical bytes",
+      "passed": true
+    },
+    {
+      "name": "ordinary build creates original v3.2 bytes in an isolated root",
+      "passed": true
+    },
+    {
+      "name": "ordinary build/artifacts/worker/manifest remain byte-identical to approved v3.2",
+      "passed": true
+    },
+    {
+      "name": "development build one",
+      "passed": true
+    },
+    {
+      "name": "development build two",
+      "passed": true
+    },
+    {
+      "name": "development builds are deterministic",
+      "passed": true
+    },
+    {
+      "name": "both editions preserve CSP/self-containment and matched worker integrity",
+      "passed": true
+    },
+    {
+      "name": "development mode refuses repository release paths",
+      "passed": true
+    },
+    {
+      "name": "both development editions preserve inspection/reference/UI behavior",
+      "passed": true
+    },
+    {
+      "name": "independent bounded validator accepts complete copied assets",
+      "passed": true
+    },
+    {
+      "name": "reject modified data/public-suffix/compiled.json",
+      "passed": true
+    },
+    {
+      "name": "reject modified data/popular-domains/records.json",
+      "passed": true
+    },
+    {
+      "name": "reject modified data/popular-domains/provenance.json",
+      "passed": true
+    },
+    {
+      "name": "reject modified data/popular-domains/source.csv",
+      "passed": true
+    },
+    {
+      "name": "reject modified data/public-suffix/LICENSE.txt",
+      "passed": true
+    },
+    {
+      "name": "reject modified data/popular-domains/NOTICE.txt",
+      "passed": true
+    },
+    {
+      "name": "reject modified src/domain-boundaries.js",
+      "passed": true
+    },
+    {
+      "name": "reject missing compiled data",
+      "passed": true
+    },
+    {
+      "name": "reject source/provider metadata drift",
+      "passed": true
+    },
+    {
+      "name": "reject unexpected asset paths before access",
+      "passed": true
+    },
+    {
+      "name": "extractor preserves original fields/ranks in a validated fixture",
+      "passed": true
+    },
+    {
+      "name": "extractor rejects internally hashed but incomplete original rows",
+      "passed": true
+    },
+    {
+      "name": "extractor rejects a different original snapshot",
+      "passed": true
+    },
+    {
+      "name": "candidate refresh requires an explicit original checksum",
+      "passed": true
+    },
+    {
+      "name": "candidate refresh refuses repository output paths",
+      "passed": true
+    },
+    {
+      "name": "candidate refresh requires a timezone",
+      "passed": true
+    },
+    {
+      "name": "candidate refresh validates the complete original hash",
+      "passed": true
+    }
+  ],
+  "failures": [],
+  "developmentBuild": {
+    "standalone": {
+      "bytes": 2875922,
+      "growthBytes": 530823,
+      "sha256": "6099a5664c33b0d5b699bb309a22503256f19d3e28d611d39d496f4757038dc5"
+    },
+    "hosted": {
+      "bytes": 2887982,
+      "growthBytes": 530823,
+      "sha256": "30da599fc468cd0e4aa27ae93cf6dbcfe99b6e2df69c8054909a8f19bc6fff32"
+    }
+  },
+  "developmentRelease": "3.3.0-stage2-30da599fc468cd0e",
+  "referenceManifestSHA256": "24971b3e95142d1e751d0ab8eb283de6b073545553995957927c963e9c1fd5dc",
+  "total": {
+    "executed": 30,
+    "passed": 30,
+    "failed": 0
+  },
+  "scope": "Offline data/build execution, controlled copied-input negatives and cached DOM simulations; not native Firefox or release certification."
+}

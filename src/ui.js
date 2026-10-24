@@ -46,7 +46,6 @@ const referenceStore=ReferenceDomains.create({storage:()=>window.localStorage,pr
 const comparisonRecords=new WeakMap();
 let lastResult=null,lastManual='',editingReference=null,importText='',importPlan=null,referenceActionBusy=false,storageSavingFailed=false;
 function element(tag,text,className=''){const e=document.createElement(tag);e.textContent=text;if(className)e.className=className;return e;}
-const rawText=value=>JSON.stringify(value,null,2).replace(/[\u007f-\uffff]/g,ch=>'\\u'+ch.charCodeAt(0).toString(16).padStart(4,'0'));
 function rowLabel(label,descriptor=''){
  const key=element('div',label,'key');if(descriptor)key.append(document.createTextNode(' '),element('span','('+descriptor+')','label-detail'));return key;
 }
@@ -82,13 +81,7 @@ function asciiGroups(target,observations,locations=true){
  }
 }
 function note(message,result){
- const display=Presentation.diagnostic(message),record=element('details','','diagnostic'+(message.level==='info'?' small':''));record.dataset.code=message.code;record.dataset.level=message.level;
- const heading=document.createElement('summary');heading.append(element('span',display.title,'diagnostic-title'),element('span',display.severity,'diagnostic-severity'));
- record.append(heading,element('p',Presentation.diagnosticText(message,result),'diagnostic-explanation small'));
- if(message.code==='ascii-ambiguity'){
-  const evidence=element('details','','disclosure observation diagnostic-evidence');evidence.appendChild(element('summary','All ASCII Observations'));const body=element('div','','category-body');asciiGroups(body,result.asciiAmbiguities);evidence.appendChild(body);record.appendChild(evidence);
- }
- $('messages').appendChild(record);
+ const display=Presentation.diagnostic(message);
  const raw=element('article','','raw-diagnostic-record');raw.dataset.code=message.code;raw.dataset.level=message.level;raw.dataset.category=display.category;
  raw.append(element('h3','Record '+($('rawRecords').children.length+1)+' · '+message.code,'raw-record-title'),element('p',message.text,'diagnostic-text small mono'),element('p','Category: '+display.category+' · Severity: '+display.severity+' · Original level: '+message.level+' · Code: '+message.code,'diagnostic-kind'));
  $('rawRecords').appendChild(raw);
@@ -124,20 +117,19 @@ function characterChips(target,characters,original,result,comparisonTarget){
     else if(!matches.length)body.appendChild(element('p','No individual character match was established. Whole-hostname resemblance is a separate comparison.'));
    }
    advanced.appendChild(body);record.appendChild(advanced);
-   if(result.ok)row('Actual Hostname',result.ascii,'ASCII / Punycode');
    target.insertBefore(record,more);
   }
   position=end;progress.textContent=Presentation.count(characters.length,characters.every(c=>c.nonASCII)?'Unicode character':'character')+' identified.'+(position<characters.length?' Showing '+position+' of '+characters.length+'.':'');more.classList.toggle('hidden',position>=characters.length);if(position>=characters.length&&document.activeElement===more)firstNewSummary?.focus({preventScroll:true});
  }
  more.addEventListener('click',nextPage);nextPage();
 }
-function referenceSummary(refs){
- if(!refs.checked)return 'No saved reference domains were used for this inspection.';
- const parts=[];
- for(const [key,label]of [['exact','Matches'],['subdomains','Subdomain of'],['embedded','Contains the name'],['visual','May look like'],['spelling','Similar spelling to']])if(refs[key].length){const names=refs[key].slice(0,3).map(e=>e.hostname).join(', ');parts.push(label+' '+names+(key==='embedded'?' inside a different hostname':'')+(refs[key].length>3?'; '+Presentation.count(refs[key].length-3,'more match','more matches')+' in Technical Details':'')+'.');}
- if(parts.length)return parts.join(' ')+(refs.unavailable?' Some visual comparisons are unavailable.':'');
- if(refs.unavailable)return 'No exact reference match was found. Some visual comparisons are unavailable.';
- return refs.checked===1?'The saved reference did not produce a supported match.':'None of the '+refs.checked+' saved references produced a supported match.';
+function referenceNonmatch(result,refs,references){
+ if(!refs.checked||refs.totalMatches)return '';
+ if(!result.ok)return 'Saved-reference comparisons could not be run because the URL could not be read.';
+ if(refs.unavailable)return 'Visual comparisons with '+Presentation.count(refs.unavailable,'saved reference')+' could not be completed.';
+ const exactOnly=ReferenceDomains.special(result.ascii)||references.some(ReferenceDomains.special);
+ const targets=references.join(', ');
+ return (exactOnly?'No exact match with ':'No match with ')+(references.length===1?'your saved reference ':'your saved references ')+targets+'.'+(exactOnly?' IP addresses and single-label names support exact identity only.':'');
 }
 function comparisonEvidence(result,source,hostname,kind,comparison){
  const record=element('div','','comparison-evidence'),row=(label,value)=>{const line=element('div','','row');line.append(rowLabel(label),element('div',value,label==='Compared with'?'value mono':'value'));record.appendChild(line);};
@@ -171,56 +163,87 @@ function extractionEvidence(original,failed=false){
   'Extracted hostname did not agree with the browser parser.':'The extracted hostname did not match the hostname read by your browser.'
  };
  set('attributionReason',reliable?'':failed?'Inspection failed before hostname extraction could be verified. Check the input and try again.':reasons[original?.reason]||'No reliable hostname extraction record was produced.');
- set('attributionRaw',reliable?'':original?rawText(original):'No hostname extraction object was produced.');
+}
+function renderDiagnosticEvidence(r,refs,summary){
+ const showRow=(id,value)=>{set(id,Inspector.visible(value||''));$(id).closest('.row').classList.toggle('hidden',!value);return !!value;};
+ extractionEvidence(r.original);
+ const shown=new Set([r.ascii,...(!r.decodeError&&r.unicode?[r.unicode]:[])]),forms=[['unicode',r.decodeError?'':r.unicode],['decodedOriginal',r.original?.decoded],['original',r.original?.original]];let formsShown=false;
+ for(const [id,value]of forms){const useful=value&&!shown.has(value);formsShown=showRow(id,useful?value:'')||formsShown;if(value)shown.add(value);}
+ $('originalDetails').classList.toggle('hidden',!formsShown&&r.original?.reliable===true);
+ const evidence=Presentation.characterEvidence(r),hasCharacters=evidence.original.length||evidence.readable.length;
+ $('characterDetails').classList.toggle('hidden',!hasCharacters);
+ $('originalCharacterGroup').classList.toggle('hidden',!evidence.original.length);$('readableCharacterGroup').classList.toggle('hidden',!evidence.readable.length);
+ let target=null;try{if(summary.target)target=Inspector.expectedHost(summary.target);}catch{}
+ if(evidence.original.length)characterChips($('originalChars'),evidence.original,true,r,target);
+ if(evidence.readable.length)characterChips($('chars'),evidence.readable,false,r,target);
+ const componentRows=[['scheme',r.scheme==='http:'?'HTTP':r.assumed?'HTTPS assumed; no scheme was entered':''],['port',r.port||(r.original?.port?'Default port; input '+r.original.port:'')],['path',r.path&&r.path!=='/'?r.path:''],['query',r.query],['fragment',r.fragment]];
+ let componentsShown=false;for(const [id,value]of componentRows)componentsShown=showRow(id,value)||componentsShown;
+ $('componentsDetails').classList.toggle('hidden',!componentsShown);
+ // Reference outcomes are rendered once, from structured evidence, not prose.
+ const list=$('referenceCandidates');list.replaceChildren();
+ const groups=new Map(),add=(source,hostname,kind,comparison)=>{
+  const proof=kind==='exact'||comparison?.exact?'exact':comparison?.visual?comparison.mechanism:kind,key=hostname+'|'+proof;
+  const group=groups.get(key);if(group){group.sources.add(source);group.comparison??=comparison;}else groups.set(key,{sources:new Set([source]),hostname,kind,comparison});
+ };
+ if(r.expectedError)list.appendChild(element('p','Expected Hostname could not be checked. '+Presentation.validation(r.expectedError),'small'));
+ else if(r.comparison){const kind=r.messages.some(m=>m.code==='subdomain')?'subdomains':r.messages.some(m=>m.code==='deceptive-subdomain')?'embedded':r.comparison.kind;add('Expected Hostname supplied by you',r.expected.ascii,kind,r.comparison);}
+ for(const key of ['exact','subdomains','embedded','visual','spelling'])for(const item of refs[key])add('Personal Reference Domains',item.hostname,key,item.comparison);
+ for(const group of groups.values())comparisonEvidence(r,[...group.sources].join('; '),group.hostname,group.kind,group.comparison);
+ const references=referenceStore.snapshot().references,nonmatch=referenceNonmatch(r,refs,references);if(nonmatch)list.appendChild(element('p',nonmatch));
+ if(refs.unavailable&&refs.totalMatches)list.appendChild(element('p','Visual comparisons with '+Presentation.count(refs.unavailable,'saved reference')+' could not be completed.','small warn'));
+}
+let diagnosticState=null;
+function clearDiagnosticEvidence(){
+ if(diagnosticState){diagnosticState.rendered=false;diagnosticState.rawRendered=false;}
+ for(const reveal of document.querySelectorAll('.embedded-reveal')){reveal.open=false;reveal.querySelector('.category-body').replaceChildren();}
+ for(const id of ['rawRecords','chars','originalChars','referenceCandidates','asciiObservations','embeddedCandidates','embeddedLimitations','embeddedLimitDetails','comparisonDiagnosticRecords'])clear($(id));
+ for(const id of ['unicode','original','decodedOriginal','scheme','port','path','query','fragment','raw','attributionNotice','attributionReason','embeddedStatus','embeddedCount'])set(id,'');
+ for(const node of $('diagnostics').querySelectorAll('details'))node.open=false;
 }
 function render(r){
-  $('results').classList.remove('hidden');for(const id of ['messages','rawRecords','coloredHost','chars','originalChars','supporting','referenceCandidates','asciiObservations'])clear($(id));
-  for(const id of ['ascii','unicode','original','decodedOriginal','normalized','scripts','scheme','port','path','query','fragment','compare','comparisonResult','referenceComparison'])set(id,'—');
-  $('compare').className='value mono';$('comparisonResult').className='value';
-  const refs=ReferenceDomains.compare(r,referenceStore.snapshot().references),summary=Presentation.summarize(r,refs,!!lastManual.trim());
-  fieldError('inspectionError','link',r.ok?'':Presentation.inputFailure(r).detail);fieldError('expectedError','expected',r.expectedError?Presentation.validation(r.expectedError):'');
-  $('primary').dataset.kind=summary.kind;set('primaryTitle',summary.title);set('primaryDetail',Presentation.explain(r,summary));
-  EmbeddedUI.update(r,referenceStore.snapshot().references);
-  set('raw',Inspector.visible(r.raw.slice(0,Inspector.MAX_INPUT))+(r.raw.length>Inspector.MAX_INPUT?'\n[Display shortened. The full original URL remains in the input field.]':''));
-  extractionEvidence(r.original);
-  $('rawDiagnostics').open=false;$('rawDiagnostics').classList.toggle('hidden',!r.messages.length);for(const m of r.messages)note(m,r);
-  let target=null;try{if(summary.target)target=Inspector.expectedHost(summary.target);}catch{}
-  const difference=summary.kind==='visual'?Presentation.unicodeDifference(r,target):null;
-  if(r.original){if(r.original.original!==undefined)highlighted($('original'),r.original.original,difference?.actual.ch);else set('original','The original hostname could not be identified with certainty. See the technical evidence.');set('decodedOriginal',r.original.decoded===undefined?'Could not be decoded':Inspector.visible(r.original.decoded)+(r.original.reliable?'':' (unverified)'));}
-  const evidence=Presentation.characterEvidence(r);
-  characterChips($('originalChars'),evidence.original,true,r,target);
-  $('originalCharacterGroup').classList.toggle('hidden',!evidence.original.length&&!!evidence.readable.length);
-  $('readableCharacterGroup').classList.toggle('hidden',!evidence.readable.length);
-  $('asciiDetails').open=false;
-  set('asciiSummary','ASCII lookalike observations');
-  if(!r.ok){$('asciiDetails').classList.add('hidden');return;}
-  set('ascii',r.ascii);set('normalized',r.ascii);set('unicode',Inspector.visible(r.unicode));highlighted($('coloredHost'),r.unicode,difference?.actual.ch);characterChips($('chars'),evidence.readable,false,r,target);
-  set('scripts',r.writingSystems.join(', ')||'Shared characters; no specific writing system');
-  if(r.decodeError){set('coloredHost','The encoded hostname could not be validated. Use the ASCII form above.');set('unicode','Unavailable: encoded hostname validation failed.');set('scripts','Unavailable');clear($('chars'));}
-  set('scheme',r.scheme.slice(0,-1)+(r.assumed?' (HTTPS assumed; no scheme was entered)':''));set('port',r.port||(r.original?.port?'Default (input '+r.original.port+'; omitted by the browser)':'Default (not specified)'));set('path',Inspector.visible(r.path||'/'));set('query',Inspector.visible(r.query||'None'));set('fragment',Inspector.visible(r.fragment||'None'));
-  if(r.expectedError){set('compare','Could not be checked');set('comparisonResult','Correct the expected hostname above to compare it.');$('comparisonResult').className='value warn';}
-  else if(r.comparison){const c=r.comparison;set('compare',r.expected.ascii);set('comparisonResult',c.exact?'Exact hostname match':'Exact hostname mismatch'+(c.visual?' · Potential visual impersonation':c.kind==='spelling'?' · Ordinary spelling similarity':c.unavailable?' · Visual comparison unavailable':''));$('comparisonResult').className='value '+(c.exact?'good':'bad');}
-  else{set('compare','Not provided');set('comparisonResult',summary.target?'Saved reference comparison shown below':'No expected hostname entered');}
-  // Keep the main reference row brief when a manual target is already authoritative.
-  set('referenceComparison',summary.manual?(refs.checked?Presentation.count(refs.checked,'saved reference')+' checked separately. Your expected hostname takes priority.':'No saved reference domains were used for this inspection.'):referenceSummary(refs));
-  for(const text of Presentation.supporting(r,summary,refs))$('supporting').appendChild(element('li',text));
-  if(summary.manual){if(r.comparison){const kind=r.messages.some(m=>m.code==='subdomain')?'subdomains':r.messages.some(m=>m.code==='deceptive-subdomain')?'embedded':r.comparison.kind;comparisonEvidence(r,'Your expected hostname (manual; primary)',r.expected.ascii,kind,r.comparison);}else $('referenceCandidates').appendChild(element('p','No manual comparison: the expected hostname could not be checked.'));}
-  if(refs.totalMatches){for(const key of ['exact','subdomains','embedded','visual','spelling'])for(const item of refs[key])comparisonEvidence(r,'Saved reference domain'+(summary.manual?' (secondary)':''),item.hostname,key,item.comparison);}
-  else $('referenceCandidates').appendChild(element('p',refs.checked?refs.unavailable?'No exact saved hostname match was found.':referenceSummary(refs):'No saved reference domains were used for this inspection.'));
-  if(refs.unavailable)$('referenceCandidates').appendChild(element('p',Presentation.unavailableReferences(refs.unavailable),'comparison-unavailable small warn'));
-  const ascii=Presentation.asciiContext(r,summary);$('asciiDetails').classList.toggle('hidden',ascii.hidden);
-  for(const p of ascii.relevant)$('asciiObservations').appendChild(element('p','“'+p.actual+'” may resemble “'+p.expected+'” in some fonts.'));
-  if(ascii.neutral.length){$('asciiObservations').appendChild(element('p',Presentation.asciiIntroduction));asciiGroups($('asciiObservations'),ascii.neutral,false);}
-  if(!ascii.hidden)$('asciiObservations').appendChild(element('p','All observations and their locations are retained in the Full Diagnostic Log.','small'));
+ clearDiagnosticEvidence();$('diagnostics').open=false;
+ $('results').classList.remove('hidden');set('ascii',r.ok?r.ascii:'—');document.querySelector('.result-identity').classList.toggle('hidden',!r.ok);
+ const readable=r.ok&&!r.decodeError&&r.unicode&&r.unicode!==r.ascii;set('actualHostnameLabel',readable?'Browser hostname (ASCII / Punycode)':'Actual hostname');set('readableHostname',readable?Inspector.visible(r.unicode):'');set('readableHostnameCue',readable?Inspector.visible(ResultsPresentation.readableCue(r)):'');$('readableHostnameGroup').classList.toggle('hidden',!readable);
+ const references=referenceStore.snapshot().references,refs=ReferenceDomains.compare(r,references),summary=Presentation.summarize(r,refs,!!lastManual.trim());
+ diagnosticState={r,refs,summary,embedded:null,rendered:false};
+ fieldError('inspectionError','link',r.ok?'':Presentation.inputFailure(r).detail);fieldError('expectedError','expected',r.expectedError?Presentation.validation(r.expectedError):'');
+ const embedded=EmbeddedUI.update(r,references,{defer:true});diagnosticState.embedded=embedded;
+ AutomaticUI.update(r,{references,embedded,referenceResult:refs});
 }
+function hydrateDiagnosticEvidence(){
+ if(!diagnosticState||diagnosticState.rendered)return;diagnosticState.rendered=true;
+ if(diagnosticState.failed){for(const id of ['comparisonDiagnostics','originalDetails','characterDetails','componentsDetails','embeddedDetails'])$(id).classList.add('hidden');return;}
+ const {r,refs,summary,embedded}=diagnosticState;renderDiagnosticEvidence(r,refs,summary);EmbeddedUI.render(embedded);
+ $('embeddedDetails').classList.toggle('hidden',!embedded.candidates.length&&!embedded.limitations.length);
+ $('embeddedStatus').classList.toggle('hidden',embedded.status==='complete');
+}
+function hydrateRawRecords(){
+ if(!diagnosticState||diagnosticState.failed||diagnosticState.rawRendered)return;diagnosticState.rawRendered=true;
+ for(const message of diagnosticState.r.messages)note(message,diagnosticState.r);
+ $('asciiDetails').classList.toggle('hidden',!diagnosticState.r.asciiAmbiguities?.length);
+}
+$('rawDiagnostics').addEventListener('toggle',()=>{
+ if($('rawDiagnostics').open)hydrateRawRecords();else{if(diagnosticState)diagnosticState.rawRendered=false;clear($('rawRecords'));clear($('asciiObservations'));set('raw','');for(const node of $('rawDiagnostics').querySelectorAll('details'))node.open=false;}
+});
+$('asciiDetails').addEventListener('toggle',()=>{clear($('asciiObservations'));if($('asciiDetails').open&&diagnosticState?.r)asciiGroups($('asciiObservations'),diagnosticState.r.asciiAmbiguities);});
+$('originalInputDisclosure').addEventListener('toggle',()=>{const raw=diagnosticState?.r?.raw??diagnosticState?.raw??'';set('raw',$('originalInputDisclosure').open?Inspector.visible(raw.slice(0,Inspector.MAX_INPUT))+(raw.length>Inspector.MAX_INPUT?'\n[Display shortened. The full original URL remains in the input field.]':''):'');});
+$('diagnostics').addEventListener('toggle',()=>{if(!$('diagnostics'))return;if($('diagnostics').open)hydrateDiagnosticEvidence();else clearDiagnosticEvidence();});
+function openAddressEvidence(hostname){
+ $('advanced').open=true;$('diagnostics').open=true;hydrateDiagnosticEvidence();$('embeddedDetails').open=true;
+ const entry=diagnosticState?.embedded.candidates.find(c=>c.hostname?.replace(/\.$/,'').toLowerCase()===hostname);
+ const heading=entry?document.getElementById('embedded-entry-'+entry.id):null;(heading||$('embeddedDetails').querySelector('summary')).focus();
+}
+$('advanced').addEventListener('toggle',()=>{if(!$('advanced'))return;if(!$('advanced').open){$('diagnostics').open=false;clearDiagnosticEvidence();}});
+
 function analyze(){
   lastManual=$('expected').value;
+  if(typeof AutomaticUI!=='undefined')AutomaticUI.clear();
   try{lastResult=Inspector.inspect($('link').value,lastManual);render(lastResult);}
-  catch{EmbeddedUI.update(null,[]);lastResult=null;$('rawDiagnostics').open=false;$('rawDiagnostics').classList.add('hidden');$('results').classList.remove('hidden');for(const id of ['messages','rawRecords','coloredHost','chars','originalChars','supporting','referenceCandidates','asciiObservations'])clear($(id));for(const id of ['ascii','unicode','original','decodedOriginal','normalized','scripts','scheme','port','path','query','fragment','compare','comparisonResult','referenceComparison'])set(id,'—');set('raw',Inspector.visible($('link').value.slice(0,Inspector.MAX_INPUT))+($('link').value.length>Inspector.MAX_INPUT?'\n[Display shortened. The full original URL remains in the input field.]':''));extractionEvidence(null,true);$('asciiDetails').classList.add('hidden');set('primaryTitle','Inspection could not be completed');set('primaryDetail','No result is available. Check the input and try again.');fieldError('inspectionError','link','Inspection could not be completed. Your original text is still in the input field.');fieldError('expectedError','expected','');$('primary').dataset.kind='error';}
+  catch{EmbeddedUI.update(null,[],{defer:true});lastResult=null;diagnosticState={failed:true,raw:$('link').value,rendered:false};document.querySelector('.result-identity').classList.add('hidden');$('primary').classList.remove('hidden');$('results').classList.remove('hidden');clearDiagnosticEvidence();set('ascii','—');set('primaryTitle','Inspection could not be completed');set('primaryDetail','No result is available. Check the input and try again.');set('automaticAnnouncement','Inspection could not be completed.');fieldError('inspectionError','link','Inspection could not be completed. Your original text is still in the input field.');fieldError('expectedError','expected','');$('primary').dataset.kind='error';}
 }
 function cancelImport(){importPlan=null;importText='';referenceStore.cancelImport();$('importReview').classList.add('hidden');$('importFile').value='';}
 function refreshReferences(){
-  const state=referenceStore.snapshot();set('referenceCount',state.references.length+(state.mode==='browser'?' saved':' in this tab'));if(state.mode==='browser')storageSavingFailed=false;else if(/could not be written|migration could not be saved/.test(state.status))storageSavingFailed=true;set('storageStatus',Presentation.storageStatus(state,APP.edition,storageSavingFailed));set('protectedStorageHelp',state.blocked?(/another tab or app/.test(state.status)?'Export Backup saves the list shown in this tab, not the different saved copy. Review that copy before choosing Replace or Clear.':'Export Backup saves only the readable list shown here. It cannot preserve unreadable saved data. If you need that data, copy the original storage record in browser developer tools before choosing Replace or Clear.'):'');$('protectedStorageHelp').classList.toggle('hidden',!state.blocked);$('storageStatus').dataset.tone=state.mode==='browser'?(state.revision>0||state.status.startsWith('Reference schema migrated')?'success':'information'):storageSavingFailed?'error':'caution';$('storageStatus').className=state.mode==='browser'?'small':'small warn';clear($('referenceList'));
+  const state=referenceStore.snapshot();set('referenceCount',state.references.length+(state.mode==='browser'?' saved':' in this tab'));if(state.mode==='browser')storageSavingFailed=false;else if(/could not be written|migration could not be saved/.test(state.status))storageSavingFailed=true;set('storageStatus',Presentation.storageStatus(state,APP.edition,storageSavingFailed));set('protectedStorageHelp',state.blocked?(/another tab or app/.test(state.status)?'Export Backup saves the list shown in this tab, not the different saved copy. Review that copy before choosing Replace or Clear.':'Export Backup saves only the readable list shown here. It cannot preserve unreadable saved data. If you need that data, copy the original storage record in browser developer tools before choosing Replace or Clear.'):'');$('protectedStorageHelp').classList.toggle('hidden',!state.blocked);$('storageStatus').dataset.tone=state.mode==='browser'?(state.revision>0||state.status.startsWith('Reference schema migrated')?'success':'information'):storageSavingFailed?'error':'caution';$('storageStatus').className=state.mode==='browser'?'small':'small warn';if(!state.references.length&&state.mode==='browser'&&!state.blocked&&!storageSavingFailed&&/^(Saved|Local-file storage can be read|Browser storage can be read)/.test(state.status)){set('storageStatus','');$('storageStatus').classList.add('hidden');}clear($('referenceList'));
   for(const host of state.references){const item=document.createElement('li'),name=document.createElement('div');name.className='ref-name';const decoded=Inspector.expectedHost(host).unicode;name.appendChild(element('span',decoded,'mono'));if(decoded!==host)name.appendChild(element('span',host,'mono small'));if(ReferenceDomains.special(host))name.appendChild(element('span',singleLabel(host)?'Single-label hostname · Exact matches only':'IP address · Exact matches only','small'));
     const edit=element('button','Edit','ghost'),remove=element('button','Remove','ghost');edit.type=remove.type='button';edit.setAttribute('aria-label','Edit reference '+host);remove.setAttribute('aria-label','Remove reference '+host);
     edit.addEventListener('click',()=>{referenceNotice();editingReference=host;$('referenceInput').value=host;set('referenceLabel','Edit reference hostname');set('saveReference','Save edit');$('cancelEdit').classList.remove('hidden');$('referenceInput').focus();});

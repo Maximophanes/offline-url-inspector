@@ -1,3 +1,19 @@
+# Offline URL Inspector · v3.3.0 release hardening
+
+Stable published release: **v3.2.0**. The local **3.3.0-rc.1** remains on `dev/v3.3.0-automatic-lookalikes`; development work is local, unstaged and uncommitted. The Stage 8 independent audit is complete, and both original findings were independently verified resolved.
+
+The [original adverse audit](STAGE8_INDEPENDENT_SECURITY_AUDIT.md), [remediation handoff](STAGE8_REMEDIATION_HANDOFF.md) and [independent reverification](STAGE8_REVERIFICATION.md) retain their historical scope. Subsequent [targeted UI polish](FINAL_ACCEPTANCE_UI_POLISH.md) and independent final-diff technical checks passed. The latter report is privately retained as `FINAL_DIFF_INDEPENDENT_REVIEW.md` (SHA-256 `6d79feeaccee191fa97843e954f3bbded1616b758e3464693a614d3ae3ef2250`), with the conditional verdict **READY FOR CONTROLLED DEVELOPMENT-BRANCH COMMIT AFTER DOCUMENTED PRIVACY DECISIONS**. The [publication resolution](PRECOMMIT_PUBLICATION_RESOLUTION.md) records the authorized corrections and verification; independent publication-diff verification remains the next review step. A controlled development-branch commit requires those publication corrections, passing verification and separate user authorization.
+
+Manual headful Firefox and keyboard-only acceptance, VoiceOver, physical/mobile and other-browser checks, actual OS file-picker/download and backup-file round trips, and the other documented platform/deployment gaps remain open. A development-branch commit does not imply final release approval. **No v3.3.0 release or deployment is authorized.**
+
+The [focused Stage 7 licensing resolution](STAGE7_LICENSING_RESOLUTION.md) supersedes the earlier licensing blocker: **READY FOR INDEPENDENT AUDIT**. This is readiness for a separately authorized audit, not final release or deployment acceptance.
+
+Automatic offline comparisons use 9,570 normalized popular-domain references from the approved Majestic snapshot and the pinned ICANN/PRIVATE Public Suffix List. They combine verified Unicode resemblance, ASCII visual similarity, structural-domain evidence and conservative spelling suggestions. Personal Reference Domains and Expected Hostname remain optional and distinct comparison sources. Original and recovered embedded addresses retain explicit scope, occurrence provenance and coverage limits; recovered text is never a confirmed redirect. Neither popularity nor absent resemblance establishes safety, ownership or intent. Inspection makes no destination, DNS or reputation request.
+
+Use [the candidate instructions](RELEASE_CANDIDATE.md) to build both editions outside this checkout and verify complete source/artifact correspondence. The root `site/`, `standalone/`, `build-manifest.json` and `SHA256SUMS` remain the preserved v3.2.0 artifacts. Current tests and limitations, including native-browser scope, distribution-rights review and unresolved acceptance, are in [the Stage 7 handoff](STAGE7_RELEASE_HARDENING.md). Read [AGENTS.md](AGENTS.md), [the presentation contract](AUTOMATIC_FINDINGS.md), [data provenance](REFERENCE_DATA.md) and [distribution rights](DISTRIBUTION_RIGHTS.md). The approved visual identity is one combined Blackberry & Amethyst palette.
+
+The following versioned sections are historical reports, including their former candidate identities, branch names and manual-test gaps.
+
 # Offline URL Inspector · Version 3.2.0 local candidate
 
 Current corrected candidate: **3.2.0-a67e4b13dd5fa5cd**. The three approved audit corrections recover encoded whole fragments and remaining relative-reference interpretations, support committed candidates in the release verifier, and remove pathological/redundant preprocessing. Native URL authority, original results, privacy boundaries and the established presentation remain preserved.
@@ -54,6 +70,8 @@ The final in-app review covers desktop 1100 px, tablet 768 px, mobile 390 px, ex
 
 ## Build and test
 
+On the current v3.3.0 development branch, use the Stage 6 outside-repository preview commands below. The stable build/test commands in this section describe v3.2.0; the development-source guard intentionally refuses to overwrite or mislabel those artifacts.
+
 Both editions are generated from `src/` with pinned Unicode 18.0.0 data. There are no external runtime dependencies, fonts or analytics. Python and Deno are development tools.
 
 ```sh
@@ -69,3 +87,36 @@ The runner owns loopback port 8765. Targeted tasks are defined in `deno.json`. R
 Core/reference/data algorithms are unchanged. Worker logic is unchanged; only its plaintext 503 recovery message was edited. A strict test restores that one literal and requires the original complete worker hash. Full RTL visual comparison, ownership/reputation/content/redirect checks, public-suffix inference, permanent storage/cache guarantees and comprehensive phishing detection remain outside scope. The 19 documented native Deno IDNA discrepancies remain unchanged; see [IDNA review](IDNA_REVIEW.md).
 
 See [changelog](CHANGELOG.md), [security review](SECURITY_REVIEW.md), [deployment](DEPLOYMENT.md), [updates and rollback](UPDATES_AND_ROLLBACK.md), [design notes](DESIGN_NOTES.md), [Unicode data](UNICODE_DATA.md) and [optional shortcuts](SHORTCUTS.md).
+
+## Local v3.3.0 Stage 2 foundation
+
+The Stage 2 foundation adds a pinned, offline Majestic/PSL pipeline and boundary module. Its top-10,000 source selection produces 9,570 normalized registrable domains, with 883 in the restricted top-1,000 tier. Automatic matching and its UI were outside that stage. Existing v3.2.0 application artifacts remain unchanged; opt-in Stage 2 previews build outside the repository. See the [implementation handoff](STAGE2_REVIEW.md) and [data contract, reproduction, attribution and limitations](REFERENCE_DATA.md). Work remains local and uncommitted.
+
+## Local v3.3.0 Stage 3 engine
+
+Stage 3 adds a separate dormant matching engine, reproducible indexes, explicit coverage/resource limits and a disjoint 10,000-domain calibration corpus. Application startup and UI remain unchanged. See the [engine interface and calibration review](LOOKALIKES.md) and [Stage 3 handoff](STAGE3_REVIEW.md). Changes remain local, unstaged and uncommitted.
+
+## Local v3.3.0 Stage 4 provenance
+
+Stage 4 preserves repeated nested parent-child relationships while reusing native parsing, and separates source occurrences from alternative interpretation entries. See the [occurrence contract, bounds, validation and handoff](STAGE4_REVIEW.md). Current-source builds require `--provenance-preview` and an outside-repository output root; `deno task test:provenance-build` verifies both editions and stable historical reproduction. Public v3.2.0 files remain unchanged. Automatic orchestration and UI integration remain deferred.
+
+## Local v3.3.0 Stage 5 orchestration
+
+Stage 5 composes original/embedded hostname matching, manual and personal-reference evidence, shared budgets and occurrence attachments behind an explicit structured API. See the [comparison contract](COMPARISONS.md) and [18-point handoff, validation scope and runtime-generation limitation](STAGE5_REVIEW.md). `--comparison-preview` packages the local API/index outside the repository without initializing it or adding automatic findings to the displayed UI. Public v3.2.0 artifacts and existing matching/data policies remain unchanged; Stage 6 requires separate authorization.
+
+
+## Local v3.3.0 Stage 6 automatic findings
+
+Stage 6 now selects one primary result from the strongest meaningful original, manual and embedded findings. Strong lookalikes lead with a caution and their concrete mechanism. Ordinary results omit empty reports and duplicate hostname forms; concise Technical Details and deliberate advanced diagnostics retain the full evidence. Underlying manual classifications and the single combined Blackberry & Amethyst palette remain preserved. The focused UX correction supersedes the earlier supplemental-only layout.
+
+```sh
+python3 -B tools/build.py --automatic-ui-preview --output-root /private/tmp/oui-stage6-preview
+deno task test:final-copy
+python3 -B tests/final-copy-regressions.py --development-root /private/tmp/oui-stage6-preview
+```
+
+`test:final-copy`, `test:http-structure`, `test:stress`, `test:prominence`, `test:followup`, `test:acceptance`, `test:messaging`, `test:ux` and `test:automatic-ui` create an isolated checkout/preview, verify exact data/CSP/worker binding and run current message-level DOM checks; earlier result reports are written only in the disposable copy. The first command creates a separate persistent development preview for local review. `python3 -B tests/final-copy-inventory.py --check` verifies the current message inventory. No runtime dependencies or downloads are introduced. Strict foundation/matcher/index reproduction continues to require checksum-verified isolated Deno 2.9.7; the installed 2.9.8 and all strict pins remain unchanged. The current presentation-only regression runner verifies the unchanged inputs and preserves the successful strict report without rerunning generation.
+
+Earlier Stage 2/4/5 build instructions are historical. Current presentation sources require `--automatic-ui-preview`. The Stage 6 regression runner reconstructs exact historical builds only in disposable copies, retaining the original assertions and result fixtures. Public v3.2.0 distribution files remain byte-identical.
+
+See [the focused Stage 6 UX handoff and remaining acceptance gaps](STAGE6_UX_REVIEW.md), [native before/after screenshots](STAGE6_UX_BEFORE_AFTER.md), and [current presentation contract](AUTOMATIC_FINDINGS.md). The [initial 18-point handoff](STAGE6_REVIEW.md) and its checklist remain historical evidence from before this correction. Work remains local and uncommitted. Stage 7 release hardening and Stage 8 final acceptance have not begun.

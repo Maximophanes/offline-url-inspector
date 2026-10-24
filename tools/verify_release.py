@@ -89,9 +89,15 @@ def verify(root=ROOT,repository=ROOT,candidate='HEAD',check_checksums=True):
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--candidate-root',type=Path,help='Verify an outside-repository v3.3.0 RC instead of the historical v3.2.0 candidate')
     parser.add_argument('--refresh-checksums',action='store_true')
     parser.add_argument('--candidate',default='HEAD',help='Expected checked-out commit/ref; local corrections are reported separately')
-    args=parser.parse_args();report=verify(candidate=args.candidate,check_checksums=not args.refresh_checksums)
+    args=parser.parse_args()
+    if args.candidate_root:
+        if args.refresh_checksums or args.candidate!='HEAD':parser.error('RC verification cannot refresh historical checksums or assert a working-tree commit identity')
+        from release_candidate import verify as verify_candidate
+        print(json.dumps(verify_candidate(ROOT,args.candidate_root),indent=2));return
+    report=verify(candidate=args.candidate,check_checksums=not args.refresh_checksums)
     if args.refresh_checksums:
         names=sorted(inventory_names())
         report['checksumsVerified']=len(names)

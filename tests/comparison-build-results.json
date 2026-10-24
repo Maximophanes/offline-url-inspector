@@ -1,0 +1,99 @@
+{
+  "suite": "Stage 5 build, inert assets and stable artifact preservation",
+  "checks": [
+    {
+      "name": "comparison preview rejects repository root",
+      "passed": true
+    },
+    {
+      "name": "comparison preview rejects repository children",
+      "passed": true
+    },
+    {
+      "name": "build one",
+      "passed": true
+    },
+    {
+      "name": "build two",
+      "passed": true
+    },
+    {
+      "name": "repeat complete build bytes agree",
+      "passed": true
+    },
+    {
+      "name": "local data, notices, CSP and worker bind the complete current development bundle",
+      "passed": true
+    },
+    {
+      "name": "generated current runtime comparison-dom.mjs",
+      "passed": true
+    },
+    {
+      "name": "generated current runtime embedded.mjs",
+      "passed": true
+    },
+    {
+      "name": "generated current runtime audit-corrections.mjs",
+      "passed": true
+    },
+    {
+      "name": "generated current runtime dom-v3.mjs",
+      "passed": true
+    },
+    {
+      "name": "generated current runtime interface.mjs",
+      "passed": true
+    },
+    {
+      "name": "generated current runtime reference-interface.mjs",
+      "passed": true
+    },
+    {
+      "name": "generated current runtime technical.mjs",
+      "passed": true
+    },
+    {
+      "name": "public stable artifacts and manifest remain byte-identical",
+      "passed": true
+    }
+  ],
+  "failures": [],
+  "developmentManifest": {
+    "standalone": {
+      "sha256": "8969537c265b92e1468293a0e83550abf877992b3b67ca37ad388d82304e15ae",
+      "bytes": 3413015,
+      "scriptHash": "k80ZPU/g2PR/vLoRHEZDly7EQEIwU6Qh7/KZbpa6ANQ=",
+      "styleHash": "a4Kpje3KMbiXJR2zX/rJLJ/AOo5jF1H6QAjUL0PqToQ="
+    },
+    "hosted": {
+      "sha256": "433fc66e5614f60882eecb1d51ae2ae78e3a8c6d12e4ba85566711bb8ff476ec",
+      "bytes": 3425075,
+      "scriptHash": "knQwj2H53CUXQ7ccMaxhpeUgxyA6E87gBtLQ8GlW+AA=",
+      "styleHash": "a4Kpje3KMbiXJR2zX/rJLJ/AOo5jF1H6QAjUL0PqToQ="
+    },
+    "release": "3.3.0-stage5-433fc66e5614f608",
+    "unicodeVersion": "18.0.0",
+    "unicodeDataSHA256": "806135e914efe7978ca23124b2ad4472b5643adbb766dc1ab799b3ca1c7a5dc1",
+    "developmentOnly": true,
+    "automaticMatchingAvailable": true,
+    "referenceFoundationSHA256": "24971b3e95142d1e751d0ab8eb283de6b073545553995957927c963e9c1fd5dc",
+    "referenceProvider": "majestic",
+    "occurrenceProvenanceVersion": 2,
+    "embeddedSourcesSHA256": {
+      "src/embedded.js": "66df9cd907c29a342d3e856a56cdeae542ae518126f1829d0c500c3ba620a63c",
+      "src/embedded-ui.js": "d1afa96fa6e1d280c4c6f52cc5b6cc1330043ffd25a9449e914c3b690919e6ca"
+    },
+    "automaticUIAvailable": false,
+    "comparisonSchemaVersion": 1,
+    "initialization": "explicit-local-text",
+    "lookalikeIndexSHA256": "7cd6bec6f74549177c508468b8f061618d1f90916664621d28df5f1dbb5dc526",
+    "comparisonSourceSHA256": "ad6e862bacbe849d11b9c22a02404c10e2fc71285c5d1e03c76977ccdaee653d"
+  },
+  "total": {
+    "executed": 14,
+    "passed": 14,
+    "failed": 0
+  },
+  "scope": "Fresh isolated development builds and generated Happy DOM execution. No full release verifier, HTTP, native Firefox, VoiceOver, deployment or publication."
+}
