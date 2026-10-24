@@ -16,7 +16,8 @@ with tempfile.TemporaryDirectory(prefix='oui-stage7-regressions-') as folder:
  preview=pathlib.Path(folder)/'stage6-preview';cmd=['python3','-B','tools/build.py','--automatic-ui-preview','--output-root',str(preview)];v=subprocess.run(cmd,cwd=dest,capture_output=True,text=True);assert v.returncode==0,v.stderr
  log=a.report.with_suffix('.log')
  with log.open('w') as stream:v=subprocess.run(['python3','-B','tests/final-copy-regressions.py','--development-root',str(preview)],cwd=dest,stdout=stream,stderr=subprocess.STDOUT)
- entry={'name':'unchanged-full-historical-regression-chain','exitCode':v.returncode,'report':json.loads((dest/'tests/final-copy-regression-results.json').read_text())}
- if v.returncode:r['failures'].append(entry['name']);entry['error']=log.read_text()[-10000:]
+ result_path=dest/'tests/final-copy-regression-results.json'
+ entry={'name':'unchanged-full-historical-regression-chain','exitCode':v.returncode,'report':json.loads(result_path.read_text()) if result_path.is_file() else None}
+ if v.returncode or not result_path.is_file():r['failures'].append(entry['name']);entry['error']=('Missing historical result report.\n' if not result_path.is_file() else '')+log.read_text()[-10000:]
  r['commands'].append(entry)
 r['scope']='Historical application assertions run on their exact preserved interfaces with hash-checked release-script restoration. Current RC source/build/data/message/worker regressions are separately recorded by release_gate.py. Counts across nested reports are not additive.';r['passed']=not r['failures'];a.report.write_text(json.dumps(r,indent=2)+'\n');print(json.dumps({'passed':r['passed'],'failures':r['failures']}));raise SystemExit(not r['passed'])

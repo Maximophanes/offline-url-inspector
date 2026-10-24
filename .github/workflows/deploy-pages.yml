@@ -63,7 +63,10 @@ jobs:
       - name: Reject invalid release identities and packaging
         run: python3 -B tests/release-promotion.py --task-root "$RUNNER_TEMP/promotion-tests" --deno "$(command -v deno)"
       - name: Preserve historical regression contracts
-        run: python3 -B tests/release-promotion-regressions.py --release-root "$RUNNER_TEMP/final" --deno "$(command -v deno)" --report "$RUNNER_TEMP/historical-results.json"
+        run: |
+          # Hash-bound historical harnesses retain their original macOS temp path.
+          sudo install -d -m1777 /private/tmp
+          python3 -B tests/release-promotion-regressions.py --release-root "$RUNNER_TEMP/final" --deno "$(command -v deno)" --report "$RUNNER_TEMP/historical-results.json"
       - name: Preserve final identity and verification receipt
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:

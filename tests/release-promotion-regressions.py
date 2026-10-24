@@ -1,10 +1,34 @@
 #!/usr/bin/env python3
 """Verify current final bytes, then preserve the exact accepted RC history."""
-import argparse,hashlib,json,pathlib,shutil,subprocess,sys,tempfile
+import argparse,hashlib,json,pathlib,re,shutil,subprocess,sys,tempfile
 ROOT=pathlib.Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'tools'))
 from release_candidate import verify
 sha=lambda raw:hashlib.sha256(raw).hexdigest()
+def print_failure_diagnostics(value):
+    """Bounded failure fields only; never dump reports, inputs or environment."""
+    remaining=12000
+    def visit(node,path):
+        nonlocal remaining
+        if not remaining:return
+        if isinstance(node,dict):
+            if path.endswith('/reports'):
+                for key,item in node.items():visit(item,path+'/'+key)
+            for key in ['report','historicalReport','checks','commands','reports','failures','historicalPrior20CommandRun']:
+                if key in node:visit(node[key],path+'/'+key)
+            for key in ['error','failureOutput','stderr']:
+                detail=node.get(key)
+                if not isinstance(detail,str) or not detail.strip() or not remaining:continue
+                detail=re.sub(r'\x1b\[[0-?]*[ -/]*[@-~]','',detail)
+                detail=re.sub(r'https?://[^\s\x22\x27<>]+','[URL omitted]',detail)
+                detail=re.sub(r'/(?:Users|home)/[^/\s\x22\x27]+','[home]',detail)
+                detail=''.join(c for c in detail if c in '\n\t' or ord(c)>=32)
+                detail=detail[-min(4000,remaining):];remaining-=len(detail)
+                print('[historical failure] '+path[-180:]+'/'+key,flush=True)
+                for line in detail.splitlines():print('  | '+line,flush=True)
+        elif isinstance(node,list):
+            for index,item in enumerate(node):visit(item,path+'/'+str(index))
+    visit(value,'chain')
 p=argparse.ArgumentParser(description=__doc__)
 p.add_argument('--release-root',type=pathlib.Path,required=True)
 p.add_argument('--deno',type=pathlib.Path,required=True)
@@ -33,7 +57,9 @@ with tempfile.TemporaryDirectory(prefix='oui-promotion-history-') as folder:
         result=subprocess.run(['python3','-B','tests/ui-polish-regressions.py','--candidate-root',str(a.release_root.resolve()),'--deno',str(a.deno.resolve()),'--report',str(inner)],cwd=dest,stdout=stream,stderr=subprocess.STDOUT)
     entry={'name':'unchanged-accepted-rc-and-earlier-history','exitCode':result.returncode,'report':json.loads(inner.read_text()) if inner.exists() else None}
     report['checks'].append(entry)
-    if result.returncode:report['failures'].append(entry['name']);entry['error']=log.read_text()[-10000:]
+    if result.returncode:
+        report['failures'].append(entry['name']);entry['error']=log.read_text()[-10000:]
+        print_failure_diagnostics(entry)
 report['passed']=not report['failures']
 report['scope']='Current final artifacts are rebuilt/verified first; current UI/import assertions run on those final bytes. Only six hash-checked release-engineering/documentation interfaces are then restored in a disposable copy for the unchanged accepted historical chain. Original pins/assertions remain intact. Nested totals overlap; historical source passes do not establish current-final behavior.'
 a.report.write_text(json.dumps(report,indent=2)+'\n')

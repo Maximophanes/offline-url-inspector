@@ -1,3 +1,48 @@
+# GitHub Actions historical-regression follow-up
+
+24 October 2026. **Minimal local CI-harness correction; no workflow dispatched or deployment performed.** This section supersedes the packaging identity below for the corrected source. The original promotion receipt is preserved as history.
+
+The failed [run 40132008010](https://github.com/Maximophanes/offline-url-inspector/actions/runs/40132008010/job/120985511652) used merged main commit `ab526eb13cbe3a928f871d7472545608efb74df2`. The local development checkout at `cc4b0677a3e4e814fd282ea856225f86b44de754` had the identical Git tree (`ec1d8c72f125337e7f1e7bdfb3c452526f64712e`), so it was retained for the local patch. This task issued no Git writes and retained the checkout/index. During work, local main/origin/main were externally refreshed from the stable baseline to the merged main commit; HEAD stayed on the original development commit. Read-only GitHub records confirm that final integrity, all 16 gate groups and all 32 promotion tests passed; historical regression failed, receipt/Pages uploads were skipped, and the deploy job was skipped. No nested artifact survived that run.
+
+**Most likely cause:** historical harnesses explicitly require `/private/tmp`, a macOS path not provisioned by the Ubuntu workflow. A local fault-injection run with that parent absent reproduced the same outer failure. It also confirmed that Stage 7 tried to read an uncreated result file, masking the original temporary-directory error. With the directory provisioned, the complete chain passed. This confirms a harness/environment failure mode, not the exact hidden cause on the terminated GitHub runner. Another Linux-specific issue remains possible until hosted verification; there is no evidence here of an inspection-engine regression. The original logs alone cannot establish the missing directory's state.
+
+## Exact correction
+
+- `.github/workflows/deploy-pages.yml`: provision `/private/tmp` with `sudo install -d -m1777` immediately before the historical chain. This supplies the legacy harness environment while retaining every historical assertion. All triggers, authorization, commit/digest checks, permissions, action pins, upload/deploy dependencies and update safeguards remain unchanged.
+- `tests/stage7-regressions.py`: preserve the original child error when its result report is missing; missing reports still fail even if a child returns zero.
+- `tests/release-promotion-regressions.py`: print bounded nested failure fields directly to Actions output. Omit inputs/environment and full report dumps; redact URLs and home usernames, remove terminal controls, and prefix lines to prevent fixture text becoming workflow commands.
+- `tests/release-promotion-source-boundaries.json`: update only the current workflow hash. Every previous source/hash and historical assertion remains intact.
+- `FINAL_VERSION_PROMOTION.md`: this follow-up; excluded from release inputs.
+
+## Focused results
+
+- Before correction: absent-parent fault injection failed with the original outer summary. After diagnostics correction, the same fault still failed and printed the original `FileNotFoundError` directly.
+- After provisioning the test temp parent with mode 1777: the entire promotion → UI/import → Stage 8 → Stage 7 → Stage 6 → original historical chain passed, including the original 20-command execution. These are local macOS tests with a controlled missing/provisioned-parent simulation, not native Linux execution. No test was removed, skipped or forced to pass.
+- All **32/32** existing promotion checks passed. Independent builds matched all eight output bytes; the normal final verifier rebuilt and passed. Workflow YAML and all seven shell blocks passed syntax checks.
+- Focused diagnostic tests passed for deep reports, missing-result rejection with zero/nonzero child exits, original-error retention, URL/home redaction, input/environment omission, terminal-control removal, command-prefix safety and bounded output. The 16 engine/release-gate groups already passed in the real failed run; they were not rerun as a new broad audit.
+- Runtime/UI/data sources, preserved v3.2.0 outputs and storage behavior are unchanged. Nothing was staged, committed, pushed, merged, tagged or published.
+
+## Corrected identity
+
+The final release ID remains **`3.3.0-115f53cf7e4f7d21`**, because both HTML editions and the worker are byte-identical. Four of the same 84 enumerated release inputs changed: the workflow and the three test/boundary files above. Use the new source digest, not the previous `6376e063…` input.
+
+| Current local identity | SHA-256 |
+|---|---|
+| Source-input inventory | `ce487ccf6621af3fc345c2814af90acdbc7f3fbf481ac72acf45f95ae5c831b3` |
+| `source-materials.zip` | `84a8f1baaf044f06235161f4e108b88620d25d8567dbc96304c14cb6fbadc1c2` |
+| `build-manifest.json` | `94755d19a8fe058881a15de9be1239e610a6cdb330a4a1659bea2b9cfd68ca57` |
+| `SHA256SUMS` | `f7162a60487b67de796e136bd69dd9a139735a0708047cc1cbf60047f3b25e99` |
+
+The other five output hashes in the historical receipt remain valid. Local packaging used Python 3.15.0 / zlib 1.2.12; the failed Linux runner recorded Python 3.14.4 / zlib 1.3.1. Accept the real runner's newly built packaging receipt rather than assuming cross-toolchain ZIP/manifest equality.
+
+## Remaining hosted check and shortest safe path
+
+Review this local patch and its new digest, then separately authorize getting it committed onto current main. A **new**, explicitly authorized dispatch must bind that new commit and digest. Re-running the old failed run uses its old source and is not the correction path. The existing workflow couples successful verification to deployment, so the new dispatch can publish automatically when all checks pass; it was deliberately not invoked here. Native Ubuntu/GitHub-hosted verification of this patch remains necessary. If verification must precede deployment permission, use a separate verification-only environment/job, not the already-authorized deployment run. The existing published v3.2.0 files remain untouched.
+
+---
+
+# Historical original final-version promotion receipt
+
 # Final v3.3.0 version promotion preparation
 
 24 October 2026. **Local implementation and verification passed. Publication/deployment is not authorized.**
